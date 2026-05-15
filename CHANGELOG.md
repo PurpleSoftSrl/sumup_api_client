@@ -1,3 +1,10 @@
+## 0.1.4
+
+- Add dartdoc from OpenAPI spec descriptions (932 docs)
+- Fix strict analysis compliance (0 issues with --fatal-infos)
+- Fix curly braces in generated query/header parameter code
+- Regenerate with latest generator v0.2.5
+
 ## 0.1.3
 
 - Add dartdoc comments to all generated model classes (186 files)
