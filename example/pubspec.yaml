@@ -1,0 +1,14 @@
+name: sumup_api_client_example
+description: Enterprise CLI example for sumup_api_client
+publish_to: none
+
+environment:
+  sdk: ^3.4.0
+
+dependencies:
+  dio: ^5.7.0
+  sumup_api_client:
+    path: ..
+
+dev_dependencies:
+  lints: ^4.0.0
