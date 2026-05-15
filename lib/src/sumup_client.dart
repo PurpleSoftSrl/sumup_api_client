@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:dio_mcache/dio_mcache.dart';
+import 'package:mcache_dart/mcache_dart.dart';
 
 import 'auth/oauth2_manager.dart';
 import 'auth/token.dart';
@@ -52,8 +54,11 @@ class SumUpClient {
     String tokenUrl = 'https://api.sumup.com/token',
     String baseUrl = 'https://api.sumup.com',
     TokenStorage? tokenStorage,
+    MemoryCache? tokenCache,
     bool enableRateLimiting = true,
     bool enableRetry = true,
+    bool enableCaching = true,
+    Duration? cacheTtl,
     int maxRetries = 3,
     Duration? connectTimeout,
     Duration? receiveTimeout,
@@ -63,6 +68,8 @@ class SumUpClient {
       baseUrl: baseUrl,
       enableRateLimiting: enableRateLimiting,
       enableRetry: enableRetry,
+      enableCaching: enableCaching,
+      cacheTtl: cacheTtl,
       maxRetries: maxRetries,
       connectTimeout: connectTimeout,
       receiveTimeout: receiveTimeout,
@@ -75,6 +82,7 @@ class SumUpClient {
       clientSecret: clientSecret,
       tokenUrl: tokenUrl,
       storage: storage,
+      cache: tokenCache,
       dio: Dio(),  // separate Dio for token requests
     );
 
@@ -90,6 +98,8 @@ class SumUpClient {
     String baseUrl = 'https://api.sumup.com',
     bool enableRateLimiting = true,
     bool enableRetry = true,
+    bool enableCaching = true,
+    Duration? cacheTtl,
     int maxRetries = 3,
     Duration? connectTimeout,
     Duration? receiveTimeout,
@@ -99,6 +109,8 @@ class SumUpClient {
       baseUrl: baseUrl,
       enableRateLimiting: enableRateLimiting,
       enableRetry: enableRetry,
+      enableCaching: enableCaching,
+      cacheTtl: cacheTtl,
       maxRetries: maxRetries,
       connectTimeout: connectTimeout,
       receiveTimeout: receiveTimeout,
@@ -117,6 +129,8 @@ class SumUpClient {
     String baseUrl = 'https://api.sumup.com',
     bool enableRateLimiting = true,
     bool enableRetry = true,
+    bool enableCaching = true,
+    Duration? cacheTtl,
     int maxRetries = 3,
     Duration? connectTimeout,
     Duration? receiveTimeout,
@@ -126,6 +140,8 @@ class SumUpClient {
       baseUrl: baseUrl,
       enableRateLimiting: enableRateLimiting,
       enableRetry: enableRetry,
+      enableCaching: enableCaching,
+      cacheTtl: cacheTtl,
       maxRetries: maxRetries,
       connectTimeout: connectTimeout,
       receiveTimeout: receiveTimeout,
@@ -166,6 +182,8 @@ class SumUpClient {
     required String baseUrl,
     required bool enableRateLimiting,
     required bool enableRetry,
+    required bool enableCaching,
+    Duration? cacheTtl,
     required int maxRetries,
     Duration? connectTimeout,
     Duration? receiveTimeout,
@@ -178,6 +196,14 @@ class SumUpClient {
       contentType: Headers.jsonContentType,
     ));
 
+    if (enableCaching) {
+      dio.interceptors.add(DioCacheInterceptor(
+        options: DioCacheOptions(
+          expiration: cacheTtl ?? const Duration(minutes: 5),
+          enableDeduplication: true,
+        ),
+      ));
+    }
     if (enableRateLimiting) {
       dio.interceptors.add(RateLimitInterceptor());
     }

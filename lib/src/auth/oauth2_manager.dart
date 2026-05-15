@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:mcache_dart/mcache_dart.dart';
 
 import 'token.dart';
 import 'token_storage/memory_storage.dart';
@@ -10,15 +11,20 @@ class OAuth2Manager {
   final String clientSecret;
   final String tokenUrl;
   final TokenStorage _storage;
+  final MemoryCache _tokenCache;
   final Dio _dio;
+
+  static const _tokenCacheKey = 'sumup_oauth2_token';
 
   OAuth2Manager({
     required this.clientId,
     required this.clientSecret,
     this.tokenUrl = 'https://api.sumup.com/token',
     TokenStorage? storage,
+    MemoryCache? cache,
     Dio? dio,
   })  : _storage = storage ?? MemoryTokenStorage(),
+        _tokenCache = cache ?? MemoryCache(),
         _dio = dio ?? Dio();
 
   /// Fetches a new token from SumUp OAuth2 endpoint.
@@ -55,25 +61,45 @@ class OAuth2Manager {
       refreshToken: data['refresh_token'] as String?,
     );
 
+    // Cache in both mcache_dart (fast in-memory) and persistent storage
+    _tokenCache.set(
+      _tokenCacheKey,
+      token,
+      MemoryCacheEntryOptions()
+        ..absoluteExpirationRelativeToNow = Duration(seconds: token.expiresIn),
+    );
     await _storage.write(token);
+
     return token;
   }
 
   /// Returns a valid token, reusing cached or fetching a new one.
   Future<Token> getToken() async {
-    final cached = await _storage.read();
-    if (cached != null && !cached.isExpired) return cached;
-
-    try {
-      return await fetchToken();
-    } catch (_) {
-      await _storage.delete();
-      rethrow;
+    // Fast path: mcache_dart in-memory cache
+    if (_tokenCache.tryGet(_tokenCacheKey, (v) => v as Token)) {
+      final cached = _tokenCache.get(_tokenCacheKey);
+      if (cached is Token && !cached.isExpired) return cached;
+      _tokenCache.remove(_tokenCacheKey);
     }
+
+    // Fallback: persistent storage
+    final stored = await _storage.read();
+    if (stored != null && !stored.isExpired) {
+      _tokenCache.set(
+        _tokenCacheKey,
+        stored,
+        MemoryCacheEntryOptions()
+          ..absoluteExpirationRelativeToNow = Duration(seconds: stored.expiresIn),
+      );
+      return stored;
+    }
+
+    return fetchToken();
   }
 
   /// Forces a new token to be fetched, invalidating any cached token.
   Future<Token> refreshToken() async {
+    _tokenCache.remove(_tokenCacheKey);
     await _storage.delete();
     return fetchToken();
   }
