@@ -26,7 +26,9 @@ class NotFoundErrors {
   NotFoundErrors copyWith({
     String? detail,
   }) {
-    if (detail == null) return this;
+    if (detail == null) {
+      return this;
+    }
 
     return NotFoundErrors(
       detail: detail,
@@ -35,8 +37,12 @@ class NotFoundErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! NotFoundErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! NotFoundErrors) {
+      return false;
+    }
     return detail == other.detail;
   }
 

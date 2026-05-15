@@ -7,7 +7,7 @@ import 'checkouttransactionsitem.dart';
 import 'currency.dart';
 import 'mandateresponse.dart';
 
-/// Object model for `Checkout` from the SumUp API spec.
+/// Core checkout resource returned by the Checkouts API. A checkout is created before payment processing and then updated as payment attempts, redirects, and resulting transactions are attached to it.
 class Checkout {
   const Checkout({
     this.checkoutReference,
@@ -136,7 +136,9 @@ class Checkout {
         customerId == null &&
         mandate == null &&
         hostedCheckoutUrl == null &&
-        transactions == null) return this;
+        transactions == null) {
+      return this;
+    }
 
     return Checkout(
       checkoutReference: checkoutReference ?? this.checkoutReference,
@@ -158,8 +160,12 @@ class Checkout {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Checkout) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Checkout) {
+      return false;
+    }
     return checkoutReference == other.checkoutReference &&
         amount == other.amount &&
         currency == other.currency &&

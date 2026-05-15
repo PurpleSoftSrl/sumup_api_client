@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `FinancialPayoutStatus` from the SumUp API spec.
+/// Merchant-facing outcome of the payout record.
 enum FinancialPayoutStatus {
   SUCCESSFUL('SUCCESSFUL'),
   FAILED('FAILED');

@@ -21,8 +21,12 @@ class Merchant {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Merchant) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Merchant) {
+      return false;
+    }
     return true;
   }
 

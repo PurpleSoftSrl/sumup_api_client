@@ -8,7 +8,7 @@ import 'membershipresource.dart';
 import 'membershipstatus.dart';
 import 'metadata.dart';
 
-/// Object model for `Membership` from the SumUp API spec.
+/// A membership associates a user with a resource, memberships is defined by user, resource, resource type, and associated roles.
 class Membership {
   const Membership({
     required this.id,
@@ -104,7 +104,9 @@ class Membership {
         status == null &&
         metadata == null &&
         attributes == null &&
-        resource == null) return this;
+        resource == null) {
+      return this;
+    }
 
     return Membership(
       id: id ?? this.id,
@@ -124,8 +126,12 @@ class Membership {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Membership) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Membership) {
+      return false;
+    }
     return id == other.id &&
         resourceId == other.resourceId &&
         type_ == other.type_ &&

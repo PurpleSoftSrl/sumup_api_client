@@ -5,7 +5,7 @@
 import 'cardexpirymonth.dart';
 import 'cardtype.dart';
 
-/// Object model for `Card` from the SumUp API spec.
+/// __Required when payment type is `card`.__ Details of the payment card.
 class Card {
   const Card({
     required this.name,
@@ -64,7 +64,9 @@ class Card {
         expiryMonth == null &&
         cvv == null &&
         zipCode == null &&
-        type_ == null) return this;
+        type_ == null) {
+      return this;
+    }
 
     return Card(
       name: name ?? this.name,
@@ -79,8 +81,12 @@ class Card {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Card) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Card) {
+      return false;
+    }
     return name == other.name &&
         number == other.number &&
         expiryYear == other.expiryYear &&

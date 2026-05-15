@@ -4,7 +4,7 @@
 //
 import 'attributes.dart';
 
-/// Object model for `MembershipResource` from the SumUp API spec.
+/// Information about the resource the membership is in.
 class MembershipResource {
   const MembershipResource({
     required this.id,
@@ -65,7 +65,9 @@ class MembershipResource {
         logo == null &&
         createdAt == null &&
         updatedAt == null &&
-        attributes == null) return this;
+        attributes == null) {
+      return this;
+    }
 
     return MembershipResource(
       id: id ?? this.id,
@@ -80,8 +82,12 @@ class MembershipResource {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! MembershipResource) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! MembershipResource) {
+      return false;
+    }
     return id == other.id &&
         type_ == other.type_ &&
         name == other.name &&

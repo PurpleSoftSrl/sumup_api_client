@@ -4,7 +4,7 @@
 //
 import 'personaldetails.dart';
 
-/// Object model for `Customer` from the SumUp API spec.
+/// Saved customer details.
 class Customer {
   const Customer({
     required this.customerId,
@@ -36,7 +36,9 @@ class Customer {
     String? customerId,
     PersonalDetails? personalDetails,
   }) {
-    if (customerId == null && personalDetails == null) return this;
+    if (customerId == null && personalDetails == null) {
+      return this;
+    }
 
     return Customer(
       customerId: customerId ?? this.customerId,
@@ -46,8 +48,12 @@ class Customer {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Customer) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Customer) {
+      return false;
+    }
     return customerId == other.customerId &&
         personalDetails == other.personalDetails;
   }

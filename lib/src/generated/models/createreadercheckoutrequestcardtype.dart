@@ -4,7 +4,9 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `CreateReaderCheckoutRequestCardType` from the SumUp API spec.
+/// The card type of the card used for the transaction.
+/// Is is required only for some countries (e.g: Brazil).
+///
 enum CreateReaderCheckoutRequestCardType {
   credit('credit'),
   debit('debit');

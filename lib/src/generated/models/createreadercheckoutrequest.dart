@@ -7,7 +7,7 @@ import 'createreadercheckoutrequestaffiliate.dart';
 import 'createreadercheckoutrequestcardtype.dart';
 import 'createreadercheckoutrequesttotalamount.dart';
 
-/// Object model for `CreateReaderCheckoutRequest` from the SumUp API spec.
+/// Reader Checkout
 class CreateReaderCheckoutRequest {
   const CreateReaderCheckoutRequest({
     this.aade,
@@ -96,7 +96,9 @@ class CreateReaderCheckoutRequest {
         returnUrl == null &&
         tipRates == null &&
         tipTimeout == null &&
-        totalAmount == null) return this;
+        totalAmount == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutRequest(
       aade: aade ?? this.aade,
@@ -113,8 +115,12 @@ class CreateReaderCheckoutRequest {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutRequest) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutRequest) {
+      return false;
+    }
     return aade == other.aade &&
         affiliate == other.affiliate &&
         cardType == other.cardType &&

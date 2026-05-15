@@ -41,8 +41,9 @@ class ReceiptTransactionVatRatesItem {
     double? rate,
     double? vat,
   }) {
-    if (gross == null && net == null && rate == null && vat == null)
+    if (gross == null && net == null && rate == null && vat == null) {
       return this;
+    }
 
     return ReceiptTransactionVatRatesItem(
       gross: gross ?? this.gross,
@@ -54,8 +55,12 @@ class ReceiptTransactionVatRatesItem {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReceiptTransactionVatRatesItem) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReceiptTransactionVatRatesItem) {
+      return false;
+    }
     return gross == other.gross &&
         net == other.net &&
         rate == other.rate &&

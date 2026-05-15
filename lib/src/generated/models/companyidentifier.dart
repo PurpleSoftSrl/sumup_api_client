@@ -31,7 +31,9 @@ class CompanyIdentifier {
     String? ref,
     String? value_,
   }) {
-    if (ref == null && value_ == null) return this;
+    if (ref == null && value_ == null) {
+      return this;
+    }
 
     return CompanyIdentifier(
       ref: ref ?? this.ref,
@@ -41,8 +43,12 @@ class CompanyIdentifier {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CompanyIdentifier) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CompanyIdentifier) {
+      return false;
+    }
     return ref == other.ref && value_ == other.value_;
   }
 

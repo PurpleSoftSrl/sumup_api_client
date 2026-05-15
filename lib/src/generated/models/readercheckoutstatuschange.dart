@@ -4,7 +4,7 @@
 //
 import 'readercheckoutstatuschangepayload.dart';
 
-/// Object model for `ReaderCheckoutStatusChange` from the SumUp API spec.
+/// The callback payload containing the status change of the Reader Checkout.
 class ReaderCheckoutStatusChange {
   const ReaderCheckoutStatusChange({
     required this.eventType,
@@ -43,8 +43,12 @@ class ReaderCheckoutStatusChange {
     ReaderCheckoutStatusChangePayload? payload,
     DateTime? timestamp,
   }) {
-    if (eventType == null && id == null && payload == null && timestamp == null)
+    if (eventType == null &&
+        id == null &&
+        payload == null &&
+        timestamp == null) {
       return this;
+    }
 
     return ReaderCheckoutStatusChange(
       eventType: eventType ?? this.eventType,
@@ -56,8 +60,12 @@ class ReaderCheckoutStatusChange {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReaderCheckoutStatusChange) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReaderCheckoutStatusChange) {
+      return false;
+    }
     return eventType == other.eventType &&
         id == other.id &&
         payload == other.payload &&

@@ -49,7 +49,9 @@ class CreateMerchantRoleBodyApplicationJson {
     if (name == null &&
         permissions == null &&
         metadata == null &&
-        description == null) return this;
+        description == null) {
+      return this;
+    }
 
     return CreateMerchantRoleBodyApplicationJson(
       name: name ?? this.name,
@@ -61,8 +63,12 @@ class CreateMerchantRoleBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateMerchantRoleBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateMerchantRoleBodyApplicationJson) {
+      return false;
+    }
     return name == other.name &&
         permissions == other.permissions &&
         metadata == other.metadata &&

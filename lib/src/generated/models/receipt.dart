@@ -7,7 +7,7 @@ import 'receiptemvdata.dart';
 import 'receiptmerchantdata.dart';
 import 'receipttransaction.dart';
 
-/// Object model for `Receipt` from the SumUp API spec.
+/// Receipt details for a transaction.
 class Receipt {
   const Receipt({
     this.transactionData,
@@ -60,7 +60,9 @@ class Receipt {
     if (transactionData == null &&
         merchantData == null &&
         emvData == null &&
-        acquirerData == null) return this;
+        acquirerData == null) {
+      return this;
+    }
 
     return Receipt(
       transactionData: transactionData ?? this.transactionData,
@@ -72,8 +74,12 @@ class Receipt {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Receipt) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Receipt) {
+      return false;
+    }
     return transactionData == other.transactionData &&
         merchantData == other.merchantData &&
         emvData == other.emvData &&

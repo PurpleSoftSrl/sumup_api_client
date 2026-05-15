@@ -34,13 +34,27 @@ class MembersApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (offset != null) reqQueryParams['offset'] = offset.toString();
-    if (limit != null) reqQueryParams['limit'] = limit.toString();
-    if (scroll != null) reqQueryParams['scroll'] = scroll.toString();
-    if (email != null) reqQueryParams['email'] = email.toString();
-    if (userId != null) reqQueryParams['user.id'] = userId.toString();
-    if (status != null) reqQueryParams['status'] = status.toJson().toString();
-    if (roles != null) reqQueryParams['roles'] = roles.toString();
+    if (offset != null) {
+      reqQueryParams['offset'] = offset.toString();
+    }
+    if (limit != null) {
+      reqQueryParams['limit'] = limit.toString();
+    }
+    if (scroll != null) {
+      reqQueryParams['scroll'] = scroll.toString();
+    }
+    if (email != null) {
+      reqQueryParams['email'] = email.toString();
+    }
+    if (userId != null) {
+      reqQueryParams['user.id'] = userId.toString();
+    }
+    if (status != null) {
+      reqQueryParams['status'] = status.toJson().toString();
+    }
+    if (roles != null) {
+      reqQueryParams['roles'] = roles.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/members',

@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `CheckoutCreateRequestPurpose` from the SumUp API spec.
+/// Business purpose of the checkout. Use `CHECKOUT` for a standard payment and `SETUP_RECURRING_PAYMENT` when collecting consent and payment details for future recurring charges.
 enum CheckoutCreateRequestPurpose {
   CHECKOUT('CHECKOUT'),
   SETUP_RECURRING_PAYMENT('SETUP_RECURRING_PAYMENT');

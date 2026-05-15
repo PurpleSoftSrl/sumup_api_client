@@ -26,7 +26,9 @@ class ErrorExtendedInline1 {
   ErrorExtendedInline1 copyWith({
     String? param,
   }) {
-    if (param == null) return this;
+    if (param == null) {
+      return this;
+    }
 
     return ErrorExtendedInline1(
       param: param,
@@ -35,8 +37,12 @@ class ErrorExtendedInline1 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ErrorExtendedInline1) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ErrorExtendedInline1) {
+      return false;
+    }
     return param == other.param;
   }
 

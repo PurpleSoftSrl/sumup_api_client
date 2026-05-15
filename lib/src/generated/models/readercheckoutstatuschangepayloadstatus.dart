@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `ReaderCheckoutStatusChangePayloadStatus` from the SumUp API spec.
+/// The current status of the transaction.
 enum ReaderCheckoutStatusChangePayloadStatus {
   successful('successful'),
   failed('failed');

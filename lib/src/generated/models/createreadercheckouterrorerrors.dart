@@ -31,7 +31,9 @@ class CreateReaderCheckoutErrorErrors {
     String? detail,
     String? type_,
   }) {
-    if (detail == null && type_ == null) return this;
+    if (detail == null && type_ == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutErrorErrors(
       detail: detail ?? this.detail,
@@ -41,8 +43,12 @@ class CreateReaderCheckoutErrorErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutErrorErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutErrorErrors) {
+      return false;
+    }
     return detail == other.detail && type_ == other.type_;
   }
 

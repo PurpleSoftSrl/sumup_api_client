@@ -32,7 +32,9 @@ class BadRequestErrors {
     String? detail,
     BadRequestErrorsType? type_,
   }) {
-    if (detail == null && type_ == null) return this;
+    if (detail == null && type_ == null) {
+      return this;
+    }
 
     return BadRequestErrors(
       detail: detail ?? this.detail,
@@ -42,8 +44,12 @@ class BadRequestErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! BadRequestErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! BadRequestErrors) {
+      return false;
+    }
     return detail == other.detail && type_ == other.type_;
   }
 

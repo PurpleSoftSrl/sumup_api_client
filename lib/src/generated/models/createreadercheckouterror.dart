@@ -4,7 +4,7 @@
 //
 import 'createreadercheckouterrorerrors.dart';
 
-/// Object model for `CreateReaderCheckoutError` from the SumUp API spec.
+/// Error description
 class CreateReaderCheckoutError {
   const CreateReaderCheckoutError({
     required this.errors,
@@ -28,7 +28,9 @@ class CreateReaderCheckoutError {
   CreateReaderCheckoutError copyWith({
     CreateReaderCheckoutErrorErrors? errors,
   }) {
-    if (errors == null) return this;
+    if (errors == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutError(
       errors: errors,
@@ -37,8 +39,12 @@ class CreateReaderCheckoutError {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutError) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutError) {
+      return false;
+    }
     return errors == other.errors;
   }
 

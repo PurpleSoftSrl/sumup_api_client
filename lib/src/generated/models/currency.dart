@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `Currency` from the SumUp API spec.
+/// Three-letter [ISO4217](https://en.wikipedia.org/wiki/ISO_4217) code of the currency for the amount. Currently supported currency values are enumerated above.
 enum Currency {
   BGN('BGN'),
   BRL('BRL'),

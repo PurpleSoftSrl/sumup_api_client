@@ -5,7 +5,11 @@
 import 'financialpayoutstatus.dart';
 import 'financialpayouttype.dart';
 
-/// Object model for `FinancialPayout` from the SumUp API spec.
+/// A single payout-related record.
+///
+/// A record can represent either:
+/// - an actual payout sent to the merchant (`type = PAYOUT`)
+/// - a deduction applied against merchant funds for a refund, chargeback, direct debit return, or balance adjustment
 class FinancialPayout {
   const FinancialPayout({
     required this.id,
@@ -76,7 +80,9 @@ class FinancialPayout {
         fee == null &&
         status == null &&
         reference == null &&
-        transactionCode == null) return this;
+        transactionCode == null) {
+      return this;
+    }
 
     return FinancialPayout(
       id: id ?? this.id,
@@ -93,8 +99,12 @@ class FinancialPayout {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! FinancialPayout) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FinancialPayout) {
+      return false;
+    }
     return id == other.id &&
         type_ == other.type_ &&
         amount == other.amount &&

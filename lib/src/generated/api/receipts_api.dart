@@ -22,8 +22,12 @@ class ReceiptsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (mid != null) reqQueryParams['mid'] = mid.toString();
-    if (txEventId != null) reqQueryParams['tx_event_id'] = txEventId.toString();
+    if (mid != null) {
+      reqQueryParams['mid'] = mid.toString();
+    }
+    if (txEventId != null) {
+      reqQueryParams['tx_event_id'] = txEventId.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v1.1/receipts/$id',

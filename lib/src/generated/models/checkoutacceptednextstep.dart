@@ -5,7 +5,7 @@
 import 'checkoutacceptednextstepmechanismitem.dart';
 import 'checkoutacceptednextsteppayload.dart';
 
-/// Object model for `CheckoutAcceptedNextStep` from the SumUp API spec.
+/// Instructions for the next action the payer or client must take.
 class CheckoutAcceptedNextStep {
   const CheckoutAcceptedNextStep({
     this.url,
@@ -63,7 +63,9 @@ class CheckoutAcceptedNextStep {
         method == null &&
         redirectUrl == null &&
         mechanism == null &&
-        payload == null) return this;
+        payload == null) {
+      return this;
+    }
 
     return CheckoutAcceptedNextStep(
       url: url ?? this.url,
@@ -76,8 +78,12 @@ class CheckoutAcceptedNextStep {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CheckoutAcceptedNextStep) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CheckoutAcceptedNextStep) {
+      return false;
+    }
     return url == other.url &&
         method == other.method &&
         redirectUrl == other.redirectUrl &&

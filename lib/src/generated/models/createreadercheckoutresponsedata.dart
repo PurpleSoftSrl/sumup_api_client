@@ -26,7 +26,9 @@ class CreateReaderCheckoutResponseData {
   CreateReaderCheckoutResponseData copyWith({
     String? clientTransactionId,
   }) {
-    if (clientTransactionId == null) return this;
+    if (clientTransactionId == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutResponseData(
       clientTransactionId: clientTransactionId,
@@ -35,8 +37,12 @@ class CreateReaderCheckoutResponseData {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutResponseData) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutResponseData) {
+      return false;
+    }
     return clientTransactionId == other.clientTransactionId;
   }
 

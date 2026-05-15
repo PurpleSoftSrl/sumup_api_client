@@ -22,8 +22,12 @@ class CreateReaderTerminateUnprocessableEntityErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderTerminateUnprocessableEntityErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderTerminateUnprocessableEntityErrors) {
+      return false;
+    }
     return true;
   }
 

@@ -52,8 +52,12 @@ class UpdateMerchantMemberBodyApplicationJson {
     Attributes? attributes,
     UpdateMerchantMemberBodyApplicationJsonUser? user,
   }) {
-    if (roles == null && metadata == null && attributes == null && user == null)
+    if (roles == null &&
+        metadata == null &&
+        attributes == null &&
+        user == null) {
       return this;
+    }
 
     return UpdateMerchantMemberBodyApplicationJson(
       roles: roles ?? this.roles,
@@ -65,8 +69,12 @@ class UpdateMerchantMemberBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UpdateMerchantMemberBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! UpdateMerchantMemberBodyApplicationJson) {
+      return false;
+    }
     return roles == other.roles &&
         metadata == other.metadata &&
         attributes == other.attributes &&

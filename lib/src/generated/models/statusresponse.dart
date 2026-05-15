@@ -4,7 +4,7 @@
 //
 import 'statusresponsedata.dart';
 
-/// Object model for `StatusResponse` from the SumUp API spec.
+/// Status of a device
 class StatusResponse {
   const StatusResponse({
     required this.data,
@@ -27,7 +27,9 @@ class StatusResponse {
   StatusResponse copyWith({
     StatusResponseData? data,
   }) {
-    if (data == null) return this;
+    if (data == null) {
+      return this;
+    }
 
     return StatusResponse(
       data: data,
@@ -36,8 +38,12 @@ class StatusResponse {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! StatusResponse) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! StatusResponse) {
+      return false;
+    }
     return data == other.data;
   }
 

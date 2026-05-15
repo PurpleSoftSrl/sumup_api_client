@@ -79,8 +79,9 @@ class ReadersApi {
     Options? options,
   }) async {
     final reqHeaders = <String, dynamic>{};
-    if (ifModifiedSince != null)
+    if (ifModifiedSince != null) {
       reqHeaders['If-Modified-Since'] = ifModifiedSince.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$id',

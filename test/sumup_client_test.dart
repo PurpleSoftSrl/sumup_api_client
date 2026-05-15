@@ -36,8 +36,9 @@ void main() {
       }
     } catch (e) {
       merchantCode = _env('SUMUP_TEST_MERCHANT_CODE');
-      if (merchantCode == null)
+      if (merchantCode == null) {
         print('  ⚠️  Could not discover merchant code: $e');
+      }
     }
   });
 

@@ -32,7 +32,9 @@ class DetailsErrorFailedConstraintsItem {
     String? message,
     String? reference,
   }) {
-    if (message == null && reference == null) return this;
+    if (message == null && reference == null) {
+      return this;
+    }
 
     return DetailsErrorFailedConstraintsItem(
       message: message ?? this.message,
@@ -42,8 +44,12 @@ class DetailsErrorFailedConstraintsItem {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! DetailsErrorFailedConstraintsItem) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! DetailsErrorFailedConstraintsItem) {
+      return false;
+    }
     return message == other.message && reference == other.reference;
   }
 

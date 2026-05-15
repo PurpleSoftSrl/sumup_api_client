@@ -9,7 +9,7 @@ import 'processcheckoutapplepay.dart';
 import 'processcheckoutgooglepay.dart';
 import 'processcheckoutpaymenttype.dart';
 
-/// Object model for `ProcessCheckout` from the SumUp API spec.
+/// Request body for attempting payment on an existing checkout. The required companion fields depend on the selected `payment_type`, for example card details, saved-card data, or payer information required by a specific payment method.
 class ProcessCheckout {
   const ProcessCheckout({
     required this.paymentType,
@@ -98,7 +98,9 @@ class ProcessCheckout {
         applePay == null &&
         token == null &&
         customerId == null &&
-        personalDetails == null) return this;
+        personalDetails == null) {
+      return this;
+    }
 
     return ProcessCheckout(
       paymentType: paymentType ?? this.paymentType,
@@ -115,8 +117,12 @@ class ProcessCheckout {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ProcessCheckout) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ProcessCheckout) {
+      return false;
+    }
     return paymentType == other.paymentType &&
         installments == other.installments &&
         mandate == other.mandate &&

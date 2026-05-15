@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `CardExpiryMonth` from the SumUp API spec.
+/// Month from the expiration time of the payment card. Accepted format is `MM`.
 enum CardExpiryMonth {
   value_01('01'),
   value_02('02'),

@@ -5,7 +5,7 @@
 import 'eventstatus.dart';
 import 'eventtype.dart';
 
-/// Object model for `Event` from the SumUp API spec.
+/// High-level transaction event details.
 class Event {
   const Event({
     this.id,
@@ -99,7 +99,9 @@ class Event {
         feeAmount == null &&
         installmentNumber == null &&
         deductedAmount == null &&
-        deductedFeeAmount == null) return this;
+        deductedFeeAmount == null) {
+      return this;
+    }
 
     return Event(
       id: id ?? this.id,
@@ -117,8 +119,12 @@ class Event {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Event) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Event) {
+      return false;
+    }
     return id == other.id &&
         transactionId == other.transactionId &&
         type_ == other.type_ &&

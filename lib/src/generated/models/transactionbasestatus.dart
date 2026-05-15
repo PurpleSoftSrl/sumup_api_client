@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `TransactionBaseStatus` from the SumUp API spec.
+/// Current status of the transaction.
 enum TransactionBaseStatus {
   SUCCESSFUL('SUCCESSFUL'),
   CANCELLED('CANCELLED'),

@@ -4,7 +4,7 @@
 //
 import 'receiptmerchantdatamerchantprofileaddress.dart';
 
-/// Object model for `ReceiptMerchantDataMerchantProfile` from the SumUp API spec.
+/// Merchant profile details displayed on the receipt.
 class ReceiptMerchantDataMerchantProfile {
   const ReceiptMerchantDataMerchantProfile({
     this.merchantCode,
@@ -80,7 +80,9 @@ class ReceiptMerchantDataMerchantProfile {
         website == null &&
         email == null &&
         language == null &&
-        address == null) return this;
+        address == null) {
+      return this;
+    }
 
     return ReceiptMerchantDataMerchantProfile(
       merchantCode: merchantCode ?? this.merchantCode,
@@ -97,8 +99,12 @@ class ReceiptMerchantDataMerchantProfile {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReceiptMerchantDataMerchantProfile) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReceiptMerchantDataMerchantProfile) {
+      return false;
+    }
     return merchantCode == other.merchantCode &&
         businessName == other.businessName &&
         companyRegistrationNumber == other.companyRegistrationNumber &&

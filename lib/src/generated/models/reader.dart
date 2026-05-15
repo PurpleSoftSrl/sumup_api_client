@@ -6,7 +6,7 @@ import 'metadata.dart';
 import 'readerdevice.dart';
 import 'readerstatus.dart';
 
-/// Object model for `Reader` from the SumUp API spec.
+/// A physical card reader device that can accept in-person payments.
 class Reader {
   const Reader({
     required this.id,
@@ -75,7 +75,9 @@ class Reader {
         metadata == null &&
         serviceAccountId == null &&
         createdAt == null &&
-        updatedAt == null) return this;
+        updatedAt == null) {
+      return this;
+    }
 
     return Reader(
       id: id ?? this.id,
@@ -91,8 +93,12 @@ class Reader {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Reader) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Reader) {
+      return false;
+    }
     return id == other.id &&
         name == other.name &&
         status == other.status &&

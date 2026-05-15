@@ -62,7 +62,9 @@ class CheckoutSuccessInline1 {
         transactionId == null &&
         merchantName == null &&
         redirectUrl == null &&
-        paymentInstrument == null) return this;
+        paymentInstrument == null) {
+      return this;
+    }
 
     return CheckoutSuccessInline1(
       transactionCode: transactionCode ?? this.transactionCode,
@@ -75,8 +77,12 @@ class CheckoutSuccessInline1 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CheckoutSuccessInline1) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CheckoutSuccessInline1) {
+      return false;
+    }
     return transactionCode == other.transactionCode &&
         transactionId == other.transactionId &&
         merchantName == other.merchantName &&

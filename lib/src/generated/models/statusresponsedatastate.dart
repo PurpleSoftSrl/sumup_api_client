@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `StatusResponseDataState` from the SumUp API spec.
+/// Latest state of the device
 enum StatusResponseDataState {
   IDLE('IDLE'),
   SELECTING_TIP('SELECTING_TIP'),

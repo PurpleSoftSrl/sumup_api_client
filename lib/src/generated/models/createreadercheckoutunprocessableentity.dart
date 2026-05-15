@@ -4,7 +4,7 @@
 //
 import 'createreadercheckoutunprocessableentityerrors.dart';
 
-/// Object model for `CreateReaderCheckoutUnprocessableEntity` from the SumUp API spec.
+/// Unprocessable entity
 class CreateReaderCheckoutUnprocessableEntity {
   const CreateReaderCheckoutUnprocessableEntity({
     required this.errors,
@@ -29,7 +29,9 @@ class CreateReaderCheckoutUnprocessableEntity {
   CreateReaderCheckoutUnprocessableEntity copyWith({
     CreateReaderCheckoutUnprocessableEntityErrors? errors,
   }) {
-    if (errors == null) return this;
+    if (errors == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutUnprocessableEntity(
       errors: errors,
@@ -38,8 +40,12 @@ class CreateReaderCheckoutUnprocessableEntity {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutUnprocessableEntity) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutUnprocessableEntity) {
+      return false;
+    }
     return errors == other.errors;
   }
 

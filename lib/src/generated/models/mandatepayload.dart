@@ -4,7 +4,7 @@
 //
 import 'mandatepayloadtype.dart';
 
-/// Object model for `MandatePayload` from the SumUp API spec.
+/// Mandate details used when a checkout should create a reusable card token for future recurring or merchant-initiated payments.
 class MandatePayload {
   const MandatePayload({
     required this.type_,
@@ -37,7 +37,9 @@ class MandatePayload {
     String? userAgent,
     String? userIp,
   }) {
-    if (type_ == null && userAgent == null && userIp == null) return this;
+    if (type_ == null && userAgent == null && userIp == null) {
+      return this;
+    }
 
     return MandatePayload(
       type_: type_ ?? this.type_,
@@ -48,8 +50,12 @@ class MandatePayload {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! MandatePayload) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! MandatePayload) {
+      return false;
+    }
     return type_ == other.type_ &&
         userAgent == other.userAgent &&
         userIp == other.userIp;

@@ -31,7 +31,9 @@ class ListPersonsResponseBody {
   ListPersonsResponseBody copyWith({
     List<Person>? items,
   }) {
-    if (items == null) return this;
+    if (items == null) {
+      return this;
+    }
 
     return ListPersonsResponseBody(
       items: items,
@@ -40,8 +42,12 @@ class ListPersonsResponseBody {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ListPersonsResponseBody) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ListPersonsResponseBody) {
+      return false;
+    }
     return items == other.items;
   }
 

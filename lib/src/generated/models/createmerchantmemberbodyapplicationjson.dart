@@ -71,7 +71,9 @@ class CreateMerchantMemberBodyApplicationJson {
         nickname == null &&
         roles == null &&
         metadata == null &&
-        attributes == null) return this;
+        attributes == null) {
+      return this;
+    }
 
     return CreateMerchantMemberBodyApplicationJson(
       isManagedUser: isManagedUser ?? this.isManagedUser,
@@ -86,8 +88,12 @@ class CreateMerchantMemberBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateMerchantMemberBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateMerchantMemberBodyApplicationJson) {
+      return false;
+    }
     return isManagedUser == other.isManagedUser &&
         email == other.email &&
         password == other.password &&

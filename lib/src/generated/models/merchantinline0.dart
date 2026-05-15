@@ -132,7 +132,9 @@ class MerchantInline0 {
         meta == null &&
         classic == null &&
         version == null &&
-        changeStatus == null) return this;
+        changeStatus == null) {
+      return this;
+    }
 
     return MerchantInline0(
       merchantCode: merchantCode ?? this.merchantCode,
@@ -155,8 +157,12 @@ class MerchantInline0 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! MerchantInline0) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! MerchantInline0) {
+      return false;
+    }
     return merchantCode == other.merchantCode &&
         organizationId == other.organizationId &&
         businessType == other.businessType &&

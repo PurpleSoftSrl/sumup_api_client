@@ -5,7 +5,7 @@
 import 'eventstatus.dart';
 import 'eventtype.dart';
 
-/// Object model for `ReceiptEvent` from the SumUp API spec.
+/// Transaction event details as rendered on the receipt.
 class ReceiptEvent {
   const ReceiptEvent({
     this.id,
@@ -73,7 +73,9 @@ class ReceiptEvent {
         status == null &&
         amount == null &&
         timestamp == null &&
-        receiptNo == null) return this;
+        receiptNo == null) {
+      return this;
+    }
 
     return ReceiptEvent(
       id: id ?? this.id,
@@ -88,8 +90,12 @@ class ReceiptEvent {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReceiptEvent) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReceiptEvent) {
+      return false;
+    }
     return id == other.id &&
         transactionId == other.transactionId &&
         type_ == other.type_ &&

@@ -28,7 +28,9 @@ class CreateReaderCheckoutResponse {
   CreateReaderCheckoutResponse copyWith({
     CreateReaderCheckoutResponseData? data,
   }) {
-    if (data == null) return this;
+    if (data == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutResponse(
       data: data,
@@ -37,8 +39,12 @@ class CreateReaderCheckoutResponse {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutResponse) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutResponse) {
+      return false;
+    }
     return data == other.data;
   }
 

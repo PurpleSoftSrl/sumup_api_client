@@ -37,7 +37,9 @@ class Get200Response {
   Get200Response copyWith({
     List<Get200ResponseAvailablePaymentMethodsItem>? availablePaymentMethods,
   }) {
-    if (availablePaymentMethods == null) return this;
+    if (availablePaymentMethods == null) {
+      return this;
+    }
 
     return Get200Response(
       availablePaymentMethods: availablePaymentMethods,
@@ -46,8 +48,12 @@ class Get200Response {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Get200Response) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Get200Response) {
+      return false;
+    }
     return availablePaymentMethods == other.availablePaymentMethods;
   }
 

@@ -4,7 +4,7 @@
 //
 import 'badrequesterrors.dart';
 
-/// Object model for `BadRequest` from the SumUp API spec.
+/// 400 Bad Request
 class BadRequest {
   const BadRequest({
     required this.errors,
@@ -27,7 +27,9 @@ class BadRequest {
   BadRequest copyWith({
     BadRequestErrors? errors,
   }) {
-    if (errors == null) return this;
+    if (errors == null) {
+      return this;
+    }
 
     return BadRequest(
       errors: errors,
@@ -36,8 +38,12 @@ class BadRequest {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! BadRequest) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! BadRequest) {
+      return false;
+    }
     return errors == other.errors;
   }
 

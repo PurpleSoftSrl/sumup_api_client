@@ -42,8 +42,9 @@ class TransactionFullInline3VatRatesItem {
     double? vat,
     double? gross,
   }) {
-    if (rate == null && net == null && vat == null && gross == null)
+    if (rate == null && net == null && vat == null && gross == null) {
       return this;
+    }
 
     return TransactionFullInline3VatRatesItem(
       rate: rate ?? this.rate,
@@ -55,8 +56,12 @@ class TransactionFullInline3VatRatesItem {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! TransactionFullInline3VatRatesItem) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! TransactionFullInline3VatRatesItem) {
+      return false;
+    }
     return rate == other.rate &&
         net == other.net &&
         vat == other.vat &&

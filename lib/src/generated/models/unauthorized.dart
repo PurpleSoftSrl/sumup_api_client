@@ -4,7 +4,7 @@
 //
 import 'unauthorizederrors.dart';
 
-/// Object model for `Unauthorized` from the SumUp API spec.
+/// 401 Unauthorized
 class Unauthorized {
   const Unauthorized({
     required this.errors,
@@ -28,7 +28,9 @@ class Unauthorized {
   Unauthorized copyWith({
     UnauthorizedErrors? errors,
   }) {
-    if (errors == null) return this;
+    if (errors == null) {
+      return this;
+    }
 
     return Unauthorized(
       errors: errors,
@@ -37,8 +39,12 @@ class Unauthorized {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Unauthorized) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Unauthorized) {
+      return false;
+    }
     return errors == other.errors;
   }
 

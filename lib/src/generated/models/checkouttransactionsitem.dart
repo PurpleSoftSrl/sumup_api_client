@@ -21,8 +21,12 @@ class CheckoutTransactionsItem {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CheckoutTransactionsItem) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CheckoutTransactionsItem) {
+      return false;
+    }
     return true;
   }
 

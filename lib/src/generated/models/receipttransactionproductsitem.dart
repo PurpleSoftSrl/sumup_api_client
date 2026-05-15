@@ -90,7 +90,9 @@ class ReceiptTransactionProductsItem {
         vatAmount == null &&
         quantity == null &&
         totalPrice == null &&
-        totalWithVat == null) return this;
+        totalWithVat == null) {
+      return this;
+    }
 
     return ReceiptTransactionProductsItem(
       name: name ?? this.name,
@@ -108,8 +110,12 @@ class ReceiptTransactionProductsItem {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReceiptTransactionProductsItem) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReceiptTransactionProductsItem) {
+      return false;
+    }
     return name == other.name &&
         description == other.description &&
         price == other.price &&

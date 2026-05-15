@@ -27,12 +27,20 @@ class ApiClient {
     this.interceptors,
   }) : _dio = dio ?? Dio() {
     _dio.options.baseUrl = baseUrl;
-    if (errorHandler != null) _addInterceptor(errorHandler!);
+    if (errorHandler != null) {
+      _addInterceptor(errorHandler!);
+    }
     final apiKeyCopy = apiKey;
-    if (apiKeyCopy != null) _addInterceptor(apiKeyCopy.createInterceptor());
+    if (apiKeyCopy != null) {
+      _addInterceptor(apiKeyCopy.createInterceptor());
+    }
     final oauth2Copy = oauth2;
-    if (oauth2Copy != null) _addInterceptor(oauth2Copy.createInterceptor());
-    if (interceptors != null) _addInterceptors(interceptors!);
+    if (oauth2Copy != null) {
+      _addInterceptor(oauth2Copy.createInterceptor());
+    }
+    if (interceptors != null) {
+      _addInterceptors(interceptors!);
+    }
   }
 
   final String baseUrl;
@@ -51,12 +59,20 @@ class ApiClient {
   Dio get dio {
     if (!_initialized) {
       _initialized = true;
-      if (errorHandler != null) _addInterceptor(errorHandler!);
+      if (errorHandler != null) {
+        _addInterceptor(errorHandler!);
+      }
       final apiKeyCopy = apiKey;
-      if (apiKeyCopy != null) _addInterceptor(apiKeyCopy.createInterceptor());
+      if (apiKeyCopy != null) {
+        _addInterceptor(apiKeyCopy.createInterceptor());
+      }
       final oauth2Copy = oauth2;
-      if (oauth2Copy != null) _addInterceptor(oauth2Copy.createInterceptor());
-      if (interceptors != null) _addInterceptors(interceptors!);
+      if (oauth2Copy != null) {
+        _addInterceptor(oauth2Copy.createInterceptor());
+      }
+      if (interceptors != null) {
+        _addInterceptors(interceptors!);
+      }
     }
     return _dio;
   }

@@ -4,7 +4,7 @@
 //
 import 'cardtype.dart';
 
-/// Object model for `CardResponse` from the SumUp API spec.
+/// Details of the payment card.
 class CardResponse {
   const CardResponse({
     this.last4Digits,
@@ -36,7 +36,9 @@ class CardResponse {
     String? last4Digits,
     CardType? type_,
   }) {
-    if (last4Digits == null && type_ == null) return this;
+    if (last4Digits == null && type_ == null) {
+      return this;
+    }
 
     return CardResponse(
       last4Digits: last4Digits ?? this.last4Digits,
@@ -46,8 +48,12 @@ class CardResponse {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CardResponse) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CardResponse) {
+      return false;
+    }
     return last4Digits == other.last4Digits && type_ == other.type_;
   }
 

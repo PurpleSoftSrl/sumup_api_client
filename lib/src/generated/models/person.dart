@@ -21,8 +21,12 @@ class Person {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Person) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Person) {
+      return false;
+    }
     return true;
   }
 

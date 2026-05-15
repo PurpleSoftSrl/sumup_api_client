@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `CheckoutStatus` from the SumUp API spec.
+/// Current high-level state of the checkout. `PENDING` means the checkout exists but is not yet completed, `PAID` means a payment succeeded, `FAILED` means the latest processing attempt failed, and `EXPIRED` means the checkout can no longer be processed.
 enum CheckoutStatus {
   PENDING('PENDING'),
   FAILED('FAILED'),

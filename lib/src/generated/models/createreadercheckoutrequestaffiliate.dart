@@ -4,7 +4,9 @@
 //
 import 'createreadercheckoutrequestaffiliatetags.dart';
 
-/// Object model for `CreateReaderCheckoutRequestAffiliate` from the SumUp API spec.
+/// Affiliate metadata for the transaction.
+/// It is a field that allow for integrators to track the source of the transaction.
+///
 class CreateReaderCheckoutRequestAffiliate {
   const CreateReaderCheckoutRequestAffiliate({
     required this.appId,
@@ -49,7 +51,9 @@ class CreateReaderCheckoutRequestAffiliate {
     if (appId == null &&
         foreignTransactionId == null &&
         key == null &&
-        tags == null) return this;
+        tags == null) {
+      return this;
+    }
 
     return CreateReaderCheckoutRequestAffiliate(
       appId: appId ?? this.appId,
@@ -61,8 +65,12 @@ class CreateReaderCheckoutRequestAffiliate {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutRequestAffiliate) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutRequestAffiliate) {
+      return false;
+    }
     return appId == other.appId &&
         foreignTransactionId == other.foreignTransactionId &&
         key == other.key &&

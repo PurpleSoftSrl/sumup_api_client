@@ -9,7 +9,7 @@ import 'receipttransactionprocessas.dart';
 import 'receipttransactionproductsitem.dart';
 import 'receipttransactionvatratesitem.dart';
 
-/// Object model for `ReceiptTransaction` from the SumUp API spec.
+/// Transaction information.
 class ReceiptTransaction {
   const ReceiptTransaction({
     this.transactionCode,
@@ -190,7 +190,9 @@ class ReceiptTransaction {
         products == null &&
         vatRates == null &&
         events == null &&
-        receiptNo == null) return this;
+        receiptNo == null) {
+      return this;
+    }
 
     return ReceiptTransaction(
       transactionCode: transactionCode ?? this.transactionCode,
@@ -218,9 +220,15 @@ class ReceiptTransaction {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReceiptTransaction) return false;
-    if (hashCode != other.hashCode) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReceiptTransaction) {
+      return false;
+    }
+    if (hashCode != other.hashCode) {
+      return false;
+    }
     return transactionCode == other.transactionCode &&
         transactionId == other.transactionId &&
         merchantCode == other.merchantCode &&

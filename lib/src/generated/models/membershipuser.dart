@@ -4,7 +4,7 @@
 //
 import 'membershipuserclassic.dart';
 
-/// Object model for `MembershipUser` from the SumUp API spec.
+/// Information about the user associated with the membership.
 class MembershipUser {
   const MembershipUser({
     required this.id,
@@ -81,7 +81,9 @@ class MembershipUser {
         disabledAt == null &&
         nickname == null &&
         picture == null &&
-        classic == null) return this;
+        classic == null) {
+      return this;
+    }
 
     return MembershipUser(
       id: id ?? this.id,
@@ -98,8 +100,12 @@ class MembershipUser {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! MembershipUser) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! MembershipUser) {
+      return false;
+    }
     return id == other.id &&
         email == other.email &&
         mfaOnLoginEnabled == other.mfaOnLoginEnabled &&

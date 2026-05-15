@@ -6,7 +6,8 @@ import 'address.dart';
 import 'ownership.dart';
 import 'personalidentifier.dart';
 
-/// Object model for `BasePerson` from the SumUp API spec.
+/// Base schema for a person associated with a merchant. This can be a legal representative, business owner (ultimate beneficial owner), or an officer. A legal representative is the person who registered the merchant with SumUp. They should always have a `user_id`.
+///
 class BasePerson {
   const BasePerson({
     required this.id,
@@ -145,7 +146,9 @@ class BasePerson {
         nationality == null &&
         countryOfResidence == null &&
         version == null &&
-        changeStatus == null) return this;
+        changeStatus == null) {
+      return this;
+    }
 
     return BasePerson(
       id: id ?? this.id,
@@ -169,8 +172,12 @@ class BasePerson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! BasePerson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! BasePerson) {
+      return false;
+    }
     return id == other.id &&
         userId == other.userId &&
         birthdate == other.birthdate &&

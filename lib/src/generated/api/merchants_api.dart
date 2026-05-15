@@ -23,7 +23,9 @@ class MerchantsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (version != null) reqQueryParams['version'] = version.toString();
+    if (version != null) {
+      reqQueryParams['version'] = version.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v1/merchants/$merchantCode',
@@ -49,7 +51,9 @@ class MerchantsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (version != null) reqQueryParams['version'] = version.toString();
+    if (version != null) {
+      reqQueryParams['version'] = version.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v1/merchants/$merchantCode/persons',
@@ -76,7 +80,9 @@ class MerchantsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (version != null) reqQueryParams['version'] = version.toString();
+    if (version != null) {
+      reqQueryParams['version'] = version.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v1/merchants/$merchantCode/persons/$personId',

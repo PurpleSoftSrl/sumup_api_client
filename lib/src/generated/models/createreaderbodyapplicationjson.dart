@@ -39,7 +39,9 @@ class CreateReaderBodyApplicationJson {
     String? name,
     Metadata? metadata,
   }) {
-    if (pairingCode == null && name == null && metadata == null) return this;
+    if (pairingCode == null && name == null && metadata == null) {
+      return this;
+    }
 
     return CreateReaderBodyApplicationJson(
       pairingCode: pairingCode ?? this.pairingCode,
@@ -50,8 +52,12 @@ class CreateReaderBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderBodyApplicationJson) {
+      return false;
+    }
     return pairingCode == other.pairingCode &&
         name == other.name &&
         metadata == other.metadata;

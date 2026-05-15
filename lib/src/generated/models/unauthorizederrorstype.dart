@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `UnauthorizedErrorsType` from the SumUp API spec.
+/// Key indicating type of error. Present only for typed 401 responses (e.g. invalid token, invalid password). Absent for generic unauthorized responses.
 enum UnauthorizedErrorsType {
   INVALID_ACCESS_TOKEN('INVALID_ACCESS_TOKEN'),
   INVALID_PASSWORD('INVALID_PASSWORD');

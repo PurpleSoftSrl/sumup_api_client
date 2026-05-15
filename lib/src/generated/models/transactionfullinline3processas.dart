@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `TransactionFullInline3ProcessAs` from the SumUp API spec.
+/// Debit/Credit.
 enum TransactionFullInline3ProcessAs {
   CREDIT('CREDIT'),
   DEBIT('DEBIT');

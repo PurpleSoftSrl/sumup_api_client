@@ -21,8 +21,12 @@ class Put200Response {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Put200Response) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Put200Response) {
+      return false;
+    }
     return true;
   }
 

@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `ProcessCheckoutPaymentType` from the SumUp API spec.
+/// Payment method used for this processing attempt. It determines which additional request fields are required.
 enum ProcessCheckoutPaymentType {
   card('card'),
   boleto('boleto'),

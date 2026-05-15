@@ -31,7 +31,9 @@ class CreateReaderTerminateErrorErrors {
     String? detail,
     String? type_,
   }) {
-    if (detail == null && type_ == null) return this;
+    if (detail == null && type_ == null) {
+      return this;
+    }
 
     return CreateReaderTerminateErrorErrors(
       detail: detail ?? this.detail,
@@ -41,8 +43,12 @@ class CreateReaderTerminateErrorErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderTerminateErrorErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderTerminateErrorErrors) {
+      return false;
+    }
     return detail == other.detail && type_ == other.type_;
   }
 

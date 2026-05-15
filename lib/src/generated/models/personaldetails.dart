@@ -4,7 +4,7 @@
 //
 import 'addresslegacy.dart';
 
-/// Object model for `PersonalDetails` from the SumUp API spec.
+/// Personal details for the customer.
 class PersonalDetails {
   const PersonalDetails({
     this.firstName,
@@ -68,7 +68,9 @@ class PersonalDetails {
         phone == null &&
         birthDate == null &&
         taxId == null &&
-        address == null) return this;
+        address == null) {
+      return this;
+    }
 
     return PersonalDetails(
       firstName: firstName ?? this.firstName,
@@ -83,8 +85,12 @@ class PersonalDetails {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! PersonalDetails) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! PersonalDetails) {
+      return false;
+    }
     return firstName == other.firstName &&
         lastName == other.lastName &&
         email == other.email &&

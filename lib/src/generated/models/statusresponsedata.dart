@@ -80,7 +80,9 @@ class StatusResponseData {
         firmwareVersion == null &&
         lastActivity == null &&
         state == null &&
-        status == null) return this;
+        status == null) {
+      return this;
+    }
 
     return StatusResponseData(
       batteryLevel: batteryLevel ?? this.batteryLevel,
@@ -95,8 +97,12 @@ class StatusResponseData {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! StatusResponseData) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! StatusResponseData) {
+      return false;
+    }
     return batteryLevel == other.batteryLevel &&
         batteryTemperature == other.batteryTemperature &&
         connectionType == other.connectionType &&

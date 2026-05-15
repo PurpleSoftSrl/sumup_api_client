@@ -4,7 +4,7 @@
 //
 import 'notfounderrors.dart';
 
-/// Object model for `NotFound` from the SumUp API spec.
+/// 404 Not Found
 class NotFound {
   const NotFound({
     required this.errors,
@@ -27,7 +27,9 @@ class NotFound {
   NotFound copyWith({
     NotFoundErrors? errors,
   }) {
-    if (errors == null) return this;
+    if (errors == null) {
+      return this;
+    }
 
     return NotFound(
       errors: errors,
@@ -36,8 +38,12 @@ class NotFound {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! NotFound) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! NotFound) {
+      return false;
+    }
     return errors == other.errors;
   }
 

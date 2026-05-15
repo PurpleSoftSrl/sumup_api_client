@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `ReceiptTransactionProcessAs` from the SumUp API spec.
+/// Debit/Credit.
 enum ReceiptTransactionProcessAs {
   CREDIT('CREDIT'),
   DEBIT('DEBIT');

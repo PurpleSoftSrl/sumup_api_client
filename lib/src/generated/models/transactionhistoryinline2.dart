@@ -87,7 +87,9 @@ class TransactionHistoryInline2 {
         cardType == null &&
         payoutDate == null &&
         payoutType == null &&
-        refundedAmount == null) return this;
+        refundedAmount == null) {
+      return this;
+    }
 
     return TransactionHistoryInline2(
       transactionId: transactionId ?? this.transactionId,
@@ -103,8 +105,12 @@ class TransactionHistoryInline2 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! TransactionHistoryInline2) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! TransactionHistoryInline2) {
+      return false;
+    }
     return transactionId == other.transactionId &&
         clientTransactionId == other.clientTransactionId &&
         user == other.user &&

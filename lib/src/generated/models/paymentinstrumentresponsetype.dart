@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `PaymentInstrumentResponseType` from the SumUp API spec.
+/// Type of the payment instrument.
 enum PaymentInstrumentResponseType {
   card('card');
 

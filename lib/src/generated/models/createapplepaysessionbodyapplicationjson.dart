@@ -32,7 +32,9 @@ class CreateApplePaySessionBodyApplicationJson {
     String? context,
     Uri? target,
   }) {
-    if (context == null && target == null) return this;
+    if (context == null && target == null) {
+      return this;
+    }
 
     return CreateApplePaySessionBodyApplicationJson(
       context: context ?? this.context,
@@ -42,8 +44,12 @@ class CreateApplePaySessionBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateApplePaySessionBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateApplePaySessionBodyApplicationJson) {
+      return false;
+    }
     return context == other.context && target == other.target;
   }
 

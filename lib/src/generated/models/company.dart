@@ -6,7 +6,8 @@ import 'address.dart';
 import 'attributes.dart';
 import 'companyidentifier.dart';
 
-/// Object model for `Company` from the SumUp API spec.
+/// Information about the company or business. This is legal information that is used for verification.
+///
 class Company {
   const Company({
     this.name,
@@ -96,7 +97,9 @@ class Company {
         identifiers == null &&
         phoneNumber == null &&
         website == null &&
-        attributes == null) return this;
+        attributes == null) {
+      return this;
+    }
 
     return Company(
       name: name ?? this.name,
@@ -113,8 +116,12 @@ class Company {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Company) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Company) {
+      return false;
+    }
     return name == other.name &&
         merchantCategoryCode == other.merchantCategoryCode &&
         legalType == other.legalType &&

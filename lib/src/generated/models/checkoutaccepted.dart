@@ -4,7 +4,7 @@
 //
 import 'checkoutacceptednextstep.dart';
 
-/// Object model for `CheckoutAccepted` from the SumUp API spec.
+/// Response returned when checkout processing requires an additional payer action, such as a 3DS challenge or a redirect to an external payment method page.
 class CheckoutAccepted {
   const CheckoutAccepted({
     this.nextStep,
@@ -30,7 +30,9 @@ class CheckoutAccepted {
   CheckoutAccepted copyWith({
     CheckoutAcceptedNextStep? nextStep,
   }) {
-    if (nextStep == null) return this;
+    if (nextStep == null) {
+      return this;
+    }
 
     return CheckoutAccepted(
       nextStep: nextStep,
@@ -39,8 +41,12 @@ class CheckoutAccepted {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CheckoutAccepted) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CheckoutAccepted) {
+      return false;
+    }
     return nextStep == other.nextStep;
   }
 

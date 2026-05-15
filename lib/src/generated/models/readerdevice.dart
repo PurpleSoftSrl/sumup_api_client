@@ -4,7 +4,7 @@
 //
 import 'readerdevicemodel.dart';
 
-/// Object model for `ReaderDevice` from the SumUp API spec.
+/// Information about the underlying physical device.
 class ReaderDevice {
   const ReaderDevice({
     required this.identifier,
@@ -32,7 +32,9 @@ class ReaderDevice {
     String? identifier,
     ReaderDeviceModel? model,
   }) {
-    if (identifier == null && model == null) return this;
+    if (identifier == null && model == null) {
+      return this;
+    }
 
     return ReaderDevice(
       identifier: identifier ?? this.identifier,
@@ -42,8 +44,12 @@ class ReaderDevice {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReaderDevice) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReaderDevice) {
+      return false;
+    }
     return identifier == other.identifier && model == other.model;
   }
 

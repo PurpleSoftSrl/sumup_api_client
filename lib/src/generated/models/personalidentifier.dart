@@ -31,7 +31,9 @@ class PersonalIdentifier {
     String? ref,
     String? value_,
   }) {
-    if (ref == null && value_ == null) return this;
+    if (ref == null && value_ == null) {
+      return this;
+    }
 
     return PersonalIdentifier(
       ref: ref ?? this.ref,
@@ -41,8 +43,12 @@ class PersonalIdentifier {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! PersonalIdentifier) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! PersonalIdentifier) {
+      return false;
+    }
     return ref == other.ref && value_ == other.value_;
   }
 

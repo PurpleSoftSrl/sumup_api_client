@@ -6,7 +6,7 @@ import 'currency.dart';
 import 'paymenttype.dart';
 import 'transactionbasestatus.dart';
 
-/// Object model for `TransactionBase` from the SumUp API spec.
+/// Details of the transaction.
 class TransactionBase {
   const TransactionBase({
     this.id,
@@ -84,7 +84,9 @@ class TransactionBase {
         timestamp == null &&
         status == null &&
         paymentType == null &&
-        installmentsCount == null) return this;
+        installmentsCount == null) {
+      return this;
+    }
 
     return TransactionBase(
       id: id ?? this.id,
@@ -100,8 +102,12 @@ class TransactionBase {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! TransactionBase) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! TransactionBase) {
+      return false;
+    }
     return id == other.id &&
         transactionCode == other.transactionCode &&
         amount == other.amount &&

@@ -32,7 +32,9 @@ class UpdateCustomerBodyApplicationJson {
   UpdateCustomerBodyApplicationJson copyWith({
     PersonalDetails? personalDetails,
   }) {
-    if (personalDetails == null) return this;
+    if (personalDetails == null) {
+      return this;
+    }
 
     return UpdateCustomerBodyApplicationJson(
       personalDetails: personalDetails,
@@ -41,8 +43,12 @@ class UpdateCustomerBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UpdateCustomerBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! UpdateCustomerBodyApplicationJson) {
+      return false;
+    }
     return personalDetails == other.personalDetails;
   }
 

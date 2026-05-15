@@ -4,7 +4,7 @@
 //
 import 'metadata.dart';
 
-/// Object model for `Role` from the SumUp API spec.
+/// A custom role that can be used to assign set of permissions to members.
 class Role {
   const Role({
     required this.id,
@@ -72,7 +72,9 @@ class Role {
         isPredefined == null &&
         metadata == null &&
         createdAt == null &&
-        updatedAt == null) return this;
+        updatedAt == null) {
+      return this;
+    }
 
     return Role(
       id: id ?? this.id,
@@ -88,8 +90,12 @@ class Role {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Role) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Role) {
+      return false;
+    }
     return id == other.id &&
         name == other.name &&
         description == other.description &&

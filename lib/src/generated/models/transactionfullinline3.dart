@@ -262,7 +262,9 @@ class TransactionFullInline3 {
         links == null &&
         events == null &&
         location == null &&
-        taxEnabled == null) return this;
+        taxEnabled == null) {
+      return this;
+    }
 
     return TransactionFullInline3(
       foreignTransactionId: foreignTransactionId ?? this.foreignTransactionId,
@@ -295,9 +297,15 @@ class TransactionFullInline3 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! TransactionFullInline3) return false;
-    if (hashCode != other.hashCode) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! TransactionFullInline3) {
+      return false;
+    }
+    if (hashCode != other.hashCode) {
+      return false;
+    }
     return foreignTransactionId == other.foreignTransactionId &&
         clientTransactionId == other.clientTransactionId &&
         username == other.username &&

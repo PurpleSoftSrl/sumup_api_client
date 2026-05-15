@@ -5,7 +5,8 @@
 import 'address.dart';
 import 'branding.dart';
 
-/// Object model for `BusinessProfile` from the SumUp API spec.
+/// Business information about the merchant. This information will be visible to the merchant's customers.
+///
 class BusinessProfile {
   const BusinessProfile({
     this.name,
@@ -72,7 +73,9 @@ class BusinessProfile {
         email == null &&
         phoneNumber == null &&
         address == null &&
-        branding == null) return this;
+        branding == null) {
+      return this;
+    }
 
     return BusinessProfile(
       name: name ?? this.name,
@@ -87,8 +90,12 @@ class BusinessProfile {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! BusinessProfile) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! BusinessProfile) {
+      return false;
+    }
     return name == other.name &&
         dynamicDescriptor == other.dynamicDescriptor &&
         website == other.website &&

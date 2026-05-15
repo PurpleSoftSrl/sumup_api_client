@@ -6,7 +6,7 @@ import 'mandateresponse.dart';
 import 'paymentinstrumentresponsecard.dart';
 import 'paymentinstrumentresponsetype.dart';
 
-/// Object model for `PaymentInstrumentResponse` from the SumUp API spec.
+/// Payment Instrument Response
 class PaymentInstrumentResponse {
   const PaymentInstrumentResponse({
     this.token,
@@ -68,7 +68,9 @@ class PaymentInstrumentResponse {
         type_ == null &&
         card == null &&
         mandate == null &&
-        createdAt == null) return this;
+        createdAt == null) {
+      return this;
+    }
 
     return PaymentInstrumentResponse(
       token: token ?? this.token,
@@ -82,8 +84,12 @@ class PaymentInstrumentResponse {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! PaymentInstrumentResponse) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! PaymentInstrumentResponse) {
+      return false;
+    }
     return token == other.token &&
         active == other.active &&
         type_ == other.type_ &&

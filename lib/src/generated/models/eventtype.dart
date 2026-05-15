@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `EventType` from the SumUp API spec.
+/// Type of the transaction event.
 enum EventType {
   PAYOUT('PAYOUT'),
   CHARGE_BACK('CHARGE_BACK'),

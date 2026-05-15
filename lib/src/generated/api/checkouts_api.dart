@@ -31,8 +31,12 @@ class CheckoutsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (amount != null) reqQueryParams['amount'] = amount.toString();
-    if (currency != null) reqQueryParams['currency'] = currency.toString();
+    if (amount != null) {
+      reqQueryParams['amount'] = amount.toString();
+    }
+    if (currency != null) {
+      reqQueryParams['currency'] = currency.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/payment-methods',
@@ -57,8 +61,9 @@ class CheckoutsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (checkoutReference != null)
+    if (checkoutReference != null) {
       reqQueryParams['checkout_reference'] = checkoutReference.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/checkouts',

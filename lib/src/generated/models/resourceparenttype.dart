@@ -21,8 +21,12 @@ class ResourceParentType {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ResourceParentType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ResourceParentType) {
+      return false;
+    }
     return true;
   }
 

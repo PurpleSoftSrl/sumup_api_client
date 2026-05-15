@@ -26,7 +26,9 @@ class Ownership {
   Ownership copyWith({
     int? share,
   }) {
-    if (share == null) return this;
+    if (share == null) {
+      return this;
+    }
 
     return Ownership(
       share: share,
@@ -35,8 +37,12 @@ class Ownership {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Ownership) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Ownership) {
+      return false;
+    }
     return share == other.share;
   }
 

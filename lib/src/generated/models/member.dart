@@ -8,7 +8,7 @@ import 'membershipstatus.dart';
 import 'membershipuser.dart';
 import 'metadata.dart';
 
-/// Object model for `Member` from the SumUp API spec.
+/// A member is user within specific resource identified by resource id, resource type, and associated roles.
 class Member {
   const Member({
     required this.id,
@@ -93,7 +93,9 @@ class Member {
         invite == null &&
         status == null &&
         metadata == null &&
-        attributes == null) return this;
+        attributes == null) {
+      return this;
+    }
 
     return Member(
       id: id ?? this.id,
@@ -111,8 +113,12 @@ class Member {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Member) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Member) {
+      return false;
+    }
     return id == other.id &&
         roles == other.roles &&
         permissions == other.permissions &&

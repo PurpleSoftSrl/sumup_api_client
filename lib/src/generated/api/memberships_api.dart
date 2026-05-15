@@ -31,23 +31,38 @@ class MembershipsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (offset != null) reqQueryParams['offset'] = offset.toString();
-    if (limit != null) reqQueryParams['limit'] = limit.toString();
-    if (kind != null) reqQueryParams['kind'] = kind.toString();
-    if (status != null) reqQueryParams['status'] = status.toJson().toString();
-    if (resourceType != null)
+    if (offset != null) {
+      reqQueryParams['offset'] = offset.toString();
+    }
+    if (limit != null) {
+      reqQueryParams['limit'] = limit.toString();
+    }
+    if (kind != null) {
+      reqQueryParams['kind'] = kind.toString();
+    }
+    if (status != null) {
+      reqQueryParams['status'] = status.toJson().toString();
+    }
+    if (resourceType != null) {
       reqQueryParams['resource.type'] = resourceType.toString();
-    if (resourceAttributesSandbox != null)
+    }
+    if (resourceAttributesSandbox != null) {
       reqQueryParams['resource.attributes.sandbox'] =
           resourceAttributesSandbox.toString();
-    if (resourceName != null)
+    }
+    if (resourceName != null) {
       reqQueryParams['resource.name'] = resourceName.toString();
-    if (resourceParentId != null)
+    }
+    if (resourceParentId != null) {
       reqQueryParams['resource.parent.id'] = resourceParentId.toString();
-    if (resourceParentType != null)
+    }
+    if (resourceParentType != null) {
       reqQueryParams['resource.parent.type'] =
           resourceParentType.toJson().toString();
-    if (roles != null) reqQueryParams['roles'] = roles.toString();
+    }
+    if (roles != null) {
+      reqQueryParams['roles'] = roles.toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/memberships',

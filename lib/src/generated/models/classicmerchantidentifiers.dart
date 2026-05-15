@@ -26,7 +26,9 @@ class ClassicMerchantIdentifiers {
   ClassicMerchantIdentifiers copyWith({
     int? id,
   }) {
-    if (id == null) return this;
+    if (id == null) {
+      return this;
+    }
 
     return ClassicMerchantIdentifiers(
       id: id,
@@ -35,8 +37,12 @@ class ClassicMerchantIdentifiers {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ClassicMerchantIdentifiers) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ClassicMerchantIdentifiers) {
+      return false;
+    }
     return id == other.id;
   }
 

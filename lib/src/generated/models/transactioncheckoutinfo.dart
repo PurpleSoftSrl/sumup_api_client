@@ -4,7 +4,7 @@
 //
 import 'entrymode.dart';
 
-/// Object model for `TransactionCheckoutInfo` from the SumUp API spec.
+/// Checkout-specific fields associated with a transaction.
 class TransactionCheckoutInfo {
   const TransactionCheckoutInfo({
     this.merchantCode,
@@ -59,7 +59,9 @@ class TransactionCheckoutInfo {
         vatAmount == null &&
         tipAmount == null &&
         entryMode == null &&
-        authCode == null) return this;
+        authCode == null) {
+      return this;
+    }
 
     return TransactionCheckoutInfo(
       merchantCode: merchantCode ?? this.merchantCode,
@@ -72,8 +74,12 @@ class TransactionCheckoutInfo {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! TransactionCheckoutInfo) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! TransactionCheckoutInfo) {
+      return false;
+    }
     return merchantCode == other.merchantCode &&
         vatAmount == other.vatAmount &&
         tipAmount == other.tipAmount &&

@@ -31,7 +31,9 @@ class Timestamps {
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
-    if (createdAt == null && updatedAt == null) return this;
+    if (createdAt == null && updatedAt == null) {
+      return this;
+    }
 
     return Timestamps(
       createdAt: createdAt ?? this.createdAt,
@@ -41,8 +43,12 @@ class Timestamps {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Timestamps) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Timestamps) {
+      return false;
+    }
     return createdAt == other.createdAt && updatedAt == other.updatedAt;
   }
 

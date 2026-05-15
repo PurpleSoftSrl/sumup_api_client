@@ -22,8 +22,12 @@ class CreateReaderCheckoutUnprocessableEntityErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderCheckoutUnprocessableEntityErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderCheckoutUnprocessableEntityErrors) {
+      return false;
+    }
     return true;
   }
 

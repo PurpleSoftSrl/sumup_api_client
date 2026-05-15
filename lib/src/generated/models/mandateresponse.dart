@@ -4,7 +4,7 @@
 //
 import 'mandateresponsestatus.dart';
 
-/// Object model for `MandateResponse` from the SumUp API spec.
+/// Details of the mandate linked to the saved payment instrument.
 class MandateResponse {
   const MandateResponse({
     this.type_,
@@ -41,7 +41,9 @@ class MandateResponse {
     MandateResponseStatus? status,
     String? merchantCode,
   }) {
-    if (type_ == null && status == null && merchantCode == null) return this;
+    if (type_ == null && status == null && merchantCode == null) {
+      return this;
+    }
 
     return MandateResponse(
       type_: type_ ?? this.type_,
@@ -52,8 +54,12 @@ class MandateResponse {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! MandateResponse) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! MandateResponse) {
+      return false;
+    }
     return type_ == other.type_ &&
         status == other.status &&
         merchantCode == other.merchantCode;

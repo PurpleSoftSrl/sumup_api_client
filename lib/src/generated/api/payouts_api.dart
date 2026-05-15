@@ -33,11 +33,21 @@ class PayoutsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (startDate != null) reqQueryParams['start_date'] = startDate.toString();
-    if (endDate != null) reqQueryParams['end_date'] = endDate.toString();
-    if (format != null) reqQueryParams['format'] = format.toJson().toString();
-    if (limit != null) reqQueryParams['limit'] = limit.toString();
-    if (order != null) reqQueryParams['order'] = order.toJson().toString();
+    if (startDate != null) {
+      reqQueryParams['start_date'] = startDate.toString();
+    }
+    if (endDate != null) {
+      reqQueryParams['end_date'] = endDate.toString();
+    }
+    if (format != null) {
+      reqQueryParams['format'] = format.toJson().toString();
+    }
+    if (limit != null) {
+      reqQueryParams['limit'] = limit.toString();
+    }
+    if (order != null) {
+      reqQueryParams['order'] = order.toJson().toString();
+    }
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v1.0/merchants/$merchantCode/payouts',

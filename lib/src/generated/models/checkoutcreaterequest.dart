@@ -6,7 +6,7 @@ import 'checkoutcreaterequestpurpose.dart';
 import 'currency.dart';
 import 'hostedcheckout.dart';
 
-/// Object model for `CheckoutCreateRequest` from the SumUp API spec.
+/// Request body for creating a checkout before processing payment. Define the payment amount, currency, merchant, and optional customer or redirect behavior here.
 class CheckoutCreateRequest {
   const CheckoutCreateRequest({
     required this.checkoutReference,
@@ -101,7 +101,9 @@ class CheckoutCreateRequest {
         purpose == null &&
         validUntil == null &&
         redirectUrl == null &&
-        hostedCheckout == null) return this;
+        hostedCheckout == null) {
+      return this;
+    }
 
     return CheckoutCreateRequest(
       checkoutReference: checkoutReference ?? this.checkoutReference,
@@ -120,8 +122,12 @@ class CheckoutCreateRequest {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CheckoutCreateRequest) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CheckoutCreateRequest) {
+      return false;
+    }
     return checkoutReference == other.checkoutReference &&
         amount == other.amount &&
         currency == other.currency &&

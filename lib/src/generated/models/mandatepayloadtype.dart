@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `MandatePayloadType` from the SumUp API spec.
+/// Type of mandate to create for the saved payment instrument.
 enum MandatePayloadType {
   recurrent('recurrent');
 

@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `BadRequestErrorsType` from the SumUp API spec.
+/// Key indicating type of error
 enum BadRequestErrorsType {
   INVALID_BEARER_TOKEN('INVALID_BEARER_TOKEN'),
   INVALID_USER_AGENT('INVALID_USER_AGENT'),

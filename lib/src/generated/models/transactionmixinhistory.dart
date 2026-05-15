@@ -4,7 +4,7 @@
 //
 import 'transactionmixinhistorypayoutplan.dart';
 
-/// Object model for `TransactionMixinHistory` from the SumUp API spec.
+/// Additional transaction fields used by history and detailed views.
 class TransactionMixinHistory {
   const TransactionMixinHistory({
     this.productSummary,
@@ -54,7 +54,9 @@ class TransactionMixinHistory {
     if (productSummary == null &&
         payoutsTotal == null &&
         payoutsReceived == null &&
-        payoutPlan == null) return this;
+        payoutPlan == null) {
+      return this;
+    }
 
     return TransactionMixinHistory(
       productSummary: productSummary ?? this.productSummary,
@@ -66,8 +68,12 @@ class TransactionMixinHistory {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! TransactionMixinHistory) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! TransactionMixinHistory) {
+      return false;
+    }
     return productSummary == other.productSummary &&
         payoutsTotal == other.payoutsTotal &&
         payoutsReceived == other.payoutsReceived &&

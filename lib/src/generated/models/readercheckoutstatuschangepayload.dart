@@ -4,7 +4,7 @@
 //
 import 'readercheckoutstatuschangepayloadstatus.dart';
 
-/// Object model for `ReaderCheckoutStatusChangePayload` from the SumUp API spec.
+/// The event payload.
 class ReaderCheckoutStatusChangePayload {
   const ReaderCheckoutStatusChangePayload({
     required this.clientTransactionId,
@@ -49,7 +49,9 @@ class ReaderCheckoutStatusChangePayload {
     if (clientTransactionId == null &&
         merchantCode == null &&
         status == null &&
-        transactionId == null) return this;
+        transactionId == null) {
+      return this;
+    }
 
     return ReaderCheckoutStatusChangePayload(
       clientTransactionId: clientTransactionId ?? this.clientTransactionId,
@@ -61,8 +63,12 @@ class ReaderCheckoutStatusChangePayload {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReaderCheckoutStatusChangePayload) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReaderCheckoutStatusChangePayload) {
+      return false;
+    }
     return clientTransactionId == other.clientTransactionId &&
         merchantCode == other.merchantCode &&
         status == other.status &&

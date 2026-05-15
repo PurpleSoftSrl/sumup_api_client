@@ -84,7 +84,9 @@ class ReceiptMerchantDataMerchantProfileAddress {
         countryNativeName == null &&
         regionName == null &&
         postCode == null &&
-        landline == null) return this;
+        landline == null) {
+      return this;
+    }
 
     return ReceiptMerchantDataMerchantProfileAddress(
       addressLine1: addressLine1 ?? this.addressLine1,
@@ -101,8 +103,12 @@ class ReceiptMerchantDataMerchantProfileAddress {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ReceiptMerchantDataMerchantProfileAddress) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! ReceiptMerchantDataMerchantProfileAddress) {
+      return false;
+    }
     return addressLine1 == other.addressLine1 &&
         addressLine2 == other.addressLine2 &&
         city == other.city &&

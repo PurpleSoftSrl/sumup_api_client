@@ -34,7 +34,9 @@ class UnauthorizedErrors {
     String? detail,
     UnauthorizedErrorsType? type_,
   }) {
-    if (detail == null && type_ == null) return this;
+    if (detail == null && type_ == null) {
+      return this;
+    }
 
     return UnauthorizedErrors(
       detail: detail ?? this.detail,
@@ -44,8 +46,12 @@ class UnauthorizedErrors {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UnauthorizedErrors) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! UnauthorizedErrors) {
+      return false;
+    }
     return detail == other.detail && type_ == other.type_;
   }
 

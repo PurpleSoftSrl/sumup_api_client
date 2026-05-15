@@ -34,7 +34,9 @@ class UpdateReaderBodyApplicationJson {
     String? name,
     Metadata? metadata,
   }) {
-    if (name == null && metadata == null) return this;
+    if (name == null && metadata == null) {
+      return this;
+    }
 
     return UpdateReaderBodyApplicationJson(
       name: name ?? this.name,
@@ -44,8 +46,12 @@ class UpdateReaderBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UpdateReaderBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! UpdateReaderBodyApplicationJson) {
+      return false;
+    }
     return name == other.name && metadata == other.metadata;
   }
 

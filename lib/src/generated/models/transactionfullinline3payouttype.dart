@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `TransactionFullInline3PayoutType` from the SumUp API spec.
+/// Payout type for the transaction.
 enum TransactionFullInline3PayoutType {
   BANK_ACCOUNT('BANK_ACCOUNT'),
   PREPAID_CARD('PREPAID_CARD');

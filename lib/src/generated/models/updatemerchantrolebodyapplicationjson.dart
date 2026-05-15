@@ -40,7 +40,9 @@ class UpdateMerchantRoleBodyApplicationJson {
     List<String>? permissions,
     String? description,
   }) {
-    if (name == null && permissions == null && description == null) return this;
+    if (name == null && permissions == null && description == null) {
+      return this;
+    }
 
     return UpdateMerchantRoleBodyApplicationJson(
       name: name ?? this.name,
@@ -51,8 +53,12 @@ class UpdateMerchantRoleBodyApplicationJson {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! UpdateMerchantRoleBodyApplicationJson) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! UpdateMerchantRoleBodyApplicationJson) {
+      return false;
+    }
     return name == other.name &&
         permissions == other.permissions &&
         description == other.description;

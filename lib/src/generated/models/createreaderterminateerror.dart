@@ -4,7 +4,7 @@
 //
 import 'createreaderterminateerrorerrors.dart';
 
-/// Object model for `CreateReaderTerminateError` from the SumUp API spec.
+/// Error description
 class CreateReaderTerminateError {
   const CreateReaderTerminateError({
     required this.errors,
@@ -28,7 +28,9 @@ class CreateReaderTerminateError {
   CreateReaderTerminateError copyWith({
     CreateReaderTerminateErrorErrors? errors,
   }) {
-    if (errors == null) return this;
+    if (errors == null) {
+      return this;
+    }
 
     return CreateReaderTerminateError(
       errors: errors,
@@ -37,8 +39,12 @@ class CreateReaderTerminateError {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CreateReaderTerminateError) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! CreateReaderTerminateError) {
+      return false;
+    }
     return errors == other.errors;
   }
 

@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `EntryMode` from the SumUp API spec.
+/// Entry mode of the payment details.
 enum EntryMode {
   BOLETO('BOLETO'),
   SOFORT('SOFORT'),

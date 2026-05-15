@@ -4,7 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
-/// Enum for `TransactionMixinHistoryPayoutPlan` from the SumUp API spec.
+/// Payout plan of the registered user at the time when the transaction was made.
 enum TransactionMixinHistoryPayoutPlan {
   SINGLE_PAYMENT('SINGLE_PAYMENT'),
   TRUE_INSTALLMENT('TRUE_INSTALLMENT'),

@@ -36,8 +36,9 @@ class Post400Response1 {
     String? errorCode,
     String? errorMessage,
   }) {
-    if (instance == null && errorCode == null && errorMessage == null)
+    if (instance == null && errorCode == null && errorMessage == null) {
       return this;
+    }
 
     return Post400Response1(
       instance: instance ?? this.instance,
@@ -48,8 +49,12 @@ class Post400Response1 {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Post400Response1) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Post400Response1) {
+      return false;
+    }
     return instance == other.instance &&
         errorCode == other.errorCode &&
         errorMessage == other.errorMessage;

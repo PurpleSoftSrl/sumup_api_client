@@ -4,7 +4,7 @@
 //
 import 'detailserrorfailedconstraintsitem.dart';
 
-/// Object model for `DetailsError` from the SumUp API spec.
+/// Error message structure.
 class DetailsError {
   const DetailsError({
     this.title,
@@ -55,7 +55,9 @@ class DetailsError {
     if (title == null &&
         details == null &&
         status == null &&
-        failedConstraints == null) return this;
+        failedConstraints == null) {
+      return this;
+    }
 
     return DetailsError(
       title: title ?? this.title,
@@ -67,8 +69,12 @@ class DetailsError {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! DetailsError) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! DetailsError) {
+      return false;
+    }
     return title == other.title &&
         details == other.details &&
         status == other.status &&

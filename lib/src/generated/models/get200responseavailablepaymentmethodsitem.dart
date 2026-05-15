@@ -27,7 +27,9 @@ class Get200ResponseAvailablePaymentMethodsItem {
   Get200ResponseAvailablePaymentMethodsItem copyWith({
     String? id,
   }) {
-    if (id == null) return this;
+    if (id == null) {
+      return this;
+    }
 
     return Get200ResponseAvailablePaymentMethodsItem(
       id: id,
@@ -36,8 +38,12 @@ class Get200ResponseAvailablePaymentMethodsItem {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! Get200ResponseAvailablePaymentMethodsItem) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! Get200ResponseAvailablePaymentMethodsItem) {
+      return false;
+    }
     return id == other.id;
   }
 
