@@ -92,7 +92,7 @@ void main() async {
 
 ```yaml
 dependencies:
-  sumup_api_client: ^0.1.0
+  sumup_api_client: ^0.1.1
 ```
 
 ## Commands
