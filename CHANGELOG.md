@@ -1,3 +1,14 @@
+## 0.1.3
+
+- Add dartdoc comments to all generated model classes (186 files)
+- Improve pub.dev documentation score
+
+## 0.1.2
+
+- Integrate mcache_dart for token caching (LRU, O(1))
+- Integrate dio_mcache for response caching (GET dedup, 5min TTL)
+- Add enableCaching option to SumUpClient factories
+
 ## 0.1.1
 
 - Fix README badges parity with other PurpleSoft packages
