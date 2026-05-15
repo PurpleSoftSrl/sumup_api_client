@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `ReaderDeviceModel` from the SumUp API spec.
 enum ReaderDeviceModel {
   solo('solo'),
   virtual_solo('virtual-solo');

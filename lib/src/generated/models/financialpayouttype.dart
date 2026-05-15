@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `FinancialPayoutType` from the SumUp API spec.
 enum FinancialPayoutType {
   PAYOUT('PAYOUT'),
   CHARGE_BACK_DEDUCTION('CHARGE_BACK_DEDUCTION'),

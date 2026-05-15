@@ -22,6 +22,7 @@ sealed class Post400Response {
   };
 }
 
+/// Sealed variant for `Post400ResponseErrorExtendedVariant0` in `Post400Response`.
 class Post400ResponseErrorExtendedVariant0 extends Post400Response {
   const Post400ResponseErrorExtendedVariant0(this.value);
   final ErrorExtended value;
@@ -32,6 +33,7 @@ class Post400ResponseErrorExtendedVariant0 extends Post400Response {
   Map<String, dynamic> toJson() => value.toJson();
 }
 
+/// Sealed variant for `Post400ResponseVariant1` in `Post400Response`.
 class Post400ResponseVariant1 extends Post400Response {
   const Post400ResponseVariant1({
     required this.instance,

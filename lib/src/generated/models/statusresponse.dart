@@ -4,6 +4,7 @@
 //
 import 'statusresponsedata.dart';
 
+/// Object model for `StatusResponse` from the SumUp API spec.
 class StatusResponse {
   const StatusResponse({
     required this.data,

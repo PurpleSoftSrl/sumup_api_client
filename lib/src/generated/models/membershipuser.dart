@@ -4,6 +4,7 @@
 //
 import 'membershipuserclassic.dart';
 
+/// Object model for `MembershipUser` from the SumUp API spec.
 class MembershipUser {
   const MembershipUser({
     required this.id,

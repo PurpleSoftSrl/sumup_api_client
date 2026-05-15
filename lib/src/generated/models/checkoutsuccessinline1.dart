@@ -4,6 +4,7 @@
 //
 import 'checkoutsuccessinline1paymentinstrument.dart';
 
+/// Object model for `CheckoutSuccessInline1` from the SumUp API spec.
 class CheckoutSuccessInline1 {
   const CheckoutSuccessInline1({
     this.transactionCode,

@@ -4,4 +4,5 @@
 //
 import 'errorextended.dart';
 
+/// List wrapper type generated from a SumUp API spec array schema.
 typedef Put400Response1 = List<ErrorExtended>;

@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `TransactionHistoryInline2PayoutType` from the SumUp API spec.
 enum TransactionHistoryInline2PayoutType {
   BANK_ACCOUNT('BANK_ACCOUNT'),
   PREPAID_CARD('PREPAID_CARD');

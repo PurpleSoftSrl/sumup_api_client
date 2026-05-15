@@ -6,6 +6,7 @@ import 'address.dart';
 import 'attributes.dart';
 import 'companyidentifier.dart';
 
+/// Object model for `Company` from the SumUp API spec.
 class Company {
   const Company({
     this.name,

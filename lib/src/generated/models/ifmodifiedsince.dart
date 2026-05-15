@@ -20,6 +20,7 @@ sealed class IfModifiedSince {
   };
 }
 
+/// Sealed variant for `IfModifiedSinceVariant0` in `IfModifiedSince`.
 class IfModifiedSinceVariant0 extends IfModifiedSince {
   const IfModifiedSinceVariant0(this.value);
   final String value;
@@ -30,6 +31,7 @@ class IfModifiedSinceVariant0 extends IfModifiedSince {
   Map<String, dynamic> toJson() => {'value': value};
 }
 
+/// Sealed variant for `IfModifiedSinceVariant1` in `IfModifiedSince`.
 class IfModifiedSinceVariant1 extends IfModifiedSince {
   const IfModifiedSinceVariant1(this.value);
   final DateTime value;

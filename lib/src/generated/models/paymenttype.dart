@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `PaymentType` from the SumUp API spec.
 enum PaymentType {
   CASH('CASH'),
   POS('POS'),

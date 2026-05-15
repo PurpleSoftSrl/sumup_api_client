@@ -7,6 +7,7 @@ import 'checkouttransactionsitem.dart';
 import 'currency.dart';
 import 'mandateresponse.dart';
 
+/// Object model for `Checkout` from the SumUp API spec.
 class Checkout {
   const Checkout({
     this.checkoutReference,

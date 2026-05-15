@@ -4,6 +4,7 @@
 //
 import 'entrymode.dart';
 
+/// Object model for `TransactionCheckoutInfo` from the SumUp API spec.
 class TransactionCheckoutInfo {
   const TransactionCheckoutInfo({
     this.merchantCode,

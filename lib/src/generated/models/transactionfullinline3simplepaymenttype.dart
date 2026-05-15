@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `TransactionFullInline3SimplePaymentType` from the SumUp API spec.
 enum TransactionFullInline3SimplePaymentType {
   CASH('CASH'),
   CC_SIGNATURE('CC_SIGNATURE'),

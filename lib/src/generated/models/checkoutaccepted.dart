@@ -4,6 +4,7 @@
 //
 import 'checkoutacceptednextstep.dart';
 
+/// Object model for `CheckoutAccepted` from the SumUp API spec.
 class CheckoutAccepted {
   const CheckoutAccepted({
     this.nextStep,

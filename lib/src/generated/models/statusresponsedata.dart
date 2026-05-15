@@ -6,6 +6,7 @@ import 'statusresponsedataconnectiontype.dart';
 import 'statusresponsedatastate.dart';
 import 'statusresponsedatastatus.dart';
 
+/// Object model for `StatusResponseData` from the SumUp API spec.
 class StatusResponseData {
   const StatusResponseData({
     this.batteryLevel,

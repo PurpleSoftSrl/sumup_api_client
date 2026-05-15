@@ -5,6 +5,7 @@
 import 'cardexpirymonth.dart';
 import 'cardtype.dart';
 
+/// Object model for `Card` from the SumUp API spec.
 class Card {
   const Card({
     required this.name,

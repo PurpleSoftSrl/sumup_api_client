@@ -6,6 +6,7 @@ import 'address.dart';
 import 'ownership.dart';
 import 'personalidentifier.dart';
 
+/// Object model for `BasePerson` from the SumUp API spec.
 class BasePerson {
   const BasePerson({
     required this.id,

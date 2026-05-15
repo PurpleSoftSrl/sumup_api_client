@@ -4,6 +4,7 @@
 //
 import 'readercheckoutstatuschangepayload.dart';
 
+/// Object model for `ReaderCheckoutStatusChange` from the SumUp API spec.
 class ReaderCheckoutStatusChange {
   const ReaderCheckoutStatusChange({
     required this.eventType,

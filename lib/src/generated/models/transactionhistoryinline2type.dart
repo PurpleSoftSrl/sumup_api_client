@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `TransactionHistoryInline2Type` from the SumUp API spec.
 enum TransactionHistoryInline2Type {
   PAYMENT('PAYMENT'),
   REFUND('REFUND'),

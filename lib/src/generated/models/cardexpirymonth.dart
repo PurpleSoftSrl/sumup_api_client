@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `CardExpiryMonth` from the SumUp API spec.
 enum CardExpiryMonth {
   value_01('01'),
   value_02('02'),

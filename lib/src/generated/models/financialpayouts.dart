@@ -4,4 +4,5 @@
 //
 import 'financialpayout.dart';
 
+/// List wrapper type generated from a SumUp API spec array schema.
 typedef FinancialPayouts = List<FinancialPayout>;

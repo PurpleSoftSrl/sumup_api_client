@@ -4,6 +4,7 @@
 //
 import 'readerdevicemodel.dart';
 
+/// Object model for `ReaderDevice` from the SumUp API spec.
 class ReaderDevice {
   const ReaderDevice({
     required this.identifier,

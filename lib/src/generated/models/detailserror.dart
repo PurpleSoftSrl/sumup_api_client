@@ -4,6 +4,7 @@
 //
 import 'detailserrorfailedconstraintsitem.dart';
 
+/// Object model for `DetailsError` from the SumUp API spec.
 class DetailsError {
   const DetailsError({
     this.title,

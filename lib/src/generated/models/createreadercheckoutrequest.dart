@@ -7,6 +7,7 @@ import 'createreadercheckoutrequestaffiliate.dart';
 import 'createreadercheckoutrequestcardtype.dart';
 import 'createreadercheckoutrequesttotalamount.dart';
 
+/// Object model for `CreateReaderCheckoutRequest` from the SumUp API spec.
 class CreateReaderCheckoutRequest {
   const CreateReaderCheckoutRequest({
     this.aade,

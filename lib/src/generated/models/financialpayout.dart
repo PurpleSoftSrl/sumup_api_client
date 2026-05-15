@@ -5,6 +5,7 @@
 import 'financialpayoutstatus.dart';
 import 'financialpayouttype.dart';
 
+/// Object model for `FinancialPayout` from the SumUp API spec.
 class FinancialPayout {
   const FinancialPayout({
     required this.id,

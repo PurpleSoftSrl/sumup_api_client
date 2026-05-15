@@ -4,6 +4,7 @@
 //
 import 'createreadercheckoutrequestaffiliatetags.dart';
 
+/// Object model for `CreateReaderCheckoutRequestAffiliate` from the SumUp API spec.
 class CreateReaderCheckoutRequestAffiliate {
   const CreateReaderCheckoutRequestAffiliate({
     required this.appId,

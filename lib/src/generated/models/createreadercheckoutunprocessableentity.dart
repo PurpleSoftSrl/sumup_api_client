@@ -4,6 +4,7 @@
 //
 import 'createreadercheckoutunprocessableentityerrors.dart';
 
+/// Object model for `CreateReaderCheckoutUnprocessableEntity` from the SumUp API spec.
 class CreateReaderCheckoutUnprocessableEntity {
   const CreateReaderCheckoutUnprocessableEntity({
     required this.errors,

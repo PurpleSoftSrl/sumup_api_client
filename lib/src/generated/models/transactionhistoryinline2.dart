@@ -6,6 +6,7 @@ import 'cardtype.dart';
 import 'transactionhistoryinline2payouttype.dart';
 import 'transactionhistoryinline2type.dart';
 
+/// Object model for `TransactionHistoryInline2` from the SumUp API spec.
 class TransactionHistoryInline2 {
   const TransactionHistoryInline2({
     this.transactionId,

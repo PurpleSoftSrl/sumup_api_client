@@ -4,6 +4,7 @@
 //
 import 'createreadercheckouterrorerrors.dart';
 
+/// Object model for `CreateReaderCheckoutError` from the SumUp API spec.
 class CreateReaderCheckoutError {
   const CreateReaderCheckoutError({
     required this.errors,

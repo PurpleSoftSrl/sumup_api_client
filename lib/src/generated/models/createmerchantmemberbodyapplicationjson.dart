@@ -5,6 +5,7 @@
 import 'attributes.dart';
 import 'metadata.dart';
 
+/// Object model for `CreateMerchantMemberBodyApplicationJson` from the SumUp API spec.
 class CreateMerchantMemberBodyApplicationJson {
   const CreateMerchantMemberBodyApplicationJson({
     this.isManagedUser,

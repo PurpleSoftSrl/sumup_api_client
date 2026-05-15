@@ -4,6 +4,7 @@
 //
 import 'badrequesterrors.dart';
 
+/// Object model for `BadRequest` from the SumUp API spec.
 class BadRequest {
   const BadRequest({
     required this.errors,

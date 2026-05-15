@@ -5,6 +5,7 @@
 import 'checkoutacceptednextstepmechanismitem.dart';
 import 'checkoutacceptednextsteppayload.dart';
 
+/// Object model for `CheckoutAcceptedNextStep` from the SumUp API spec.
 class CheckoutAcceptedNextStep {
   const CheckoutAcceptedNextStep({
     this.url,

@@ -4,6 +4,7 @@
 //
 import 'createreadercheckoutresponsedata.dart';
 
+/// Object model for `CreateReaderCheckoutResponse` from the SumUp API spec.
 class CreateReaderCheckoutResponse {
   const CreateReaderCheckoutResponse({
     required this.data,

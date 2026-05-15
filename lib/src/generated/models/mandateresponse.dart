@@ -4,6 +4,7 @@
 //
 import 'mandateresponsestatus.dart';
 
+/// Object model for `MandateResponse` from the SumUp API spec.
 class MandateResponse {
   const MandateResponse({
     this.type_,

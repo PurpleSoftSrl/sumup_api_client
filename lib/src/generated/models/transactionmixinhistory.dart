@@ -4,6 +4,7 @@
 //
 import 'transactionmixinhistorypayoutplan.dart';
 
+/// Object model for `TransactionMixinHistory` from the SumUp API spec.
 class TransactionMixinHistory {
   const TransactionMixinHistory({
     this.productSummary,

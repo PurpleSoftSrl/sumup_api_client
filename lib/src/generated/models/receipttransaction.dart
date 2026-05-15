@@ -9,6 +9,7 @@ import 'receipttransactionprocessas.dart';
 import 'receipttransactionproductsitem.dart';
 import 'receipttransactionvatratesitem.dart';
 
+/// Object model for `ReceiptTransaction` from the SumUp API spec.
 class ReceiptTransaction {
   const ReceiptTransaction({
     this.transactionCode,

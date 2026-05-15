@@ -4,6 +4,7 @@
 //
 import 'metadata.dart';
 
+/// Object model for `Role` from the SumUp API spec.
 class Role {
   const Role({
     required this.id,

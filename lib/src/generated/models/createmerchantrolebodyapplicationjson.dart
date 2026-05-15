@@ -4,6 +4,7 @@
 //
 import 'metadata.dart';
 
+/// Object model for `CreateMerchantRoleBodyApplicationJson` from the SumUp API spec.
 class CreateMerchantRoleBodyApplicationJson {
   const CreateMerchantRoleBodyApplicationJson({
     required this.name,

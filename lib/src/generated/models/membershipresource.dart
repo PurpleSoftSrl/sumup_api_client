@@ -4,6 +4,7 @@
 //
 import 'attributes.dart';
 
+/// Object model for `MembershipResource` from the SumUp API spec.
 class MembershipResource {
   const MembershipResource({
     required this.id,

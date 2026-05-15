@@ -4,6 +4,7 @@
 //
 import 'receiptmerchantdatamerchantprofileaddress.dart';
 
+/// Object model for `ReceiptMerchantDataMerchantProfile` from the SumUp API spec.
 class ReceiptMerchantDataMerchantProfile {
   const ReceiptMerchantDataMerchantProfile({
     this.merchantCode,

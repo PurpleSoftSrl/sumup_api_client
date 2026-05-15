@@ -4,6 +4,7 @@
 //
 import 'addresslegacy.dart';
 
+/// Object model for `PersonalDetails` from the SumUp API spec.
 class PersonalDetails {
   const PersonalDetails({
     this.firstName,

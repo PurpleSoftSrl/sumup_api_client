@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `EntryMode` from the SumUp API spec.
 enum EntryMode {
   BOLETO('BOLETO'),
   SOFORT('SOFORT'),

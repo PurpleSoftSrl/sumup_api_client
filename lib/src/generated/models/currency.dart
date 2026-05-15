@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `Currency` from the SumUp API spec.
 enum Currency {
   BGN('BGN'),
   BRL('BRL'),

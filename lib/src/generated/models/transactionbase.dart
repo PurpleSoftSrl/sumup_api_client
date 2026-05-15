@@ -6,6 +6,7 @@ import 'currency.dart';
 import 'paymenttype.dart';
 import 'transactionbasestatus.dart';
 
+/// Object model for `TransactionBase` from the SumUp API spec.
 class TransactionBase {
   const TransactionBase({
     this.id,

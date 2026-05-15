@@ -6,6 +6,7 @@ import 'mandateresponse.dart';
 import 'paymentinstrumentresponsecard.dart';
 import 'paymentinstrumentresponsetype.dart';
 
+/// Object model for `PaymentInstrumentResponse` from the SumUp API spec.
 class PaymentInstrumentResponse {
   const PaymentInstrumentResponse({
     this.token,

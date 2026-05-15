@@ -4,6 +4,7 @@
 //
 import 'mandatepayloadtype.dart';
 
+/// Object model for `MandatePayload` from the SumUp API spec.
 class MandatePayload {
   const MandatePayload({
     required this.type_,

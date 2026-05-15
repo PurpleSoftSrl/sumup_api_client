@@ -9,6 +9,7 @@ import 'processcheckoutapplepay.dart';
 import 'processcheckoutgooglepay.dart';
 import 'processcheckoutpaymenttype.dart';
 
+/// Object model for `ProcessCheckout` from the SumUp API spec.
 class ProcessCheckout {
   const ProcessCheckout({
     required this.paymentType,

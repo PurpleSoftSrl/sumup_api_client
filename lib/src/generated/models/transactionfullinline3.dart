@@ -17,6 +17,7 @@ import 'transactionfullinline3simplestatus.dart';
 import 'transactionfullinline3vatratesitem.dart';
 import 'transactionfullinline3verificationmethod.dart';
 
+/// Object model for `TransactionFullInline3` from the SumUp API spec.
 class TransactionFullInline3 {
   const TransactionFullInline3({
     this.foreignTransactionId,

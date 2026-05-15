@@ -4,6 +4,7 @@
 //
 import 'unauthorizederrors.dart';
 
+/// Object model for `Unauthorized` from the SumUp API spec.
 class Unauthorized {
   const Unauthorized({
     required this.errors,

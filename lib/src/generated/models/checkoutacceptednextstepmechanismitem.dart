@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `CheckoutAcceptedNextStepMechanismItem` from the SumUp API spec.
 enum CheckoutAcceptedNextStepMechanismItem {
   iframe('iframe'),
   browser('browser');

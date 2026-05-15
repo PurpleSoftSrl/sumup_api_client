@@ -21,6 +21,7 @@ sealed class Put400Response {
   };
 }
 
+/// Sealed variant for `Put400ResponseErrorExtendedVariant0` in `Put400Response`.
 class Put400ResponseErrorExtendedVariant0 extends Put400Response {
   const Put400ResponseErrorExtendedVariant0(this.value);
   final ErrorExtended value;
@@ -31,6 +32,7 @@ class Put400ResponseErrorExtendedVariant0 extends Put400Response {
   Map<String, dynamic> toJson() => value.toJson();
 }
 
+/// Sealed variant for `Put400ResponseVariant1` in `Put400Response`.
 class Put400ResponseVariant1 extends Put400Response {
   const Put400ResponseVariant1(this.value);
   final List<ErrorExtended> value;

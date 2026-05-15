@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `MandateResponseStatus` from the SumUp API spec.
 enum MandateResponseStatus {
   active('active'),
   inactive('inactive');

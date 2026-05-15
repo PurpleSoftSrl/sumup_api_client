@@ -4,6 +4,7 @@
 //
 import 'metadata.dart';
 
+/// Object model for `UpdateReaderBodyApplicationJson` from the SumUp API spec.
 class UpdateReaderBodyApplicationJson {
   const UpdateReaderBodyApplicationJson({
     this.name,

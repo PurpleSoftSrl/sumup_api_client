@@ -5,6 +5,7 @@
 import 'eventstatus.dart';
 import 'eventtype.dart';
 
+/// Object model for `ReceiptEvent` from the SumUp API spec.
 class ReceiptEvent {
   const ReceiptEvent({
     this.id,

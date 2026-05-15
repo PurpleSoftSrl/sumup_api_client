@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `TypesItem` from the SumUp API spec.
 enum TypesItem {
   PAYMENT('PAYMENT'),
   REFUND('REFUND'),

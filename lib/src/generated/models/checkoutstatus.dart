@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `CheckoutStatus` from the SumUp API spec.
 enum CheckoutStatus {
   PENDING('PENDING'),
   FAILED('FAILED'),

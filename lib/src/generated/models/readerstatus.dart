@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `ReaderStatus` from the SumUp API spec.
 enum ReaderStatus {
   unknown('unknown'),
   processing('processing'),

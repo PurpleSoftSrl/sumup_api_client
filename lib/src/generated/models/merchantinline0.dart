@@ -7,6 +7,7 @@ import 'classicmerchantidentifiers.dart';
 import 'company.dart';
 import 'meta.dart';
 
+/// Object model for `MerchantInline0` from the SumUp API spec.
 class MerchantInline0 {
   const MerchantInline0({
     required this.merchantCode,

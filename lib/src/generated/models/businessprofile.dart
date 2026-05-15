@@ -5,6 +5,7 @@
 import 'address.dart';
 import 'branding.dart';
 
+/// Object model for `BusinessProfile` from the SumUp API spec.
 class BusinessProfile {
   const BusinessProfile({
     this.name,

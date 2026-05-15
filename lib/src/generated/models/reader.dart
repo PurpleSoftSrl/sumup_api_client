@@ -6,6 +6,7 @@ import 'metadata.dart';
 import 'readerdevice.dart';
 import 'readerstatus.dart';
 
+/// Object model for `Reader` from the SumUp API spec.
 class Reader {
   const Reader({
     required this.id,

@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `StatusResponseDataState` from the SumUp API spec.
 enum StatusResponseDataState {
   IDLE('IDLE'),
   SELECTING_TIP('SELECTING_TIP'),

@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `CardType` from the SumUp API spec.
 enum CardType {
   ALELO('ALELO'),
   AMEX('AMEX'),

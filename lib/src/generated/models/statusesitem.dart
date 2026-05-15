@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `StatusesItem` from the SumUp API spec.
 enum StatusesItem {
   SUCCESSFUL('SUCCESSFUL'),
   CANCELLED('CANCELLED'),

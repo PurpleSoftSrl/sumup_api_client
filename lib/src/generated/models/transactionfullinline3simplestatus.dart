@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `TransactionFullInline3SimpleStatus` from the SumUp API spec.
 enum TransactionFullInline3SimpleStatus {
   SUCCESSFUL('SUCCESSFUL'),
   PAID_OUT('PAID_OUT'),

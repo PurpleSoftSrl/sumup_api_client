@@ -4,6 +4,7 @@
 //
 import 'notfounderrors.dart';
 
+/// Object model for `NotFound` from the SumUp API spec.
 class NotFound {
   const NotFound({
     required this.errors,

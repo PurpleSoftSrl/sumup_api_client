@@ -5,6 +5,7 @@
 import 'eventstatus.dart';
 import 'eventtype.dart';
 
+/// Object model for `TransactionEvent` from the SumUp API spec.
 class TransactionEvent {
   const TransactionEvent({
     this.id,

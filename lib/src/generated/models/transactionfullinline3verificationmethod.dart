@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `TransactionFullInline3VerificationMethod` from the SumUp API spec.
 enum TransactionFullInline3VerificationMethod {
   none('none'),
   signature('signature'),

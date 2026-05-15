@@ -4,6 +4,7 @@
 //
 import 'cardtype.dart';
 
+/// Object model for `PaymentInstrumentResponseCard` from the SumUp API spec.
 class PaymentInstrumentResponseCard {
   const PaymentInstrumentResponseCard({
     this.last4Digits,

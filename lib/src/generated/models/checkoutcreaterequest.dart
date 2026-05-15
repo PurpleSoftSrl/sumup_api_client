@@ -6,6 +6,7 @@ import 'checkoutcreaterequestpurpose.dart';
 import 'currency.dart';
 import 'hostedcheckout.dart';
 
+/// Object model for `CheckoutCreateRequest` from the SumUp API spec.
 class CheckoutCreateRequest {
   const CheckoutCreateRequest({
     required this.checkoutReference,

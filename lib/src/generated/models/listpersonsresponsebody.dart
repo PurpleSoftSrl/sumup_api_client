@@ -4,6 +4,7 @@
 //
 import 'person.dart';
 
+/// Object model for `ListPersonsResponseBody` from the SumUp API spec.
 class ListPersonsResponseBody {
   const ListPersonsResponseBody({
     required this.items,

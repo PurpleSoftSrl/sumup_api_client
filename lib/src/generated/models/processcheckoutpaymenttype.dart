@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `ProcessCheckoutPaymentType` from the SumUp API spec.
 enum ProcessCheckoutPaymentType {
   card('card'),
   boleto('boleto'),

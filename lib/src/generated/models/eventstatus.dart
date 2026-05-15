@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `EventStatus` from the SumUp API spec.
 enum EventStatus {
   FAILED('FAILED'),
   PAID_OUT('PAID_OUT'),

@@ -4,6 +4,7 @@
 //
 import 'personaldetails.dart';
 
+/// Object model for `UpdateCustomerBodyApplicationJson` from the SumUp API spec.
 class UpdateCustomerBodyApplicationJson {
   const UpdateCustomerBodyApplicationJson({
     this.personalDetails,

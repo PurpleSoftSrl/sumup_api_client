@@ -6,6 +6,7 @@ import 'attributes.dart';
 import 'metadata.dart';
 import 'updatemerchantmemberbodyapplicationjsonuser.dart';
 
+/// Object model for `UpdateMerchantMemberBodyApplicationJson` from the SumUp API spec.
 class UpdateMerchantMemberBodyApplicationJson {
   const UpdateMerchantMemberBodyApplicationJson({
     this.roles,

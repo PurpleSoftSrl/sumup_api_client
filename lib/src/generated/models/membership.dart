@@ -8,6 +8,7 @@ import 'membershipresource.dart';
 import 'membershipstatus.dart';
 import 'metadata.dart';
 
+/// Object model for `Membership` from the SumUp API spec.
 class Membership {
   const Membership({
     required this.id,

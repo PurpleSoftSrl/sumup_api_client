@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `StatusResponseDataStatus` from the SumUp API spec.
 enum StatusResponseDataStatus {
   ONLINE('ONLINE'),
   OFFLINE('OFFLINE');

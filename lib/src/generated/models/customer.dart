@@ -4,6 +4,7 @@
 //
 import 'personaldetails.dart';
 
+/// Object model for `Customer` from the SumUp API spec.
 class Customer {
   const Customer({
     required this.customerId,

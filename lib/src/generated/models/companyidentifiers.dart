@@ -4,4 +4,5 @@
 //
 import 'companyidentifier.dart';
 
+/// List wrapper type generated from a SumUp API spec array schema.
 typedef CompanyIdentifiers = List<CompanyIdentifier>;

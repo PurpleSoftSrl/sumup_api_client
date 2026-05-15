@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `CheckoutCreateRequestPurpose` from the SumUp API spec.
 enum CheckoutCreateRequestPurpose {
   CHECKOUT('CHECKOUT'),
   SETUP_RECURRING_PAYMENT('SETUP_RECURRING_PAYMENT');

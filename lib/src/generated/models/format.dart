@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `Format` from the SumUp API spec.
 enum Format {
   json('json'),
   csv('csv');

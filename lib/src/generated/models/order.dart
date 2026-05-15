@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `Order` from the SumUp API spec.
 enum Order {
   ascending('ascending'),
   descending('descending');

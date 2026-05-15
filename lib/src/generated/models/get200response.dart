@@ -4,6 +4,7 @@
 //
 import 'get200responseavailablepaymentmethodsitem.dart';
 
+/// Object model for `Get200Response` from the SumUp API spec.
 class Get200Response {
   const Get200Response({
     this.availablePaymentMethods,

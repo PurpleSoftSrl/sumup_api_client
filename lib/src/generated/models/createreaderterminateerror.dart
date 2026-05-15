@@ -4,6 +4,7 @@
 //
 import 'createreaderterminateerrorerrors.dart';
 
+/// Object model for `CreateReaderTerminateError` from the SumUp API spec.
 class CreateReaderTerminateError {
   const CreateReaderTerminateError({
     required this.errors,

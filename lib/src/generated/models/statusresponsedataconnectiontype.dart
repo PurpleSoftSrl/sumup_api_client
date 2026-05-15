@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `StatusResponseDataConnectionType` from the SumUp API spec.
 enum StatusResponseDataConnectionType {
   btle('btle'),
   edge('edge'),

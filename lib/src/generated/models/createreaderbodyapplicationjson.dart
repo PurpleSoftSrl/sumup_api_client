@@ -4,6 +4,7 @@
 //
 import 'metadata.dart';
 
+/// Object model for `CreateReaderBodyApplicationJson` from the SumUp API spec.
 class CreateReaderBodyApplicationJson {
   const CreateReaderBodyApplicationJson({
     required this.pairingCode,

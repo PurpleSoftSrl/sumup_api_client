@@ -4,6 +4,7 @@
 //
 // ignore_for_file: constant_identifier_names
 
+/// Enum for `MembershipStatus` from the SumUp API spec.
 enum MembershipStatus {
   accepted('accepted'),
   pending('pending'),

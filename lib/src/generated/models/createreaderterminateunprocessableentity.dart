@@ -4,6 +4,7 @@
 //
 import 'createreaderterminateunprocessableentityerrors.dart';
 
+/// Object model for `CreateReaderTerminateUnprocessableEntity` from the SumUp API spec.
 class CreateReaderTerminateUnprocessableEntity {
   const CreateReaderTerminateUnprocessableEntity({
     required this.errors,
