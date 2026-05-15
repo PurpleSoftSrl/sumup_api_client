@@ -89,7 +89,8 @@ class OAuth2Manager {
         _tokenCacheKey,
         stored,
         MemoryCacheEntryOptions()
-          ..absoluteExpirationRelativeToNow = Duration(seconds: stored.expiresIn),
+          ..absoluteExpirationRelativeToNow =
+              Duration(seconds: stored.expiresIn),
       );
       return stored;
     }
@@ -114,7 +115,8 @@ class _OAuth2Interceptor extends Interceptor {
   _OAuth2Interceptor(this._manager);
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     final token = await _manager.getToken();
     options.headers['Authorization'] = token.authorizationHeader;
     handler.next(options);

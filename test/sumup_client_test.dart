@@ -36,7 +36,8 @@ void main() {
       }
     } catch (e) {
       merchantCode = _env('SUMUP_TEST_MERCHANT_CODE');
-      if (merchantCode == null) print('  ⚠️  Could not discover merchant code: $e');
+      if (merchantCode == null)
+        print('  ⚠️  Could not discover merchant code: $e');
     }
   });
 
@@ -105,7 +106,8 @@ void main() {
         print('  ✅ Merchant API works');
       } on DioException catch (e) {
         expect(e.response?.statusCode, anyOf(equals(401), equals(403)));
-        print('  ✅ Auth working — got ${e.response?.statusCode} for merchant: $mc');
+        print(
+            '  ✅ Auth working — got ${e.response?.statusCode} for merchant: $mc');
       }
     });
   });
@@ -122,7 +124,8 @@ void main() {
       } on DioException catch (e) {
         // 403 expected without checkout scope — auth is working
         expect(e.response?.statusCode, anyOf(equals(403), equals(401)));
-        print('  ✅ Auth working — got ${e.response?.statusCode} (expected without checkout scope)');
+        print(
+            '  ✅ Auth working — got ${e.response?.statusCode} (expected without checkout scope)');
       }
     });
   });
@@ -137,7 +140,8 @@ void main() {
       try {
         final mc = _env('SUMUP_TEST_MERCHANT_CODE');
         if (mc != null) {
-          final result = await apiClient.merchants.getMerchant(merchantCode: mc);
+          final result =
+              await apiClient.merchants.getMerchant(merchantCode: mc);
           expect(result, isNotNull);
           print('  ✅ API Key auth works');
         }

@@ -17,12 +17,8 @@ class TransactionFullInline3Location {
 
   factory TransactionFullInline3Location.fromJson(Map<String, dynamic> json) {
     return TransactionFullInline3Location(
-      lat: json['lat'] != null
-          ? (json['lat'] as num).toDouble()
-          : null,
-      lon: json['lon'] != null
-          ? (json['lon'] as num).toDouble()
-          : null,
+      lat: json['lat'] != null ? (json['lat'] as num).toDouble() : null,
+      lon: json['lon'] != null ? (json['lon'] as num).toDouble() : null,
       horizontalAccuracy: json['horizontal_accuracy'] != null
           ? (json['horizontal_accuracy'] as num).toDouble()
           : null,
@@ -33,7 +29,8 @@ class TransactionFullInline3Location {
     return {
       if (lat != null) 'lat': lat!,
       if (lon != null) 'lon': lon!,
-      if (horizontalAccuracy != null) 'horizontal_accuracy': horizontalAccuracy!,
+      if (horizontalAccuracy != null)
+        'horizontal_accuracy': horizontalAccuracy!,
     };
   }
 
@@ -55,15 +52,15 @@ class TransactionFullInline3Location {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionFullInline3Location) return false;
-    return lat == other.lat
-        && lon == other.lon
-        && horizontalAccuracy == other.horizontalAccuracy
-;
+    return lat == other.lat &&
+        lon == other.lon &&
+        horizontalAccuracy == other.horizontalAccuracy;
   }
 
   @override
   int get hashCode => Object.hash(lat, lon, horizontalAccuracy);
 
   @override
-  String toString() => 'TransactionFullInline3Location(lat=$lat, lon=$lon, horizontalAccuracy=$horizontalAccuracy)';
+  String toString() =>
+      'TransactionFullInline3Location(lat=$lat, lon=$lon, horizontalAccuracy=$horizontalAccuracy)';
 }

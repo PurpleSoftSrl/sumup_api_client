@@ -37,11 +37,12 @@ class CheckoutsApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/payment-methods',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -56,16 +57,18 @@ class CheckoutsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (checkoutReference != null) reqQueryParams['checkout_reference'] = checkoutReference.toString();
+    if (checkoutReference != null)
+      reqQueryParams['checkout_reference'] = checkoutReference.toString();
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/checkouts',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -73,10 +76,10 @@ class CheckoutsApi {
   }
 
   /// Creates a new payment checkout resource. The unique `checkout_reference` created by this request, is used for further manipulation of the checkout.
-  /// 
+  ///
   /// For 3DS checkouts, add the `redirect_url` parameter to your request body schema.
   /// To use the [Hosted Checkout](https://developer.sumup.com/online-payments/checkouts/hosted-checkout/) page, set the `hosted_checkout.enabled` to `true`.
-  /// 
+  ///
   /// Follow by processing a checkout to charge the provided payment instrument.
   Future<CreateCheckoutResult> createCheckout({
     required CheckoutCreateRequest checkoutCreateRequest,
@@ -84,16 +87,16 @@ class CheckoutsApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/checkouts',
       data: checkoutCreateRequest.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -107,15 +110,15 @@ class CheckoutsApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/checkouts/$id',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -123,7 +126,7 @@ class CheckoutsApi {
   }
 
   /// Processing a checkout will attempt to charge the provided payment instrument for the amount of the specified checkout resource initiated in the `Create a checkout` endpoint.
-  /// 
+  ///
   /// Follow this request with `Retrieve a checkout` to confirm its status.
   Future<ProcessCheckoutResult> processCheckout({
     required String id,
@@ -132,16 +135,16 @@ class CheckoutsApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/checkouts/$id',
       data: processCheckout.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'put',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'put',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -155,15 +158,15 @@ class CheckoutsApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/checkouts/$id',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'delete',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'delete',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -171,33 +174,33 @@ class CheckoutsApi {
   }
 
   /// Creates an Apple Pay merchant session for the specified checkout.
-  /// 
+  ///
   /// Use this endpoint after the customer selects Apple Pay and before calling
   /// `ApplePaySession.completeMerchantValidation(...)` in the browser.
   /// SumUp validates the merchant session request and returns the Apple Pay
   /// session object that your frontend should pass to Apple's JavaScript API.
-  /// 
+  ///
   Future<CreateApplePaySessionResult> createApplePaySession({
     required String id,
-    CreateApplePaySessionBodyApplicationJson? createApplePaySessionBodyApplicationJson,
+    CreateApplePaySessionBodyApplicationJson?
+        createApplePaySessionBodyApplicationJson,
     CancelToken? cancelToken,
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.2/checkouts/$id/apple-pay-session',
       data: createApplePaySessionBodyApplicationJson?.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'put',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'put',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return CreateApplePaySessionResult.fromResponse(response);
   }
-
 }

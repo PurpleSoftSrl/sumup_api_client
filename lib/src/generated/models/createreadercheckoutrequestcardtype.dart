@@ -15,7 +15,8 @@ enum CreateReaderCheckoutRequestCardType {
   static CreateReaderCheckoutRequestCardType fromJson(String json) {
     return CreateReaderCheckoutRequestCardType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown CreateReaderCheckoutRequestCardType: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown CreateReaderCheckoutRequestCardType: $json'),
     );
   }
 

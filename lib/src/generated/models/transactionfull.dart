@@ -7,15 +7,12 @@
 class TransactionFull {
   const TransactionFull();
 
-
   factory TransactionFull.fromJson(Map<String, dynamic> json) {
-    return const TransactionFull(
-    );
+    return const TransactionFull();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   TransactionFull copyWith() {

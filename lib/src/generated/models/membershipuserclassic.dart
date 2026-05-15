@@ -37,8 +37,7 @@ class MembershipUserClassic {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! MembershipUserClassic) return false;
-    return userId == other.userId
-;
+    return userId == other.userId;
   }
 
   @override

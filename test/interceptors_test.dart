@@ -22,9 +22,12 @@ void main() {
         connectTimeout: const Duration(milliseconds: 500),
         receiveTimeout: const Duration(milliseconds: 500),
       ));
-      dio.interceptors.add(RetryInterceptor(maxRetries: 2, baseDelay: const Duration(milliseconds: 10)));
+      dio.interceptors.add(RetryInterceptor(
+          maxRetries: 2, baseDelay: const Duration(milliseconds: 10)));
 
-      try { await dio.get<dynamic>('/test'); } catch (_) {}
+      try {
+        await dio.get<dynamic>('/test');
+      } catch (_) {}
       await server.close();
 
       // original + retries on 500 (retry uses new Dio().fetch, counted separately)
@@ -50,7 +53,8 @@ void main() {
         connectTimeout: const Duration(milliseconds: 500),
         receiveTimeout: const Duration(milliseconds: 500),
       ));
-      dio.interceptors.add(RetryInterceptor(maxRetries: 3, baseDelay: const Duration(milliseconds: 10)));
+      dio.interceptors.add(RetryInterceptor(
+          maxRetries: 3, baseDelay: const Duration(milliseconds: 10)));
 
       final response = await dio.get<dynamic>('/test');
       await server.close();
@@ -74,9 +78,12 @@ void main() {
         connectTimeout: const Duration(milliseconds: 500),
         receiveTimeout: const Duration(milliseconds: 500),
       ));
-      dio.interceptors.add(RetryInterceptor(maxRetries: 3, baseDelay: const Duration(milliseconds: 10)));
+      dio.interceptors.add(RetryInterceptor(
+          maxRetries: 3, baseDelay: const Duration(milliseconds: 10)));
 
-      try { await dio.get<dynamic>('/test'); } catch (_) {}
+      try {
+        await dio.get<dynamic>('/test');
+      } catch (_) {}
       await server.close();
       expect(requestCount, equals(1));
     });
@@ -103,7 +110,8 @@ void main() {
         connectTimeout: const Duration(milliseconds: 500),
         receiveTimeout: const Duration(milliseconds: 500),
       ));
-      dio.interceptors.add(RateLimitInterceptor(maxRetries: 3, baseDelay: const Duration(milliseconds: 10)));
+      dio.interceptors.add(RateLimitInterceptor(
+          maxRetries: 3, baseDelay: const Duration(milliseconds: 10)));
 
       final response = await dio.get<dynamic>('/test');
       await server.close();

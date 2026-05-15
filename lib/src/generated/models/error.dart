@@ -15,12 +15,9 @@ class Error {
 
   factory Error.fromJson(Map<String, dynamic> json) {
     return Error(
-      message: json['message'] != null
-          ? json['message'] as String
-          : null,
-      errorCode: json['error_code'] != null
-          ? json['error_code'] as String
-          : null,
+      message: json['message'] != null ? json['message'] as String : null,
+      errorCode:
+          json['error_code'] != null ? json['error_code'] as String : null,
     );
   }
 
@@ -47,9 +44,7 @@ class Error {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Error) return false;
-    return message == other.message
-        && errorCode == other.errorCode
-;
+    return message == other.message && errorCode == other.errorCode;
   }
 
   @override

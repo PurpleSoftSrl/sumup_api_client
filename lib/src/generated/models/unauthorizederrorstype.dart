@@ -15,7 +15,8 @@ enum UnauthorizedErrorsType {
   static UnauthorizedErrorsType fromJson(String json) {
     return UnauthorizedErrorsType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown UnauthorizedErrorsType: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown UnauthorizedErrorsType: $json'),
     );
   }
 

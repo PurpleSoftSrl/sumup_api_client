@@ -15,13 +15,15 @@ sealed class UpdateReaderResult {
   factory UpdateReaderResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => UpdateReaderResultHttp200(Reader.fromJson(response.data as Map<String, dynamic>)),
-      403 => UpdateReaderResultHttp403(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => UpdateReaderResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => UpdateReaderResultHttp200(
+          Reader.fromJson(response.data as Map<String, dynamic>)),
+      403 => UpdateReaderResultHttp403(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => UpdateReaderResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => UpdateReaderResultError.fromResponse(response),
     };
   }
-
 }
 
 class UpdateReaderResultHttp200 extends UpdateReaderResult {
@@ -43,5 +45,6 @@ class UpdateReaderResultError extends UpdateReaderResult {
   const UpdateReaderResultError(this.response);
   final Response<dynamic> response;
 
-  factory UpdateReaderResultError.fromResponse(Response<dynamic> response) => UpdateReaderResultError(response);
+  factory UpdateReaderResultError.fromResponse(Response<dynamic> response) =>
+      UpdateReaderResultError(response);
 }

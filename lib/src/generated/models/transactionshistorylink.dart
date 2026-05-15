@@ -43,9 +43,7 @@ class TransactionsHistoryLink {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionsHistoryLink) return false;
-    return rel == other.rel
-        && href == other.href
-;
+    return rel == other.rel && href == other.href;
   }
 
   @override

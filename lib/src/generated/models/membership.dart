@@ -57,7 +57,8 @@ class Membership {
       attributes: json['attributes'] != null
           ? Attributes.fromJson(json['attributes'] as Map<String, dynamic>)
           : null,
-      resource: MembershipResource.fromJson(json['resource'] as Map<String, dynamic>),
+      resource:
+          MembershipResource.fromJson(json['resource'] as Map<String, dynamic>),
     );
   }
 
@@ -92,7 +93,18 @@ class Membership {
     Attributes? attributes,
     MembershipResource? resource,
   }) {
-    if (id == null && resourceId == null && type_ == null && roles == null && permissions == null && createdAt == null && updatedAt == null && invite == null && status == null && metadata == null && attributes == null && resource == null) return this;
+    if (id == null &&
+        resourceId == null &&
+        type_ == null &&
+        roles == null &&
+        permissions == null &&
+        createdAt == null &&
+        updatedAt == null &&
+        invite == null &&
+        status == null &&
+        metadata == null &&
+        attributes == null &&
+        resource == null) return this;
 
     return Membership(
       id: id ?? this.id,
@@ -114,24 +126,25 @@ class Membership {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Membership) return false;
-    return id == other.id
-        && resourceId == other.resourceId
-        && type_ == other.type_
-        && roles == other.roles
-        && permissions == other.permissions
-        && createdAt == other.createdAt
-        && updatedAt == other.updatedAt
-        && invite == other.invite
-        && status == other.status
-        && metadata == other.metadata
-        && attributes == other.attributes
-        && resource == other.resource
-;
+    return id == other.id &&
+        resourceId == other.resourceId &&
+        type_ == other.type_ &&
+        roles == other.roles &&
+        permissions == other.permissions &&
+        createdAt == other.createdAt &&
+        updatedAt == other.updatedAt &&
+        invite == other.invite &&
+        status == other.status &&
+        metadata == other.metadata &&
+        attributes == other.attributes &&
+        resource == other.resource;
   }
 
   @override
-  int get hashCode => Object.hash(id, resourceId, type_, roles, permissions, createdAt, updatedAt, invite, status, metadata, attributes, resource);
+  int get hashCode => Object.hash(id, resourceId, type_, roles, permissions,
+      createdAt, updatedAt, invite, status, metadata, attributes, resource);
 
   @override
-  String toString() => 'Membership(id=$id, resourceId=$resourceId, type_=$type_, roles=$roles, permissions=$permissions, createdAt=$createdAt, updatedAt=$updatedAt, invite=$invite, status=$status, metadata=$metadata, attributes=$attributes, resource=$resource)';
+  String toString() =>
+      'Membership(id=$id, resourceId=$resourceId, type_=$type_, roles=$roles, permissions=$permissions, createdAt=$createdAt, updatedAt=$updatedAt, invite=$invite, status=$status, metadata=$metadata, attributes=$attributes, resource=$resource)';
 }

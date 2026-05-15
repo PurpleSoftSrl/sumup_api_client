@@ -12,9 +12,11 @@ class CreateReaderCheckoutUnprocessableEntity {
 
   final CreateReaderCheckoutUnprocessableEntityErrors errors;
 
-  factory CreateReaderCheckoutUnprocessableEntity.fromJson(Map<String, dynamic> json) {
+  factory CreateReaderCheckoutUnprocessableEntity.fromJson(
+      Map<String, dynamic> json) {
     return CreateReaderCheckoutUnprocessableEntity(
-      errors: CreateReaderCheckoutUnprocessableEntityErrors.fromJson(json['errors'] as Map<String, dynamic>),
+      errors: CreateReaderCheckoutUnprocessableEntityErrors.fromJson(
+          json['errors'] as Map<String, dynamic>),
     );
   }
 
@@ -38,13 +40,13 @@ class CreateReaderCheckoutUnprocessableEntity {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutUnprocessableEntity) return false;
-    return errors == other.errors
-;
+    return errors == other.errors;
   }
 
   @override
   int get hashCode => errors.hashCode;
 
   @override
-  String toString() => 'CreateReaderCheckoutUnprocessableEntity(errors=$errors)';
+  String toString() =>
+      'CreateReaderCheckoutUnprocessableEntity(errors=$errors)';
 }

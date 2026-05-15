@@ -33,9 +33,7 @@ class Event {
 
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
-      id: json['id'] != null
-          ? (json['id'] as num).toInt()
-          : null,
+      id: json['id'] != null ? (json['id'] as num).toInt() : null,
       transactionId: json['transaction_id'] != null
           ? json['transaction_id'] as String
           : null,
@@ -45,9 +43,8 @@ class Event {
       status: json['status'] != null
           ? EventStatus.fromJson(json['status'] as String)
           : null,
-      amount: json['amount'] != null
-          ? (json['amount'] as num).toDouble()
-          : null,
+      amount:
+          json['amount'] != null ? (json['amount'] as num).toDouble() : null,
       timestamp: json['timestamp'] != null
           ? DateTime.parse(json['timestamp'] as String)
           : null,
@@ -93,7 +90,16 @@ class Event {
     double? deductedAmount,
     double? deductedFeeAmount,
   }) {
-    if (id == null && transactionId == null && type_ == null && status == null && amount == null && timestamp == null && feeAmount == null && installmentNumber == null && deductedAmount == null && deductedFeeAmount == null) return this;
+    if (id == null &&
+        transactionId == null &&
+        type_ == null &&
+        status == null &&
+        amount == null &&
+        timestamp == null &&
+        feeAmount == null &&
+        installmentNumber == null &&
+        deductedAmount == null &&
+        deductedFeeAmount == null) return this;
 
     return Event(
       id: id ?? this.id,
@@ -113,22 +119,32 @@ class Event {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Event) return false;
-    return id == other.id
-        && transactionId == other.transactionId
-        && type_ == other.type_
-        && status == other.status
-        && amount == other.amount
-        && timestamp == other.timestamp
-        && feeAmount == other.feeAmount
-        && installmentNumber == other.installmentNumber
-        && deductedAmount == other.deductedAmount
-        && deductedFeeAmount == other.deductedFeeAmount
-;
+    return id == other.id &&
+        transactionId == other.transactionId &&
+        type_ == other.type_ &&
+        status == other.status &&
+        amount == other.amount &&
+        timestamp == other.timestamp &&
+        feeAmount == other.feeAmount &&
+        installmentNumber == other.installmentNumber &&
+        deductedAmount == other.deductedAmount &&
+        deductedFeeAmount == other.deductedFeeAmount;
   }
 
   @override
-  int get hashCode => Object.hash(id, transactionId, type_, status, amount, timestamp, feeAmount, installmentNumber, deductedAmount, deductedFeeAmount);
+  int get hashCode => Object.hash(
+      id,
+      transactionId,
+      type_,
+      status,
+      amount,
+      timestamp,
+      feeAmount,
+      installmentNumber,
+      deductedAmount,
+      deductedFeeAmount);
 
   @override
-  String toString() => 'Event(id=$id, transactionId=$transactionId, type_=$type_, status=$status, amount=$amount, timestamp=$timestamp, feeAmount=$feeAmount, installmentNumber=$installmentNumber, deductedAmount=$deductedAmount, deductedFeeAmount=$deductedFeeAmount)';
+  String toString() =>
+      'Event(id=$id, transactionId=$transactionId, type_=$type_, status=$status, amount=$amount, timestamp=$timestamp, feeAmount=$feeAmount, installmentNumber=$installmentNumber, deductedAmount=$deductedAmount, deductedFeeAmount=$deductedFeeAmount)';
 }

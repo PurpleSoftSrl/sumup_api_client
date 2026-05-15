@@ -16,9 +16,7 @@ class BadRequestErrors {
 
   factory BadRequestErrors.fromJson(Map<String, dynamic> json) {
     return BadRequestErrors(
-      detail: json['detail'] != null
-          ? json['detail'] as String
-          : null,
+      detail: json['detail'] != null ? json['detail'] as String : null,
       type_: BadRequestErrorsType.fromJson(json['type'] as String),
     );
   }
@@ -46,9 +44,7 @@ class BadRequestErrors {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! BadRequestErrors) return false;
-    return detail == other.detail
-        && type_ == other.type_
-;
+    return detail == other.detail && type_ == other.type_;
   }
 
   @override

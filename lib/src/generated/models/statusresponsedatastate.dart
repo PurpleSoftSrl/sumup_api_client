@@ -19,7 +19,8 @@ enum StatusResponseDataState {
   static StatusResponseDataState fromJson(String json) {
     return StatusResponseDataState.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown StatusResponseDataState: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown StatusResponseDataState: $json'),
     );
   }
 

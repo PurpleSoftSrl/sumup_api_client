@@ -84,7 +84,16 @@ class Member {
     Metadata? metadata,
     Attributes? attributes,
   }) {
-    if (id == null && roles == null && permissions == null && createdAt == null && updatedAt == null && user == null && invite == null && status == null && metadata == null && attributes == null) return this;
+    if (id == null &&
+        roles == null &&
+        permissions == null &&
+        createdAt == null &&
+        updatedAt == null &&
+        user == null &&
+        invite == null &&
+        status == null &&
+        metadata == null &&
+        attributes == null) return this;
 
     return Member(
       id: id ?? this.id,
@@ -104,22 +113,23 @@ class Member {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Member) return false;
-    return id == other.id
-        && roles == other.roles
-        && permissions == other.permissions
-        && createdAt == other.createdAt
-        && updatedAt == other.updatedAt
-        && user == other.user
-        && invite == other.invite
-        && status == other.status
-        && metadata == other.metadata
-        && attributes == other.attributes
-;
+    return id == other.id &&
+        roles == other.roles &&
+        permissions == other.permissions &&
+        createdAt == other.createdAt &&
+        updatedAt == other.updatedAt &&
+        user == other.user &&
+        invite == other.invite &&
+        status == other.status &&
+        metadata == other.metadata &&
+        attributes == other.attributes;
   }
 
   @override
-  int get hashCode => Object.hash(id, roles, permissions, createdAt, updatedAt, user, invite, status, metadata, attributes);
+  int get hashCode => Object.hash(id, roles, permissions, createdAt, updatedAt,
+      user, invite, status, metadata, attributes);
 
   @override
-  String toString() => 'Member(id=$id, roles=$roles, permissions=$permissions, createdAt=$createdAt, updatedAt=$updatedAt, user=$user, invite=$invite, status=$status, metadata=$metadata, attributes=$attributes)';
+  String toString() =>
+      'Member(id=$id, roles=$roles, permissions=$permissions, createdAt=$createdAt, updatedAt=$updatedAt, user=$user, invite=$invite, status=$status, metadata=$metadata, attributes=$attributes)';
 }

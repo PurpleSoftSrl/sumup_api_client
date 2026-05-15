@@ -18,15 +18,19 @@ sealed class CreateCustomerResult {
   factory CreateCustomerResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      201 => CreateCustomerResultHttp201(Customer.fromJson(response.data as Map<String, dynamic>)),
-      400 => CreateCustomerResultHttp400(Post400Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => CreateCustomerResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      403 => CreateCustomerResultHttp403(ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
-      409 => CreateCustomerResultHttp409(Error.fromJson(response.data as Map<String, dynamic>)),
+      201 => CreateCustomerResultHttp201(
+          Customer.fromJson(response.data as Map<String, dynamic>)),
+      400 => CreateCustomerResultHttp400(
+          Post400Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => CreateCustomerResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      403 => CreateCustomerResultHttp403(
+          ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
+      409 => CreateCustomerResultHttp409(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => CreateCustomerResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateCustomerResultHttp201 extends CreateCustomerResult {
@@ -58,5 +62,6 @@ class CreateCustomerResultError extends CreateCustomerResult {
   const CreateCustomerResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateCustomerResultError.fromResponse(Response<dynamic> response) => CreateCustomerResultError(response);
+  factory CreateCustomerResultError.fromResponse(Response<dynamic> response) =>
+      CreateCustomerResultError(response);
 }

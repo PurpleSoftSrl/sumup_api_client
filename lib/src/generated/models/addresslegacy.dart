@@ -23,24 +23,13 @@ class AddressLegacy {
 
   factory AddressLegacy.fromJson(Map<String, dynamic> json) {
     return AddressLegacy(
-      city: json['city'] != null
-          ? json['city'] as String
-          : null,
-      country: json['country'] != null
-          ? json['country'] as String
-          : null,
-      line1: json['line_1'] != null
-          ? json['line_1'] as String
-          : null,
-      line2: json['line_2'] != null
-          ? json['line_2'] as String
-          : null,
-      postalCode: json['postal_code'] != null
-          ? json['postal_code'] as String
-          : null,
-      state: json['state'] != null
-          ? json['state'] as String
-          : null,
+      city: json['city'] != null ? json['city'] as String : null,
+      country: json['country'] != null ? json['country'] as String : null,
+      line1: json['line_1'] != null ? json['line_1'] as String : null,
+      line2: json['line_2'] != null ? json['line_2'] as String : null,
+      postalCode:
+          json['postal_code'] != null ? json['postal_code'] as String : null,
+      state: json['state'] != null ? json['state'] as String : null,
     );
   }
 
@@ -63,7 +52,12 @@ class AddressLegacy {
     String? postalCode,
     String? state,
   }) {
-    if (city == null && country == null && line1 == null && line2 == null && postalCode == null && state == null) return this;
+    if (city == null &&
+        country == null &&
+        line1 == null &&
+        line2 == null &&
+        postalCode == null &&
+        state == null) return this;
 
     return AddressLegacy(
       city: city ?? this.city,
@@ -79,18 +73,19 @@ class AddressLegacy {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! AddressLegacy) return false;
-    return city == other.city
-        && country == other.country
-        && line1 == other.line1
-        && line2 == other.line2
-        && postalCode == other.postalCode
-        && state == other.state
-;
+    return city == other.city &&
+        country == other.country &&
+        line1 == other.line1 &&
+        line2 == other.line2 &&
+        postalCode == other.postalCode &&
+        state == other.state;
   }
 
   @override
-  int get hashCode => Object.hash(city, country, line1, line2, postalCode, state);
+  int get hashCode =>
+      Object.hash(city, country, line1, line2, postalCode, state);
 
   @override
-  String toString() => 'AddressLegacy(city=$city, country=$country, line1=$line1, line2=$line2, postalCode=$postalCode, state=$state)';
+  String toString() =>
+      'AddressLegacy(city=$city, country=$country, line1=$line1, line2=$line2, postalCode=$postalCode, state=$state)';
 }

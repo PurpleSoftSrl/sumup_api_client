@@ -7,15 +7,12 @@
 class ErrorExtended {
   const ErrorExtended();
 
-
   factory ErrorExtended.fromJson(Map<String, dynamic> json) {
-    return const ErrorExtended(
-    );
+    return const ErrorExtended();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   ErrorExtended copyWith() {

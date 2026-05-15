@@ -5,7 +5,11 @@
 import 'package:dio/dio.dart';
 
 class ApiKeySecurity {
-  ApiKeySecurity({this.token, this.tokenProvider, this.headerName = 'Authorization', this.tokenPrefix = 'Bearer '});
+  ApiKeySecurity(
+      {this.token,
+      this.tokenProvider,
+      this.headerName = 'Authorization',
+      this.tokenPrefix = 'Bearer '});
 
   final String? token;
   final Future<String> Function()? tokenProvider;
@@ -20,7 +24,8 @@ class _ApiKeySecurityInterceptor extends Interceptor {
   final ApiKeySecurity security;
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     var token = security.token;
     token ??= await security.tokenProvider?.call();
     if (token != null) {
@@ -31,7 +36,8 @@ class _ApiKeySecurityInterceptor extends Interceptor {
 }
 
 class Oauth2Security {
-  Oauth2Security({this.accessToken, this.tokenProvider, this.scopes = const {}});
+  Oauth2Security(
+      {this.accessToken, this.tokenProvider, this.scopes = const {}});
 
   final String? accessToken;
   final Future<String> Function(Iterable<String> scopes)? tokenProvider;
@@ -45,7 +51,8 @@ class _Oauth2SecurityInterceptor extends Interceptor {
   final Oauth2Security security;
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     var token = security.accessToken;
     token ??= await security.tokenProvider?.call(security.scopes);
     if (token != null) {
@@ -54,4 +61,3 @@ class _Oauth2SecurityInterceptor extends Interceptor {
     handler.next(options);
   }
 }
-

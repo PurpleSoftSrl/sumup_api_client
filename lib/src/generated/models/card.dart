@@ -32,9 +32,7 @@ class Card {
       expiryYear: json['expiry_year'] as String,
       expiryMonth: CardExpiryMonth.fromJson(json['expiry_month'] as String),
       cvv: json['cvv'] as String,
-      zipCode: json['zip_code'] != null
-          ? json['zip_code'] as String
-          : null,
+      zipCode: json['zip_code'] != null ? json['zip_code'] as String : null,
       type_: CardType.fromJson(json['type'] as String),
     );
   }
@@ -60,7 +58,13 @@ class Card {
     String? zipCode,
     CardType? type_,
   }) {
-    if (name == null && number == null && expiryYear == null && expiryMonth == null && cvv == null && zipCode == null && type_ == null) return this;
+    if (name == null &&
+        number == null &&
+        expiryYear == null &&
+        expiryMonth == null &&
+        cvv == null &&
+        zipCode == null &&
+        type_ == null) return this;
 
     return Card(
       name: name ?? this.name,
@@ -77,19 +81,20 @@ class Card {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Card) return false;
-    return name == other.name
-        && number == other.number
-        && expiryYear == other.expiryYear
-        && expiryMonth == other.expiryMonth
-        && cvv == other.cvv
-        && zipCode == other.zipCode
-        && type_ == other.type_
-;
+    return name == other.name &&
+        number == other.number &&
+        expiryYear == other.expiryYear &&
+        expiryMonth == other.expiryMonth &&
+        cvv == other.cvv &&
+        zipCode == other.zipCode &&
+        type_ == other.type_;
   }
 
   @override
-  int get hashCode => Object.hash(name, number, expiryYear, expiryMonth, cvv, zipCode, type_);
+  int get hashCode =>
+      Object.hash(name, number, expiryYear, expiryMonth, cvv, zipCode, type_);
 
   @override
-  String toString() => 'Card(name=$name, number=$number, expiryYear=$expiryYear, expiryMonth=$expiryMonth, cvv=$cvv, zipCode=$zipCode, type_=$type_)';
+  String toString() =>
+      'Card(name=$name, number=$number, expiryYear=$expiryYear, expiryMonth=$expiryMonth, cvv=$cvv, zipCode=$zipCode, type_=$type_)';
 }

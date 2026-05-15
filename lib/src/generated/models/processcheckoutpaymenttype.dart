@@ -20,7 +20,8 @@ enum ProcessCheckoutPaymentType {
   static ProcessCheckoutPaymentType fromJson(String json) {
     return ProcessCheckoutPaymentType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown ProcessCheckoutPaymentType: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown ProcessCheckoutPaymentType: $json'),
     );
   }
 

@@ -13,9 +13,7 @@ class ErrorExtendedInline1 {
 
   factory ErrorExtendedInline1.fromJson(Map<String, dynamic> json) {
     return ErrorExtendedInline1(
-      param: json['param'] != null
-          ? json['param'] as String
-          : null,
+      param: json['param'] != null ? json['param'] as String : null,
     );
   }
 
@@ -39,8 +37,7 @@ class ErrorExtendedInline1 {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ErrorExtendedInline1) return false;
-    return param == other.param
-;
+    return param == other.param;
   }
 
   @override

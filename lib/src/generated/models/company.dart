@@ -32,15 +32,12 @@ class Company {
 
   factory Company.fromJson(Map<String, dynamic> json) {
     return Company(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
       merchantCategoryCode: json['merchant_category_code'] != null
           ? json['merchant_category_code'] as String
           : null,
-      legalType: json['legal_type'] != null
-          ? json['legal_type'] as String
-          : null,
+      legalType:
+          json['legal_type'] != null ? json['legal_type'] as String : null,
       address: json['address'] != null
           ? Address.fromJson(json['address'] as Map<String, dynamic>)
           : null,
@@ -48,14 +45,16 @@ class Company {
           ? Address.fromJson(json['trading_address'] as Map<String, dynamic>)
           : null,
       identifiers: json['identifiers'] != null
-          ? List<CompanyIdentifier>.generate((json['identifiers'] as List).length, (i) => CompanyIdentifier.fromJson((json['identifiers'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<CompanyIdentifier>.generate(
+              (json['identifiers'] as List).length,
+              (i) => CompanyIdentifier.fromJson(
+                  (json['identifiers'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
-      phoneNumber: json['phone_number'] != null
-          ? json['phone_number'] as String
-          : null,
-      website: json['website'] != null
-          ? Uri.parse(json['website'] as String)
-          : null,
+      phoneNumber:
+          json['phone_number'] != null ? json['phone_number'] as String : null,
+      website:
+          json['website'] != null ? Uri.parse(json['website'] as String) : null,
       attributes: json['attributes'] != null
           ? Attributes.fromJson(json['attributes'] as Map<String, dynamic>)
           : null,
@@ -65,11 +64,13 @@ class Company {
   Map<String, dynamic> toJson() {
     return {
       if (name != null) 'name': name!,
-      if (merchantCategoryCode != null) 'merchant_category_code': merchantCategoryCode!,
+      if (merchantCategoryCode != null)
+        'merchant_category_code': merchantCategoryCode!,
       if (legalType != null) 'legal_type': legalType!,
       if (address != null) 'address': address!.toJson(),
       if (tradingAddress != null) 'trading_address': tradingAddress!.toJson(),
-      if (identifiers != null) 'identifiers': identifiers!.map((e) => e.toJson()).toList(),
+      if (identifiers != null)
+        'identifiers': identifiers!.map((e) => e.toJson()).toList(),
       if (phoneNumber != null) 'phone_number': phoneNumber!,
       if (website != null) 'website': website!.toString(),
       if (attributes != null) 'attributes': attributes!.toJson(),
@@ -87,7 +88,15 @@ class Company {
     Uri? website,
     Attributes? attributes,
   }) {
-    if (name == null && merchantCategoryCode == null && legalType == null && address == null && tradingAddress == null && identifiers == null && phoneNumber == null && website == null && attributes == null) return this;
+    if (name == null &&
+        merchantCategoryCode == null &&
+        legalType == null &&
+        address == null &&
+        tradingAddress == null &&
+        identifiers == null &&
+        phoneNumber == null &&
+        website == null &&
+        attributes == null) return this;
 
     return Company(
       name: name ?? this.name,
@@ -106,21 +115,22 @@ class Company {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Company) return false;
-    return name == other.name
-        && merchantCategoryCode == other.merchantCategoryCode
-        && legalType == other.legalType
-        && address == other.address
-        && tradingAddress == other.tradingAddress
-        && identifiers == other.identifiers
-        && phoneNumber == other.phoneNumber
-        && website == other.website
-        && attributes == other.attributes
-;
+    return name == other.name &&
+        merchantCategoryCode == other.merchantCategoryCode &&
+        legalType == other.legalType &&
+        address == other.address &&
+        tradingAddress == other.tradingAddress &&
+        identifiers == other.identifiers &&
+        phoneNumber == other.phoneNumber &&
+        website == other.website &&
+        attributes == other.attributes;
   }
 
   @override
-  int get hashCode => Object.hash(name, merchantCategoryCode, legalType, address, tradingAddress, identifiers, phoneNumber, website, attributes);
+  int get hashCode => Object.hash(name, merchantCategoryCode, legalType,
+      address, tradingAddress, identifiers, phoneNumber, website, attributes);
 
   @override
-  String toString() => 'Company(name=$name, merchantCategoryCode=$merchantCategoryCode, legalType=$legalType, address=$address, tradingAddress=$tradingAddress, identifiers=$identifiers, phoneNumber=$phoneNumber, website=$website, attributes=$attributes)';
+  String toString() =>
+      'Company(name=$name, merchantCategoryCode=$merchantCategoryCode, legalType=$legalType, address=$address, tradingAddress=$tradingAddress, identifiers=$identifiers, phoneNumber=$phoneNumber, website=$website, attributes=$attributes)';
 }

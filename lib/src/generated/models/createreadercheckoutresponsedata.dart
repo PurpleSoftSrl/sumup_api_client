@@ -37,13 +37,13 @@ class CreateReaderCheckoutResponseData {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutResponseData) return false;
-    return clientTransactionId == other.clientTransactionId
-;
+    return clientTransactionId == other.clientTransactionId;
   }
 
   @override
   int get hashCode => clientTransactionId.hashCode;
 
   @override
-  String toString() => 'CreateReaderCheckoutResponseData(clientTransactionId=$clientTransactionId)';
+  String toString() =>
+      'CreateReaderCheckoutResponseData(clientTransactionId=$clientTransactionId)';
 }

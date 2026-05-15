@@ -36,9 +36,7 @@ class TransactionHistoryInline2 {
       clientTransactionId: json['client_transaction_id'] != null
           ? json['client_transaction_id'] as String
           : null,
-      user: json['user'] != null
-          ? json['user'] as String
-          : null,
+      user: json['user'] != null ? json['user'] as String : null,
       type_: json['type'] != null
           ? TransactionHistoryInline2Type.fromJson(json['type'] as String)
           : null,
@@ -49,7 +47,8 @@ class TransactionHistoryInline2 {
           ? DateTime.parse(json['payout_date'] as String)
           : null,
       payoutType: json['payout_type'] != null
-          ? TransactionHistoryInline2PayoutType.fromJson(json['payout_type'] as String)
+          ? TransactionHistoryInline2PayoutType.fromJson(
+              json['payout_type'] as String)
           : null,
       refundedAmount: json['refunded_amount'] != null
           ? (json['refunded_amount'] as num).toDouble()
@@ -60,7 +59,8 @@ class TransactionHistoryInline2 {
   Map<String, dynamic> toJson() {
     return {
       if (transactionId != null) 'transaction_id': transactionId!,
-      if (clientTransactionId != null) 'client_transaction_id': clientTransactionId!,
+      if (clientTransactionId != null)
+        'client_transaction_id': clientTransactionId!,
       if (user != null) 'user': user!,
       if (type_ != null) 'type': type_!.toJson(),
       if (cardType != null) 'card_type': cardType!.toJson(),
@@ -80,7 +80,14 @@ class TransactionHistoryInline2 {
     TransactionHistoryInline2PayoutType? payoutType,
     double? refundedAmount,
   }) {
-    if (transactionId == null && clientTransactionId == null && user == null && type_ == null && cardType == null && payoutDate == null && payoutType == null && refundedAmount == null) return this;
+    if (transactionId == null &&
+        clientTransactionId == null &&
+        user == null &&
+        type_ == null &&
+        cardType == null &&
+        payoutDate == null &&
+        payoutType == null &&
+        refundedAmount == null) return this;
 
     return TransactionHistoryInline2(
       transactionId: transactionId ?? this.transactionId,
@@ -98,20 +105,21 @@ class TransactionHistoryInline2 {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionHistoryInline2) return false;
-    return transactionId == other.transactionId
-        && clientTransactionId == other.clientTransactionId
-        && user == other.user
-        && type_ == other.type_
-        && cardType == other.cardType
-        && payoutDate == other.payoutDate
-        && payoutType == other.payoutType
-        && refundedAmount == other.refundedAmount
-;
+    return transactionId == other.transactionId &&
+        clientTransactionId == other.clientTransactionId &&
+        user == other.user &&
+        type_ == other.type_ &&
+        cardType == other.cardType &&
+        payoutDate == other.payoutDate &&
+        payoutType == other.payoutType &&
+        refundedAmount == other.refundedAmount;
   }
 
   @override
-  int get hashCode => Object.hash(transactionId, clientTransactionId, user, type_, cardType, payoutDate, payoutType, refundedAmount);
+  int get hashCode => Object.hash(transactionId, clientTransactionId, user,
+      type_, cardType, payoutDate, payoutType, refundedAmount);
 
   @override
-  String toString() => 'TransactionHistoryInline2(transactionId=$transactionId, clientTransactionId=$clientTransactionId, user=$user, type_=$type_, cardType=$cardType, payoutDate=$payoutDate, payoutType=$payoutType, refundedAmount=$refundedAmount)';
+  String toString() =>
+      'TransactionHistoryInline2(transactionId=$transactionId, clientTransactionId=$clientTransactionId, user=$user, type_=$type_, cardType=$cardType, payoutDate=$payoutDate, payoutType=$payoutType, refundedAmount=$refundedAmount)';
 }

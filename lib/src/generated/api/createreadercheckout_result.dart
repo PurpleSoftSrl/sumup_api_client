@@ -19,15 +19,22 @@ sealed class CreateReaderCheckoutResult {
   factory CreateReaderCheckoutResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      201 => CreateReaderCheckoutResultHttp201(CreateReaderCheckoutResponse.fromJson(response.data as Map<String, dynamic>)),
-      400 => CreateReaderCheckoutResultHttp400(Post400Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => CreateReaderCheckoutResultHttp401(CreateReaderCheckoutError.fromJson(response.data as Map<String, dynamic>)),
-      404 => CreateReaderCheckoutResultHttp404(NotFound.fromJson(response.data as Map<String, dynamic>)),
-      422 => CreateReaderCheckoutResultHttp422(CreateReaderCheckoutUnprocessableEntity.fromJson(response.data as Map<String, dynamic>)),
+      201 => CreateReaderCheckoutResultHttp201(
+          CreateReaderCheckoutResponse.fromJson(
+              response.data as Map<String, dynamic>)),
+      400 => CreateReaderCheckoutResultHttp400(
+          Post400Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => CreateReaderCheckoutResultHttp401(
+          CreateReaderCheckoutError.fromJson(
+              response.data as Map<String, dynamic>)),
+      404 => CreateReaderCheckoutResultHttp404(
+          NotFound.fromJson(response.data as Map<String, dynamic>)),
+      422 => CreateReaderCheckoutResultHttp422(
+          CreateReaderCheckoutUnprocessableEntity.fromJson(
+              response.data as Map<String, dynamic>)),
       _ => CreateReaderCheckoutResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateReaderCheckoutResultHttp201 extends CreateReaderCheckoutResult {
@@ -59,5 +66,7 @@ class CreateReaderCheckoutResultError extends CreateReaderCheckoutResult {
   const CreateReaderCheckoutResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateReaderCheckoutResultError.fromResponse(Response<dynamic> response) => CreateReaderCheckoutResultError(response);
+  factory CreateReaderCheckoutResultError.fromResponse(
+          Response<dynamic> response) =>
+      CreateReaderCheckoutResultError(response);
 }

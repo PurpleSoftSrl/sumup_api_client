@@ -26,7 +26,8 @@ class ReceiptMerchantDataMerchantProfile {
   final String? language;
   final ReceiptMerchantDataMerchantProfileAddress? address;
 
-  factory ReceiptMerchantDataMerchantProfile.fromJson(Map<String, dynamic> json) {
+  factory ReceiptMerchantDataMerchantProfile.fromJson(
+      Map<String, dynamic> json) {
     return ReceiptMerchantDataMerchantProfile(
       merchantCode: json['merchant_code'] != null
           ? json['merchant_code'] as String
@@ -37,20 +38,13 @@ class ReceiptMerchantDataMerchantProfile {
       companyRegistrationNumber: json['company_registration_number'] != null
           ? json['company_registration_number'] as String
           : null,
-      vatId: json['vat_id'] != null
-          ? json['vat_id'] as String
-          : null,
-      website: json['website'] != null
-          ? json['website'] as String
-          : null,
-      email: json['email'] != null
-          ? json['email'] as String
-          : null,
-      language: json['language'] != null
-          ? json['language'] as String
-          : null,
+      vatId: json['vat_id'] != null ? json['vat_id'] as String : null,
+      website: json['website'] != null ? json['website'] as String : null,
+      email: json['email'] != null ? json['email'] as String : null,
+      language: json['language'] != null ? json['language'] as String : null,
       address: json['address'] != null
-          ? ReceiptMerchantDataMerchantProfileAddress.fromJson(json['address'] as Map<String, dynamic>)
+          ? ReceiptMerchantDataMerchantProfileAddress.fromJson(
+              json['address'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -59,7 +53,8 @@ class ReceiptMerchantDataMerchantProfile {
     return {
       if (merchantCode != null) 'merchant_code': merchantCode!,
       if (businessName != null) 'business_name': businessName!,
-      if (companyRegistrationNumber != null) 'company_registration_number': companyRegistrationNumber!,
+      if (companyRegistrationNumber != null)
+        'company_registration_number': companyRegistrationNumber!,
       if (vatId != null) 'vat_id': vatId!,
       if (website != null) 'website': website!,
       if (email != null) 'email': email!,
@@ -78,12 +73,20 @@ class ReceiptMerchantDataMerchantProfile {
     String? language,
     ReceiptMerchantDataMerchantProfileAddress? address,
   }) {
-    if (merchantCode == null && businessName == null && companyRegistrationNumber == null && vatId == null && website == null && email == null && language == null && address == null) return this;
+    if (merchantCode == null &&
+        businessName == null &&
+        companyRegistrationNumber == null &&
+        vatId == null &&
+        website == null &&
+        email == null &&
+        language == null &&
+        address == null) return this;
 
     return ReceiptMerchantDataMerchantProfile(
       merchantCode: merchantCode ?? this.merchantCode,
       businessName: businessName ?? this.businessName,
-      companyRegistrationNumber: companyRegistrationNumber ?? this.companyRegistrationNumber,
+      companyRegistrationNumber:
+          companyRegistrationNumber ?? this.companyRegistrationNumber,
       vatId: vatId ?? this.vatId,
       website: website ?? this.website,
       email: email ?? this.email,
@@ -96,20 +99,21 @@ class ReceiptMerchantDataMerchantProfile {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptMerchantDataMerchantProfile) return false;
-    return merchantCode == other.merchantCode
-        && businessName == other.businessName
-        && companyRegistrationNumber == other.companyRegistrationNumber
-        && vatId == other.vatId
-        && website == other.website
-        && email == other.email
-        && language == other.language
-        && address == other.address
-;
+    return merchantCode == other.merchantCode &&
+        businessName == other.businessName &&
+        companyRegistrationNumber == other.companyRegistrationNumber &&
+        vatId == other.vatId &&
+        website == other.website &&
+        email == other.email &&
+        language == other.language &&
+        address == other.address;
   }
 
   @override
-  int get hashCode => Object.hash(merchantCode, businessName, companyRegistrationNumber, vatId, website, email, language, address);
+  int get hashCode => Object.hash(merchantCode, businessName,
+      companyRegistrationNumber, vatId, website, email, language, address);
 
   @override
-  String toString() => 'ReceiptMerchantDataMerchantProfile(merchantCode=$merchantCode, businessName=$businessName, companyRegistrationNumber=$companyRegistrationNumber, vatId=$vatId, website=$website, email=$email, language=$language, address=$address)';
+  String toString() =>
+      'ReceiptMerchantDataMerchantProfile(merchantCode=$merchantCode, businessName=$businessName, companyRegistrationNumber=$companyRegistrationNumber, vatId=$vatId, website=$website, email=$email, language=$language, address=$address)';
 }

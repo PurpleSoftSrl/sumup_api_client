@@ -7,15 +7,12 @@
 class Person {
   const Person();
 
-
   factory Person.fromJson(Map<String, dynamic> json) {
-    return const Person(
-    );
+    return const Person();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   Person copyWith() {

@@ -38,14 +38,12 @@ class MembershipUser {
       disabledAt: json['disabled_at'] != null
           ? DateTime.parse(json['disabled_at'] as String)
           : null,
-      nickname: json['nickname'] != null
-          ? json['nickname'] as String
-          : null,
-      picture: json['picture'] != null
-          ? Uri.parse(json['picture'] as String)
-          : null,
+      nickname: json['nickname'] != null ? json['nickname'] as String : null,
+      picture:
+          json['picture'] != null ? Uri.parse(json['picture'] as String) : null,
       classic: json['classic'] != null
-          ? MembershipUserClassic.fromJson(json['classic'] as Map<String, dynamic>)
+          ? MembershipUserClassic.fromJson(
+              json['classic'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -75,7 +73,15 @@ class MembershipUser {
     Uri? picture,
     MembershipUserClassic? classic,
   }) {
-    if (id == null && email == null && mfaOnLoginEnabled == null && virtualUser == null && serviceAccountUser == null && disabledAt == null && nickname == null && picture == null && classic == null) return this;
+    if (id == null &&
+        email == null &&
+        mfaOnLoginEnabled == null &&
+        virtualUser == null &&
+        serviceAccountUser == null &&
+        disabledAt == null &&
+        nickname == null &&
+        picture == null &&
+        classic == null) return this;
 
     return MembershipUser(
       id: id ?? this.id,
@@ -94,21 +100,22 @@ class MembershipUser {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! MembershipUser) return false;
-    return id == other.id
-        && email == other.email
-        && mfaOnLoginEnabled == other.mfaOnLoginEnabled
-        && virtualUser == other.virtualUser
-        && serviceAccountUser == other.serviceAccountUser
-        && disabledAt == other.disabledAt
-        && nickname == other.nickname
-        && picture == other.picture
-        && classic == other.classic
-;
+    return id == other.id &&
+        email == other.email &&
+        mfaOnLoginEnabled == other.mfaOnLoginEnabled &&
+        virtualUser == other.virtualUser &&
+        serviceAccountUser == other.serviceAccountUser &&
+        disabledAt == other.disabledAt &&
+        nickname == other.nickname &&
+        picture == other.picture &&
+        classic == other.classic;
   }
 
   @override
-  int get hashCode => Object.hash(id, email, mfaOnLoginEnabled, virtualUser, serviceAccountUser, disabledAt, nickname, picture, classic);
+  int get hashCode => Object.hash(id, email, mfaOnLoginEnabled, virtualUser,
+      serviceAccountUser, disabledAt, nickname, picture, classic);
 
   @override
-  String toString() => 'MembershipUser(id=$id, email=$email, mfaOnLoginEnabled=$mfaOnLoginEnabled, virtualUser=$virtualUser, serviceAccountUser=$serviceAccountUser, disabledAt=$disabledAt, nickname=$nickname, picture=$picture, classic=$classic)';
+  String toString() =>
+      'MembershipUser(id=$id, email=$email, mfaOnLoginEnabled=$mfaOnLoginEnabled, virtualUser=$virtualUser, serviceAccountUser=$serviceAccountUser, disabledAt=$disabledAt, nickname=$nickname, picture=$picture, classic=$classic)';
 }

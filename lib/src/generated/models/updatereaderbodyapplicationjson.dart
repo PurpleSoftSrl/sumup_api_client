@@ -16,9 +16,7 @@ class UpdateReaderBodyApplicationJson {
 
   factory UpdateReaderBodyApplicationJson.fromJson(Map<String, dynamic> json) {
     return UpdateReaderBodyApplicationJson(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
       metadata: json['metadata'] != null
           ? Metadata.fromJson(json['metadata'] as Map<String, dynamic>)
           : null,
@@ -48,14 +46,13 @@ class UpdateReaderBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! UpdateReaderBodyApplicationJson) return false;
-    return name == other.name
-        && metadata == other.metadata
-;
+    return name == other.name && metadata == other.metadata;
   }
 
   @override
   int get hashCode => Object.hash(name, metadata);
 
   @override
-  String toString() => 'UpdateReaderBodyApplicationJson(name=$name, metadata=$metadata)';
+  String toString() =>
+      'UpdateReaderBodyApplicationJson(name=$name, metadata=$metadata)';
 }

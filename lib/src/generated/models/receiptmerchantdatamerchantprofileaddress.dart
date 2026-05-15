@@ -27,7 +27,8 @@ class ReceiptMerchantDataMerchantProfileAddress {
   final String? postCode;
   final String? landline;
 
-  factory ReceiptMerchantDataMerchantProfileAddress.fromJson(Map<String, dynamic> json) {
+  factory ReceiptMerchantDataMerchantProfileAddress.fromJson(
+      Map<String, dynamic> json) {
     return ReceiptMerchantDataMerchantProfileAddress(
       addressLine1: json['address_line1'] != null
           ? json['address_line1'] as String
@@ -35,27 +36,18 @@ class ReceiptMerchantDataMerchantProfileAddress {
       addressLine2: json['address_line2'] != null
           ? json['address_line2'] as String
           : null,
-      city: json['city'] != null
-          ? json['city'] as String
-          : null,
-      country: json['country'] != null
-          ? json['country'] as String
-          : null,
+      city: json['city'] != null ? json['city'] as String : null,
+      country: json['country'] != null ? json['country'] as String : null,
       countryEnName: json['country_en_name'] != null
           ? json['country_en_name'] as String
           : null,
       countryNativeName: json['country_native_name'] != null
           ? json['country_native_name'] as String
           : null,
-      regionName: json['region_name'] != null
-          ? json['region_name'] as String
-          : null,
-      postCode: json['post_code'] != null
-          ? json['post_code'] as String
-          : null,
-      landline: json['landline'] != null
-          ? json['landline'] as String
-          : null,
+      regionName:
+          json['region_name'] != null ? json['region_name'] as String : null,
+      postCode: json['post_code'] != null ? json['post_code'] as String : null,
+      landline: json['landline'] != null ? json['landline'] as String : null,
     );
   }
 
@@ -84,7 +76,15 @@ class ReceiptMerchantDataMerchantProfileAddress {
     String? postCode,
     String? landline,
   }) {
-    if (addressLine1 == null && addressLine2 == null && city == null && country == null && countryEnName == null && countryNativeName == null && regionName == null && postCode == null && landline == null) return this;
+    if (addressLine1 == null &&
+        addressLine2 == null &&
+        city == null &&
+        country == null &&
+        countryEnName == null &&
+        countryNativeName == null &&
+        regionName == null &&
+        postCode == null &&
+        landline == null) return this;
 
     return ReceiptMerchantDataMerchantProfileAddress(
       addressLine1: addressLine1 ?? this.addressLine1,
@@ -103,21 +103,22 @@ class ReceiptMerchantDataMerchantProfileAddress {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptMerchantDataMerchantProfileAddress) return false;
-    return addressLine1 == other.addressLine1
-        && addressLine2 == other.addressLine2
-        && city == other.city
-        && country == other.country
-        && countryEnName == other.countryEnName
-        && countryNativeName == other.countryNativeName
-        && regionName == other.regionName
-        && postCode == other.postCode
-        && landline == other.landline
-;
+    return addressLine1 == other.addressLine1 &&
+        addressLine2 == other.addressLine2 &&
+        city == other.city &&
+        country == other.country &&
+        countryEnName == other.countryEnName &&
+        countryNativeName == other.countryNativeName &&
+        regionName == other.regionName &&
+        postCode == other.postCode &&
+        landline == other.landline;
   }
 
   @override
-  int get hashCode => Object.hash(addressLine1, addressLine2, city, country, countryEnName, countryNativeName, regionName, postCode, landline);
+  int get hashCode => Object.hash(addressLine1, addressLine2, city, country,
+      countryEnName, countryNativeName, regionName, postCode, landline);
 
   @override
-  String toString() => 'ReceiptMerchantDataMerchantProfileAddress(addressLine1=$addressLine1, addressLine2=$addressLine2, city=$city, country=$country, countryEnName=$countryEnName, countryNativeName=$countryNativeName, regionName=$regionName, postCode=$postCode, landline=$landline)';
+  String toString() =>
+      'ReceiptMerchantDataMerchantProfileAddress(addressLine1=$addressLine1, addressLine2=$addressLine2, city=$city, country=$country, countryEnName=$countryEnName, countryNativeName=$countryNativeName, regionName=$regionName, postCode=$postCode, landline=$landline)';
 }

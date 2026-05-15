@@ -28,11 +28,12 @@ class MerchantsApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v1/merchants/$merchantCode',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -53,11 +54,12 @@ class MerchantsApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v1/merchants/$merchantCode/persons',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -79,15 +81,15 @@ class MerchantsApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v1/merchants/$merchantCode/persons/$personId',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return GetPersonResult.fromResponse(response);
   }
-
 }

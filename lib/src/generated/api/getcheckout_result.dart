@@ -16,13 +16,15 @@ sealed class GetCheckoutResult {
   factory GetCheckoutResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => GetCheckoutResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => GetCheckoutResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => GetCheckoutResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => GetCheckoutResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => GetCheckoutResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => GetCheckoutResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => GetCheckoutResultError.fromResponse(response),
     };
   }
-
 }
 
 class GetCheckoutResultHttp200 extends GetCheckoutResult {
@@ -44,5 +46,6 @@ class GetCheckoutResultError extends GetCheckoutResult {
   const GetCheckoutResultError(this.response);
   final Response<dynamic> response;
 
-  factory GetCheckoutResultError.fromResponse(Response<dynamic> response) => GetCheckoutResultError(response);
+  factory GetCheckoutResultError.fromResponse(Response<dynamic> response) =>
+      GetCheckoutResultError(response);
 }

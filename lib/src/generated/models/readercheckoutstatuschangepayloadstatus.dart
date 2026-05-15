@@ -15,7 +15,8 @@ enum ReaderCheckoutStatusChangePayloadStatus {
   static ReaderCheckoutStatusChangePayloadStatus fromJson(String json) {
     return ReaderCheckoutStatusChangePayloadStatus.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown ReaderCheckoutStatusChangePayloadStatus: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown ReaderCheckoutStatusChangePayloadStatus: $json'),
     );
   }
 

@@ -30,7 +30,8 @@ class TransactionMixinHistory {
           ? (json['payouts_received'] as num).toInt()
           : null,
       payoutPlan: json['payout_plan'] != null
-          ? TransactionMixinHistoryPayoutPlan.fromJson(json['payout_plan'] as String)
+          ? TransactionMixinHistoryPayoutPlan.fromJson(
+              json['payout_plan'] as String)
           : null,
     );
   }
@@ -50,7 +51,10 @@ class TransactionMixinHistory {
     int? payoutsReceived,
     TransactionMixinHistoryPayoutPlan? payoutPlan,
   }) {
-    if (productSummary == null && payoutsTotal == null && payoutsReceived == null && payoutPlan == null) return this;
+    if (productSummary == null &&
+        payoutsTotal == null &&
+        payoutsReceived == null &&
+        payoutPlan == null) return this;
 
     return TransactionMixinHistory(
       productSummary: productSummary ?? this.productSummary,
@@ -64,16 +68,17 @@ class TransactionMixinHistory {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionMixinHistory) return false;
-    return productSummary == other.productSummary
-        && payoutsTotal == other.payoutsTotal
-        && payoutsReceived == other.payoutsReceived
-        && payoutPlan == other.payoutPlan
-;
+    return productSummary == other.productSummary &&
+        payoutsTotal == other.payoutsTotal &&
+        payoutsReceived == other.payoutsReceived &&
+        payoutPlan == other.payoutPlan;
   }
 
   @override
-  int get hashCode => Object.hash(productSummary, payoutsTotal, payoutsReceived, payoutPlan);
+  int get hashCode =>
+      Object.hash(productSummary, payoutsTotal, payoutsReceived, payoutPlan);
 
   @override
-  String toString() => 'TransactionMixinHistory(productSummary=$productSummary, payoutsTotal=$payoutsTotal, payoutsReceived=$payoutsReceived, payoutPlan=$payoutPlan)';
+  String toString() =>
+      'TransactionMixinHistory(productSummary=$productSummary, payoutsTotal=$payoutsTotal, payoutsReceived=$payoutsReceived, payoutPlan=$payoutPlan)';
 }

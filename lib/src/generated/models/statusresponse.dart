@@ -38,8 +38,7 @@ class StatusResponse {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! StatusResponse) return false;
-    return data == other.data
-;
+    return data == other.data;
   }
 
   @override

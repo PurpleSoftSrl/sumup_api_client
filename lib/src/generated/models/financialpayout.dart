@@ -68,7 +68,15 @@ class FinancialPayout {
     String? reference,
     String? transactionCode,
   }) {
-    if (id == null && type_ == null && amount == null && date == null && currency == null && fee == null && status == null && reference == null && transactionCode == null) return this;
+    if (id == null &&
+        type_ == null &&
+        amount == null &&
+        date == null &&
+        currency == null &&
+        fee == null &&
+        status == null &&
+        reference == null &&
+        transactionCode == null) return this;
 
     return FinancialPayout(
       id: id ?? this.id,
@@ -87,21 +95,22 @@ class FinancialPayout {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! FinancialPayout) return false;
-    return id == other.id
-        && type_ == other.type_
-        && amount == other.amount
-        && date == other.date
-        && currency == other.currency
-        && fee == other.fee
-        && status == other.status
-        && reference == other.reference
-        && transactionCode == other.transactionCode
-;
+    return id == other.id &&
+        type_ == other.type_ &&
+        amount == other.amount &&
+        date == other.date &&
+        currency == other.currency &&
+        fee == other.fee &&
+        status == other.status &&
+        reference == other.reference &&
+        transactionCode == other.transactionCode;
   }
 
   @override
-  int get hashCode => Object.hash(id, type_, amount, date, currency, fee, status, reference, transactionCode);
+  int get hashCode => Object.hash(id, type_, amount, date, currency, fee,
+      status, reference, transactionCode);
 
   @override
-  String toString() => 'FinancialPayout(id=$id, type_=$type_, amount=$amount, date=$date, currency=$currency, fee=$fee, status=$status, reference=$reference, transactionCode=$transactionCode)';
+  String toString() =>
+      'FinancialPayout(id=$id, type_=$type_, amount=$amount, date=$date, currency=$currency, fee=$fee, status=$status, reference=$reference, transactionCode=$transactionCode)';
 }

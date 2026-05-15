@@ -37,8 +37,7 @@ class Ownership {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Ownership) return false;
-    return share == other.share
-;
+    return share == other.share;
   }
 
   @override

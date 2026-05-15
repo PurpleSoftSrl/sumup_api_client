@@ -13,7 +13,8 @@ class CreateApplePaySessionBodyApplicationJson {
   final String context;
   final Uri target;
 
-  factory CreateApplePaySessionBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory CreateApplePaySessionBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return CreateApplePaySessionBodyApplicationJson(
       context: json['context'] as String,
       target: Uri.parse(json['target'] as String),
@@ -43,14 +44,13 @@ class CreateApplePaySessionBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateApplePaySessionBodyApplicationJson) return false;
-    return context == other.context
-        && target == other.target
-;
+    return context == other.context && target == other.target;
   }
 
   @override
   int get hashCode => Object.hash(context, target);
 
   @override
-  String toString() => 'CreateApplePaySessionBodyApplicationJson(context=$context, target=$target)';
+  String toString() =>
+      'CreateApplePaySessionBodyApplicationJson(context=$context, target=$target)';
 }

@@ -18,14 +18,17 @@ sealed class GetReaderStatusResult {
   factory GetReaderStatusResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => GetReaderStatusResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => GetReaderStatusResultHttp400(BadRequest.fromJson(response.data as Map<String, dynamic>)),
-      401 => GetReaderStatusResultHttp401(Unauthorized.fromJson(response.data as Map<String, dynamic>)),
-      404 => GetReaderStatusResultHttp404(NotFound.fromJson(response.data as Map<String, dynamic>)),
+      200 => GetReaderStatusResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => GetReaderStatusResultHttp400(
+          BadRequest.fromJson(response.data as Map<String, dynamic>)),
+      401 => GetReaderStatusResultHttp401(
+          Unauthorized.fromJson(response.data as Map<String, dynamic>)),
+      404 => GetReaderStatusResultHttp404(
+          NotFound.fromJson(response.data as Map<String, dynamic>)),
       _ => GetReaderStatusResultError.fromResponse(response),
     };
   }
-
 }
 
 class GetReaderStatusResultHttp200 extends GetReaderStatusResult {
@@ -52,5 +55,6 @@ class GetReaderStatusResultError extends GetReaderStatusResult {
   const GetReaderStatusResultError(this.response);
   final Response<dynamic> response;
 
-  factory GetReaderStatusResultError.fromResponse(Response<dynamic> response) => GetReaderStatusResultError(response);
+  factory GetReaderStatusResultError.fromResponse(Response<dynamic> response) =>
+      GetReaderStatusResultError(response);
 }

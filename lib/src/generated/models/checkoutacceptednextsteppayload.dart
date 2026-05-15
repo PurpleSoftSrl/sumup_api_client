@@ -7,15 +7,12 @@
 class CheckoutAcceptedNextStepPayload {
   const CheckoutAcceptedNextStepPayload();
 
-
   factory CheckoutAcceptedNextStepPayload.fromJson(Map<String, dynamic> json) {
-    return const CheckoutAcceptedNextStepPayload(
-    );
+    return const CheckoutAcceptedNextStepPayload();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   CheckoutAcceptedNextStepPayload copyWith() {

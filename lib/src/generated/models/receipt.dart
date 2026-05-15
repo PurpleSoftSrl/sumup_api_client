@@ -24,23 +24,27 @@ class Receipt {
   factory Receipt.fromJson(Map<String, dynamic> json) {
     return Receipt(
       transactionData: json['transaction_data'] != null
-          ? ReceiptTransaction.fromJson(json['transaction_data'] as Map<String, dynamic>)
+          ? ReceiptTransaction.fromJson(
+              json['transaction_data'] as Map<String, dynamic>)
           : null,
       merchantData: json['merchant_data'] != null
-          ? ReceiptMerchantData.fromJson(json['merchant_data'] as Map<String, dynamic>)
+          ? ReceiptMerchantData.fromJson(
+              json['merchant_data'] as Map<String, dynamic>)
           : null,
       emvData: json['emv_data'] != null
           ? ReceiptEmvData.fromJson(json['emv_data'] as Map<String, dynamic>)
           : null,
       acquirerData: json['acquirer_data'] != null
-          ? ReceiptAcquirerData.fromJson(json['acquirer_data'] as Map<String, dynamic>)
+          ? ReceiptAcquirerData.fromJson(
+              json['acquirer_data'] as Map<String, dynamic>)
           : null,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      if (transactionData != null) 'transaction_data': transactionData!.toJson(),
+      if (transactionData != null)
+        'transaction_data': transactionData!.toJson(),
       if (merchantData != null) 'merchant_data': merchantData!.toJson(),
       if (emvData != null) 'emv_data': emvData!.toJson(),
       if (acquirerData != null) 'acquirer_data': acquirerData!.toJson(),
@@ -53,7 +57,10 @@ class Receipt {
     ReceiptEmvData? emvData,
     ReceiptAcquirerData? acquirerData,
   }) {
-    if (transactionData == null && merchantData == null && emvData == null && acquirerData == null) return this;
+    if (transactionData == null &&
+        merchantData == null &&
+        emvData == null &&
+        acquirerData == null) return this;
 
     return Receipt(
       transactionData: transactionData ?? this.transactionData,
@@ -67,16 +74,17 @@ class Receipt {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Receipt) return false;
-    return transactionData == other.transactionData
-        && merchantData == other.merchantData
-        && emvData == other.emvData
-        && acquirerData == other.acquirerData
-;
+    return transactionData == other.transactionData &&
+        merchantData == other.merchantData &&
+        emvData == other.emvData &&
+        acquirerData == other.acquirerData;
   }
 
   @override
-  int get hashCode => Object.hash(transactionData, merchantData, emvData, acquirerData);
+  int get hashCode =>
+      Object.hash(transactionData, merchantData, emvData, acquirerData);
 
   @override
-  String toString() => 'Receipt(transactionData=$transactionData, merchantData=$merchantData, emvData=$emvData, acquirerData=$acquirerData)';
+  String toString() =>
+      'Receipt(transactionData=$transactionData, merchantData=$merchantData, emvData=$emvData, acquirerData=$acquirerData)';
 }

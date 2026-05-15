@@ -14,7 +14,8 @@ enum PaymentInstrumentResponseType {
   static PaymentInstrumentResponseType fromJson(String json) {
     return PaymentInstrumentResponseType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown PaymentInstrumentResponseType: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown PaymentInstrumentResponseType: $json'),
     );
   }
 

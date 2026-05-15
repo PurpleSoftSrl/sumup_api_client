@@ -20,11 +20,10 @@ class UpdateMerchantMemberBodyApplicationJson {
   final Attributes? attributes;
   final UpdateMerchantMemberBodyApplicationJsonUser? user;
 
-  factory UpdateMerchantMemberBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory UpdateMerchantMemberBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return UpdateMerchantMemberBodyApplicationJson(
-      roles: json['roles'] != null
-          ? json['roles'] as List<String>
-          : null,
+      roles: json['roles'] != null ? json['roles'] as List<String> : null,
       metadata: json['metadata'] != null
           ? Metadata.fromJson(json['metadata'] as Map<String, dynamic>)
           : null,
@@ -32,7 +31,8 @@ class UpdateMerchantMemberBodyApplicationJson {
           ? Attributes.fromJson(json['attributes'] as Map<String, dynamic>)
           : null,
       user: json['user'] != null
-          ? UpdateMerchantMemberBodyApplicationJsonUser.fromJson(json['user'] as Map<String, dynamic>)
+          ? UpdateMerchantMemberBodyApplicationJsonUser.fromJson(
+              json['user'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -52,7 +52,8 @@ class UpdateMerchantMemberBodyApplicationJson {
     Attributes? attributes,
     UpdateMerchantMemberBodyApplicationJsonUser? user,
   }) {
-    if (roles == null && metadata == null && attributes == null && user == null) return this;
+    if (roles == null && metadata == null && attributes == null && user == null)
+      return this;
 
     return UpdateMerchantMemberBodyApplicationJson(
       roles: roles ?? this.roles,
@@ -66,16 +67,16 @@ class UpdateMerchantMemberBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! UpdateMerchantMemberBodyApplicationJson) return false;
-    return roles == other.roles
-        && metadata == other.metadata
-        && attributes == other.attributes
-        && user == other.user
-;
+    return roles == other.roles &&
+        metadata == other.metadata &&
+        attributes == other.attributes &&
+        user == other.user;
   }
 
   @override
   int get hashCode => Object.hash(roles, metadata, attributes, user);
 
   @override
-  String toString() => 'UpdateMerchantMemberBodyApplicationJson(roles=$roles, metadata=$metadata, attributes=$attributes, user=$user)';
+  String toString() =>
+      'UpdateMerchantMemberBodyApplicationJson(roles=$roles, metadata=$metadata, attributes=$attributes, user=$user)';
 }

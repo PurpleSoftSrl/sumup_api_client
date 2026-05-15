@@ -7,15 +7,12 @@
 class ReceiptEmvData {
   const ReceiptEmvData();
 
-
   factory ReceiptEmvData.fromJson(Map<String, dynamic> json) {
-    return const ReceiptEmvData(
-    );
+    return const ReceiptEmvData();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   ReceiptEmvData copyWith() {

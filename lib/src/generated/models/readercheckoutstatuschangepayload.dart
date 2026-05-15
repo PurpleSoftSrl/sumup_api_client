@@ -18,11 +18,13 @@ class ReaderCheckoutStatusChangePayload {
   final ReaderCheckoutStatusChangePayloadStatus status;
   final String? transactionId;
 
-  factory ReaderCheckoutStatusChangePayload.fromJson(Map<String, dynamic> json) {
+  factory ReaderCheckoutStatusChangePayload.fromJson(
+      Map<String, dynamic> json) {
     return ReaderCheckoutStatusChangePayload(
       clientTransactionId: json['client_transaction_id'] as String,
       merchantCode: json['merchant_code'] as String,
-      status: ReaderCheckoutStatusChangePayloadStatus.fromJson(json['status'] as String),
+      status: ReaderCheckoutStatusChangePayloadStatus.fromJson(
+          json['status'] as String),
       transactionId: json['transaction_id'] != null
           ? json['transaction_id'] as String
           : null,
@@ -44,7 +46,10 @@ class ReaderCheckoutStatusChangePayload {
     ReaderCheckoutStatusChangePayloadStatus? status,
     String? transactionId,
   }) {
-    if (clientTransactionId == null && merchantCode == null && status == null && transactionId == null) return this;
+    if (clientTransactionId == null &&
+        merchantCode == null &&
+        status == null &&
+        transactionId == null) return this;
 
     return ReaderCheckoutStatusChangePayload(
       clientTransactionId: clientTransactionId ?? this.clientTransactionId,
@@ -58,16 +63,17 @@ class ReaderCheckoutStatusChangePayload {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReaderCheckoutStatusChangePayload) return false;
-    return clientTransactionId == other.clientTransactionId
-        && merchantCode == other.merchantCode
-        && status == other.status
-        && transactionId == other.transactionId
-;
+    return clientTransactionId == other.clientTransactionId &&
+        merchantCode == other.merchantCode &&
+        status == other.status &&
+        transactionId == other.transactionId;
   }
 
   @override
-  int get hashCode => Object.hash(clientTransactionId, merchantCode, status, transactionId);
+  int get hashCode =>
+      Object.hash(clientTransactionId, merchantCode, status, transactionId);
 
   @override
-  String toString() => 'ReaderCheckoutStatusChangePayload(clientTransactionId=$clientTransactionId, merchantCode=$merchantCode, status=$status, transactionId=$transactionId)';
+  String toString() =>
+      'ReaderCheckoutStatusChangePayload(clientTransactionId=$clientTransactionId, merchantCode=$merchantCode, status=$status, transactionId=$transactionId)';
 }

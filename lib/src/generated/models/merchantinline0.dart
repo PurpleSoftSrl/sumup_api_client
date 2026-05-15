@@ -57,28 +57,23 @@ class MerchantInline0 {
           : null,
       country: json['country'] as String,
       businessProfile: json['business_profile'] != null
-          ? BusinessProfile.fromJson(json['business_profile'] as Map<String, dynamic>)
+          ? BusinessProfile.fromJson(
+              json['business_profile'] as Map<String, dynamic>)
           : null,
-      avatar: json['avatar'] != null
-          ? Uri.parse(json['avatar'] as String)
-          : null,
-      alias: json['alias'] != null
-          ? json['alias'] as String
-          : null,
+      avatar:
+          json['avatar'] != null ? Uri.parse(json['avatar'] as String) : null,
+      alias: json['alias'] != null ? json['alias'] as String : null,
       defaultCurrency: json['default_currency'] as String,
       defaultLocale: json['default_locale'] as String,
-      sandbox: json['sandbox'] != null
-          ? json['sandbox'] as bool
-          : null,
+      sandbox: json['sandbox'] != null ? json['sandbox'] as bool : null,
       meta: json['meta'] != null
           ? Meta.fromJson(json['meta'] as Map<String, dynamic>)
           : null,
       classic: json['classic'] != null
-          ? ClassicMerchantIdentifiers.fromJson(json['classic'] as Map<String, dynamic>)
+          ? ClassicMerchantIdentifiers.fromJson(
+              json['classic'] as Map<String, dynamic>)
           : null,
-      version: json['version'] != null
-          ? json['version'] as String
-          : null,
+      version: json['version'] != null ? json['version'] as String : null,
       changeStatus: json['change_status'] != null
           ? json['change_status'] as String
           : null,
@@ -92,7 +87,8 @@ class MerchantInline0 {
       if (businessType != null) 'business_type': businessType!,
       if (company != null) 'company': company!.toJson(),
       'country': country,
-      if (businessProfile != null) 'business_profile': businessProfile!.toJson(),
+      if (businessProfile != null)
+        'business_profile': businessProfile!.toJson(),
       if (avatar != null) 'avatar': avatar!.toString(),
       if (alias != null) 'alias': alias!,
       'default_currency': defaultCurrency,
@@ -122,7 +118,21 @@ class MerchantInline0 {
     String? version,
     String? changeStatus,
   }) {
-    if (merchantCode == null && organizationId == null && businessType == null && company == null && country == null && businessProfile == null && avatar == null && alias == null && defaultCurrency == null && defaultLocale == null && sandbox == null && meta == null && classic == null && version == null && changeStatus == null) return this;
+    if (merchantCode == null &&
+        organizationId == null &&
+        businessType == null &&
+        company == null &&
+        country == null &&
+        businessProfile == null &&
+        avatar == null &&
+        alias == null &&
+        defaultCurrency == null &&
+        defaultLocale == null &&
+        sandbox == null &&
+        meta == null &&
+        classic == null &&
+        version == null &&
+        changeStatus == null) return this;
 
     return MerchantInline0(
       merchantCode: merchantCode ?? this.merchantCode,
@@ -147,27 +157,42 @@ class MerchantInline0 {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! MerchantInline0) return false;
-    return merchantCode == other.merchantCode
-        && organizationId == other.organizationId
-        && businessType == other.businessType
-        && company == other.company
-        && country == other.country
-        && businessProfile == other.businessProfile
-        && avatar == other.avatar
-        && alias == other.alias
-        && defaultCurrency == other.defaultCurrency
-        && defaultLocale == other.defaultLocale
-        && sandbox == other.sandbox
-        && meta == other.meta
-        && classic == other.classic
-        && version == other.version
-        && changeStatus == other.changeStatus
-;
+    return merchantCode == other.merchantCode &&
+        organizationId == other.organizationId &&
+        businessType == other.businessType &&
+        company == other.company &&
+        country == other.country &&
+        businessProfile == other.businessProfile &&
+        avatar == other.avatar &&
+        alias == other.alias &&
+        defaultCurrency == other.defaultCurrency &&
+        defaultLocale == other.defaultLocale &&
+        sandbox == other.sandbox &&
+        meta == other.meta &&
+        classic == other.classic &&
+        version == other.version &&
+        changeStatus == other.changeStatus;
   }
 
   @override
-  int get hashCode => Object.hash(merchantCode, organizationId, businessType, company, country, businessProfile, avatar, alias, defaultCurrency, defaultLocale, sandbox, meta, classic, version, changeStatus);
+  int get hashCode => Object.hash(
+      merchantCode,
+      organizationId,
+      businessType,
+      company,
+      country,
+      businessProfile,
+      avatar,
+      alias,
+      defaultCurrency,
+      defaultLocale,
+      sandbox,
+      meta,
+      classic,
+      version,
+      changeStatus);
 
   @override
-  String toString() => 'MerchantInline0(merchantCode=$merchantCode, organizationId=$organizationId, businessType=$businessType, company=$company, country=$country, businessProfile=$businessProfile, avatar=$avatar, alias=$alias, defaultCurrency=$defaultCurrency, defaultLocale=$defaultLocale, sandbox=$sandbox, meta=$meta, classic=$classic, version=$version, changeStatus=$changeStatus)';
+  String toString() =>
+      'MerchantInline0(merchantCode=$merchantCode, organizationId=$organizationId, businessType=$businessType, company=$company, country=$country, businessProfile=$businessProfile, avatar=$avatar, alias=$alias, defaultCurrency=$defaultCurrency, defaultLocale=$defaultLocale, sandbox=$sandbox, meta=$meta, classic=$classic, version=$version, changeStatus=$changeStatus)';
 }

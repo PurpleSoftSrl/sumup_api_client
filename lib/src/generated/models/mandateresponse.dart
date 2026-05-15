@@ -18,9 +18,7 @@ class MandateResponse {
 
   factory MandateResponse.fromJson(Map<String, dynamic> json) {
     return MandateResponse(
-      type_: json['type'] != null
-          ? json['type'] as String
-          : null,
+      type_: json['type'] != null ? json['type'] as String : null,
       status: json['status'] != null
           ? MandateResponseStatus.fromJson(json['status'] as String)
           : null,
@@ -56,15 +54,15 @@ class MandateResponse {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! MandateResponse) return false;
-    return type_ == other.type_
-        && status == other.status
-        && merchantCode == other.merchantCode
-;
+    return type_ == other.type_ &&
+        status == other.status &&
+        merchantCode == other.merchantCode;
   }
 
   @override
   int get hashCode => Object.hash(type_, status, merchantCode);
 
   @override
-  String toString() => 'MandateResponse(type_=$type_, status=$status, merchantCode=$merchantCode)';
+  String toString() =>
+      'MandateResponse(type_=$type_, status=$status, merchantCode=$merchantCode)';
 }

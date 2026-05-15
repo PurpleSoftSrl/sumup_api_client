@@ -44,9 +44,7 @@ class ReaderDevice {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReaderDevice) return false;
-    return identifier == other.identifier
-        && model == other.model
-;
+    return identifier == other.identifier && model == other.model;
   }
 
   @override

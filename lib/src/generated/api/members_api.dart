@@ -45,11 +45,12 @@ class MembersApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/members',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -59,21 +60,22 @@ class MembersApi {
   /// Create a merchant member.
   Future<CreateMerchantMemberResult> createMerchantMember({
     required String merchantCode,
-    required CreateMerchantMemberBodyApplicationJson createMerchantMemberBodyApplicationJson,
+    required CreateMerchantMemberBodyApplicationJson
+        createMerchantMemberBodyApplicationJson,
     CancelToken? cancelToken,
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/members',
       data: createMerchantMemberBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -88,15 +90,15 @@ class MembersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/members/$memberId',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -107,21 +109,22 @@ class MembersApi {
   Future<UpdateMerchantMemberResult> updateMerchantMember({
     required String merchantCode,
     required String memberId,
-    required UpdateMerchantMemberBodyApplicationJson updateMerchantMemberBodyApplicationJson,
+    required UpdateMerchantMemberBodyApplicationJson
+        updateMerchantMemberBodyApplicationJson,
     CancelToken? cancelToken,
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/members/$memberId',
       data: updateMerchantMemberBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'put',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'put',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -136,19 +139,18 @@ class MembersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/members/$memberId',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'delete',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'delete',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return DeleteMerchantMemberResult.fromResponse(response);
   }
-
 }

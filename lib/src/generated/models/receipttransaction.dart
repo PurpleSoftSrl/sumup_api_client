@@ -66,30 +66,20 @@ class ReceiptTransaction {
       merchantCode: json['merchant_code'] != null
           ? json['merchant_code'] as String
           : null,
-      amount: json['amount'] != null
-          ? json['amount'] as String
-          : null,
-      vatAmount: json['vat_amount'] != null
-          ? json['vat_amount'] as String
-          : null,
-      tipAmount: json['tip_amount'] != null
-          ? json['tip_amount'] as String
-          : null,
-      currency: json['currency'] != null
-          ? json['currency'] as String
-          : null,
+      amount: json['amount'] != null ? json['amount'] as String : null,
+      vatAmount:
+          json['vat_amount'] != null ? json['vat_amount'] as String : null,
+      tipAmount:
+          json['tip_amount'] != null ? json['tip_amount'] as String : null,
+      currency: json['currency'] != null ? json['currency'] as String : null,
       timestamp: json['timestamp'] != null
           ? DateTime.parse(json['timestamp'] as String)
           : null,
-      status: json['status'] != null
-          ? json['status'] as String
-          : null,
-      paymentType: json['payment_type'] != null
-          ? json['payment_type'] as String
-          : null,
-      entryMode: json['entry_mode'] != null
-          ? json['entry_mode'] as String
-          : null,
+      status: json['status'] != null ? json['status'] as String : null,
+      paymentType:
+          json['payment_type'] != null ? json['payment_type'] as String : null,
+      entryMode:
+          json['entry_mode'] != null ? json['entry_mode'] as String : null,
       verificationMethod: json['verification_method'] != null
           ? json['verification_method'] as String
           : null,
@@ -106,17 +96,28 @@ class ReceiptTransaction {
           ? ReceiptTransactionProcessAs.fromJson(json['process_as'] as String)
           : null,
       products: json['products'] != null
-          ? List<ReceiptTransactionProductsItem>.generate((json['products'] as List).length, (i) => ReceiptTransactionProductsItem.fromJson((json['products'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<ReceiptTransactionProductsItem>.generate(
+              (json['products'] as List).length,
+              (i) => ReceiptTransactionProductsItem.fromJson(
+                  (json['products'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       vatRates: json['vat_rates'] != null
-          ? List<ReceiptTransactionVatRatesItem>.generate((json['vat_rates'] as List).length, (i) => ReceiptTransactionVatRatesItem.fromJson((json['vat_rates'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<ReceiptTransactionVatRatesItem>.generate(
+              (json['vat_rates'] as List).length,
+              (i) => ReceiptTransactionVatRatesItem.fromJson(
+                  (json['vat_rates'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       events: json['events'] != null
-          ? List<ReceiptEvent>.generate((json['events'] as List).length, (i) => ReceiptEvent.fromJson((json['events'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<ReceiptEvent>.generate(
+              (json['events'] as List).length,
+              (i) => ReceiptEvent.fromJson(
+                  (json['events'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
-      receiptNo: json['receipt_no'] != null
-          ? json['receipt_no'] as String
-          : null,
+      receiptNo:
+          json['receipt_no'] != null ? json['receipt_no'] as String : null,
     );
   }
 
@@ -133,13 +134,16 @@ class ReceiptTransaction {
       if (status != null) 'status': status!,
       if (paymentType != null) 'payment_type': paymentType!,
       if (entryMode != null) 'entry_mode': entryMode!,
-      if (verificationMethod != null) 'verification_method': verificationMethod!,
+      if (verificationMethod != null)
+        'verification_method': verificationMethod!,
       if (cardReader != null) 'card_reader': cardReader!.toJson(),
       if (card != null) 'card': card!.toJson(),
       if (installmentsCount != null) 'installments_count': installmentsCount!,
       if (processAs != null) 'process_as': processAs!.toJson(),
-      if (products != null) 'products': products!.map((e) => e.toJson()).toList(),
-      if (vatRates != null) 'vat_rates': vatRates!.map((e) => e.toJson()).toList(),
+      if (products != null)
+        'products': products!.map((e) => e.toJson()).toList(),
+      if (vatRates != null)
+        'vat_rates': vatRates!.map((e) => e.toJson()).toList(),
       if (events != null) 'events': events!.map((e) => e.toJson()).toList(),
       if (receiptNo != null) 'receipt_no': receiptNo!,
     };
@@ -167,7 +171,26 @@ class ReceiptTransaction {
     List<ReceiptEvent>? events,
     String? receiptNo,
   }) {
-    if (transactionCode == null && transactionId == null && merchantCode == null && amount == null && vatAmount == null && tipAmount == null && currency == null && timestamp == null && status == null && paymentType == null && entryMode == null && verificationMethod == null && cardReader == null && card == null && installmentsCount == null && processAs == null && products == null && vatRates == null && events == null && receiptNo == null) return this;
+    if (transactionCode == null &&
+        transactionId == null &&
+        merchantCode == null &&
+        amount == null &&
+        vatAmount == null &&
+        tipAmount == null &&
+        currency == null &&
+        timestamp == null &&
+        status == null &&
+        paymentType == null &&
+        entryMode == null &&
+        verificationMethod == null &&
+        cardReader == null &&
+        card == null &&
+        installmentsCount == null &&
+        processAs == null &&
+        products == null &&
+        vatRates == null &&
+        events == null &&
+        receiptNo == null) return this;
 
     return ReceiptTransaction(
       transactionCode: transactionCode ?? this.transactionCode,
@@ -198,32 +221,52 @@ class ReceiptTransaction {
     if (identical(this, other)) return true;
     if (other is! ReceiptTransaction) return false;
     if (hashCode != other.hashCode) return false;
-    return transactionCode == other.transactionCode
-        && transactionId == other.transactionId
-        && merchantCode == other.merchantCode
-        && amount == other.amount
-        && vatAmount == other.vatAmount
-        && tipAmount == other.tipAmount
-        && currency == other.currency
-        && timestamp == other.timestamp
-        && status == other.status
-        && paymentType == other.paymentType
-        && entryMode == other.entryMode
-        && verificationMethod == other.verificationMethod
-        && cardReader == other.cardReader
-        && card == other.card
-        && installmentsCount == other.installmentsCount
-        && processAs == other.processAs
-        && products == other.products
-        && vatRates == other.vatRates
-        && events == other.events
-        && receiptNo == other.receiptNo
-;
+    return transactionCode == other.transactionCode &&
+        transactionId == other.transactionId &&
+        merchantCode == other.merchantCode &&
+        amount == other.amount &&
+        vatAmount == other.vatAmount &&
+        tipAmount == other.tipAmount &&
+        currency == other.currency &&
+        timestamp == other.timestamp &&
+        status == other.status &&
+        paymentType == other.paymentType &&
+        entryMode == other.entryMode &&
+        verificationMethod == other.verificationMethod &&
+        cardReader == other.cardReader &&
+        card == other.card &&
+        installmentsCount == other.installmentsCount &&
+        processAs == other.processAs &&
+        products == other.products &&
+        vatRates == other.vatRates &&
+        events == other.events &&
+        receiptNo == other.receiptNo;
   }
 
   @override
-  int get hashCode => Object.hash(transactionCode, transactionId, merchantCode, amount, vatAmount, tipAmount, currency, timestamp, status, paymentType, entryMode, verificationMethod, cardReader, card, installmentsCount, processAs, products, vatRates, events, receiptNo);
+  int get hashCode => Object.hash(
+      transactionCode,
+      transactionId,
+      merchantCode,
+      amount,
+      vatAmount,
+      tipAmount,
+      currency,
+      timestamp,
+      status,
+      paymentType,
+      entryMode,
+      verificationMethod,
+      cardReader,
+      card,
+      installmentsCount,
+      processAs,
+      products,
+      vatRates,
+      events,
+      receiptNo);
 
   @override
-  String toString() => 'ReceiptTransaction(transactionCode=$transactionCode, transactionId=$transactionId, merchantCode=$merchantCode, amount=$amount, vatAmount=$vatAmount, tipAmount=$tipAmount, currency=$currency, timestamp=$timestamp, status=$status, paymentType=$paymentType, entryMode=$entryMode, verificationMethod=$verificationMethod, cardReader=$cardReader, card=$card, installmentsCount=$installmentsCount, processAs=$processAs, products=$products, vatRates=$vatRates, events=$events, receiptNo=$receiptNo)';
+  String toString() =>
+      'ReceiptTransaction(transactionCode=$transactionCode, transactionId=$transactionId, merchantCode=$merchantCode, amount=$amount, vatAmount=$vatAmount, tipAmount=$tipAmount, currency=$currency, timestamp=$timestamp, status=$status, paymentType=$paymentType, entryMode=$entryMode, verificationMethod=$verificationMethod, cardReader=$cardReader, card=$card, installmentsCount=$installmentsCount, processAs=$processAs, products=$products, vatRates=$vatRates, events=$events, receiptNo=$receiptNo)';
 }

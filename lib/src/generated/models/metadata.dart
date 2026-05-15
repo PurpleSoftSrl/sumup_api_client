@@ -7,15 +7,12 @@
 class Metadata {
   const Metadata();
 
-
   factory Metadata.fromJson(Map<String, dynamic> json) {
-    return const Metadata(
-    );
+    return const Metadata();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   Metadata copyWith() {

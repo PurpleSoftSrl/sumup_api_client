@@ -15,7 +15,8 @@ enum TransactionFullInline3PayoutType {
   static TransactionFullInline3PayoutType fromJson(String json) {
     return TransactionFullInline3PayoutType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionFullInline3PayoutType: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown TransactionFullInline3PayoutType: $json'),
     );
   }
 

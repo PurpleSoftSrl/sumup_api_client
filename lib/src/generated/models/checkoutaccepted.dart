@@ -15,7 +15,8 @@ class CheckoutAccepted {
   factory CheckoutAccepted.fromJson(Map<String, dynamic> json) {
     return CheckoutAccepted(
       nextStep: json['next_step'] != null
-          ? CheckoutAcceptedNextStep.fromJson(json['next_step'] as Map<String, dynamic>)
+          ? CheckoutAcceptedNextStep.fromJson(
+              json['next_step'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -40,8 +41,7 @@ class CheckoutAccepted {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CheckoutAccepted) return false;
-    return nextStep == other.nextStep
-;
+    return nextStep == other.nextStep;
   }
 
   @override

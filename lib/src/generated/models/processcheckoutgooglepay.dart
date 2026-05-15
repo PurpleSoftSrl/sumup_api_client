@@ -7,15 +7,12 @@
 class ProcessCheckoutGooglePay {
   const ProcessCheckoutGooglePay();
 
-
   factory ProcessCheckoutGooglePay.fromJson(Map<String, dynamic> json) {
-    return const ProcessCheckoutGooglePay(
-    );
+    return const ProcessCheckoutGooglePay();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   ProcessCheckoutGooglePay copyWith() {

@@ -15,11 +15,11 @@ class PayoutsApi {
   final String? baseUrl;
 
   /// Lists payout and payout-deduction records for the specified merchant account within the requested date range.
-  /// 
+  ///
   /// The response can include:
   /// - regular payouts (`type = PAYOUT`)
   /// - deduction records for refunds, chargebacks, direct debit returns, or balance adjustments
-  /// 
+  ///
   /// Results are sorted by payout date in the requested `order`.
   Future<ListPayoutsV1Result> listPayoutsV1({
     required String merchantCode,
@@ -42,15 +42,15 @@ class PayoutsApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v1.0/merchants/$merchantCode/payouts',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return ListPayoutsV1Result.fromResponse(response);
   }
-
 }

@@ -43,8 +43,10 @@ class ApiClient {
   final Dio _dio;
   bool _initialized = false;
 
-  void _addInterceptor(Interceptor interceptor) => _dio.interceptors.add(interceptor);
-  void _addInterceptors(List<Interceptor> interceptors) => _dio.interceptors.addAll(interceptors);
+  void _addInterceptor(Interceptor interceptor) =>
+      _dio.interceptors.add(interceptor);
+  void _addInterceptors(List<Interceptor> interceptors) =>
+      _dio.interceptors.addAll(interceptors);
 
   Dio get dio {
     if (!_initialized) {
@@ -61,7 +63,8 @@ class ApiClient {
 
   CheckoutsApi get checkouts => CheckoutsApi(dio: dio, baseUrl: baseUrl);
   CustomersApi get customers => CustomersApi(dio: dio, baseUrl: baseUrl);
-  TransactionsApi get transactions => TransactionsApi(dio: dio, baseUrl: baseUrl);
+  TransactionsApi get transactions =>
+      TransactionsApi(dio: dio, baseUrl: baseUrl);
   PayoutsApi get payouts => PayoutsApi(dio: dio, baseUrl: baseUrl);
   ReceiptsApi get receipts => ReceiptsApi(dio: dio, baseUrl: baseUrl);
   MembershipsApi get memberships => MembershipsApi(dio: dio, baseUrl: baseUrl);

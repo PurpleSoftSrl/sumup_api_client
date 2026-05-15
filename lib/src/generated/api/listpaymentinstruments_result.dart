@@ -14,17 +14,21 @@ import '../models/problem.dart';
 sealed class ListPaymentInstrumentsResult {
   const ListPaymentInstrumentsResult();
 
-  factory ListPaymentInstrumentsResult.fromResponse(Response<dynamic> response) {
+  factory ListPaymentInstrumentsResult.fromResponse(
+      Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => ListPaymentInstrumentsResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => ListPaymentInstrumentsResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      403 => ListPaymentInstrumentsResultHttp403(ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
-      404 => ListPaymentInstrumentsResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => ListPaymentInstrumentsResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => ListPaymentInstrumentsResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      403 => ListPaymentInstrumentsResultHttp403(
+          ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
+      404 => ListPaymentInstrumentsResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => ListPaymentInstrumentsResultError.fromResponse(response),
     };
   }
-
 }
 
 class ListPaymentInstrumentsResultHttp200 extends ListPaymentInstrumentsResult {
@@ -51,5 +55,7 @@ class ListPaymentInstrumentsResultError extends ListPaymentInstrumentsResult {
   const ListPaymentInstrumentsResultError(this.response);
   final Response<dynamic> response;
 
-  factory ListPaymentInstrumentsResultError.fromResponse(Response<dynamic> response) => ListPaymentInstrumentsResultError(response);
+  factory ListPaymentInstrumentsResultError.fromResponse(
+          Response<dynamic> response) =>
+      ListPaymentInstrumentsResultError(response);
 }

@@ -10,15 +10,19 @@ sealed class Put400Response {
   const Put400Response();
 
   factory Put400Response.fromJson(Map<String, dynamic> json) {
-    try { return Put400ResponseErrorExtendedVariant0.fromJson(json); } catch (_) {}
-    try { return Put400ResponseVariant1.fromJson(json); } catch (_) {}
+    try {
+      return Put400ResponseErrorExtendedVariant0.fromJson(json);
+    } catch (_) {}
+    try {
+      return Put400ResponseVariant1.fromJson(json);
+    } catch (_) {}
     throw FormatException('Cannot decode Put400Response', json);
   }
 
   Map<String, dynamic> toJson() => switch (this) {
-    Put400ResponseErrorExtendedVariant0 v => v.toJson(),
-    Put400ResponseVariant1 v => v.toJson(),
-  };
+        Put400ResponseErrorExtendedVariant0 v => v.toJson(),
+        Put400ResponseVariant1 v => v.toJson(),
+      };
 }
 
 /// Sealed variant for `Put400ResponseErrorExtendedVariant0` in `Put400Response`.
@@ -26,7 +30,9 @@ class Put400ResponseErrorExtendedVariant0 extends Put400Response {
   const Put400ResponseErrorExtendedVariant0(this.value);
   final ErrorExtended value;
 
-  factory Put400ResponseErrorExtendedVariant0.fromJson(Map<String, dynamic> json) => Put400ResponseErrorExtendedVariant0(ErrorExtended.fromJson(json));
+  factory Put400ResponseErrorExtendedVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      Put400ResponseErrorExtendedVariant0(ErrorExtended.fromJson(json));
 
   @override
   Map<String, dynamic> toJson() => value.toJson();
@@ -37,9 +43,14 @@ class Put400ResponseVariant1 extends Put400Response {
   const Put400ResponseVariant1(this.value);
   final List<ErrorExtended> value;
 
-  factory Put400ResponseVariant1.fromJson(dynamic json) => Put400ResponseVariant1(List<ErrorExtended>.generate((json as List).length, (i) => ErrorExtended.fromJson((json as List)[i] as Map<String, dynamic>), growable: false));
+  factory Put400ResponseVariant1.fromJson(dynamic json) =>
+      Put400ResponseVariant1(List<ErrorExtended>.generate(
+          (json as List).length,
+          (i) =>
+              ErrorExtended.fromJson((json as List)[i] as Map<String, dynamic>),
+          growable: false));
 
   @override
-  Map<String, dynamic> toJson() => {'value': value.map((e) => e.toJson()).toList()};
+  Map<String, dynamic> toJson() =>
+      {'value': value.map((e) => e.toJson()).toList()};
 }
-

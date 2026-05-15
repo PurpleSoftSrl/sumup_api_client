@@ -17,20 +17,13 @@ class TransactionFullInline3VatRatesItem {
   final double? vat;
   final double? gross;
 
-  factory TransactionFullInline3VatRatesItem.fromJson(Map<String, dynamic> json) {
+  factory TransactionFullInline3VatRatesItem.fromJson(
+      Map<String, dynamic> json) {
     return TransactionFullInline3VatRatesItem(
-      rate: json['rate'] != null
-          ? (json['rate'] as num).toDouble()
-          : null,
-      net: json['net'] != null
-          ? (json['net'] as num).toDouble()
-          : null,
-      vat: json['vat'] != null
-          ? (json['vat'] as num).toDouble()
-          : null,
-      gross: json['gross'] != null
-          ? (json['gross'] as num).toDouble()
-          : null,
+      rate: json['rate'] != null ? (json['rate'] as num).toDouble() : null,
+      net: json['net'] != null ? (json['net'] as num).toDouble() : null,
+      vat: json['vat'] != null ? (json['vat'] as num).toDouble() : null,
+      gross: json['gross'] != null ? (json['gross'] as num).toDouble() : null,
     );
   }
 
@@ -49,7 +42,8 @@ class TransactionFullInline3VatRatesItem {
     double? vat,
     double? gross,
   }) {
-    if (rate == null && net == null && vat == null && gross == null) return this;
+    if (rate == null && net == null && vat == null && gross == null)
+      return this;
 
     return TransactionFullInline3VatRatesItem(
       rate: rate ?? this.rate,
@@ -63,16 +57,16 @@ class TransactionFullInline3VatRatesItem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionFullInline3VatRatesItem) return false;
-    return rate == other.rate
-        && net == other.net
-        && vat == other.vat
-        && gross == other.gross
-;
+    return rate == other.rate &&
+        net == other.net &&
+        vat == other.vat &&
+        gross == other.gross;
   }
 
   @override
   int get hashCode => Object.hash(rate, net, vat, gross);
 
   @override
-  String toString() => 'TransactionFullInline3VatRatesItem(rate=$rate, net=$net, vat=$vat, gross=$gross)';
+  String toString() =>
+      'TransactionFullInline3VatRatesItem(rate=$rate, net=$net, vat=$vat, gross=$gross)';
 }

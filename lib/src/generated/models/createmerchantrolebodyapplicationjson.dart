@@ -18,16 +18,16 @@ class CreateMerchantRoleBodyApplicationJson {
   final Metadata? metadata;
   final String? description;
 
-  factory CreateMerchantRoleBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory CreateMerchantRoleBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return CreateMerchantRoleBodyApplicationJson(
       name: json['name'] as String,
       permissions: json['permissions'] as List<String>,
       metadata: json['metadata'] != null
           ? Metadata.fromJson(json['metadata'] as Map<String, dynamic>)
           : null,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
     );
   }
 
@@ -46,7 +46,10 @@ class CreateMerchantRoleBodyApplicationJson {
     Metadata? metadata,
     String? description,
   }) {
-    if (name == null && permissions == null && metadata == null && description == null) return this;
+    if (name == null &&
+        permissions == null &&
+        metadata == null &&
+        description == null) return this;
 
     return CreateMerchantRoleBodyApplicationJson(
       name: name ?? this.name,
@@ -60,16 +63,16 @@ class CreateMerchantRoleBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateMerchantRoleBodyApplicationJson) return false;
-    return name == other.name
-        && permissions == other.permissions
-        && metadata == other.metadata
-        && description == other.description
-;
+    return name == other.name &&
+        permissions == other.permissions &&
+        metadata == other.metadata &&
+        description == other.description;
   }
 
   @override
   int get hashCode => Object.hash(name, permissions, metadata, description);
 
   @override
-  String toString() => 'CreateMerchantRoleBodyApplicationJson(name=$name, permissions=$permissions, metadata=$metadata, description=$description)';
+  String toString() =>
+      'CreateMerchantRoleBodyApplicationJson(name=$name, permissions=$permissions, metadata=$metadata, description=$description)';
 }

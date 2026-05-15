@@ -10,7 +10,8 @@ class RateLimitInterceptor extends Interceptor {
   final Duration _baseDelay;
   final Random _random = Random();
 
-  RateLimitInterceptor({int maxRetries = 5, Duration baseDelay = const Duration(seconds: 1)})
+  RateLimitInterceptor(
+      {int maxRetries = 5, Duration baseDelay = const Duration(seconds: 1)})
       : _maxRetries = maxRetries,
         _baseDelay = baseDelay;
 
@@ -23,8 +24,11 @@ class RateLimitInterceptor extends Interceptor {
 
     var retries = 0;
     while (retries < _maxRetries) {
-      final retryAfter = _parseRetryAfter(err.response?.headers.value('Retry-After'));
-      final delay = retryAfter ?? _baseDelay * pow(2, retries) + Duration(milliseconds: _random.nextInt(500));
+      final retryAfter =
+          _parseRetryAfter(err.response?.headers.value('Retry-After'));
+      final delay = retryAfter ??
+          _baseDelay * pow(2, retries) +
+              Duration(milliseconds: _random.nextInt(500));
 
       await Future<void>.delayed(delay);
       retries++;

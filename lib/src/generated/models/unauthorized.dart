@@ -14,7 +14,8 @@ class Unauthorized {
 
   factory Unauthorized.fromJson(Map<String, dynamic> json) {
     return Unauthorized(
-      errors: UnauthorizedErrors.fromJson(json['errors'] as Map<String, dynamic>),
+      errors:
+          UnauthorizedErrors.fromJson(json['errors'] as Map<String, dynamic>),
     );
   }
 
@@ -38,8 +39,7 @@ class Unauthorized {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Unauthorized) return false;
-    return errors == other.errors
-;
+    return errors == other.errors;
   }
 
   @override

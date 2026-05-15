@@ -11,15 +11,19 @@ sealed class Post400Response {
   const Post400Response();
 
   factory Post400Response.fromJson(Map<String, dynamic> json) {
-    try { return Post400ResponseErrorExtendedVariant0.fromJson(json); } catch (_) {}
-    try { return Post400ResponseVariant1.fromJson(json); } catch (_) {}
+    try {
+      return Post400ResponseErrorExtendedVariant0.fromJson(json);
+    } catch (_) {}
+    try {
+      return Post400ResponseVariant1.fromJson(json);
+    } catch (_) {}
     throw FormatException('Cannot decode Post400Response', json);
   }
 
   Map<String, dynamic> toJson() => switch (this) {
-    Post400ResponseErrorExtendedVariant0 v => v.toJson(),
-    Post400ResponseVariant1 v => v.toJson(),
-  };
+        Post400ResponseErrorExtendedVariant0 v => v.toJson(),
+        Post400ResponseVariant1 v => v.toJson(),
+      };
 }
 
 /// Sealed variant for `Post400ResponseErrorExtendedVariant0` in `Post400Response`.
@@ -27,7 +31,9 @@ class Post400ResponseErrorExtendedVariant0 extends Post400Response {
   const Post400ResponseErrorExtendedVariant0(this.value);
   final ErrorExtended value;
 
-  factory Post400ResponseErrorExtendedVariant0.fromJson(Map<String, dynamic> json) => Post400ResponseErrorExtendedVariant0(ErrorExtended.fromJson(json));
+  factory Post400ResponseErrorExtendedVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      Post400ResponseErrorExtendedVariant0(ErrorExtended.fromJson(json));
 
   @override
   Map<String, dynamic> toJson() => value.toJson();
@@ -44,17 +50,17 @@ class Post400ResponseVariant1 extends Post400Response {
   final String errorCode;
   final String errorMessage;
 
-  factory Post400ResponseVariant1.fromJson(Map<String, dynamic> json) => Post400ResponseVariant1(
-    instance: json['instance'] as String,
-    errorCode: json['error_code'] as String,
-    errorMessage: json['error_message'] as String,
-  );
+  factory Post400ResponseVariant1.fromJson(Map<String, dynamic> json) =>
+      Post400ResponseVariant1(
+        instance: json['instance'] as String,
+        errorCode: json['error_code'] as String,
+        errorMessage: json['error_message'] as String,
+      );
 
   @override
   Map<String, dynamic> toJson() => {
-    'instance': instance,
-    'error_code': errorCode,
-    'error_message': errorMessage,
-  };
+        'instance': instance,
+        'error_code': errorCode,
+        'error_message': errorMessage,
+      };
 }
-

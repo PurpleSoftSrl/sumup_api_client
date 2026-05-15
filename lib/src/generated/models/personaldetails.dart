@@ -26,24 +26,15 @@ class PersonalDetails {
 
   factory PersonalDetails.fromJson(Map<String, dynamic> json) {
     return PersonalDetails(
-      firstName: json['first_name'] != null
-          ? json['first_name'] as String
-          : null,
-      lastName: json['last_name'] != null
-          ? json['last_name'] as String
-          : null,
-      email: json['email'] != null
-          ? json['email'] as String
-          : null,
-      phone: json['phone'] != null
-          ? json['phone'] as String
-          : null,
+      firstName:
+          json['first_name'] != null ? json['first_name'] as String : null,
+      lastName: json['last_name'] != null ? json['last_name'] as String : null,
+      email: json['email'] != null ? json['email'] as String : null,
+      phone: json['phone'] != null ? json['phone'] as String : null,
       birthDate: json['birth_date'] != null
           ? DateTime.parse(json['birth_date'] as String)
           : null,
-      taxId: json['tax_id'] != null
-          ? json['tax_id'] as String
-          : null,
+      taxId: json['tax_id'] != null ? json['tax_id'] as String : null,
       address: json['address'] != null
           ? AddressLegacy.fromJson(json['address'] as Map<String, dynamic>)
           : null,
@@ -71,7 +62,13 @@ class PersonalDetails {
     String? taxId,
     AddressLegacy? address,
   }) {
-    if (firstName == null && lastName == null && email == null && phone == null && birthDate == null && taxId == null && address == null) return this;
+    if (firstName == null &&
+        lastName == null &&
+        email == null &&
+        phone == null &&
+        birthDate == null &&
+        taxId == null &&
+        address == null) return this;
 
     return PersonalDetails(
       firstName: firstName ?? this.firstName,
@@ -88,19 +85,20 @@ class PersonalDetails {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! PersonalDetails) return false;
-    return firstName == other.firstName
-        && lastName == other.lastName
-        && email == other.email
-        && phone == other.phone
-        && birthDate == other.birthDate
-        && taxId == other.taxId
-        && address == other.address
-;
+    return firstName == other.firstName &&
+        lastName == other.lastName &&
+        email == other.email &&
+        phone == other.phone &&
+        birthDate == other.birthDate &&
+        taxId == other.taxId &&
+        address == other.address;
   }
 
   @override
-  int get hashCode => Object.hash(firstName, lastName, email, phone, birthDate, taxId, address);
+  int get hashCode =>
+      Object.hash(firstName, lastName, email, phone, birthDate, taxId, address);
 
   @override
-  String toString() => 'PersonalDetails(firstName=$firstName, lastName=$lastName, email=$email, phone=$phone, birthDate=$birthDate, taxId=$taxId, address=$address)';
+  String toString() =>
+      'PersonalDetails(firstName=$firstName, lastName=$lastName, email=$email, phone=$phone, birthDate=$birthDate, taxId=$taxId, address=$address)';
 }

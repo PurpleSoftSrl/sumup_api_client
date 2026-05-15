@@ -30,15 +30,15 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -53,16 +53,16 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers',
       data: createReaderBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -79,16 +79,18 @@ class ReadersApi {
     Options? options,
   }) async {
     final reqHeaders = <String, dynamic>{};
-    if (ifModifiedSince != null) reqHeaders['If-Modified-Since'] = ifModifiedSince.toString();
+    if (ifModifiedSince != null)
+      reqHeaders['If-Modified-Since'] = ifModifiedSince.toString();
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$id',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: reqHeaders.isNotEmpty ? reqHeaders : null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: reqHeaders.isNotEmpty ? reqHeaders : null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -103,15 +105,15 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$id',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'delete',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'delete',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -127,16 +129,16 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$id',
       data: updateReaderBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'patch',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'patch',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -144,17 +146,17 @@ class ReadersApi {
   }
 
   /// Creates a Checkout for a Reader.
-  /// 
+  ///
   /// This process is asynchronous and the actual transaction may take some time to be started on the device.
-  /// 
-  /// 
+  ///
+  ///
   /// There are some caveats when using this endpoint:
   /// * The target device must be online, otherwise checkout won't be accepted
   /// * After the checkout is accepted, the system has 60 seconds to start the payment on the target device. During this time, any other checkout for the same device will be rejected.
-  /// 
-  /// 
+  ///
+  ///
   /// **Note**: If the target device is a Solo, it must be in version 3.3.24.3 or higher.
-  /// 
+  ///
   Future<CreateReaderCheckoutResult> createReaderCheckout({
     required String merchantCode,
     required String readerId,
@@ -163,16 +165,16 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$readerId/checkout',
       data: createReaderCheckoutRequest.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -180,25 +182,25 @@ class ReadersApi {
   }
 
   /// Provides the last known status for a Reader.
-  /// 
+  ///
   /// This endpoint allows you to retrieve updates from the connected card reader, including the current screen being displayed during the payment process and the device status (battery level, connectivity, and update state).
-  /// 
+  ///
   /// Supported States
-  /// 
+  ///
   /// * `IDLE` – Reader ready for next transaction
   /// * `SELECTING_TIP` – Waiting for tip input
   /// * `WAITING_FOR_CARD` – Awaiting card insert/tap
   /// * `WAITING_FOR_PIN` – Waiting for PIN entry
   /// * `WAITING_FOR_SIGNATURE` – Waiting for customer signature
   /// * `UPDATING_FIRMWARE` – Firmware update in progress
-  /// 
+  ///
   /// Device Status
-  /// 
+  ///
   /// * `ONLINE` – Device connected and operational
   /// * `OFFLINE` – Device disconnected (last state persisted)
-  /// 
+  ///
   /// **Note**: If the target device is a Solo, it must be in version 3.3.39.0 or higher.
-  /// 
+  ///
   Future<GetReaderStatusResult> getReaderStatus({
     required String merchantCode,
     required String readerId,
@@ -206,15 +208,15 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$readerId/status',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -222,20 +224,20 @@ class ReadersApi {
   }
 
   /// Terminate a Reader Checkout stops the current transaction on the target device.
-  /// 
+  ///
   /// This process is asynchronous and the actual termination may take some time to be performed on the device.
-  /// 
-  /// 
+  ///
+  ///
   /// There are some caveats when using this endpoint:
   /// * The target device must be online, otherwise terminate won't be accepted
   /// * The action will succeed only if the device is waiting for cardholder action: e.g: waiting for card, waiting for PIN, etc.
   /// * There is no confirmation of the termination.
-  /// 
+  ///
   /// If a transaction is successfully terminated and `return_url` was provided on Checkout, the transaction status will be sent as `failed` to the provided URL.
-  /// 
-  /// 
+  ///
+  ///
   /// **Note**: If the target device is a Solo, it must be in version 3.3.28.0 or higher.
-  /// 
+  ///
   Future<CreateReaderTerminateResult> createReaderTerminate({
     required String merchantCode,
     required String readerId,
@@ -243,19 +245,18 @@ class ReadersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/readers/$readerId/terminate',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return CreateReaderTerminateResult.fromResponse(response);
   }
-
 }

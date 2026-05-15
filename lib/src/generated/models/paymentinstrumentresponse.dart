@@ -26,17 +26,14 @@ class PaymentInstrumentResponse {
 
   factory PaymentInstrumentResponse.fromJson(Map<String, dynamic> json) {
     return PaymentInstrumentResponse(
-      token: json['token'] != null
-          ? json['token'] as String
-          : null,
-      active: json['active'] != null
-          ? json['active'] as bool
-          : null,
+      token: json['token'] != null ? json['token'] as String : null,
+      active: json['active'] != null ? json['active'] as bool : null,
       type_: json['type'] != null
           ? PaymentInstrumentResponseType.fromJson(json['type'] as String)
           : null,
       card: json['card'] != null
-          ? PaymentInstrumentResponseCard.fromJson(json['card'] as Map<String, dynamic>)
+          ? PaymentInstrumentResponseCard.fromJson(
+              json['card'] as Map<String, dynamic>)
           : null,
       mandate: json['mandate'] != null
           ? MandateResponse.fromJson(json['mandate'] as Map<String, dynamic>)
@@ -66,7 +63,12 @@ class PaymentInstrumentResponse {
     MandateResponse? mandate,
     DateTime? createdAt,
   }) {
-    if (token == null && active == null && type_ == null && card == null && mandate == null && createdAt == null) return this;
+    if (token == null &&
+        active == null &&
+        type_ == null &&
+        card == null &&
+        mandate == null &&
+        createdAt == null) return this;
 
     return PaymentInstrumentResponse(
       token: token ?? this.token,
@@ -82,18 +84,19 @@ class PaymentInstrumentResponse {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! PaymentInstrumentResponse) return false;
-    return token == other.token
-        && active == other.active
-        && type_ == other.type_
-        && card == other.card
-        && mandate == other.mandate
-        && createdAt == other.createdAt
-;
+    return token == other.token &&
+        active == other.active &&
+        type_ == other.type_ &&
+        card == other.card &&
+        mandate == other.mandate &&
+        createdAt == other.createdAt;
   }
 
   @override
-  int get hashCode => Object.hash(token, active, type_, card, mandate, createdAt);
+  int get hashCode =>
+      Object.hash(token, active, type_, card, mandate, createdAt);
 
   @override
-  String toString() => 'PaymentInstrumentResponse(token=$token, active=$active, type_=$type_, card=$card, mandate=$mandate, createdAt=$createdAt)';
+  String toString() =>
+      'PaymentInstrumentResponse(token=$token, active=$active, type_=$type_, card=$card, mandate=$mandate, createdAt=$createdAt)';
 }

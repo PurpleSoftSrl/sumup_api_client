@@ -16,14 +16,17 @@ sealed class GetReceiptResult {
   factory GetReceiptResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => GetReceiptResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => GetReceiptResultHttp400(Error.fromJson(response.data as Map<String, dynamic>)),
-      401 => GetReceiptResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => GetReceiptResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => GetReceiptResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => GetReceiptResultHttp400(
+          Error.fromJson(response.data as Map<String, dynamic>)),
+      401 => GetReceiptResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => GetReceiptResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => GetReceiptResultError.fromResponse(response),
     };
   }
-
 }
 
 class GetReceiptResultHttp200 extends GetReceiptResult {
@@ -50,5 +53,6 @@ class GetReceiptResultError extends GetReceiptResult {
   const GetReceiptResultError(this.response);
   final Response<dynamic> response;
 
-  factory GetReceiptResultError.fromResponse(Response<dynamic> response) => GetReceiptResultError(response);
+  factory GetReceiptResultError.fromResponse(Response<dynamic> response) =>
+      GetReceiptResultError(response);
 }

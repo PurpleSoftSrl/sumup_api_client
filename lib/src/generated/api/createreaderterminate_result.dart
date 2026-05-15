@@ -19,14 +19,19 @@ sealed class CreateReaderTerminateResult {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
       202 => const CreateReaderTerminateResultHttp202(),
-      400 => CreateReaderTerminateResultHttp400(Post400Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => CreateReaderTerminateResultHttp401(CreateReaderTerminateError.fromJson(response.data as Map<String, dynamic>)),
-      404 => CreateReaderTerminateResultHttp404(NotFound.fromJson(response.data as Map<String, dynamic>)),
-      422 => CreateReaderTerminateResultHttp422(CreateReaderTerminateUnprocessableEntity.fromJson(response.data as Map<String, dynamic>)),
+      400 => CreateReaderTerminateResultHttp400(
+          Post400Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => CreateReaderTerminateResultHttp401(
+          CreateReaderTerminateError.fromJson(
+              response.data as Map<String, dynamic>)),
+      404 => CreateReaderTerminateResultHttp404(
+          NotFound.fromJson(response.data as Map<String, dynamic>)),
+      422 => CreateReaderTerminateResultHttp422(
+          CreateReaderTerminateUnprocessableEntity.fromJson(
+              response.data as Map<String, dynamic>)),
       _ => CreateReaderTerminateResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateReaderTerminateResultHttp202 extends CreateReaderTerminateResult {
@@ -57,5 +62,7 @@ class CreateReaderTerminateResultError extends CreateReaderTerminateResult {
   const CreateReaderTerminateResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateReaderTerminateResultError.fromResponse(Response<dynamic> response) => CreateReaderTerminateResultError(response);
+  factory CreateReaderTerminateResultError.fromResponse(
+          Response<dynamic> response) =>
+      CreateReaderTerminateResultError(response);
 }

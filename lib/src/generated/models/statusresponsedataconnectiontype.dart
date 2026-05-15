@@ -20,7 +20,8 @@ enum StatusResponseDataConnectionType {
   static StatusResponseDataConnectionType fromJson(String json) {
     return StatusResponseDataConnectionType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown StatusResponseDataConnectionType: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown StatusResponseDataConnectionType: $json'),
     );
   }
 

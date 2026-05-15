@@ -13,14 +13,11 @@ class DetailsErrorFailedConstraintsItem {
   final String? message;
   final String? reference;
 
-  factory DetailsErrorFailedConstraintsItem.fromJson(Map<String, dynamic> json) {
+  factory DetailsErrorFailedConstraintsItem.fromJson(
+      Map<String, dynamic> json) {
     return DetailsErrorFailedConstraintsItem(
-      message: json['message'] != null
-          ? json['message'] as String
-          : null,
-      reference: json['reference'] != null
-          ? json['reference'] as String
-          : null,
+      message: json['message'] != null ? json['message'] as String : null,
+      reference: json['reference'] != null ? json['reference'] as String : null,
     );
   }
 
@@ -47,14 +44,13 @@ class DetailsErrorFailedConstraintsItem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! DetailsErrorFailedConstraintsItem) return false;
-    return message == other.message
-        && reference == other.reference
-;
+    return message == other.message && reference == other.reference;
   }
 
   @override
   int get hashCode => Object.hash(message, reference);
 
   @override
-  String toString() => 'DetailsErrorFailedConstraintsItem(message=$message, reference=$reference)';
+  String toString() =>
+      'DetailsErrorFailedConstraintsItem(message=$message, reference=$reference)';
 }

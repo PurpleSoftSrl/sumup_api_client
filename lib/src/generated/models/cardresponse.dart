@@ -48,9 +48,7 @@ class CardResponse {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CardResponse) return false;
-    return last4Digits == other.last4Digits
-        && type_ == other.type_
-;
+    return last4Digits == other.last4Digits && type_ == other.type_;
   }
 
   @override

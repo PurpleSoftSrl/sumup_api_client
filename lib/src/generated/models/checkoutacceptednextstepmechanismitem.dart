@@ -15,7 +15,8 @@ enum CheckoutAcceptedNextStepMechanismItem {
   static CheckoutAcceptedNextStepMechanismItem fromJson(String json) {
     return CheckoutAcceptedNextStepMechanismItem.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown CheckoutAcceptedNextStepMechanismItem: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown CheckoutAcceptedNextStepMechanismItem: $json'),
     );
   }
 

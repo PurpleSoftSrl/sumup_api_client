@@ -15,12 +15,13 @@ sealed class GetMerchantMemberResult {
   factory GetMerchantMemberResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => GetMerchantMemberResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      404 => GetMerchantMemberResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => GetMerchantMemberResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      404 => GetMerchantMemberResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => GetMerchantMemberResultError.fromResponse(response),
     };
   }
-
 }
 
 class GetMerchantMemberResultHttp200 extends GetMerchantMemberResult {
@@ -37,5 +38,7 @@ class GetMerchantMemberResultError extends GetMerchantMemberResult {
   const GetMerchantMemberResultError(this.response);
   final Response<dynamic> response;
 
-  factory GetMerchantMemberResultError.fromResponse(Response<dynamic> response) => GetMerchantMemberResultError(response);
+  factory GetMerchantMemberResultError.fromResponse(
+          Response<dynamic> response) =>
+      GetMerchantMemberResultError(response);
 }

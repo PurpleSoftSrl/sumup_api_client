@@ -47,24 +47,18 @@ class BasePerson {
   factory BasePerson.fromJson(Map<String, dynamic> json) {
     return BasePerson(
       id: json['id'] as String,
-      userId: json['user_id'] != null
-          ? json['user_id'] as String
-          : null,
+      userId: json['user_id'] != null ? json['user_id'] as String : null,
       birthdate: json['birthdate'] != null
           ? DateTime.parse(json['birthdate'] as String)
           : null,
-      givenName: json['given_name'] != null
-          ? json['given_name'] as String
-          : null,
-      familyName: json['family_name'] != null
-          ? json['family_name'] as String
-          : null,
-      middleName: json['middle_name'] != null
-          ? json['middle_name'] as String
-          : null,
-      phoneNumber: json['phone_number'] != null
-          ? json['phone_number'] as String
-          : null,
+      givenName:
+          json['given_name'] != null ? json['given_name'] as String : null,
+      familyName:
+          json['family_name'] != null ? json['family_name'] as String : null,
+      middleName:
+          json['middle_name'] != null ? json['middle_name'] as String : null,
+      phoneNumber:
+          json['phone_number'] != null ? json['phone_number'] as String : null,
       relationships: json['relationships'] != null
           ? json['relationships'] as List<String>
           : null,
@@ -75,20 +69,20 @@ class BasePerson {
           ? Address.fromJson(json['address'] as Map<String, dynamic>)
           : null,
       identifiers: json['identifiers'] != null
-          ? List<PersonalIdentifier>.generate((json['identifiers'] as List).length, (i) => PersonalIdentifier.fromJson((json['identifiers'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<PersonalIdentifier>.generate(
+              (json['identifiers'] as List).length,
+              (i) => PersonalIdentifier.fromJson(
+                  (json['identifiers'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
-      citizenship: json['citizenship'] != null
-          ? json['citizenship'] as String
-          : null,
-      nationality: json['nationality'] != null
-          ? json['nationality'] as String
-          : null,
+      citizenship:
+          json['citizenship'] != null ? json['citizenship'] as String : null,
+      nationality:
+          json['nationality'] != null ? json['nationality'] as String : null,
       countryOfResidence: json['country_of_residence'] != null
           ? json['country_of_residence'] as String
           : null,
-      version: json['version'] != null
-          ? json['version'] as String
-          : null,
+      version: json['version'] != null ? json['version'] as String : null,
       changeStatus: json['change_status'] != null
           ? json['change_status'] as String
           : null,
@@ -107,10 +101,12 @@ class BasePerson {
       if (relationships != null) 'relationships': relationships!,
       if (ownership != null) 'ownership': ownership!.toJson(),
       if (address != null) 'address': address!.toJson(),
-      if (identifiers != null) 'identifiers': identifiers!.map((e) => e.toJson()).toList(),
+      if (identifiers != null)
+        'identifiers': identifiers!.map((e) => e.toJson()).toList(),
       if (citizenship != null) 'citizenship': citizenship!,
       if (nationality != null) 'nationality': nationality!,
-      if (countryOfResidence != null) 'country_of_residence': countryOfResidence!,
+      if (countryOfResidence != null)
+        'country_of_residence': countryOfResidence!,
       if (version != null) 'version': version!,
       if (changeStatus != null) 'change_status': changeStatus!,
     };
@@ -134,7 +130,22 @@ class BasePerson {
     String? version,
     String? changeStatus,
   }) {
-    if (id == null && userId == null && birthdate == null && givenName == null && familyName == null && middleName == null && phoneNumber == null && relationships == null && ownership == null && address == null && identifiers == null && citizenship == null && nationality == null && countryOfResidence == null && version == null && changeStatus == null) return this;
+    if (id == null &&
+        userId == null &&
+        birthdate == null &&
+        givenName == null &&
+        familyName == null &&
+        middleName == null &&
+        phoneNumber == null &&
+        relationships == null &&
+        ownership == null &&
+        address == null &&
+        identifiers == null &&
+        citizenship == null &&
+        nationality == null &&
+        countryOfResidence == null &&
+        version == null &&
+        changeStatus == null) return this;
 
     return BasePerson(
       id: id ?? this.id,
@@ -160,28 +171,44 @@ class BasePerson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! BasePerson) return false;
-    return id == other.id
-        && userId == other.userId
-        && birthdate == other.birthdate
-        && givenName == other.givenName
-        && familyName == other.familyName
-        && middleName == other.middleName
-        && phoneNumber == other.phoneNumber
-        && relationships == other.relationships
-        && ownership == other.ownership
-        && address == other.address
-        && identifiers == other.identifiers
-        && citizenship == other.citizenship
-        && nationality == other.nationality
-        && countryOfResidence == other.countryOfResidence
-        && version == other.version
-        && changeStatus == other.changeStatus
-;
+    return id == other.id &&
+        userId == other.userId &&
+        birthdate == other.birthdate &&
+        givenName == other.givenName &&
+        familyName == other.familyName &&
+        middleName == other.middleName &&
+        phoneNumber == other.phoneNumber &&
+        relationships == other.relationships &&
+        ownership == other.ownership &&
+        address == other.address &&
+        identifiers == other.identifiers &&
+        citizenship == other.citizenship &&
+        nationality == other.nationality &&
+        countryOfResidence == other.countryOfResidence &&
+        version == other.version &&
+        changeStatus == other.changeStatus;
   }
 
   @override
-  int get hashCode => Object.hash(id, userId, birthdate, givenName, familyName, middleName, phoneNumber, relationships, ownership, address, identifiers, citizenship, nationality, countryOfResidence, version, changeStatus);
+  int get hashCode => Object.hash(
+      id,
+      userId,
+      birthdate,
+      givenName,
+      familyName,
+      middleName,
+      phoneNumber,
+      relationships,
+      ownership,
+      address,
+      identifiers,
+      citizenship,
+      nationality,
+      countryOfResidence,
+      version,
+      changeStatus);
 
   @override
-  String toString() => 'BasePerson(id=$id, userId=$userId, birthdate=$birthdate, givenName=$givenName, familyName=$familyName, middleName=$middleName, phoneNumber=$phoneNumber, relationships=$relationships, ownership=$ownership, address=$address, identifiers=$identifiers, citizenship=$citizenship, nationality=$nationality, countryOfResidence=$countryOfResidence, version=$version, changeStatus=$changeStatus)';
+  String toString() =>
+      'BasePerson(id=$id, userId=$userId, birthdate=$birthdate, givenName=$givenName, familyName=$familyName, middleName=$middleName, phoneNumber=$phoneNumber, relationships=$relationships, ownership=$ownership, address=$address, identifiers=$identifiers, citizenship=$citizenship, nationality=$nationality, countryOfResidence=$countryOfResidence, version=$version, changeStatus=$changeStatus)';
 }

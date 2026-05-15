@@ -14,7 +14,8 @@ class CreateReaderCheckoutResponse {
 
   factory CreateReaderCheckoutResponse.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutResponse(
-      data: CreateReaderCheckoutResponseData.fromJson(json['data'] as Map<String, dynamic>),
+      data: CreateReaderCheckoutResponseData.fromJson(
+          json['data'] as Map<String, dynamic>),
     );
   }
 
@@ -38,8 +39,7 @@ class CreateReaderCheckoutResponse {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutResponse) return false;
-    return data == other.data
-;
+    return data == other.data;
   }
 
   @override

@@ -7,15 +7,12 @@
 class TransactionHistory {
   const TransactionHistory();
 
-
   factory TransactionHistory.fromJson(Map<String, dynamic> json) {
-    return const TransactionHistory(
-    );
+    return const TransactionHistory();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   TransactionHistory copyWith() {

@@ -17,17 +17,17 @@ class ReceiptMerchantData {
   factory ReceiptMerchantData.fromJson(Map<String, dynamic> json) {
     return ReceiptMerchantData(
       merchantProfile: json['merchant_profile'] != null
-          ? ReceiptMerchantDataMerchantProfile.fromJson(json['merchant_profile'] as Map<String, dynamic>)
+          ? ReceiptMerchantDataMerchantProfile.fromJson(
+              json['merchant_profile'] as Map<String, dynamic>)
           : null,
-      locale: json['locale'] != null
-          ? json['locale'] as String
-          : null,
+      locale: json['locale'] != null ? json['locale'] as String : null,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      if (merchantProfile != null) 'merchant_profile': merchantProfile!.toJson(),
+      if (merchantProfile != null)
+        'merchant_profile': merchantProfile!.toJson(),
       if (locale != null) 'locale': locale!,
     };
   }
@@ -48,14 +48,13 @@ class ReceiptMerchantData {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptMerchantData) return false;
-    return merchantProfile == other.merchantProfile
-        && locale == other.locale
-;
+    return merchantProfile == other.merchantProfile && locale == other.locale;
   }
 
   @override
   int get hashCode => Object.hash(merchantProfile, locale);
 
   @override
-  String toString() => 'ReceiptMerchantData(merchantProfile=$merchantProfile, locale=$locale)';
+  String toString() =>
+      'ReceiptMerchantData(merchantProfile=$merchantProfile, locale=$locale)';
 }

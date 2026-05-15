@@ -15,7 +15,8 @@ class CreateReaderCheckoutRequestTotalAmount {
   final int minorUnit;
   final int value_;
 
-  factory CreateReaderCheckoutRequestTotalAmount.fromJson(Map<String, dynamic> json) {
+  factory CreateReaderCheckoutRequestTotalAmount.fromJson(
+      Map<String, dynamic> json) {
     return CreateReaderCheckoutRequestTotalAmount(
       currency: json['currency'] as String,
       minorUnit: (json['minor_unit'] as num).toInt(),
@@ -49,15 +50,15 @@ class CreateReaderCheckoutRequestTotalAmount {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutRequestTotalAmount) return false;
-    return currency == other.currency
-        && minorUnit == other.minorUnit
-        && value_ == other.value_
-;
+    return currency == other.currency &&
+        minorUnit == other.minorUnit &&
+        value_ == other.value_;
   }
 
   @override
   int get hashCode => Object.hash(currency, minorUnit, value_);
 
   @override
-  String toString() => 'CreateReaderCheckoutRequestTotalAmount(currency=$currency, minorUnit=$minorUnit, value_=$value_)';
+  String toString() =>
+      'CreateReaderCheckoutRequestTotalAmount(currency=$currency, minorUnit=$minorUnit, value_=$value_)';
 }

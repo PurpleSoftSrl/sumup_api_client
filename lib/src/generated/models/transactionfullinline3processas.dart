@@ -15,7 +15,8 @@ enum TransactionFullInline3ProcessAs {
   static TransactionFullInline3ProcessAs fromJson(String json) {
     return TransactionFullInline3ProcessAs.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionFullInline3ProcessAs: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown TransactionFullInline3ProcessAs: $json'),
     );
   }
 

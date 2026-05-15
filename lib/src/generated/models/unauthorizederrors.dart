@@ -46,9 +46,7 @@ class UnauthorizedErrors {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! UnauthorizedErrors) return false;
-    return detail == other.detail
-        && type_ == other.type_
-;
+    return detail == other.detail && type_ == other.type_;
   }
 
   @override

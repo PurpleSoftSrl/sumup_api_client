@@ -7,15 +7,12 @@
 class Attributes {
   const Attributes();
 
-
   factory Attributes.fromJson(Map<String, dynamic> json) {
-    return const Attributes(
-    );
+    return const Attributes();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   Attributes copyWith() {

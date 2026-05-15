@@ -7,15 +7,13 @@
 class CreateReaderCheckoutUnprocessableEntityErrors {
   const CreateReaderCheckoutUnprocessableEntityErrors();
 
-
-  factory CreateReaderCheckoutUnprocessableEntityErrors.fromJson(Map<String, dynamic> json) {
-    return const CreateReaderCheckoutUnprocessableEntityErrors(
-    );
+  factory CreateReaderCheckoutUnprocessableEntityErrors.fromJson(
+      Map<String, dynamic> json) {
+    return const CreateReaderCheckoutUnprocessableEntityErrors();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   CreateReaderCheckoutUnprocessableEntityErrors copyWith() {

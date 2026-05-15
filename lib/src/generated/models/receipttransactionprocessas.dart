@@ -15,7 +15,8 @@ enum ReceiptTransactionProcessAs {
   static ReceiptTransactionProcessAs fromJson(String json) {
     return ReceiptTransactionProcessAs.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown ReceiptTransactionProcessAs: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown ReceiptTransactionProcessAs: $json'),
     );
   }
 

@@ -22,7 +22,8 @@ class ReaderCheckoutStatusChange {
     return ReaderCheckoutStatusChange(
       eventType: json['event_type'] as String,
       id: json['id'] as String,
-      payload: ReaderCheckoutStatusChangePayload.fromJson(json['payload'] as Map<String, dynamic>),
+      payload: ReaderCheckoutStatusChangePayload.fromJson(
+          json['payload'] as Map<String, dynamic>),
       timestamp: DateTime.parse(json['timestamp'] as String),
     );
   }
@@ -42,7 +43,8 @@ class ReaderCheckoutStatusChange {
     ReaderCheckoutStatusChangePayload? payload,
     DateTime? timestamp,
   }) {
-    if (eventType == null && id == null && payload == null && timestamp == null) return this;
+    if (eventType == null && id == null && payload == null && timestamp == null)
+      return this;
 
     return ReaderCheckoutStatusChange(
       eventType: eventType ?? this.eventType,
@@ -56,16 +58,16 @@ class ReaderCheckoutStatusChange {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReaderCheckoutStatusChange) return false;
-    return eventType == other.eventType
-        && id == other.id
-        && payload == other.payload
-        && timestamp == other.timestamp
-;
+    return eventType == other.eventType &&
+        id == other.id &&
+        payload == other.payload &&
+        timestamp == other.timestamp;
   }
 
   @override
   int get hashCode => Object.hash(eventType, id, payload, timestamp);
 
   @override
-  String toString() => 'ReaderCheckoutStatusChange(eventType=$eventType, id=$id, payload=$payload, timestamp=$timestamp)';
+  String toString() =>
+      'ReaderCheckoutStatusChange(eventType=$eventType, id=$id, payload=$payload, timestamp=$timestamp)';
 }

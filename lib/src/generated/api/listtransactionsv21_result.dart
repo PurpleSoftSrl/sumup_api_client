@@ -16,13 +16,15 @@ sealed class ListTransactionsV21Result {
   factory ListTransactionsV21Result.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => ListTransactionsV21ResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => ListTransactionsV21ResultHttp400(Error.fromJson(response.data as Map<String, dynamic>)),
-      401 => ListTransactionsV21ResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => ListTransactionsV21ResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => ListTransactionsV21ResultHttp400(
+          Error.fromJson(response.data as Map<String, dynamic>)),
+      401 => ListTransactionsV21ResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => ListTransactionsV21ResultError.fromResponse(response),
     };
   }
-
 }
 
 class ListTransactionsV21ResultHttp200 extends ListTransactionsV21Result {
@@ -44,5 +46,7 @@ class ListTransactionsV21ResultError extends ListTransactionsV21Result {
   const ListTransactionsV21ResultError(this.response);
   final Response<dynamic> response;
 
-  factory ListTransactionsV21ResultError.fromResponse(Response<dynamic> response) => ListTransactionsV21ResultError(response);
+  factory ListTransactionsV21ResultError.fromResponse(
+          Response<dynamic> response) =>
+      ListTransactionsV21ResultError(response);
 }

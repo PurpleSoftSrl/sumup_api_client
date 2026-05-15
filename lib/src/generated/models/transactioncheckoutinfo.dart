@@ -34,9 +34,7 @@ class TransactionCheckoutInfo {
       entryMode: json['entry_mode'] != null
           ? EntryMode.fromJson(json['entry_mode'] as String)
           : null,
-      authCode: json['auth_code'] != null
-          ? json['auth_code'] as String
-          : null,
+      authCode: json['auth_code'] != null ? json['auth_code'] as String : null,
     );
   }
 
@@ -57,7 +55,11 @@ class TransactionCheckoutInfo {
     EntryMode? entryMode,
     String? authCode,
   }) {
-    if (merchantCode == null && vatAmount == null && tipAmount == null && entryMode == null && authCode == null) return this;
+    if (merchantCode == null &&
+        vatAmount == null &&
+        tipAmount == null &&
+        entryMode == null &&
+        authCode == null) return this;
 
     return TransactionCheckoutInfo(
       merchantCode: merchantCode ?? this.merchantCode,
@@ -72,17 +74,18 @@ class TransactionCheckoutInfo {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionCheckoutInfo) return false;
-    return merchantCode == other.merchantCode
-        && vatAmount == other.vatAmount
-        && tipAmount == other.tipAmount
-        && entryMode == other.entryMode
-        && authCode == other.authCode
-;
+    return merchantCode == other.merchantCode &&
+        vatAmount == other.vatAmount &&
+        tipAmount == other.tipAmount &&
+        entryMode == other.entryMode &&
+        authCode == other.authCode;
   }
 
   @override
-  int get hashCode => Object.hash(merchantCode, vatAmount, tipAmount, entryMode, authCode);
+  int get hashCode =>
+      Object.hash(merchantCode, vatAmount, tipAmount, entryMode, authCode);
 
   @override
-  String toString() => 'TransactionCheckoutInfo(merchantCode=$merchantCode, vatAmount=$vatAmount, tipAmount=$tipAmount, entryMode=$entryMode, authCode=$authCode)';
+  String toString() =>
+      'TransactionCheckoutInfo(merchantCode=$merchantCode, vatAmount=$vatAmount, tipAmount=$tipAmount, entryMode=$entryMode, authCode=$authCode)';
 }

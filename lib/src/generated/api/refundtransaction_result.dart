@@ -15,12 +15,13 @@ sealed class RefundTransactionResult {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
       204 => const RefundTransactionResultHttp204(),
-      404 => RefundTransactionResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
-      409 => RefundTransactionResultHttp409(Error.fromJson(response.data as Map<String, dynamic>)),
+      404 => RefundTransactionResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
+      409 => RefundTransactionResultHttp409(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => RefundTransactionResultError.fromResponse(response),
     };
   }
-
 }
 
 class RefundTransactionResultHttp204 extends RefundTransactionResult {
@@ -41,5 +42,7 @@ class RefundTransactionResultError extends RefundTransactionResult {
   const RefundTransactionResultError(this.response);
   final Response<dynamic> response;
 
-  factory RefundTransactionResultError.fromResponse(Response<dynamic> response) => RefundTransactionResultError(response);
+  factory RefundTransactionResultError.fromResponse(
+          Response<dynamic> response) =>
+      RefundTransactionResultError(response);
 }

@@ -25,18 +25,15 @@ class CreateMerchantMemberBodyApplicationJson {
   final Metadata? metadata;
   final Attributes? attributes;
 
-  factory CreateMerchantMemberBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory CreateMerchantMemberBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return CreateMerchantMemberBodyApplicationJson(
       isManagedUser: json['is_managed_user'] != null
           ? json['is_managed_user'] as bool
           : null,
       email: json['email'] as String,
-      password: json['password'] != null
-          ? json['password'] as String
-          : null,
-      nickname: json['nickname'] != null
-          ? json['nickname'] as String
-          : null,
+      password: json['password'] != null ? json['password'] as String : null,
+      nickname: json['nickname'] != null ? json['nickname'] as String : null,
       roles: json['roles'] as List<String>,
       metadata: json['metadata'] != null
           ? Metadata.fromJson(json['metadata'] as Map<String, dynamic>)
@@ -68,7 +65,13 @@ class CreateMerchantMemberBodyApplicationJson {
     Metadata? metadata,
     Attributes? attributes,
   }) {
-    if (isManagedUser == null && email == null && password == null && nickname == null && roles == null && metadata == null && attributes == null) return this;
+    if (isManagedUser == null &&
+        email == null &&
+        password == null &&
+        nickname == null &&
+        roles == null &&
+        metadata == null &&
+        attributes == null) return this;
 
     return CreateMerchantMemberBodyApplicationJson(
       isManagedUser: isManagedUser ?? this.isManagedUser,
@@ -85,19 +88,20 @@ class CreateMerchantMemberBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateMerchantMemberBodyApplicationJson) return false;
-    return isManagedUser == other.isManagedUser
-        && email == other.email
-        && password == other.password
-        && nickname == other.nickname
-        && roles == other.roles
-        && metadata == other.metadata
-        && attributes == other.attributes
-;
+    return isManagedUser == other.isManagedUser &&
+        email == other.email &&
+        password == other.password &&
+        nickname == other.nickname &&
+        roles == other.roles &&
+        metadata == other.metadata &&
+        attributes == other.attributes;
   }
 
   @override
-  int get hashCode => Object.hash(isManagedUser, email, password, nickname, roles, metadata, attributes);
+  int get hashCode => Object.hash(
+      isManagedUser, email, password, nickname, roles, metadata, attributes);
 
   @override
-  String toString() => 'CreateMerchantMemberBodyApplicationJson(isManagedUser=$isManagedUser, email=$email, password=$password, nickname=$nickname, roles=$roles, metadata=$metadata, attributes=$attributes)';
+  String toString() =>
+      'CreateMerchantMemberBodyApplicationJson(isManagedUser=$isManagedUser, email=$email, password=$password, nickname=$nickname, roles=$roles, metadata=$metadata, attributes=$attributes)';
 }

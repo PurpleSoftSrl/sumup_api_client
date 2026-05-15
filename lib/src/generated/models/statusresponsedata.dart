@@ -35,7 +35,8 @@ class StatusResponseData {
           ? (json['battery_temperature'] as num).toInt()
           : null,
       connectionType: json['connection_type'] != null
-          ? StatusResponseDataConnectionType.fromJson(json['connection_type'] as String)
+          ? StatusResponseDataConnectionType.fromJson(
+              json['connection_type'] as String)
           : null,
       firmwareVersion: json['firmware_version'] != null
           ? json['firmware_version'] as String
@@ -53,10 +54,12 @@ class StatusResponseData {
   Map<String, dynamic> toJson() {
     return {
       if (batteryLevel != null) 'battery_level': batteryLevel!,
-      if (batteryTemperature != null) 'battery_temperature': batteryTemperature!,
+      if (batteryTemperature != null)
+        'battery_temperature': batteryTemperature!,
       if (connectionType != null) 'connection_type': connectionType!.toJson(),
       if (firmwareVersion != null) 'firmware_version': firmwareVersion!,
-      if (lastActivity != null) 'last_activity': lastActivity!.toIso8601String(),
+      if (lastActivity != null)
+        'last_activity': lastActivity!.toIso8601String(),
       if (state != null) 'state': state!.toJson(),
       'status': status.toJson(),
     };
@@ -71,7 +74,13 @@ class StatusResponseData {
     StatusResponseDataState? state,
     StatusResponseDataStatus? status,
   }) {
-    if (batteryLevel == null && batteryTemperature == null && connectionType == null && firmwareVersion == null && lastActivity == null && state == null && status == null) return this;
+    if (batteryLevel == null &&
+        batteryTemperature == null &&
+        connectionType == null &&
+        firmwareVersion == null &&
+        lastActivity == null &&
+        state == null &&
+        status == null) return this;
 
     return StatusResponseData(
       batteryLevel: batteryLevel ?? this.batteryLevel,
@@ -88,19 +97,20 @@ class StatusResponseData {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! StatusResponseData) return false;
-    return batteryLevel == other.batteryLevel
-        && batteryTemperature == other.batteryTemperature
-        && connectionType == other.connectionType
-        && firmwareVersion == other.firmwareVersion
-        && lastActivity == other.lastActivity
-        && state == other.state
-        && status == other.status
-;
+    return batteryLevel == other.batteryLevel &&
+        batteryTemperature == other.batteryTemperature &&
+        connectionType == other.connectionType &&
+        firmwareVersion == other.firmwareVersion &&
+        lastActivity == other.lastActivity &&
+        state == other.state &&
+        status == other.status;
   }
 
   @override
-  int get hashCode => Object.hash(batteryLevel, batteryTemperature, connectionType, firmwareVersion, lastActivity, state, status);
+  int get hashCode => Object.hash(batteryLevel, batteryTemperature,
+      connectionType, firmwareVersion, lastActivity, state, status);
 
   @override
-  String toString() => 'StatusResponseData(batteryLevel=$batteryLevel, batteryTemperature=$batteryTemperature, connectionType=$connectionType, firmwareVersion=$firmwareVersion, lastActivity=$lastActivity, state=$state, status=$status)';
+  String toString() =>
+      'StatusResponseData(batteryLevel=$batteryLevel, batteryTemperature=$batteryTemperature, connectionType=$connectionType, firmwareVersion=$firmwareVersion, lastActivity=$lastActivity, state=$state, status=$status)';
 }

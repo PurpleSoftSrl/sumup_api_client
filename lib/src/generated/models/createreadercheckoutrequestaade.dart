@@ -36,7 +36,8 @@ class CreateReaderCheckoutRequestAade {
     String? signature,
     String? signatureData,
   }) {
-    if (providerId == null && signature == null && signatureData == null) return this;
+    if (providerId == null && signature == null && signatureData == null)
+      return this;
 
     return CreateReaderCheckoutRequestAade(
       providerId: providerId ?? this.providerId,
@@ -49,15 +50,15 @@ class CreateReaderCheckoutRequestAade {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutRequestAade) return false;
-    return providerId == other.providerId
-        && signature == other.signature
-        && signatureData == other.signatureData
-;
+    return providerId == other.providerId &&
+        signature == other.signature &&
+        signatureData == other.signatureData;
   }
 
   @override
   int get hashCode => Object.hash(providerId, signature, signatureData);
 
   @override
-  String toString() => 'CreateReaderCheckoutRequestAade(providerId=$providerId, signature=$signature, signatureData=$signatureData)';
+  String toString() =>
+      'CreateReaderCheckoutRequestAade(providerId=$providerId, signature=$signature, signatureData=$signatureData)';
 }

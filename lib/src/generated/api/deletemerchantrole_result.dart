@@ -15,12 +15,13 @@ sealed class DeleteMerchantRoleResult {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
       200 => const DeleteMerchantRoleResultHttp200(),
-      400 => DeleteMerchantRoleResultHttp400(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => DeleteMerchantRoleResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
+      400 => DeleteMerchantRoleResultHttp400(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => DeleteMerchantRoleResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => DeleteMerchantRoleResultError.fromResponse(response),
     };
   }
-
 }
 
 class DeleteMerchantRoleResultHttp200 extends DeleteMerchantRoleResult {
@@ -41,5 +42,7 @@ class DeleteMerchantRoleResultError extends DeleteMerchantRoleResult {
   const DeleteMerchantRoleResultError(this.response);
   final Response<dynamic> response;
 
-  factory DeleteMerchantRoleResultError.fromResponse(Response<dynamic> response) => DeleteMerchantRoleResultError(response);
+  factory DeleteMerchantRoleResultError.fromResponse(
+          Response<dynamic> response) =>
+      DeleteMerchantRoleResultError(response);
 }

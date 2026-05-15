@@ -22,15 +22,9 @@ class Problem {
   factory Problem.fromJson(Map<String, dynamic> json) {
     return Problem(
       type_: Uri.parse(json['type'] as String),
-      title: json['title'] != null
-          ? json['title'] as String
-          : null,
-      status: json['status'] != null
-          ? (json['status'] as num).toInt()
-          : null,
-      detail: json['detail'] != null
-          ? json['detail'] as String
-          : null,
+      title: json['title'] != null ? json['title'] as String : null,
+      status: json['status'] != null ? (json['status'] as num).toInt() : null,
+      detail: json['detail'] != null ? json['detail'] as String : null,
       instance: json['instance'] != null
           ? Uri.parse(json['instance'] as String)
           : null,
@@ -54,7 +48,11 @@ class Problem {
     String? detail,
     Uri? instance,
   }) {
-    if (type_ == null && title == null && status == null && detail == null && instance == null) return this;
+    if (type_ == null &&
+        title == null &&
+        status == null &&
+        detail == null &&
+        instance == null) return this;
 
     return Problem(
       type_: type_ ?? this.type_,
@@ -69,17 +67,17 @@ class Problem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Problem) return false;
-    return type_ == other.type_
-        && title == other.title
-        && status == other.status
-        && detail == other.detail
-        && instance == other.instance
-;
+    return type_ == other.type_ &&
+        title == other.title &&
+        status == other.status &&
+        detail == other.detail &&
+        instance == other.instance;
   }
 
   @override
   int get hashCode => Object.hash(type_, title, status, detail, instance);
 
   @override
-  String toString() => 'Problem(type_=$type_, title=$title, status=$status, detail=$detail, instance=$instance)';
+  String toString() =>
+      'Problem(type_=$type_, title=$title, status=$status, detail=$detail, instance=$instance)';
 }

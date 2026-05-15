@@ -16,14 +16,17 @@ sealed class CreateReaderResult {
   factory CreateReaderResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      201 => CreateReaderResultHttp201(Reader.fromJson(response.data as Map<String, dynamic>)),
-      400 => CreateReaderResultHttp400(Post400Response.fromJson(response.data as Map<String, dynamic>)),
-      404 => CreateReaderResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
-      409 => CreateReaderResultHttp409(Problem.fromJson(response.data as Map<String, dynamic>)),
+      201 => CreateReaderResultHttp201(
+          Reader.fromJson(response.data as Map<String, dynamic>)),
+      400 => CreateReaderResultHttp400(
+          Post400Response.fromJson(response.data as Map<String, dynamic>)),
+      404 => CreateReaderResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      409 => CreateReaderResultHttp409(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => CreateReaderResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateReaderResultHttp201 extends CreateReaderResult {
@@ -50,5 +53,6 @@ class CreateReaderResultError extends CreateReaderResult {
   const CreateReaderResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateReaderResultError.fromResponse(Response<dynamic> response) => CreateReaderResultError(response);
+  factory CreateReaderResultError.fromResponse(Response<dynamic> response) =>
+      CreateReaderResultError(response);
 }

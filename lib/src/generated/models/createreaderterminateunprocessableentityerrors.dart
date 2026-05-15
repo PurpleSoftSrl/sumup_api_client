@@ -7,15 +7,13 @@
 class CreateReaderTerminateUnprocessableEntityErrors {
   const CreateReaderTerminateUnprocessableEntityErrors();
 
-
-  factory CreateReaderTerminateUnprocessableEntityErrors.fromJson(Map<String, dynamic> json) {
-    return const CreateReaderTerminateUnprocessableEntityErrors(
-    );
+  factory CreateReaderTerminateUnprocessableEntityErrors.fromJson(
+      Map<String, dynamic> json) {
+    return const CreateReaderTerminateUnprocessableEntityErrors();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   CreateReaderTerminateUnprocessableEntityErrors copyWith() {

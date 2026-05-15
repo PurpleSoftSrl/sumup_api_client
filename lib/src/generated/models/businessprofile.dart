@@ -27,21 +27,15 @@ class BusinessProfile {
 
   factory BusinessProfile.fromJson(Map<String, dynamic> json) {
     return BusinessProfile(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
       dynamicDescriptor: json['dynamic_descriptor'] != null
           ? json['dynamic_descriptor'] as String
           : null,
-      website: json['website'] != null
-          ? Uri.parse(json['website'] as String)
-          : null,
-      email: json['email'] != null
-          ? json['email'] as String
-          : null,
-      phoneNumber: json['phone_number'] != null
-          ? json['phone_number'] as String
-          : null,
+      website:
+          json['website'] != null ? Uri.parse(json['website'] as String) : null,
+      email: json['email'] != null ? json['email'] as String : null,
+      phoneNumber:
+          json['phone_number'] != null ? json['phone_number'] as String : null,
       address: json['address'] != null
           ? Address.fromJson(json['address'] as Map<String, dynamic>)
           : null,
@@ -72,7 +66,13 @@ class BusinessProfile {
     Address? address,
     Branding? branding,
   }) {
-    if (name == null && dynamicDescriptor == null && website == null && email == null && phoneNumber == null && address == null && branding == null) return this;
+    if (name == null &&
+        dynamicDescriptor == null &&
+        website == null &&
+        email == null &&
+        phoneNumber == null &&
+        address == null &&
+        branding == null) return this;
 
     return BusinessProfile(
       name: name ?? this.name,
@@ -89,19 +89,20 @@ class BusinessProfile {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! BusinessProfile) return false;
-    return name == other.name
-        && dynamicDescriptor == other.dynamicDescriptor
-        && website == other.website
-        && email == other.email
-        && phoneNumber == other.phoneNumber
-        && address == other.address
-        && branding == other.branding
-;
+    return name == other.name &&
+        dynamicDescriptor == other.dynamicDescriptor &&
+        website == other.website &&
+        email == other.email &&
+        phoneNumber == other.phoneNumber &&
+        address == other.address &&
+        branding == other.branding;
   }
 
   @override
-  int get hashCode => Object.hash(name, dynamicDescriptor, website, email, phoneNumber, address, branding);
+  int get hashCode => Object.hash(
+      name, dynamicDescriptor, website, email, phoneNumber, address, branding);
 
   @override
-  String toString() => 'BusinessProfile(name=$name, dynamicDescriptor=$dynamicDescriptor, website=$website, email=$email, phoneNumber=$phoneNumber, address=$address, branding=$branding)';
+  String toString() =>
+      'BusinessProfile(name=$name, dynamicDescriptor=$dynamicDescriptor, website=$website, email=$email, phoneNumber=$phoneNumber, address=$address, branding=$branding)';
 }

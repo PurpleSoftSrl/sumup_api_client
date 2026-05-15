@@ -7,15 +7,12 @@
 class Put200Response {
   const Put200Response();
 
-
   factory Put200Response.fromJson(Map<String, dynamic> json) {
-    return const Put200Response(
-    );
+    return const Put200Response();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   Put200Response copyWith() {

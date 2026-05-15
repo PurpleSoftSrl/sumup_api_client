@@ -40,26 +40,24 @@ class CheckoutCreateRequest {
       amount: (json['amount'] as num).toDouble(),
       currency: Currency.fromJson(json['currency'] as String),
       merchantCode: json['merchant_code'] as String,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
       returnUrl: json['return_url'] != null
           ? Uri.parse(json['return_url'] as String)
           : null,
-      customerId: json['customer_id'] != null
-          ? json['customer_id'] as String
-          : null,
+      customerId:
+          json['customer_id'] != null ? json['customer_id'] as String : null,
       purpose: json['purpose'] != null
           ? CheckoutCreateRequestPurpose.fromJson(json['purpose'] as String)
           : null,
       validUntil: json['valid_until'] != null
           ? DateTime.parse(json['valid_until'] as String)
           : null,
-      redirectUrl: json['redirect_url'] != null
-          ? json['redirect_url'] as String
-          : null,
+      redirectUrl:
+          json['redirect_url'] != null ? json['redirect_url'] as String : null,
       hostedCheckout: json['hosted_checkout'] != null
-          ? HostedCheckout.fromJson(json['hosted_checkout'] as Map<String, dynamic>)
+          ? HostedCheckout.fromJson(
+              json['hosted_checkout'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -93,7 +91,17 @@ class CheckoutCreateRequest {
     String? redirectUrl,
     HostedCheckout? hostedCheckout,
   }) {
-    if (checkoutReference == null && amount == null && currency == null && merchantCode == null && description == null && returnUrl == null && customerId == null && purpose == null && validUntil == null && redirectUrl == null && hostedCheckout == null) return this;
+    if (checkoutReference == null &&
+        amount == null &&
+        currency == null &&
+        merchantCode == null &&
+        description == null &&
+        returnUrl == null &&
+        customerId == null &&
+        purpose == null &&
+        validUntil == null &&
+        redirectUrl == null &&
+        hostedCheckout == null) return this;
 
     return CheckoutCreateRequest(
       checkoutReference: checkoutReference ?? this.checkoutReference,
@@ -114,23 +122,34 @@ class CheckoutCreateRequest {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CheckoutCreateRequest) return false;
-    return checkoutReference == other.checkoutReference
-        && amount == other.amount
-        && currency == other.currency
-        && merchantCode == other.merchantCode
-        && description == other.description
-        && returnUrl == other.returnUrl
-        && customerId == other.customerId
-        && purpose == other.purpose
-        && validUntil == other.validUntil
-        && redirectUrl == other.redirectUrl
-        && hostedCheckout == other.hostedCheckout
-;
+    return checkoutReference == other.checkoutReference &&
+        amount == other.amount &&
+        currency == other.currency &&
+        merchantCode == other.merchantCode &&
+        description == other.description &&
+        returnUrl == other.returnUrl &&
+        customerId == other.customerId &&
+        purpose == other.purpose &&
+        validUntil == other.validUntil &&
+        redirectUrl == other.redirectUrl &&
+        hostedCheckout == other.hostedCheckout;
   }
 
   @override
-  int get hashCode => Object.hash(checkoutReference, amount, currency, merchantCode, description, returnUrl, customerId, purpose, validUntil, redirectUrl, hostedCheckout);
+  int get hashCode => Object.hash(
+      checkoutReference,
+      amount,
+      currency,
+      merchantCode,
+      description,
+      returnUrl,
+      customerId,
+      purpose,
+      validUntil,
+      redirectUrl,
+      hostedCheckout);
 
   @override
-  String toString() => 'CheckoutCreateRequest(checkoutReference=$checkoutReference, amount=$amount, currency=$currency, merchantCode=$merchantCode, description=$description, returnUrl=$returnUrl, customerId=$customerId, purpose=$purpose, validUntil=$validUntil, redirectUrl=$redirectUrl, hostedCheckout=$hostedCheckout)';
+  String toString() =>
+      'CheckoutCreateRequest(checkoutReference=$checkoutReference, amount=$amount, currency=$currency, merchantCode=$merchantCode, description=$description, returnUrl=$returnUrl, customerId=$customerId, purpose=$purpose, validUntil=$validUntil, redirectUrl=$redirectUrl, hostedCheckout=$hostedCheckout)';
 }

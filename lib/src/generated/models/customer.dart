@@ -18,7 +18,8 @@ class Customer {
     return Customer(
       customerId: json['customer_id'] as String,
       personalDetails: json['personal_details'] != null
-          ? PersonalDetails.fromJson(json['personal_details'] as Map<String, dynamic>)
+          ? PersonalDetails.fromJson(
+              json['personal_details'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -26,7 +27,8 @@ class Customer {
   Map<String, dynamic> toJson() {
     return {
       'customer_id': customerId,
-      if (personalDetails != null) 'personal_details': personalDetails!.toJson(),
+      if (personalDetails != null)
+        'personal_details': personalDetails!.toJson(),
     };
   }
 
@@ -46,14 +48,14 @@ class Customer {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Customer) return false;
-    return customerId == other.customerId
-        && personalDetails == other.personalDetails
-;
+    return customerId == other.customerId &&
+        personalDetails == other.personalDetails;
   }
 
   @override
   int get hashCode => Object.hash(customerId, personalDetails);
 
   @override
-  String toString() => 'Customer(customerId=$customerId, personalDetails=$personalDetails)';
+  String toString() =>
+      'Customer(customerId=$customerId, personalDetails=$personalDetails)';
 }

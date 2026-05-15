@@ -18,16 +18,21 @@ sealed class ProcessCheckoutResult {
   factory ProcessCheckoutResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => ProcessCheckoutResultHttp200(CheckoutSuccess.fromJson(response.data as Map<String, dynamic>)),
-      202 => ProcessCheckoutResultHttp202(CheckoutAccepted.fromJson(response.data as Map<String, dynamic>)),
-      400 => ProcessCheckoutResultHttp400(Put400Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => ProcessCheckoutResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => ProcessCheckoutResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
-      409 => ProcessCheckoutResultHttp409(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => ProcessCheckoutResultHttp200(
+          CheckoutSuccess.fromJson(response.data as Map<String, dynamic>)),
+      202 => ProcessCheckoutResultHttp202(
+          CheckoutAccepted.fromJson(response.data as Map<String, dynamic>)),
+      400 => ProcessCheckoutResultHttp400(
+          Put400Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => ProcessCheckoutResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => ProcessCheckoutResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
+      409 => ProcessCheckoutResultHttp409(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => ProcessCheckoutResultError.fromResponse(response),
     };
   }
-
 }
 
 class ProcessCheckoutResultHttp200 extends ProcessCheckoutResult {
@@ -64,5 +69,6 @@ class ProcessCheckoutResultError extends ProcessCheckoutResult {
   const ProcessCheckoutResultError(this.response);
   final Response<dynamic> response;
 
-  factory ProcessCheckoutResultError.fromResponse(Response<dynamic> response) => ProcessCheckoutResultError(response);
+  factory ProcessCheckoutResultError.fromResponse(Response<dynamic> response) =>
+      ProcessCheckoutResultError(response);
 }

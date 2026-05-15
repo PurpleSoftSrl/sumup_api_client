@@ -29,9 +29,7 @@ class MembershipResource {
       id: json['id'] as String,
       type_: json['type'] as String,
       name: json['name'] as String,
-      logo: json['logo'] != null
-          ? Uri.parse(json['logo'] as String)
-          : null,
+      logo: json['logo'] != null ? Uri.parse(json['logo'] as String) : null,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
       attributes: json['attributes'] != null
@@ -61,7 +59,13 @@ class MembershipResource {
     DateTime? updatedAt,
     Attributes? attributes,
   }) {
-    if (id == null && type_ == null && name == null && logo == null && createdAt == null && updatedAt == null && attributes == null) return this;
+    if (id == null &&
+        type_ == null &&
+        name == null &&
+        logo == null &&
+        createdAt == null &&
+        updatedAt == null &&
+        attributes == null) return this;
 
     return MembershipResource(
       id: id ?? this.id,
@@ -78,19 +82,20 @@ class MembershipResource {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! MembershipResource) return false;
-    return id == other.id
-        && type_ == other.type_
-        && name == other.name
-        && logo == other.logo
-        && createdAt == other.createdAt
-        && updatedAt == other.updatedAt
-        && attributes == other.attributes
-;
+    return id == other.id &&
+        type_ == other.type_ &&
+        name == other.name &&
+        logo == other.logo &&
+        createdAt == other.createdAt &&
+        updatedAt == other.updatedAt &&
+        attributes == other.attributes;
   }
 
   @override
-  int get hashCode => Object.hash(id, type_, name, logo, createdAt, updatedAt, attributes);
+  int get hashCode =>
+      Object.hash(id, type_, name, logo, createdAt, updatedAt, attributes);
 
   @override
-  String toString() => 'MembershipResource(id=$id, type_=$type_, name=$name, logo=$logo, createdAt=$createdAt, updatedAt=$updatedAt, attributes=$attributes)';
+  String toString() =>
+      'MembershipResource(id=$id, type_=$type_, name=$name, logo=$logo, createdAt=$createdAt, updatedAt=$updatedAt, attributes=$attributes)';
 }

@@ -83,7 +83,7 @@ class SumUpClient {
       tokenUrl: tokenUrl,
       storage: storage,
       cache: tokenCache,
-      dio: Dio(),  // separate Dio for token requests
+      dio: Dio(), // separate Dio for token requests
     );
 
     dio.interceptors.add(oauth2.createInterceptor());

@@ -48,52 +48,27 @@ class Address {
       streetAddress: json['street_address'] != null
           ? json['street_address'] as List<String>
           : null,
-      postCode: json['post_code'] != null
-          ? json['post_code'] as String
-          : null,
+      postCode: json['post_code'] != null ? json['post_code'] as String : null,
       country: json['country'] as String,
-      city: json['city'] != null
-          ? json['city'] as String
-          : null,
-      province: json['province'] != null
-          ? json['province'] as String
-          : null,
-      region: json['region'] != null
-          ? json['region'] as String
-          : null,
-      county: json['county'] != null
-          ? json['county'] as String
-          : null,
+      city: json['city'] != null ? json['city'] as String : null,
+      province: json['province'] != null ? json['province'] as String : null,
+      region: json['region'] != null ? json['region'] as String : null,
+      county: json['county'] != null ? json['county'] as String : null,
       autonomousCommunity: json['autonomous_community'] != null
           ? json['autonomous_community'] as String
           : null,
-      postTown: json['post_town'] != null
-          ? json['post_town'] as String
-          : null,
-      state: json['state'] != null
-          ? json['state'] as String
-          : null,
-      neighborhood: json['neighborhood'] != null
-          ? json['neighborhood'] as String
-          : null,
-      commune: json['commune'] != null
-          ? json['commune'] as String
-          : null,
-      department: json['department'] != null
-          ? json['department'] as String
-          : null,
-      municipality: json['municipality'] != null
-          ? json['municipality'] as String
-          : null,
-      district: json['district'] != null
-          ? json['district'] as String
-          : null,
-      zipCode: json['zip_code'] != null
-          ? json['zip_code'] as String
-          : null,
-      eircode: json['eircode'] != null
-          ? json['eircode'] as String
-          : null,
+      postTown: json['post_town'] != null ? json['post_town'] as String : null,
+      state: json['state'] != null ? json['state'] as String : null,
+      neighborhood:
+          json['neighborhood'] != null ? json['neighborhood'] as String : null,
+      commune: json['commune'] != null ? json['commune'] as String : null,
+      department:
+          json['department'] != null ? json['department'] as String : null,
+      municipality:
+          json['municipality'] != null ? json['municipality'] as String : null,
+      district: json['district'] != null ? json['district'] as String : null,
+      zipCode: json['zip_code'] != null ? json['zip_code'] as String : null,
+      eircode: json['eircode'] != null ? json['eircode'] as String : null,
     );
   }
 
@@ -106,7 +81,8 @@ class Address {
       if (province != null) 'province': province!,
       if (region != null) 'region': region!,
       if (county != null) 'county': county!,
-      if (autonomousCommunity != null) 'autonomous_community': autonomousCommunity!,
+      if (autonomousCommunity != null)
+        'autonomous_community': autonomousCommunity!,
       if (postTown != null) 'post_town': postTown!,
       if (state != null) 'state': state!,
       if (neighborhood != null) 'neighborhood': neighborhood!,
@@ -138,7 +114,23 @@ class Address {
     String? zipCode,
     String? eircode,
   }) {
-    if (streetAddress == null && postCode == null && country == null && city == null && province == null && region == null && county == null && autonomousCommunity == null && postTown == null && state == null && neighborhood == null && commune == null && department == null && municipality == null && district == null && zipCode == null && eircode == null) return this;
+    if (streetAddress == null &&
+        postCode == null &&
+        country == null &&
+        city == null &&
+        province == null &&
+        region == null &&
+        county == null &&
+        autonomousCommunity == null &&
+        postTown == null &&
+        state == null &&
+        neighborhood == null &&
+        commune == null &&
+        department == null &&
+        municipality == null &&
+        district == null &&
+        zipCode == null &&
+        eircode == null) return this;
 
     return Address(
       streetAddress: streetAddress ?? this.streetAddress,
@@ -165,29 +157,46 @@ class Address {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Address) return false;
-    return streetAddress == other.streetAddress
-        && postCode == other.postCode
-        && country == other.country
-        && city == other.city
-        && province == other.province
-        && region == other.region
-        && county == other.county
-        && autonomousCommunity == other.autonomousCommunity
-        && postTown == other.postTown
-        && state == other.state
-        && neighborhood == other.neighborhood
-        && commune == other.commune
-        && department == other.department
-        && municipality == other.municipality
-        && district == other.district
-        && zipCode == other.zipCode
-        && eircode == other.eircode
-;
+    return streetAddress == other.streetAddress &&
+        postCode == other.postCode &&
+        country == other.country &&
+        city == other.city &&
+        province == other.province &&
+        region == other.region &&
+        county == other.county &&
+        autonomousCommunity == other.autonomousCommunity &&
+        postTown == other.postTown &&
+        state == other.state &&
+        neighborhood == other.neighborhood &&
+        commune == other.commune &&
+        department == other.department &&
+        municipality == other.municipality &&
+        district == other.district &&
+        zipCode == other.zipCode &&
+        eircode == other.eircode;
   }
 
   @override
-  int get hashCode => Object.hash(streetAddress, postCode, country, city, province, region, county, autonomousCommunity, postTown, state, neighborhood, commune, department, municipality, district, zipCode, eircode);
+  int get hashCode => Object.hash(
+      streetAddress,
+      postCode,
+      country,
+      city,
+      province,
+      region,
+      county,
+      autonomousCommunity,
+      postTown,
+      state,
+      neighborhood,
+      commune,
+      department,
+      municipality,
+      district,
+      zipCode,
+      eircode);
 
   @override
-  String toString() => 'Address(streetAddress=$streetAddress, postCode=$postCode, country=$country, city=$city, province=$province, region=$region, county=$county, autonomousCommunity=$autonomousCommunity, postTown=$postTown, state=$state, neighborhood=$neighborhood, commune=$commune, department=$department, municipality=$municipality, district=$district, zipCode=$zipCode, eircode=$eircode)';
+  String toString() =>
+      'Address(streetAddress=$streetAddress, postCode=$postCode, country=$country, city=$city, province=$province, region=$region, county=$county, autonomousCommunity=$autonomousCommunity, postTown=$postTown, state=$state, neighborhood=$neighborhood, commune=$commune, department=$department, municipality=$municipality, district=$district, zipCode=$zipCode, eircode=$eircode)';
 }

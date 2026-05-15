@@ -17,14 +17,17 @@ sealed class GetCustomerResult {
   factory GetCustomerResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => GetCustomerResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => GetCustomerResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      403 => GetCustomerResultHttp403(ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
-      404 => GetCustomerResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => GetCustomerResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => GetCustomerResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      403 => GetCustomerResultHttp403(
+          ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
+      404 => GetCustomerResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => GetCustomerResultError.fromResponse(response),
     };
   }
-
 }
 
 class GetCustomerResultHttp200 extends GetCustomerResult {
@@ -51,5 +54,6 @@ class GetCustomerResultError extends GetCustomerResult {
   const GetCustomerResultError(this.response);
   final Response<dynamic> response;
 
-  factory GetCustomerResultError.fromResponse(Response<dynamic> response) => GetCustomerResultError(response);
+  factory GetCustomerResultError.fromResponse(Response<dynamic> response) =>
+      GetCustomerResultError(response);
 }

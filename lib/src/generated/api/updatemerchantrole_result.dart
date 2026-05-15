@@ -15,13 +15,15 @@ sealed class UpdateMerchantRoleResult {
   factory UpdateMerchantRoleResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => UpdateMerchantRoleResultHttp200(Role.fromJson(response.data as Map<String, dynamic>)),
-      400 => UpdateMerchantRoleResultHttp400(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => UpdateMerchantRoleResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => UpdateMerchantRoleResultHttp200(
+          Role.fromJson(response.data as Map<String, dynamic>)),
+      400 => UpdateMerchantRoleResultHttp400(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => UpdateMerchantRoleResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => UpdateMerchantRoleResultError.fromResponse(response),
     };
   }
-
 }
 
 class UpdateMerchantRoleResultHttp200 extends UpdateMerchantRoleResult {
@@ -43,5 +45,7 @@ class UpdateMerchantRoleResultError extends UpdateMerchantRoleResult {
   const UpdateMerchantRoleResultError(this.response);
   final Response<dynamic> response;
 
-  factory UpdateMerchantRoleResultError.fromResponse(Response<dynamic> response) => UpdateMerchantRoleResultError(response);
+  factory UpdateMerchantRoleResultError.fromResponse(
+          Response<dynamic> response) =>
+      UpdateMerchantRoleResultError(response);
 }

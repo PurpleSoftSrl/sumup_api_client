@@ -15,12 +15,13 @@ sealed class GetPaymentMethodsResult {
   factory GetPaymentMethodsResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => GetPaymentMethodsResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => GetPaymentMethodsResultHttp400(DetailsError.fromJson(response.data as Map<String, dynamic>)),
+      200 => GetPaymentMethodsResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => GetPaymentMethodsResultHttp400(
+          DetailsError.fromJson(response.data as Map<String, dynamic>)),
       _ => GetPaymentMethodsResultError.fromResponse(response),
     };
   }
-
 }
 
 class GetPaymentMethodsResultHttp200 extends GetPaymentMethodsResult {
@@ -37,5 +38,7 @@ class GetPaymentMethodsResultError extends GetPaymentMethodsResult {
   const GetPaymentMethodsResultError(this.response);
   final Response<dynamic> response;
 
-  factory GetPaymentMethodsResultError.fromResponse(Response<dynamic> response) => GetPaymentMethodsResultError(response);
+  factory GetPaymentMethodsResultError.fromResponse(
+          Response<dynamic> response) =>
+      GetPaymentMethodsResultError(response);
 }

@@ -14,7 +14,8 @@ class CreateReaderCheckoutError {
 
   factory CreateReaderCheckoutError.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutError(
-      errors: CreateReaderCheckoutErrorErrors.fromJson(json['errors'] as Map<String, dynamic>),
+      errors: CreateReaderCheckoutErrorErrors.fromJson(
+          json['errors'] as Map<String, dynamic>),
     );
   }
 
@@ -38,8 +39,7 @@ class CreateReaderCheckoutError {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutError) return false;
-    return errors == other.errors
-;
+    return errors == other.errors;
   }
 
   @override

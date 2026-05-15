@@ -16,13 +16,18 @@ sealed class ListPayoutsV1Result {
   factory ListPayoutsV1Result.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => ListPayoutsV1ResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => ListPayoutsV1ResultHttp400(List<ErrorExtended>.generate((response.data as List).length, (i) => ErrorExtended.fromJson((response.data as List)[i] as Map<String, dynamic>), growable: false)),
-      401 => ListPayoutsV1ResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => ListPayoutsV1ResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => ListPayoutsV1ResultHttp400(List<ErrorExtended>.generate(
+          (response.data as List).length,
+          (i) => ErrorExtended.fromJson(
+              (response.data as List)[i] as Map<String, dynamic>),
+          growable: false)),
+      401 => ListPayoutsV1ResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => ListPayoutsV1ResultError.fromResponse(response),
     };
   }
-
 }
 
 class ListPayoutsV1ResultHttp200 extends ListPayoutsV1Result {
@@ -44,5 +49,6 @@ class ListPayoutsV1ResultError extends ListPayoutsV1Result {
   const ListPayoutsV1ResultError(this.response);
   final Response<dynamic> response;
 
-  factory ListPayoutsV1ResultError.fromResponse(Response<dynamic> response) => ListPayoutsV1ResultError(response);
+  factory ListPayoutsV1ResultError.fromResponse(Response<dynamic> response) =>
+      ListPayoutsV1ResultError(response);
 }

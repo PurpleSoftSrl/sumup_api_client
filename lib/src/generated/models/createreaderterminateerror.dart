@@ -14,7 +14,8 @@ class CreateReaderTerminateError {
 
   factory CreateReaderTerminateError.fromJson(Map<String, dynamic> json) {
     return CreateReaderTerminateError(
-      errors: CreateReaderTerminateErrorErrors.fromJson(json['errors'] as Map<String, dynamic>),
+      errors: CreateReaderTerminateErrorErrors.fromJson(
+          json['errors'] as Map<String, dynamic>),
     );
   }
 
@@ -38,8 +39,7 @@ class CreateReaderTerminateError {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderTerminateError) return false;
-    return errors == other.errors
-;
+    return errors == other.errors;
   }
 
   @override

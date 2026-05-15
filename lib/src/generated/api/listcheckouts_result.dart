@@ -15,12 +15,13 @@ sealed class ListCheckoutsResult {
   factory ListCheckoutsResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => ListCheckoutsResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => ListCheckoutsResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => ListCheckoutsResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => ListCheckoutsResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => ListCheckoutsResultError.fromResponse(response),
     };
   }
-
 }
 
 class ListCheckoutsResultHttp200 extends ListCheckoutsResult {
@@ -37,5 +38,6 @@ class ListCheckoutsResultError extends ListCheckoutsResult {
   const ListCheckoutsResultError(this.response);
   final Response<dynamic> response;
 
-  factory ListCheckoutsResultError.fromResponse(Response<dynamic> response) => ListCheckoutsResultError(response);
+  factory ListCheckoutsResultError.fromResponse(Response<dynamic> response) =>
+      ListCheckoutsResultError(response);
 }

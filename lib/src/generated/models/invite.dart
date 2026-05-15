@@ -43,9 +43,7 @@ class Invite {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Invite) return false;
-    return email == other.email
-        && expiresAt == other.expiresAt
-;
+    return email == other.email && expiresAt == other.expiresAt;
   }
 
   @override

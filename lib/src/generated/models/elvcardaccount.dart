@@ -19,18 +19,14 @@ class ElvCardAccount {
 
   factory ElvCardAccount.fromJson(Map<String, dynamic> json) {
     return ElvCardAccount(
-      sortCode: json['sort_code'] != null
-          ? json['sort_code'] as String
-          : null,
+      sortCode: json['sort_code'] != null ? json['sort_code'] as String : null,
       last4Digits: json['last_4_digits'] != null
           ? json['last_4_digits'] as String
           : null,
       sequenceNo: json['sequence_no'] != null
           ? (json['sequence_no'] as num).toInt()
           : null,
-      iban: json['iban'] != null
-          ? json['iban'] as String
-          : null,
+      iban: json['iban'] != null ? json['iban'] as String : null,
     );
   }
 
@@ -49,7 +45,10 @@ class ElvCardAccount {
     int? sequenceNo,
     String? iban,
   }) {
-    if (sortCode == null && last4Digits == null && sequenceNo == null && iban == null) return this;
+    if (sortCode == null &&
+        last4Digits == null &&
+        sequenceNo == null &&
+        iban == null) return this;
 
     return ElvCardAccount(
       sortCode: sortCode ?? this.sortCode,
@@ -63,16 +62,16 @@ class ElvCardAccount {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ElvCardAccount) return false;
-    return sortCode == other.sortCode
-        && last4Digits == other.last4Digits
-        && sequenceNo == other.sequenceNo
-        && iban == other.iban
-;
+    return sortCode == other.sortCode &&
+        last4Digits == other.last4Digits &&
+        sequenceNo == other.sequenceNo &&
+        iban == other.iban;
   }
 
   @override
   int get hashCode => Object.hash(sortCode, last4Digits, sequenceNo, iban);
 
   @override
-  String toString() => 'ElvCardAccount(sortCode=$sortCode, last4Digits=$last4Digits, sequenceNo=$sequenceNo, iban=$iban)';
+  String toString() =>
+      'ElvCardAccount(sortCode=$sortCode, last4Digits=$last4Digits, sequenceNo=$sequenceNo, iban=$iban)';
 }

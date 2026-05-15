@@ -2,7 +2,8 @@ import 'package:sumup_api_client/sumup_api_client.dart';
 
 Future<void> main(List<String> args) async {
   if (args.length < 2) {
-    print('Usage: dart run example/sumup_example.dart <client_id> <client_secret>');
+    print(
+        'Usage: dart run example/sumup_example.dart <client_id> <client_secret>');
     return;
   }
 
@@ -17,7 +18,8 @@ Future<void> main(List<String> args) async {
   print('Connected to SumUp API');
 
   try {
-    final result = await client.merchants.getMerchant(merchantCode: 'your_merchant_code');
+    final result =
+        await client.merchants.getMerchant(merchantCode: 'your_merchant_code');
     print('Merchant: $result');
   } catch (e) {
     print('Error fetching merchant: $e');

@@ -14,7 +14,11 @@ class ListPersonsResponseBody {
 
   factory ListPersonsResponseBody.fromJson(Map<String, dynamic> json) {
     return ListPersonsResponseBody(
-      items: List<Person>.generate((json['items'] as List).length, (i) => Person.fromJson((json['items'] as List)[i] as Map<String, dynamic>), growable: false),
+      items: List<Person>.generate(
+          (json['items'] as List).length,
+          (i) => Person.fromJson(
+              (json['items'] as List)[i] as Map<String, dynamic>),
+          growable: false),
     );
   }
 
@@ -38,8 +42,7 @@ class ListPersonsResponseBody {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ListPersonsResponseBody) return false;
-    return items == other.items
-;
+    return items == other.items;
   }
 
   @override

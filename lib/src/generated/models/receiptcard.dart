@@ -18,9 +18,7 @@ class ReceiptCard {
       last4Digits: json['last_4_digits'] != null
           ? json['last_4_digits'] as String
           : null,
-      type_: json['type'] != null
-          ? json['type'] as String
-          : null,
+      type_: json['type'] != null ? json['type'] as String : null,
     );
   }
 
@@ -47,9 +45,7 @@ class ReceiptCard {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptCard) return false;
-    return last4Digits == other.last4Digits
-        && type_ == other.type_
-;
+    return last4Digits == other.last4Digits && type_ == other.type_;
   }
 
   @override

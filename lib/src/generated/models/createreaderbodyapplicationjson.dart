@@ -52,15 +52,15 @@ class CreateReaderBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderBodyApplicationJson) return false;
-    return pairingCode == other.pairingCode
-        && name == other.name
-        && metadata == other.metadata
-;
+    return pairingCode == other.pairingCode &&
+        name == other.name &&
+        metadata == other.metadata;
   }
 
   @override
   int get hashCode => Object.hash(pairingCode, name, metadata);
 
   @override
-  String toString() => 'CreateReaderBodyApplicationJson(pairingCode=$pairingCode, name=$name, metadata=$metadata)';
+  String toString() =>
+      'CreateReaderBodyApplicationJson(pairingCode=$pairingCode, name=$name, metadata=$metadata)';
 }

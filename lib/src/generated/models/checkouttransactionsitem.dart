@@ -7,15 +7,12 @@
 class CheckoutTransactionsItem {
   const CheckoutTransactionsItem();
 
-
   factory CheckoutTransactionsItem.fromJson(Map<String, dynamic> json) {
-    return const CheckoutTransactionsItem(
-    );
+    return const CheckoutTransactionsItem();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   CheckoutTransactionsItem copyWith() {

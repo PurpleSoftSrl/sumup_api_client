@@ -15,12 +15,13 @@ sealed class ListReadersResult {
   factory ListReadersResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => ListReadersResultHttp200(Get200Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => ListReadersResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => ListReadersResultHttp200(
+          Get200Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => ListReadersResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => ListReadersResultError.fromResponse(response),
     };
   }
-
 }
 
 class ListReadersResultHttp200 extends ListReadersResult {
@@ -37,5 +38,6 @@ class ListReadersResultError extends ListReadersResult {
   const ListReadersResultError(this.response);
   final Response<dynamic> response;
 
-  factory ListReadersResultError.fromResponse(Response<dynamic> response) => ListReadersResultError(response);
+  factory ListReadersResultError.fromResponse(Response<dynamic> response) =>
+      ListReadersResultError(response);
 }

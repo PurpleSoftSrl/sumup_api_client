@@ -16,7 +16,8 @@ enum TransactionHistoryInline2Type {
   static TransactionHistoryInline2Type fromJson(String json) {
     return TransactionHistoryInline2Type.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionHistoryInline2Type: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown TransactionHistoryInline2Type: $json'),
     );
   }
 

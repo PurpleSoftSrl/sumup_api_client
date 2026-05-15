@@ -7,15 +7,12 @@
 class ProcessCheckoutApplePay {
   const ProcessCheckoutApplePay();
 
-
   factory ProcessCheckoutApplePay.fromJson(Map<String, dynamic> json) {
-    return const ProcessCheckoutApplePay(
-    );
+    return const ProcessCheckoutApplePay();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   ProcessCheckoutApplePay copyWith() {

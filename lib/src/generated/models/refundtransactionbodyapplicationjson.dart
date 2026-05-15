@@ -11,11 +11,11 @@ class RefundTransactionBodyApplicationJson {
 
   final double? amount;
 
-  factory RefundTransactionBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory RefundTransactionBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return RefundTransactionBodyApplicationJson(
-      amount: json['amount'] != null
-          ? (json['amount'] as num).toDouble()
-          : null,
+      amount:
+          json['amount'] != null ? (json['amount'] as num).toDouble() : null,
     );
   }
 
@@ -39,8 +39,7 @@ class RefundTransactionBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! RefundTransactionBodyApplicationJson) return false;
-    return amount == other.amount
-;
+    return amount == other.amount;
   }
 
   @override

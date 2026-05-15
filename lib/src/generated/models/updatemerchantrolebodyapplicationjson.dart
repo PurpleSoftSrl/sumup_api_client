@@ -15,17 +15,15 @@ class UpdateMerchantRoleBodyApplicationJson {
   final List<String>? permissions;
   final String? description;
 
-  factory UpdateMerchantRoleBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory UpdateMerchantRoleBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return UpdateMerchantRoleBodyApplicationJson(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
       permissions: json['permissions'] != null
           ? json['permissions'] as List<String>
           : null,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
     );
   }
 
@@ -55,15 +53,15 @@ class UpdateMerchantRoleBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! UpdateMerchantRoleBodyApplicationJson) return false;
-    return name == other.name
-        && permissions == other.permissions
-        && description == other.description
-;
+    return name == other.name &&
+        permissions == other.permissions &&
+        description == other.description;
   }
 
   @override
   int get hashCode => Object.hash(name, permissions, description);
 
   @override
-  String toString() => 'UpdateMerchantRoleBodyApplicationJson(name=$name, permissions=$permissions, description=$description)';
+  String toString() =>
+      'UpdateMerchantRoleBodyApplicationJson(name=$name, permissions=$permissions, description=$description)';
 }

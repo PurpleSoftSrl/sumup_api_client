@@ -38,8 +38,7 @@ class BadRequest {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! BadRequest) return false;
-    return errors == other.errors
-;
+    return errors == other.errors;
   }
 
   @override

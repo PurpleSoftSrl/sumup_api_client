@@ -7,15 +7,13 @@
 class CreateReaderCheckoutRequestAffiliateTags {
   const CreateReaderCheckoutRequestAffiliateTags();
 
-
-  factory CreateReaderCheckoutRequestAffiliateTags.fromJson(Map<String, dynamic> json) {
-    return const CreateReaderCheckoutRequestAffiliateTags(
-    );
+  factory CreateReaderCheckoutRequestAffiliateTags.fromJson(
+      Map<String, dynamic> json) {
+    return const CreateReaderCheckoutRequestAffiliateTags();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   CreateReaderCheckoutRequestAffiliateTags copyWith() {

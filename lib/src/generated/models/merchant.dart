@@ -7,15 +7,12 @@
 class Merchant {
   const Merchant();
 
-
   factory Merchant.fromJson(Map<String, dynamic> json) {
-    return const Merchant(
-    );
+    return const Merchant();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   Merchant copyWith() {

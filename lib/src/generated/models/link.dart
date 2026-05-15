@@ -21,15 +21,9 @@ class Link {
 
   factory Link.fromJson(Map<String, dynamic> json) {
     return Link(
-      rel: json['rel'] != null
-          ? json['rel'] as String
-          : null,
-      href: json['href'] != null
-          ? Uri.parse(json['href'] as String)
-          : null,
-      type_: json['type'] != null
-          ? json['type'] as String
-          : null,
+      rel: json['rel'] != null ? json['rel'] as String : null,
+      href: json['href'] != null ? Uri.parse(json['href'] as String) : null,
+      type_: json['type'] != null ? json['type'] as String : null,
       minAmount: json['min_amount'] != null
           ? (json['min_amount'] as num).toDouble()
           : null,
@@ -56,7 +50,11 @@ class Link {
     double? minAmount,
     double? maxAmount,
   }) {
-    if (rel == null && href == null && type_ == null && minAmount == null && maxAmount == null) return this;
+    if (rel == null &&
+        href == null &&
+        type_ == null &&
+        minAmount == null &&
+        maxAmount == null) return this;
 
     return Link(
       rel: rel ?? this.rel,
@@ -71,17 +69,17 @@ class Link {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Link) return false;
-    return rel == other.rel
-        && href == other.href
-        && type_ == other.type_
-        && minAmount == other.minAmount
-        && maxAmount == other.maxAmount
-;
+    return rel == other.rel &&
+        href == other.href &&
+        type_ == other.type_ &&
+        minAmount == other.minAmount &&
+        maxAmount == other.maxAmount;
   }
 
   @override
   int get hashCode => Object.hash(rel, href, type_, minAmount, maxAmount);
 
   @override
-  String toString() => 'Link(rel=$rel, href=$href, type_=$type_, minAmount=$minAmount, maxAmount=$maxAmount)';
+  String toString() =>
+      'Link(rel=$rel, href=$href, type_=$type_, minAmount=$minAmount, maxAmount=$maxAmount)';
 }

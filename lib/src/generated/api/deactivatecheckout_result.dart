@@ -16,14 +16,17 @@ sealed class DeactivateCheckoutResult {
   factory DeactivateCheckoutResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => DeactivateCheckoutResultHttp200(Checkout.fromJson(response.data as Map<String, dynamic>)),
-      401 => DeactivateCheckoutResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => DeactivateCheckoutResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
-      409 => DeactivateCheckoutResultHttp409(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => DeactivateCheckoutResultHttp200(
+          Checkout.fromJson(response.data as Map<String, dynamic>)),
+      401 => DeactivateCheckoutResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => DeactivateCheckoutResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
+      409 => DeactivateCheckoutResultHttp409(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => DeactivateCheckoutResultError.fromResponse(response),
     };
   }
-
 }
 
 class DeactivateCheckoutResultHttp200 extends DeactivateCheckoutResult {
@@ -50,5 +53,7 @@ class DeactivateCheckoutResultError extends DeactivateCheckoutResult {
   const DeactivateCheckoutResultError(this.response);
   final Response<dynamic> response;
 
-  factory DeactivateCheckoutResultError.fromResponse(Response<dynamic> response) => DeactivateCheckoutResultError(response);
+  factory DeactivateCheckoutResultError.fromResponse(
+          Response<dynamic> response) =>
+      DeactivateCheckoutResultError(response);
 }

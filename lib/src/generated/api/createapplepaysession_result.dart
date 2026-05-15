@@ -16,13 +16,15 @@ sealed class CreateApplePaySessionResult {
   factory CreateApplePaySessionResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => CreateApplePaySessionResultHttp200(Put200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => CreateApplePaySessionResultHttp400(Put400Response.fromJson(response.data as Map<String, dynamic>)),
-      404 => CreateApplePaySessionResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => CreateApplePaySessionResultHttp200(
+          Put200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => CreateApplePaySessionResultHttp400(
+          Put400Response.fromJson(response.data as Map<String, dynamic>)),
+      404 => CreateApplePaySessionResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => CreateApplePaySessionResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateApplePaySessionResultHttp200 extends CreateApplePaySessionResult {
@@ -44,5 +46,7 @@ class CreateApplePaySessionResultError extends CreateApplePaySessionResult {
   const CreateApplePaySessionResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateApplePaySessionResultError.fromResponse(Response<dynamic> response) => CreateApplePaySessionResultError(response);
+  factory CreateApplePaySessionResultError.fromResponse(
+          Response<dynamic> response) =>
+      CreateApplePaySessionResultError(response);
 }

@@ -5,7 +5,8 @@ import 'package:sumup_api_client/sumup_api_client.dart';
 abstract class Command {
   String get name;
   String get description;
-  Future<void> execute(SumUpClient client, String merchantCode, List<String> args);
+  Future<void> execute(
+      SumUpClient client, String merchantCode, List<String> args);
 }
 
 /// Shared formatting helpers.
@@ -27,22 +28,26 @@ class Fmt {
     return '${d.toStringAsFixed(2)} ${currency ?? ''}'.trim();
   }
 
-  static String pad(String s, int width) => s.padRight(width).substring(0, width);
+  static String pad(String s, int width) =>
+      s.padRight(width).substring(0, width);
 
   static void table(List<String> headers, List<List<String>> rows,
       {List<int>? colWidths}) {
     final widths = colWidths ??
         headers.asMap().entries.map((e) {
-          final maxRow = rows.fold<int>(e.value.length, (m, r) => r[e.key].length > m ? r[e.key].length : m);
+          final maxRow = rows.fold<int>(e.value.length,
+              (m, r) => r[e.key].length > m ? r[e.key].length : m);
           return maxRow;
         }).toList();
 
     final sep = '+-${widths.map((w) => '-' * (w + 1)).join('-+-')}-+';
     stdout.writeln(sep);
-    stdout.writeln('| ${headers.asMap().entries.map((e) => pad(e.value, widths[e.key] + 1)).join('| ')}|');
+    stdout.writeln(
+        '| ${headers.asMap().entries.map((e) => pad(e.value, widths[e.key] + 1)).join('| ')}|');
     stdout.writeln(sep);
     for (final row in rows) {
-      stdout.writeln('| ${row.asMap().entries.map((e) => pad(e.value, widths[e.key] + 1)).join('| ')}|');
+      stdout.writeln(
+          '| ${row.asMap().entries.map((e) => pad(e.value, widths[e.key] + 1)).join('| ')}|');
     }
     stdout.writeln(sep);
     stdout.writeln('${rows.length} row(s)');

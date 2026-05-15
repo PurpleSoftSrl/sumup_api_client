@@ -35,25 +35,32 @@ class MembershipsApi {
     if (limit != null) reqQueryParams['limit'] = limit.toString();
     if (kind != null) reqQueryParams['kind'] = kind.toString();
     if (status != null) reqQueryParams['status'] = status.toJson().toString();
-    if (resourceType != null) reqQueryParams['resource.type'] = resourceType.toString();
-    if (resourceAttributesSandbox != null) reqQueryParams['resource.attributes.sandbox'] = resourceAttributesSandbox.toString();
-    if (resourceName != null) reqQueryParams['resource.name'] = resourceName.toString();
-    if (resourceParentId != null) reqQueryParams['resource.parent.id'] = resourceParentId.toString();
-    if (resourceParentType != null) reqQueryParams['resource.parent.type'] = resourceParentType.toJson().toString();
+    if (resourceType != null)
+      reqQueryParams['resource.type'] = resourceType.toString();
+    if (resourceAttributesSandbox != null)
+      reqQueryParams['resource.attributes.sandbox'] =
+          resourceAttributesSandbox.toString();
+    if (resourceName != null)
+      reqQueryParams['resource.name'] = resourceName.toString();
+    if (resourceParentId != null)
+      reqQueryParams['resource.parent.id'] = resourceParentId.toString();
+    if (resourceParentType != null)
+      reqQueryParams['resource.parent.type'] =
+          resourceParentType.toJson().toString();
     if (roles != null) reqQueryParams['roles'] = roles.toString();
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/memberships',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return ListMembershipsResult.fromResponse(response);
   }
-
 }

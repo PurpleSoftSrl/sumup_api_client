@@ -15,7 +15,8 @@ enum TransactionHistoryInline2PayoutType {
   static TransactionHistoryInline2PayoutType fromJson(String json) {
     return TransactionHistoryInline2PayoutType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionHistoryInline2PayoutType: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown TransactionHistoryInline2PayoutType: $json'),
     );
   }
 

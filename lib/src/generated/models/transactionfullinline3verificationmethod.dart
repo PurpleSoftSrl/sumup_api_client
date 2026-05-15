@@ -19,7 +19,8 @@ enum TransactionFullInline3VerificationMethod {
   static TransactionFullInline3VerificationMethod fromJson(String json) {
     return TransactionFullInline3VerificationMethod.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionFullInline3VerificationMethod: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown TransactionFullInline3VerificationMethod: $json'),
     );
   }
 

@@ -43,9 +43,7 @@ class PersonalIdentifier {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! PersonalIdentifier) return false;
-    return ref == other.ref
-        && value_ == other.value_
-;
+    return ref == other.ref && value_ == other.value_;
   }
 
   @override

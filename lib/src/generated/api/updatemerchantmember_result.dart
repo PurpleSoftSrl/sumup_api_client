@@ -16,15 +16,19 @@ sealed class UpdateMerchantMemberResult {
   factory UpdateMerchantMemberResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => UpdateMerchantMemberResultHttp200(Put200Response.fromJson(response.data as Map<String, dynamic>)),
-      400 => UpdateMerchantMemberResultHttp400(Put400Response.fromJson(response.data as Map<String, dynamic>)),
-      403 => UpdateMerchantMemberResultHttp403(Problem.fromJson(response.data as Map<String, dynamic>)),
-      404 => UpdateMerchantMemberResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
-      409 => UpdateMerchantMemberResultHttp409(Problem.fromJson(response.data as Map<String, dynamic>)),
+      200 => UpdateMerchantMemberResultHttp200(
+          Put200Response.fromJson(response.data as Map<String, dynamic>)),
+      400 => UpdateMerchantMemberResultHttp400(
+          Put400Response.fromJson(response.data as Map<String, dynamic>)),
+      403 => UpdateMerchantMemberResultHttp403(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => UpdateMerchantMemberResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      409 => UpdateMerchantMemberResultHttp409(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => UpdateMerchantMemberResultError.fromResponse(response),
     };
   }
-
 }
 
 class UpdateMerchantMemberResultHttp200 extends UpdateMerchantMemberResult {
@@ -56,5 +60,7 @@ class UpdateMerchantMemberResultError extends UpdateMerchantMemberResult {
   const UpdateMerchantMemberResultError(this.response);
   final Response<dynamic> response;
 
-  factory UpdateMerchantMemberResultError.fromResponse(Response<dynamic> response) => UpdateMerchantMemberResultError(response);
+  factory UpdateMerchantMemberResultError.fromResponse(
+          Response<dynamic> response) =>
+      UpdateMerchantMemberResultError(response);
 }

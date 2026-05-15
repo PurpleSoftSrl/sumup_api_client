@@ -34,30 +34,32 @@ class CreateReaderCheckoutRequest {
   factory CreateReaderCheckoutRequest.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutRequest(
       aade: json['aade'] != null
-          ? CreateReaderCheckoutRequestAade.fromJson(json['aade'] as Map<String, dynamic>)
+          ? CreateReaderCheckoutRequestAade.fromJson(
+              json['aade'] as Map<String, dynamic>)
           : null,
       affiliate: json['affiliate'] != null
-          ? CreateReaderCheckoutRequestAffiliate.fromJson(json['affiliate'] as Map<String, dynamic>)
+          ? CreateReaderCheckoutRequestAffiliate.fromJson(
+              json['affiliate'] as Map<String, dynamic>)
           : null,
       cardType: json['card_type'] != null
-          ? CreateReaderCheckoutRequestCardType.fromJson(json['card_type'] as String)
+          ? CreateReaderCheckoutRequestCardType.fromJson(
+              json['card_type'] as String)
           : null,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
       installments: json['installments'] != null
           ? (json['installments'] as num).toInt()
           : null,
       returnUrl: json['return_url'] != null
           ? Uri.parse(json['return_url'] as String)
           : null,
-      tipRates: json['tip_rates'] != null
-          ? json['tip_rates'] as List<double>
-          : null,
+      tipRates:
+          json['tip_rates'] != null ? json['tip_rates'] as List<double> : null,
       tipTimeout: json['tip_timeout'] != null
           ? (json['tip_timeout'] as num).toInt()
           : null,
-      totalAmount: CreateReaderCheckoutRequestTotalAmount.fromJson(json['total_amount'] as Map<String, dynamic>),
+      totalAmount: CreateReaderCheckoutRequestTotalAmount.fromJson(
+          json['total_amount'] as Map<String, dynamic>),
     );
   }
 
@@ -86,7 +88,15 @@ class CreateReaderCheckoutRequest {
     int? tipTimeout,
     CreateReaderCheckoutRequestTotalAmount? totalAmount,
   }) {
-    if (aade == null && affiliate == null && cardType == null && description == null && installments == null && returnUrl == null && tipRates == null && tipTimeout == null && totalAmount == null) return this;
+    if (aade == null &&
+        affiliate == null &&
+        cardType == null &&
+        description == null &&
+        installments == null &&
+        returnUrl == null &&
+        tipRates == null &&
+        tipTimeout == null &&
+        totalAmount == null) return this;
 
     return CreateReaderCheckoutRequest(
       aade: aade ?? this.aade,
@@ -105,21 +115,22 @@ class CreateReaderCheckoutRequest {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutRequest) return false;
-    return aade == other.aade
-        && affiliate == other.affiliate
-        && cardType == other.cardType
-        && description == other.description
-        && installments == other.installments
-        && returnUrl == other.returnUrl
-        && tipRates == other.tipRates
-        && tipTimeout == other.tipTimeout
-        && totalAmount == other.totalAmount
-;
+    return aade == other.aade &&
+        affiliate == other.affiliate &&
+        cardType == other.cardType &&
+        description == other.description &&
+        installments == other.installments &&
+        returnUrl == other.returnUrl &&
+        tipRates == other.tipRates &&
+        tipTimeout == other.tipTimeout &&
+        totalAmount == other.totalAmount;
   }
 
   @override
-  int get hashCode => Object.hash(aade, affiliate, cardType, description, installments, returnUrl, tipRates, tipTimeout, totalAmount);
+  int get hashCode => Object.hash(aade, affiliate, cardType, description,
+      installments, returnUrl, tipRates, tipTimeout, totalAmount);
 
   @override
-  String toString() => 'CreateReaderCheckoutRequest(aade=$aade, affiliate=$affiliate, cardType=$cardType, description=$description, installments=$installments, returnUrl=$returnUrl, tipRates=$tipRates, tipTimeout=$tipTimeout, totalAmount=$totalAmount)';
+  String toString() =>
+      'CreateReaderCheckoutRequest(aade=$aade, affiliate=$affiliate, cardType=$cardType, description=$description, installments=$installments, returnUrl=$returnUrl, tipRates=$tipRates, tipTimeout=$tipTimeout, totalAmount=$totalAmount)';
 }

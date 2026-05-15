@@ -11,11 +11,10 @@ class CheckoutSuccessInline1PaymentInstrument {
 
   final String? token;
 
-  factory CheckoutSuccessInline1PaymentInstrument.fromJson(Map<String, dynamic> json) {
+  factory CheckoutSuccessInline1PaymentInstrument.fromJson(
+      Map<String, dynamic> json) {
     return CheckoutSuccessInline1PaymentInstrument(
-      token: json['token'] != null
-          ? json['token'] as String
-          : null,
+      token: json['token'] != null ? json['token'] as String : null,
     );
   }
 
@@ -39,8 +38,7 @@ class CheckoutSuccessInline1PaymentInstrument {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CheckoutSuccessInline1PaymentInstrument) return false;
-    return token == other.token
-;
+    return token == other.token;
   }
 
   @override

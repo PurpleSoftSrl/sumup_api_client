@@ -15,12 +15,8 @@ class ReceiptReader {
 
   factory ReceiptReader.fromJson(Map<String, dynamic> json) {
     return ReceiptReader(
-      code: json['code'] != null
-          ? json['code'] as String
-          : null,
-      type_: json['type'] != null
-          ? json['type'] as String
-          : null,
+      code: json['code'] != null ? json['code'] as String : null,
+      type_: json['type'] != null ? json['type'] as String : null,
     );
   }
 
@@ -47,9 +43,7 @@ class ReceiptReader {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptReader) return false;
-    return code == other.code
-        && type_ == other.type_
-;
+    return code == other.code && type_ == other.type_;
   }
 
   @override

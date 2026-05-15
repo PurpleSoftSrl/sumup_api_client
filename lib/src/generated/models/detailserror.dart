@@ -20,17 +20,17 @@ class DetailsError {
 
   factory DetailsError.fromJson(Map<String, dynamic> json) {
     return DetailsError(
-      title: json['title'] != null
-          ? json['title'] as String
-          : null,
-      details: json['details'] != null
-          ? json['details'] as String
-          : null,
-      status: json['status'] != null
-          ? (json['status'] as num).toDouble()
-          : null,
+      title: json['title'] != null ? json['title'] as String : null,
+      details: json['details'] != null ? json['details'] as String : null,
+      status:
+          json['status'] != null ? (json['status'] as num).toDouble() : null,
       failedConstraints: json['failed_constraints'] != null
-          ? List<DetailsErrorFailedConstraintsItem>.generate((json['failed_constraints'] as List).length, (i) => DetailsErrorFailedConstraintsItem.fromJson((json['failed_constraints'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<DetailsErrorFailedConstraintsItem>.generate(
+              (json['failed_constraints'] as List).length,
+              (i) => DetailsErrorFailedConstraintsItem.fromJson(
+                  (json['failed_constraints'] as List)[i]
+                      as Map<String, dynamic>),
+              growable: false)
           : null,
     );
   }
@@ -40,7 +40,9 @@ class DetailsError {
       if (title != null) 'title': title!,
       if (details != null) 'details': details!,
       if (status != null) 'status': status!,
-      if (failedConstraints != null) 'failed_constraints': failedConstraints!.map((e) => e.toJson()).toList(),
+      if (failedConstraints != null)
+        'failed_constraints':
+            failedConstraints!.map((e) => e.toJson()).toList(),
     };
   }
 
@@ -50,7 +52,10 @@ class DetailsError {
     double? status,
     List<DetailsErrorFailedConstraintsItem>? failedConstraints,
   }) {
-    if (title == null && details == null && status == null && failedConstraints == null) return this;
+    if (title == null &&
+        details == null &&
+        status == null &&
+        failedConstraints == null) return this;
 
     return DetailsError(
       title: title ?? this.title,
@@ -64,16 +69,16 @@ class DetailsError {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! DetailsError) return false;
-    return title == other.title
-        && details == other.details
-        && status == other.status
-        && failedConstraints == other.failedConstraints
-;
+    return title == other.title &&
+        details == other.details &&
+        status == other.status &&
+        failedConstraints == other.failedConstraints;
   }
 
   @override
   int get hashCode => Object.hash(title, details, status, failedConstraints);
 
   @override
-  String toString() => 'DetailsError(title=$title, details=$details, status=$status, failedConstraints=$failedConstraints)';
+  String toString() =>
+      'DetailsError(title=$title, details=$details, status=$status, failedConstraints=$failedConstraints)';
 }

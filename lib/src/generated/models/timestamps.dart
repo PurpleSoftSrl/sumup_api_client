@@ -43,9 +43,7 @@ class Timestamps {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Timestamps) return false;
-    return createdAt == other.createdAt
-        && updatedAt == other.updatedAt
-;
+    return createdAt == other.createdAt && updatedAt == other.updatedAt;
   }
 
   @override

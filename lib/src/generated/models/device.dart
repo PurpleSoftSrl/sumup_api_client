@@ -21,21 +21,14 @@ class Device {
 
   factory Device.fromJson(Map<String, dynamic> json) {
     return Device(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
-      systemName: json['system_name'] != null
-          ? json['system_name'] as String
-          : null,
-      model: json['model'] != null
-          ? json['model'] as String
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
+      systemName:
+          json['system_name'] != null ? json['system_name'] as String : null,
+      model: json['model'] != null ? json['model'] as String : null,
       systemVersion: json['system_version'] != null
           ? json['system_version'] as String
           : null,
-      uuid: json['uuid'] != null
-          ? json['uuid'] as String
-          : null,
+      uuid: json['uuid'] != null ? json['uuid'] as String : null,
     );
   }
 
@@ -56,7 +49,11 @@ class Device {
     String? systemVersion,
     String? uuid,
   }) {
-    if (name == null && systemName == null && model == null && systemVersion == null && uuid == null) return this;
+    if (name == null &&
+        systemName == null &&
+        model == null &&
+        systemVersion == null &&
+        uuid == null) return this;
 
     return Device(
       name: name ?? this.name,
@@ -71,17 +68,17 @@ class Device {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Device) return false;
-    return name == other.name
-        && systemName == other.systemName
-        && model == other.model
-        && systemVersion == other.systemVersion
-        && uuid == other.uuid
-;
+    return name == other.name &&
+        systemName == other.systemName &&
+        model == other.model &&
+        systemVersion == other.systemVersion &&
+        uuid == other.uuid;
   }
 
   @override
   int get hashCode => Object.hash(name, systemName, model, systemVersion, uuid);
 
   @override
-  String toString() => 'Device(name=$name, systemName=$systemName, model=$model, systemVersion=$systemVersion, uuid=$uuid)';
+  String toString() =>
+      'Device(name=$name, systemName=$systemName, model=$model, systemVersion=$systemVersion, uuid=$uuid)';
 }

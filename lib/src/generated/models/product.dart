@@ -31,15 +31,10 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
-      priceLabel: json['price_label'] != null
-          ? json['price_label'] as String
-          : null,
-      price: json['price'] != null
-          ? (json['price'] as num).toDouble()
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
+      priceLabel:
+          json['price_label'] != null ? json['price_label'] as String : null,
+      price: json['price'] != null ? (json['price'] as num).toDouble() : null,
       vatRate: json['vat_rate'] != null
           ? (json['vat_rate'] as num).toDouble()
           : null,
@@ -52,9 +47,8 @@ class Product {
       vatAmount: json['vat_amount'] != null
           ? (json['vat_amount'] as num).toDouble()
           : null,
-      quantity: json['quantity'] != null
-          ? (json['quantity'] as num).toInt()
-          : null,
+      quantity:
+          json['quantity'] != null ? (json['quantity'] as num).toInt() : null,
       totalPrice: json['total_price'] != null
           ? (json['total_price'] as num).toDouble()
           : null,
@@ -91,7 +85,16 @@ class Product {
     double? totalPrice,
     double? totalWithVat,
   }) {
-    if (name == null && priceLabel == null && price == null && vatRate == null && singleVatAmount == null && priceWithVat == null && vatAmount == null && quantity == null && totalPrice == null && totalWithVat == null) return this;
+    if (name == null &&
+        priceLabel == null &&
+        price == null &&
+        vatRate == null &&
+        singleVatAmount == null &&
+        priceWithVat == null &&
+        vatAmount == null &&
+        quantity == null &&
+        totalPrice == null &&
+        totalWithVat == null) return this;
 
     return Product(
       name: name ?? this.name,
@@ -111,22 +114,32 @@ class Product {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Product) return false;
-    return name == other.name
-        && priceLabel == other.priceLabel
-        && price == other.price
-        && vatRate == other.vatRate
-        && singleVatAmount == other.singleVatAmount
-        && priceWithVat == other.priceWithVat
-        && vatAmount == other.vatAmount
-        && quantity == other.quantity
-        && totalPrice == other.totalPrice
-        && totalWithVat == other.totalWithVat
-;
+    return name == other.name &&
+        priceLabel == other.priceLabel &&
+        price == other.price &&
+        vatRate == other.vatRate &&
+        singleVatAmount == other.singleVatAmount &&
+        priceWithVat == other.priceWithVat &&
+        vatAmount == other.vatAmount &&
+        quantity == other.quantity &&
+        totalPrice == other.totalPrice &&
+        totalWithVat == other.totalWithVat;
   }
 
   @override
-  int get hashCode => Object.hash(name, priceLabel, price, vatRate, singleVatAmount, priceWithVat, vatAmount, quantity, totalPrice, totalWithVat);
+  int get hashCode => Object.hash(
+      name,
+      priceLabel,
+      price,
+      vatRate,
+      singleVatAmount,
+      priceWithVat,
+      vatAmount,
+      quantity,
+      totalPrice,
+      totalWithVat);
 
   @override
-  String toString() => 'Product(name=$name, priceLabel=$priceLabel, price=$price, vatRate=$vatRate, singleVatAmount=$singleVatAmount, priceWithVat=$priceWithVat, vatAmount=$vatAmount, quantity=$quantity, totalPrice=$totalPrice, totalWithVat=$totalWithVat)';
+  String toString() =>
+      'Product(name=$name, priceLabel=$priceLabel, price=$price, vatRate=$vatRate, singleVatAmount=$singleVatAmount, priceWithVat=$priceWithVat, vatAmount=$vatAmount, quantity=$quantity, totalPrice=$totalPrice, totalWithVat=$totalWithVat)';
 }

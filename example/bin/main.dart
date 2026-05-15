@@ -63,14 +63,21 @@ void main(List<String> args) async {
 Future<void> _dashboard(SumUpClient c, String mc) async {
   _title('Dashboard');
   final results = await Future.wait<Map<dynamic, dynamic>>([
-    c.dio.get<Map<dynamic, dynamic>>('/v2.1/merchants/$mc/transactions/history').then((r) => r.data!),
-    c.dio.get<Map<dynamic, dynamic>>('/v0.1/merchants/$mc/readers').then((r) => r.data!),
+    c.dio
+        .get<Map<dynamic, dynamic>>('/v2.1/merchants/$mc/transactions/history')
+        .then((r) => r.data!),
+    c.dio
+        .get<Map<dynamic, dynamic>>('/v0.1/merchants/$mc/readers')
+        .then((r) => r.data!),
   ]);
   final txItems = results[0]['items'] as List? ?? [];
   final readers = results[1]['items'] as List? ?? [];
   final paired = readers.where((r) => (r as Map)['status'] == 'paired').length;
 
-  _table(['KPI', 'Value'], [
+  _table([
+    'KPI',
+    'Value'
+  ], [
     ['Transactions', '${txItems.length}'],
     ['Paired Readers', '$paired'],
   ]);
@@ -78,52 +85,68 @@ Future<void> _dashboard(SumUpClient c, String mc) async {
 
 Future<void> _transactions(SumUpClient c, String mc) async {
   _title('Transactions');
-  final r = await c.dio.get<Map<dynamic, dynamic>>('/v2.1/merchants/$mc/transactions/history');
+  final r = await c.dio
+      .get<Map<dynamic, dynamic>>('/v2.1/merchants/$mc/transactions/history');
   final items = (r.data as Map<dynamic, dynamic>)['items'] as List? ?? [];
   if (items.isEmpty) return stdout.writeln('No transactions.');
   _table(
     ['Status', 'Amount', 'Currency', 'Type', 'Date'],
-    items.cast<Map<dynamic, dynamic>>().take(20).map((tx) => [
-      '${tx['status'] ?? '-'}',
-      '${tx['amount'] ?? '-'}',
-      '${tx['currency'] ?? '-'}',
-      '${tx['payment_type'] ?? '-'}',
-      _date('${tx['timestamp']}'),
-    ]).toList(),
+    items
+        .cast<Map<dynamic, dynamic>>()
+        .take(20)
+        .map((tx) => [
+              '${tx['status'] ?? '-'}',
+              '${tx['amount'] ?? '-'}',
+              '${tx['currency'] ?? '-'}',
+              '${tx['payment_type'] ?? '-'}',
+              _date('${tx['timestamp']}'),
+            ])
+        .toList(),
   );
 }
 
 Future<void> _checkouts(SumUpClient c, String mc) async {
   _title('Checkouts');
   final r = await c.dio.get<dynamic>('/v0.1/checkouts');
-  final items = (r.data is List) ? r.data as List : (r.data as Map<dynamic, dynamic>)['items'] as List? ?? [];
+  final items = (r.data is List)
+      ? r.data as List
+      : (r.data as Map<dynamic, dynamic>)['items'] as List? ?? [];
   if (items.isEmpty) return stdout.writeln('No checkouts.');
   _table(
     ['ID', 'Status', 'Amount', 'Currency', 'Date'],
-    items.cast<Map<dynamic, dynamic>>().take(20).map((ch) => [
-      '${ch['id']}'.substring(0, 12),
-      '${ch['status'] ?? '-'}',
-      '${ch['amount'] ?? '-'}',
-      '${ch['currency'] ?? '-'}',
-      _date('${ch['date']}'),
-    ]).toList(),
+    items
+        .cast<Map<dynamic, dynamic>>()
+        .take(20)
+        .map((ch) => [
+              '${ch['id']}'.substring(0, 12),
+              '${ch['status'] ?? '-'}',
+              '${ch['amount'] ?? '-'}',
+              '${ch['currency'] ?? '-'}',
+              _date('${ch['date']}'),
+            ])
+        .toList(),
   );
 }
 
 Future<void> _readers(SumUpClient c, String mc) async {
   _title('Readers');
-  final r = await c.dio.get<Map<dynamic, dynamic>>('/v0.1/merchants/$mc/readers');
+  final r =
+      await c.dio.get<Map<dynamic, dynamic>>('/v0.1/merchants/$mc/readers');
   final data = r.data as Map;
   final items = data['items'] as List? ?? [];
   if (items.isEmpty) return stdout.writeln('No readers.');
   _table(
     ['Name', 'Status', 'Model', 'Serial'],
-    items.cast<Map<dynamic, dynamic>>().take(20).map((rd) => [
-      '${rd['name'] ?? '-'}',
-      '${rd['status'] ?? '-'}',
-      '${rd['device']?['model'] ?? '-'}',
-      '${rd['device']?['identifier'] ?? '-'}',
-    ]).toList(),
+    items
+        .cast<Map<dynamic, dynamic>>()
+        .take(20)
+        .map((rd) => [
+              '${rd['name'] ?? '-'}',
+              '${rd['status'] ?? '-'}',
+              '${rd['device']?['model'] ?? '-'}',
+              '${rd['device']?['identifier'] ?? '-'}',
+            ])
+        .toList(),
   );
 }
 
@@ -132,15 +155,18 @@ void _title(String t) => stdout.writeln('\n${'═' * 60}\n  $t\n${'═' * 60}');
 
 void _table(List<String> h, List<List<String>> rows) {
   final w = h.asMap().entries.map((e) {
-    final m = rows.fold<int>(e.value.length, (mx, r) => r[e.key].length > mx ? r[e.key].length : mx);
+    final m = rows.fold<int>(
+        e.value.length, (mx, r) => r[e.key].length > mx ? r[e.key].length : mx);
     return m;
   }).toList();
   final sep = '+-${w.map((x) => '-' * (x + 1)).join('-+-')}-+';
   stdout.writeln(sep);
-  stdout.writeln('| ${h.asMap().entries.map((e) => _pad(e.value, w[e.key] + 1)).join('| ')}|');
+  stdout.writeln(
+      '| ${h.asMap().entries.map((e) => _pad(e.value, w[e.key] + 1)).join('| ')}|');
   stdout.writeln(sep);
   for (final row in rows) {
-    stdout.writeln('| ${row.asMap().entries.map((e) => _pad(e.value, w[e.key] + 1)).join('| ')}|');
+    stdout.writeln(
+        '| ${row.asMap().entries.map((e) => _pad(e.value, w[e.key] + 1)).join('| ')}|');
   }
   stdout.writeln(sep);
   stdout.writeln('${rows.length} row(s)');

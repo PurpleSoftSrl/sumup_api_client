@@ -13,14 +13,11 @@ class UpdateMerchantMemberBodyApplicationJsonUser {
   final String? nickname;
   final String? password;
 
-  factory UpdateMerchantMemberBodyApplicationJsonUser.fromJson(Map<String, dynamic> json) {
+  factory UpdateMerchantMemberBodyApplicationJsonUser.fromJson(
+      Map<String, dynamic> json) {
     return UpdateMerchantMemberBodyApplicationJsonUser(
-      nickname: json['nickname'] != null
-          ? json['nickname'] as String
-          : null,
-      password: json['password'] != null
-          ? json['password'] as String
-          : null,
+      nickname: json['nickname'] != null ? json['nickname'] as String : null,
+      password: json['password'] != null ? json['password'] as String : null,
     );
   }
 
@@ -47,14 +44,13 @@ class UpdateMerchantMemberBodyApplicationJsonUser {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! UpdateMerchantMemberBodyApplicationJsonUser) return false;
-    return nickname == other.nickname
-        && password == other.password
-;
+    return nickname == other.nickname && password == other.password;
   }
 
   @override
   int get hashCode => Object.hash(nickname, password);
 
   @override
-  String toString() => 'UpdateMerchantMemberBodyApplicationJsonUser(nickname=$nickname, password=$password)';
+  String toString() =>
+      'UpdateMerchantMemberBodyApplicationJsonUser(nickname=$nickname, password=$password)';
 }

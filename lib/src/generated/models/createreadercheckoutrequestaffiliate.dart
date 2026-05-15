@@ -18,13 +18,15 @@ class CreateReaderCheckoutRequestAffiliate {
   final String key;
   final CreateReaderCheckoutRequestAffiliateTags? tags;
 
-  factory CreateReaderCheckoutRequestAffiliate.fromJson(Map<String, dynamic> json) {
+  factory CreateReaderCheckoutRequestAffiliate.fromJson(
+      Map<String, dynamic> json) {
     return CreateReaderCheckoutRequestAffiliate(
       appId: json['app_id'] as String,
       foreignTransactionId: json['foreign_transaction_id'] as String,
       key: json['key'] as String,
       tags: json['tags'] != null
-          ? CreateReaderCheckoutRequestAffiliateTags.fromJson(json['tags'] as Map<String, dynamic>)
+          ? CreateReaderCheckoutRequestAffiliateTags.fromJson(
+              json['tags'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -44,7 +46,10 @@ class CreateReaderCheckoutRequestAffiliate {
     String? key,
     CreateReaderCheckoutRequestAffiliateTags? tags,
   }) {
-    if (appId == null && foreignTransactionId == null && key == null && tags == null) return this;
+    if (appId == null &&
+        foreignTransactionId == null &&
+        key == null &&
+        tags == null) return this;
 
     return CreateReaderCheckoutRequestAffiliate(
       appId: appId ?? this.appId,
@@ -58,16 +63,16 @@ class CreateReaderCheckoutRequestAffiliate {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderCheckoutRequestAffiliate) return false;
-    return appId == other.appId
-        && foreignTransactionId == other.foreignTransactionId
-        && key == other.key
-        && tags == other.tags
-;
+    return appId == other.appId &&
+        foreignTransactionId == other.foreignTransactionId &&
+        key == other.key &&
+        tags == other.tags;
   }
 
   @override
   int get hashCode => Object.hash(appId, foreignTransactionId, key, tags);
 
   @override
-  String toString() => 'CreateReaderCheckoutRequestAffiliate(appId=$appId, foreignTransactionId=$foreignTransactionId, key=$key, tags=$tags)';
+  String toString() =>
+      'CreateReaderCheckoutRequestAffiliate(appId=$appId, foreignTransactionId=$foreignTransactionId, key=$key, tags=$tags)';
 }

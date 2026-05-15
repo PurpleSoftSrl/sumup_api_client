@@ -17,14 +17,17 @@ sealed class UpdateCustomerResult {
   factory UpdateCustomerResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      200 => UpdateCustomerResultHttp200(Put200Response.fromJson(response.data as Map<String, dynamic>)),
-      401 => UpdateCustomerResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      403 => UpdateCustomerResultHttp403(ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
-      404 => UpdateCustomerResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      200 => UpdateCustomerResultHttp200(
+          Put200Response.fromJson(response.data as Map<String, dynamic>)),
+      401 => UpdateCustomerResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      403 => UpdateCustomerResultHttp403(
+          ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
+      404 => UpdateCustomerResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => UpdateCustomerResultError.fromResponse(response),
     };
   }
-
 }
 
 class UpdateCustomerResultHttp200 extends UpdateCustomerResult {
@@ -51,5 +54,6 @@ class UpdateCustomerResultError extends UpdateCustomerResult {
   const UpdateCustomerResultError(this.response);
   final Response<dynamic> response;
 
-  factory UpdateCustomerResultError.fromResponse(Response<dynamic> response) => UpdateCustomerResultError(response);
+  factory UpdateCustomerResultError.fromResponse(Response<dynamic> response) =>
+      UpdateCustomerResultError(response);
 }

@@ -81,18 +81,12 @@ class TransactionFullInline3 {
       clientTransactionId: json['client_transaction_id'] != null
           ? json['client_transaction_id'] as String
           : null,
-      username: json['username'] != null
-          ? json['username'] as String
-          : null,
+      username: json['username'] != null ? json['username'] as String : null,
       feeAmount: json['fee_amount'] != null
           ? (json['fee_amount'] as num).toDouble()
           : null,
-      lat: json['lat'] != null
-          ? (json['lat'] as num).toDouble()
-          : null,
-      lon: json['lon'] != null
-          ? (json['lon'] as num).toDouble()
-          : null,
+      lat: json['lat'] != null ? (json['lat'] as num).toDouble() : null,
+      lon: json['lon'] != null ? (json['lon'] as num).toDouble() : null,
       horizontalAccuracy: json['horizontal_accuracy'] != null
           ? (json['horizontal_accuracy'] as num).toDouble()
           : null,
@@ -103,10 +97,12 @@ class TransactionFullInline3 {
           ? Device.fromJson(json['device_info'] as Map<String, dynamic>)
           : null,
       simplePaymentType: json['simple_payment_type'] != null
-          ? TransactionFullInline3SimplePaymentType.fromJson(json['simple_payment_type'] as String)
+          ? TransactionFullInline3SimplePaymentType.fromJson(
+              json['simple_payment_type'] as String)
           : null,
       verificationMethod: json['verification_method'] != null
-          ? TransactionFullInline3VerificationMethod.fromJson(json['verification_method'] as String)
+          ? TransactionFullInline3VerificationMethod.fromJson(
+              json['verification_method'] as String)
           : null,
       card: json['card'] != null
           ? CardResponse.fromJson(json['card'] as Map<String, dynamic>)
@@ -121,60 +117,92 @@ class TransactionFullInline3 {
           ? DateTime.parse(json['payout_date'] as String)
           : null,
       payoutType: json['payout_type'] != null
-          ? TransactionFullInline3PayoutType.fromJson(json['payout_type'] as String)
+          ? TransactionFullInline3PayoutType.fromJson(
+              json['payout_type'] as String)
           : null,
       processAs: json['process_as'] != null
-          ? TransactionFullInline3ProcessAs.fromJson(json['process_as'] as String)
+          ? TransactionFullInline3ProcessAs.fromJson(
+              json['process_as'] as String)
           : null,
       products: json['products'] != null
-          ? List<Product>.generate((json['products'] as List).length, (i) => Product.fromJson((json['products'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<Product>.generate(
+              (json['products'] as List).length,
+              (i) => Product.fromJson(
+                  (json['products'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       vatRates: json['vat_rates'] != null
-          ? List<TransactionFullInline3VatRatesItem>.generate((json['vat_rates'] as List).length, (i) => TransactionFullInline3VatRatesItem.fromJson((json['vat_rates'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<TransactionFullInline3VatRatesItem>.generate(
+              (json['vat_rates'] as List).length,
+              (i) => TransactionFullInline3VatRatesItem.fromJson(
+                  (json['vat_rates'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       transactionEvents: json['transaction_events'] != null
-          ? List<TransactionEvent>.generate((json['transaction_events'] as List).length, (i) => TransactionEvent.fromJson((json['transaction_events'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<TransactionEvent>.generate(
+              (json['transaction_events'] as List).length,
+              (i) => TransactionEvent.fromJson((json['transaction_events']
+                  as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       simpleStatus: json['simple_status'] != null
-          ? TransactionFullInline3SimpleStatus.fromJson(json['simple_status'] as String)
+          ? TransactionFullInline3SimpleStatus.fromJson(
+              json['simple_status'] as String)
           : null,
       links: json['links'] != null
-          ? List<Link>.generate((json['links'] as List).length, (i) => Link.fromJson((json['links'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<Link>.generate(
+              (json['links'] as List).length,
+              (i) => Link.fromJson(
+                  (json['links'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       events: json['events'] != null
-          ? List<Event>.generate((json['events'] as List).length, (i) => Event.fromJson((json['events'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<Event>.generate(
+              (json['events'] as List).length,
+              (i) => Event.fromJson(
+                  (json['events'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
       location: json['location'] != null
-          ? TransactionFullInline3Location.fromJson(json['location'] as Map<String, dynamic>)
+          ? TransactionFullInline3Location.fromJson(
+              json['location'] as Map<String, dynamic>)
           : null,
-      taxEnabled: json['tax_enabled'] != null
-          ? json['tax_enabled'] as bool
-          : null,
+      taxEnabled:
+          json['tax_enabled'] != null ? json['tax_enabled'] as bool : null,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      if (foreignTransactionId != null) 'foreign_transaction_id': foreignTransactionId!,
-      if (clientTransactionId != null) 'client_transaction_id': clientTransactionId!,
+      if (foreignTransactionId != null)
+        'foreign_transaction_id': foreignTransactionId!,
+      if (clientTransactionId != null)
+        'client_transaction_id': clientTransactionId!,
       if (username != null) 'username': username!,
       if (feeAmount != null) 'fee_amount': feeAmount!,
       if (lat != null) 'lat': lat!,
       if (lon != null) 'lon': lon!,
-      if (horizontalAccuracy != null) 'horizontal_accuracy': horizontalAccuracy!,
+      if (horizontalAccuracy != null)
+        'horizontal_accuracy': horizontalAccuracy!,
       if (merchantId != null) 'merchant_id': merchantId!,
       if (deviceInfo != null) 'device_info': deviceInfo!.toJson(),
-      if (simplePaymentType != null) 'simple_payment_type': simplePaymentType!.toJson(),
-      if (verificationMethod != null) 'verification_method': verificationMethod!.toJson(),
+      if (simplePaymentType != null)
+        'simple_payment_type': simplePaymentType!.toJson(),
+      if (verificationMethod != null)
+        'verification_method': verificationMethod!.toJson(),
       if (card != null) 'card': card!.toJson(),
       if (elvAccount != null) 'elv_account': elvAccount!.toJson(),
       if (localTime != null) 'local_time': localTime!.toIso8601String(),
       if (payoutDate != null) 'payout_date': payoutDate!.toIso8601String(),
       if (payoutType != null) 'payout_type': payoutType!.toJson(),
       if (processAs != null) 'process_as': processAs!.toJson(),
-      if (products != null) 'products': products!.map((e) => e.toJson()).toList(),
-      if (vatRates != null) 'vat_rates': vatRates!.map((e) => e.toJson()).toList(),
-      if (transactionEvents != null) 'transaction_events': transactionEvents!.map((e) => e.toJson()).toList(),
+      if (products != null)
+        'products': products!.map((e) => e.toJson()).toList(),
+      if (vatRates != null)
+        'vat_rates': vatRates!.map((e) => e.toJson()).toList(),
+      if (transactionEvents != null)
+        'transaction_events':
+            transactionEvents!.map((e) => e.toJson()).toList(),
       if (simpleStatus != null) 'simple_status': simpleStatus!.toJson(),
       if (links != null) 'links': links!.map((e) => e.toJson()).toList(),
       if (events != null) 'events': events!.map((e) => e.toJson()).toList(),
@@ -210,7 +238,31 @@ class TransactionFullInline3 {
     TransactionFullInline3Location? location,
     bool? taxEnabled,
   }) {
-    if (foreignTransactionId == null && clientTransactionId == null && username == null && feeAmount == null && lat == null && lon == null && horizontalAccuracy == null && merchantId == null && deviceInfo == null && simplePaymentType == null && verificationMethod == null && card == null && elvAccount == null && localTime == null && payoutDate == null && payoutType == null && processAs == null && products == null && vatRates == null && transactionEvents == null && simpleStatus == null && links == null && events == null && location == null && taxEnabled == null) return this;
+    if (foreignTransactionId == null &&
+        clientTransactionId == null &&
+        username == null &&
+        feeAmount == null &&
+        lat == null &&
+        lon == null &&
+        horizontalAccuracy == null &&
+        merchantId == null &&
+        deviceInfo == null &&
+        simplePaymentType == null &&
+        verificationMethod == null &&
+        card == null &&
+        elvAccount == null &&
+        localTime == null &&
+        payoutDate == null &&
+        payoutType == null &&
+        processAs == null &&
+        products == null &&
+        vatRates == null &&
+        transactionEvents == null &&
+        simpleStatus == null &&
+        links == null &&
+        events == null &&
+        location == null &&
+        taxEnabled == null) return this;
 
     return TransactionFullInline3(
       foreignTransactionId: foreignTransactionId ?? this.foreignTransactionId,
@@ -246,37 +298,59 @@ class TransactionFullInline3 {
     if (identical(this, other)) return true;
     if (other is! TransactionFullInline3) return false;
     if (hashCode != other.hashCode) return false;
-    return foreignTransactionId == other.foreignTransactionId
-        && clientTransactionId == other.clientTransactionId
-        && username == other.username
-        && feeAmount == other.feeAmount
-        && lat == other.lat
-        && lon == other.lon
-        && horizontalAccuracy == other.horizontalAccuracy
-        && merchantId == other.merchantId
-        && deviceInfo == other.deviceInfo
-        && simplePaymentType == other.simplePaymentType
-        && verificationMethod == other.verificationMethod
-        && card == other.card
-        && elvAccount == other.elvAccount
-        && localTime == other.localTime
-        && payoutDate == other.payoutDate
-        && payoutType == other.payoutType
-        && processAs == other.processAs
-        && products == other.products
-        && vatRates == other.vatRates
-        && transactionEvents == other.transactionEvents
-        && simpleStatus == other.simpleStatus
-        && links == other.links
-        && events == other.events
-        && location == other.location
-        && taxEnabled == other.taxEnabled
-;
+    return foreignTransactionId == other.foreignTransactionId &&
+        clientTransactionId == other.clientTransactionId &&
+        username == other.username &&
+        feeAmount == other.feeAmount &&
+        lat == other.lat &&
+        lon == other.lon &&
+        horizontalAccuracy == other.horizontalAccuracy &&
+        merchantId == other.merchantId &&
+        deviceInfo == other.deviceInfo &&
+        simplePaymentType == other.simplePaymentType &&
+        verificationMethod == other.verificationMethod &&
+        card == other.card &&
+        elvAccount == other.elvAccount &&
+        localTime == other.localTime &&
+        payoutDate == other.payoutDate &&
+        payoutType == other.payoutType &&
+        processAs == other.processAs &&
+        products == other.products &&
+        vatRates == other.vatRates &&
+        transactionEvents == other.transactionEvents &&
+        simpleStatus == other.simpleStatus &&
+        links == other.links &&
+        events == other.events &&
+        location == other.location &&
+        taxEnabled == other.taxEnabled;
   }
 
   @override
-  int get hashCode => Object.hash(Object.hash(foreignTransactionId, clientTransactionId, username, feeAmount, lat, lon, horizontalAccuracy, merchantId, deviceInfo, simplePaymentType, verificationMethod, card, elvAccount, localTime, payoutDate, payoutType, processAs, products, vatRates, transactionEvents), Object.hash(simpleStatus, links, events, location, taxEnabled));
+  int get hashCode => Object.hash(
+      Object.hash(
+          foreignTransactionId,
+          clientTransactionId,
+          username,
+          feeAmount,
+          lat,
+          lon,
+          horizontalAccuracy,
+          merchantId,
+          deviceInfo,
+          simplePaymentType,
+          verificationMethod,
+          card,
+          elvAccount,
+          localTime,
+          payoutDate,
+          payoutType,
+          processAs,
+          products,
+          vatRates,
+          transactionEvents),
+      Object.hash(simpleStatus, links, events, location, taxEnabled));
 
   @override
-  String toString() => 'TransactionFullInline3(foreignTransactionId=$foreignTransactionId, clientTransactionId=$clientTransactionId, username=$username, feeAmount=$feeAmount, lat=$lat, lon=$lon, horizontalAccuracy=$horizontalAccuracy, merchantId=$merchantId, deviceInfo=$deviceInfo, simplePaymentType=$simplePaymentType, verificationMethod=$verificationMethod, card=$card, elvAccount=$elvAccount, localTime=$localTime, payoutDate=$payoutDate, payoutType=$payoutType, processAs=$processAs, products=$products, vatRates=$vatRates, transactionEvents=$transactionEvents, simpleStatus=$simpleStatus, links=$links, events=$events, location=$location, taxEnabled=$taxEnabled)';
+  String toString() =>
+      'TransactionFullInline3(foreignTransactionId=$foreignTransactionId, clientTransactionId=$clientTransactionId, username=$username, feeAmount=$feeAmount, lat=$lat, lon=$lon, horizontalAccuracy=$horizontalAccuracy, merchantId=$merchantId, deviceInfo=$deviceInfo, simplePaymentType=$simplePaymentType, verificationMethod=$verificationMethod, card=$card, elvAccount=$elvAccount, localTime=$localTime, payoutDate=$payoutDate, payoutType=$payoutType, processAs=$processAs, products=$products, vatRates=$vatRates, transactionEvents=$transactionEvents, simpleStatus=$simpleStatus, links=$links, events=$events, location=$location, taxEnabled=$taxEnabled)';
 }

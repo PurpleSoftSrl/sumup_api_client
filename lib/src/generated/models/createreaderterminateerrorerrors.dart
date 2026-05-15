@@ -15,9 +15,7 @@ class CreateReaderTerminateErrorErrors {
 
   factory CreateReaderTerminateErrorErrors.fromJson(Map<String, dynamic> json) {
     return CreateReaderTerminateErrorErrors(
-      detail: json['detail'] != null
-          ? json['detail'] as String
-          : null,
+      detail: json['detail'] != null ? json['detail'] as String : null,
       type_: json['type'] as String,
     );
   }
@@ -45,14 +43,13 @@ class CreateReaderTerminateErrorErrors {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderTerminateErrorErrors) return false;
-    return detail == other.detail
-        && type_ == other.type_
-;
+    return detail == other.detail && type_ == other.type_;
   }
 
   @override
   int get hashCode => Object.hash(detail, type_);
 
   @override
-  String toString() => 'CreateReaderTerminateErrorErrors(detail=$detail, type_=$type_)';
+  String toString() =>
+      'CreateReaderTerminateErrorErrors(detail=$detail, type_=$type_)';
 }

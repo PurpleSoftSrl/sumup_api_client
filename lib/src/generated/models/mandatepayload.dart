@@ -20,9 +20,7 @@ class MandatePayload {
     return MandatePayload(
       type_: MandatePayloadType.fromJson(json['type'] as String),
       userAgent: json['user_agent'] as String,
-      userIp: json['user_ip'] != null
-          ? json['user_ip'] as String
-          : null,
+      userIp: json['user_ip'] != null ? json['user_ip'] as String : null,
     );
   }
 
@@ -52,15 +50,15 @@ class MandatePayload {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! MandatePayload) return false;
-    return type_ == other.type_
-        && userAgent == other.userAgent
-        && userIp == other.userIp
-;
+    return type_ == other.type_ &&
+        userAgent == other.userAgent &&
+        userIp == other.userIp;
   }
 
   @override
   int get hashCode => Object.hash(type_, userAgent, userIp);
 
   @override
-  String toString() => 'MandatePayload(type_=$type_, userAgent=$userAgent, userIp=$userIp)';
+  String toString() =>
+      'MandatePayload(type_=$type_, userAgent=$userAgent, userIp=$userIp)';
 }

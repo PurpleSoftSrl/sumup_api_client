@@ -20,12 +20,10 @@ class ErrorForbidden {
       errorMessage: json['error_message'] != null
           ? json['error_message'] as String
           : null,
-      errorCode: json['error_code'] != null
-          ? json['error_code'] as String
-          : null,
-      statusCode: json['status_code'] != null
-          ? json['status_code'] as String
-          : null,
+      errorCode:
+          json['error_code'] != null ? json['error_code'] as String : null,
+      statusCode:
+          json['status_code'] != null ? json['status_code'] as String : null,
     );
   }
 
@@ -42,7 +40,8 @@ class ErrorForbidden {
     String? errorCode,
     String? statusCode,
   }) {
-    if (errorMessage == null && errorCode == null && statusCode == null) return this;
+    if (errorMessage == null && errorCode == null && statusCode == null)
+      return this;
 
     return ErrorForbidden(
       errorMessage: errorMessage ?? this.errorMessage,
@@ -55,15 +54,15 @@ class ErrorForbidden {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ErrorForbidden) return false;
-    return errorMessage == other.errorMessage
-        && errorCode == other.errorCode
-        && statusCode == other.statusCode
-;
+    return errorMessage == other.errorMessage &&
+        errorCode == other.errorCode &&
+        statusCode == other.statusCode;
   }
 
   @override
   int get hashCode => Object.hash(errorMessage, errorCode, statusCode);
 
   @override
-  String toString() => 'ErrorForbidden(errorMessage=$errorMessage, errorCode=$errorCode, statusCode=$statusCode)';
+  String toString() =>
+      'ErrorForbidden(errorMessage=$errorMessage, errorCode=$errorCode, statusCode=$statusCode)';
 }

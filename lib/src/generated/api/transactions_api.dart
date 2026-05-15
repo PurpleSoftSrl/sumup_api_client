@@ -29,16 +29,16 @@ class TransactionsApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v1.0/merchants/$merchantCode/payments/$id/refunds',
       data: refundTransactionBodyApplicationJson?.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -62,18 +62,23 @@ class TransactionsApi {
   }) async {
     final reqQueryParams = <String, dynamic>{};
     if (id != null) reqQueryParams['id'] = id.toString();
-    if (transactionCode != null) reqQueryParams['transaction_code'] = transactionCode.toString();
-    if (foreignTransactionId != null) reqQueryParams['foreign_transaction_id'] = foreignTransactionId.toString();
-    if (clientTransactionId != null) reqQueryParams['client_transaction_id'] = clientTransactionId.toString();
+    if (transactionCode != null)
+      reqQueryParams['transaction_code'] = transactionCode.toString();
+    if (foreignTransactionId != null)
+      reqQueryParams['foreign_transaction_id'] =
+          foreignTransactionId.toString();
+    if (clientTransactionId != null)
+      reqQueryParams['client_transaction_id'] = clientTransactionId.toString();
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v2.1/merchants/$merchantCode/transactions',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -101,32 +106,38 @@ class TransactionsApi {
     Options? options,
   }) async {
     final reqQueryParams = <String, dynamic>{};
-    if (transactionCode != null) reqQueryParams['transaction_code'] = transactionCode.toString();
+    if (transactionCode != null)
+      reqQueryParams['transaction_code'] = transactionCode.toString();
     if (order != null) reqQueryParams['order'] = order.toJson().toString();
     if (limit != null) reqQueryParams['limit'] = limit.toString();
     if (users != null) reqQueryParams['users'] = users.toString();
     if (statuses != null) reqQueryParams['statuses[]'] = statuses.toString();
-    if (paymentTypes != null) reqQueryParams['payment_types'] = paymentTypes.toString();
-    if (entryModes != null) reqQueryParams['entry_modes[]'] = entryModes.toString();
+    if (paymentTypes != null)
+      reqQueryParams['payment_types'] = paymentTypes.toString();
+    if (entryModes != null)
+      reqQueryParams['entry_modes[]'] = entryModes.toString();
     if (types != null) reqQueryParams['types'] = types.toString();
-    if (changesSince != null) reqQueryParams['changes_since'] = changesSince.toIso8601String();
-    if (newestTime != null) reqQueryParams['newest_time'] = newestTime.toIso8601String();
+    if (changesSince != null)
+      reqQueryParams['changes_since'] = changesSince.toIso8601String();
+    if (newestTime != null)
+      reqQueryParams['newest_time'] = newestTime.toIso8601String();
     if (newestRef != null) reqQueryParams['newest_ref'] = newestRef.toString();
-    if (oldestTime != null) reqQueryParams['oldest_time'] = oldestTime.toIso8601String();
+    if (oldestTime != null)
+      reqQueryParams['oldest_time'] = oldestTime.toIso8601String();
     if (oldestRef != null) reqQueryParams['oldest_ref'] = oldestRef.toString();
 
     final response = await dio.request<Map<String, dynamic>>(
       '/v2.1/merchants/$merchantCode/transactions/history',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return ListTransactionsV21Result.fromResponse(response);
   }
-
 }

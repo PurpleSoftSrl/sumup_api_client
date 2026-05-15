@@ -68,7 +68,14 @@ class Reader {
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
-    if (id == null && name == null && status == null && device == null && metadata == null && serviceAccountId == null && createdAt == null && updatedAt == null) return this;
+    if (id == null &&
+        name == null &&
+        status == null &&
+        device == null &&
+        metadata == null &&
+        serviceAccountId == null &&
+        createdAt == null &&
+        updatedAt == null) return this;
 
     return Reader(
       id: id ?? this.id,
@@ -86,20 +93,21 @@ class Reader {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Reader) return false;
-    return id == other.id
-        && name == other.name
-        && status == other.status
-        && device == other.device
-        && metadata == other.metadata
-        && serviceAccountId == other.serviceAccountId
-        && createdAt == other.createdAt
-        && updatedAt == other.updatedAt
-;
+    return id == other.id &&
+        name == other.name &&
+        status == other.status &&
+        device == other.device &&
+        metadata == other.metadata &&
+        serviceAccountId == other.serviceAccountId &&
+        createdAt == other.createdAt &&
+        updatedAt == other.updatedAt;
   }
 
   @override
-  int get hashCode => Object.hash(id, name, status, device, metadata, serviceAccountId, createdAt, updatedAt);
+  int get hashCode => Object.hash(id, name, status, device, metadata,
+      serviceAccountId, createdAt, updatedAt);
 
   @override
-  String toString() => 'Reader(id=$id, name=$name, status=$status, device=$device, metadata=$metadata, serviceAccountId=$serviceAccountId, createdAt=$createdAt, updatedAt=$updatedAt)';
+  String toString() =>
+      'Reader(id=$id, name=$name, status=$status, device=$device, metadata=$metadata, serviceAccountId=$serviceAccountId, createdAt=$createdAt, updatedAt=$updatedAt)';
 }

@@ -27,7 +27,8 @@ enum TransactionFullInline3SimplePaymentType {
   static TransactionFullInline3SimplePaymentType fromJson(String json) {
     return TransactionFullInline3SimplePaymentType.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionFullInline3SimplePaymentType: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown TransactionFullInline3SimplePaymentType: $json'),
     );
   }
 

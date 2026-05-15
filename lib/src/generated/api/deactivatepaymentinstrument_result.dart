@@ -13,47 +13,59 @@ import '../models/problem.dart';
 sealed class DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResult();
 
-  factory DeactivatePaymentInstrumentResult.fromResponse(Response<dynamic> response) {
+  factory DeactivatePaymentInstrumentResult.fromResponse(
+      Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
       204 => const DeactivatePaymentInstrumentResultHttp204(),
-      400 => DeactivatePaymentInstrumentResultHttp400(Error.fromJson(response.data as Map<String, dynamic>)),
-      401 => DeactivatePaymentInstrumentResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      403 => DeactivatePaymentInstrumentResultHttp403(ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
-      404 => DeactivatePaymentInstrumentResultHttp404(Error.fromJson(response.data as Map<String, dynamic>)),
+      400 => DeactivatePaymentInstrumentResultHttp400(
+          Error.fromJson(response.data as Map<String, dynamic>)),
+      401 => DeactivatePaymentInstrumentResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      403 => DeactivatePaymentInstrumentResultHttp403(
+          ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
+      404 => DeactivatePaymentInstrumentResultHttp404(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => DeactivatePaymentInstrumentResultError.fromResponse(response),
     };
   }
-
 }
 
-class DeactivatePaymentInstrumentResultHttp204 extends DeactivatePaymentInstrumentResult {
+class DeactivatePaymentInstrumentResultHttp204
+    extends DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResultHttp204();
 }
 
-class DeactivatePaymentInstrumentResultHttp400 extends DeactivatePaymentInstrumentResult {
+class DeactivatePaymentInstrumentResultHttp400
+    extends DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResultHttp400(this.data);
   final Error data;
 }
 
-class DeactivatePaymentInstrumentResultHttp401 extends DeactivatePaymentInstrumentResult {
+class DeactivatePaymentInstrumentResultHttp401
+    extends DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResultHttp401(this.data);
   final Problem data;
 }
 
-class DeactivatePaymentInstrumentResultHttp403 extends DeactivatePaymentInstrumentResult {
+class DeactivatePaymentInstrumentResultHttp403
+    extends DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResultHttp403(this.data);
   final ErrorForbidden data;
 }
 
-class DeactivatePaymentInstrumentResultHttp404 extends DeactivatePaymentInstrumentResult {
+class DeactivatePaymentInstrumentResultHttp404
+    extends DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResultHttp404(this.data);
   final Error data;
 }
 
-class DeactivatePaymentInstrumentResultError extends DeactivatePaymentInstrumentResult {
+class DeactivatePaymentInstrumentResultError
+    extends DeactivatePaymentInstrumentResult {
   const DeactivatePaymentInstrumentResultError(this.response);
   final Response<dynamic> response;
 
-  factory DeactivatePaymentInstrumentResultError.fromResponse(Response<dynamic> response) => DeactivatePaymentInstrumentResultError(response);
+  factory DeactivatePaymentInstrumentResultError.fromResponse(
+          Response<dynamic> response) =>
+      DeactivatePaymentInstrumentResultError(response);
 }

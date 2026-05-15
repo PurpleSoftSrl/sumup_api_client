@@ -7,15 +7,12 @@
 class CheckoutSuccess {
   const CheckoutSuccess();
 
-
   factory CheckoutSuccess.fromJson(Map<String, dynamic> json) {
-    return const CheckoutSuccess(
-    );
+    return const CheckoutSuccess();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   CheckoutSuccess copyWith() {

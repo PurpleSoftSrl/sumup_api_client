@@ -29,24 +29,20 @@ class TransactionEvent {
 
   factory TransactionEvent.fromJson(Map<String, dynamic> json) {
     return TransactionEvent(
-      id: json['id'] != null
-          ? (json['id'] as num).toInt()
-          : null,
+      id: json['id'] != null ? (json['id'] as num).toInt() : null,
       eventType: json['event_type'] != null
           ? EventType.fromJson(json['event_type'] as String)
           : null,
       status: json['status'] != null
           ? EventStatus.fromJson(json['status'] as String)
           : null,
-      amount: json['amount'] != null
-          ? (json['amount'] as num).toDouble()
-          : null,
+      amount:
+          json['amount'] != null ? (json['amount'] as num).toDouble() : null,
       dueDate: json['due_date'] != null
           ? DateTime.parse(json['due_date'] as String)
           : null,
-      date: json['date'] != null
-          ? DateTime.parse(json['date'] as String)
-          : null,
+      date:
+          json['date'] != null ? DateTime.parse(json['date'] as String) : null,
       installmentNumber: json['installment_number'] != null
           ? (json['installment_number'] as num).toInt()
           : null,
@@ -79,7 +75,14 @@ class TransactionEvent {
     int? installmentNumber,
     DateTime? timestamp,
   }) {
-    if (id == null && eventType == null && status == null && amount == null && dueDate == null && date == null && installmentNumber == null && timestamp == null) return this;
+    if (id == null &&
+        eventType == null &&
+        status == null &&
+        amount == null &&
+        dueDate == null &&
+        date == null &&
+        installmentNumber == null &&
+        timestamp == null) return this;
 
     return TransactionEvent(
       id: id ?? this.id,
@@ -97,20 +100,21 @@ class TransactionEvent {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionEvent) return false;
-    return id == other.id
-        && eventType == other.eventType
-        && status == other.status
-        && amount == other.amount
-        && dueDate == other.dueDate
-        && date == other.date
-        && installmentNumber == other.installmentNumber
-        && timestamp == other.timestamp
-;
+    return id == other.id &&
+        eventType == other.eventType &&
+        status == other.status &&
+        amount == other.amount &&
+        dueDate == other.dueDate &&
+        date == other.date &&
+        installmentNumber == other.installmentNumber &&
+        timestamp == other.timestamp;
   }
 
   @override
-  int get hashCode => Object.hash(id, eventType, status, amount, dueDate, date, installmentNumber, timestamp);
+  int get hashCode => Object.hash(id, eventType, status, amount, dueDate, date,
+      installmentNumber, timestamp);
 
   @override
-  String toString() => 'TransactionEvent(id=$id, eventType=$eventType, status=$status, amount=$amount, dueDate=$dueDate, date=$date, installmentNumber=$installmentNumber, timestamp=$timestamp)';
+  String toString() =>
+      'TransactionEvent(id=$id, eventType=$eventType, status=$status, amount=$amount, dueDate=$dueDate, date=$date, installmentNumber=$installmentNumber, timestamp=$timestamp)';
 }

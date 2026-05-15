@@ -16,14 +16,17 @@ sealed class CreateMerchantMemberResult {
   factory CreateMerchantMemberResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      201 => CreateMerchantMemberResultHttp201(Member.fromJson(response.data as Map<String, dynamic>)),
-      400 => CreateMerchantMemberResultHttp400(Post400Response.fromJson(response.data as Map<String, dynamic>)),
-      404 => CreateMerchantMemberResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
-      429 => CreateMerchantMemberResultHttp429(Problem.fromJson(response.data as Map<String, dynamic>)),
+      201 => CreateMerchantMemberResultHttp201(
+          Member.fromJson(response.data as Map<String, dynamic>)),
+      400 => CreateMerchantMemberResultHttp400(
+          Post400Response.fromJson(response.data as Map<String, dynamic>)),
+      404 => CreateMerchantMemberResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      429 => CreateMerchantMemberResultHttp429(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => CreateMerchantMemberResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateMerchantMemberResultHttp201 extends CreateMerchantMemberResult {
@@ -50,5 +53,7 @@ class CreateMerchantMemberResultError extends CreateMerchantMemberResult {
   const CreateMerchantMemberResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateMerchantMemberResultError.fromResponse(Response<dynamic> response) => CreateMerchantMemberResultError(response);
+  factory CreateMerchantMemberResultError.fromResponse(
+          Response<dynamic> response) =>
+      CreateMerchantMemberResultError(response);
 }

@@ -30,15 +30,12 @@ class TransactionBase {
 
   factory TransactionBase.fromJson(Map<String, dynamic> json) {
     return TransactionBase(
-      id: json['id'] != null
-          ? json['id'] as String
-          : null,
+      id: json['id'] != null ? json['id'] as String : null,
       transactionCode: json['transaction_code'] != null
           ? json['transaction_code'] as String
           : null,
-      amount: json['amount'] != null
-          ? (json['amount'] as num).toDouble()
-          : null,
+      amount:
+          json['amount'] != null ? (json['amount'] as num).toDouble() : null,
       currency: json['currency'] != null
           ? Currency.fromJson(json['currency'] as String)
           : null,
@@ -80,7 +77,14 @@ class TransactionBase {
     PaymentType? paymentType,
     int? installmentsCount,
   }) {
-    if (id == null && transactionCode == null && amount == null && currency == null && timestamp == null && status == null && paymentType == null && installmentsCount == null) return this;
+    if (id == null &&
+        transactionCode == null &&
+        amount == null &&
+        currency == null &&
+        timestamp == null &&
+        status == null &&
+        paymentType == null &&
+        installmentsCount == null) return this;
 
     return TransactionBase(
       id: id ?? this.id,
@@ -98,20 +102,21 @@ class TransactionBase {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TransactionBase) return false;
-    return id == other.id
-        && transactionCode == other.transactionCode
-        && amount == other.amount
-        && currency == other.currency
-        && timestamp == other.timestamp
-        && status == other.status
-        && paymentType == other.paymentType
-        && installmentsCount == other.installmentsCount
-;
+    return id == other.id &&
+        transactionCode == other.transactionCode &&
+        amount == other.amount &&
+        currency == other.currency &&
+        timestamp == other.timestamp &&
+        status == other.status &&
+        paymentType == other.paymentType &&
+        installmentsCount == other.installmentsCount;
   }
 
   @override
-  int get hashCode => Object.hash(id, transactionCode, amount, currency, timestamp, status, paymentType, installmentsCount);
+  int get hashCode => Object.hash(id, transactionCode, amount, currency,
+      timestamp, status, paymentType, installmentsCount);
 
   @override
-  String toString() => 'TransactionBase(id=$id, transactionCode=$transactionCode, amount=$amount, currency=$currency, timestamp=$timestamp, status=$status, paymentType=$paymentType, installmentsCount=$installmentsCount)';
+  String toString() =>
+      'TransactionBase(id=$id, transactionCode=$transactionCode, amount=$amount, currency=$currency, timestamp=$timestamp, status=$status, paymentType=$paymentType, installmentsCount=$installmentsCount)';
 }

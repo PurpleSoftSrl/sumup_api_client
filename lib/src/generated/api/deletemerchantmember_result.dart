@@ -15,11 +15,11 @@ sealed class DeleteMerchantMemberResult {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
       200 => const DeleteMerchantMemberResultHttp200(),
-      404 => DeleteMerchantMemberResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => DeleteMerchantMemberResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => DeleteMerchantMemberResultError.fromResponse(response),
     };
   }
-
 }
 
 class DeleteMerchantMemberResultHttp200 extends DeleteMerchantMemberResult {
@@ -35,5 +35,7 @@ class DeleteMerchantMemberResultError extends DeleteMerchantMemberResult {
   const DeleteMerchantMemberResultError(this.response);
   final Response<dynamic> response;
 
-  factory DeleteMerchantMemberResultError.fromResponse(Response<dynamic> response) => DeleteMerchantMemberResultError(response);
+  factory DeleteMerchantMemberResultError.fromResponse(
+          Response<dynamic> response) =>
+      DeleteMerchantMemberResultError(response);
 }

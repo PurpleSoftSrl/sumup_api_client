@@ -7,15 +7,12 @@
 class ResourceParentType {
   const ResourceParentType();
 
-
   factory ResourceParentType.fromJson(Map<String, dynamic> json) {
-    return const ResourceParentType(
-    );
+    return const ResourceParentType();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   ResourceParentType copyWith() {

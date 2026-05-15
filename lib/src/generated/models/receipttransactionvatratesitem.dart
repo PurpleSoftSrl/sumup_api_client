@@ -19,18 +19,10 @@ class ReceiptTransactionVatRatesItem {
 
   factory ReceiptTransactionVatRatesItem.fromJson(Map<String, dynamic> json) {
     return ReceiptTransactionVatRatesItem(
-      gross: json['gross'] != null
-          ? (json['gross'] as num).toDouble()
-          : null,
-      net: json['net'] != null
-          ? (json['net'] as num).toDouble()
-          : null,
-      rate: json['rate'] != null
-          ? (json['rate'] as num).toDouble()
-          : null,
-      vat: json['vat'] != null
-          ? (json['vat'] as num).toDouble()
-          : null,
+      gross: json['gross'] != null ? (json['gross'] as num).toDouble() : null,
+      net: json['net'] != null ? (json['net'] as num).toDouble() : null,
+      rate: json['rate'] != null ? (json['rate'] as num).toDouble() : null,
+      vat: json['vat'] != null ? (json['vat'] as num).toDouble() : null,
     );
   }
 
@@ -49,7 +41,8 @@ class ReceiptTransactionVatRatesItem {
     double? rate,
     double? vat,
   }) {
-    if (gross == null && net == null && rate == null && vat == null) return this;
+    if (gross == null && net == null && rate == null && vat == null)
+      return this;
 
     return ReceiptTransactionVatRatesItem(
       gross: gross ?? this.gross,
@@ -63,16 +56,16 @@ class ReceiptTransactionVatRatesItem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptTransactionVatRatesItem) return false;
-    return gross == other.gross
-        && net == other.net
-        && rate == other.rate
-        && vat == other.vat
-;
+    return gross == other.gross &&
+        net == other.net &&
+        rate == other.rate &&
+        vat == other.vat;
   }
 
   @override
   int get hashCode => Object.hash(gross, net, rate, vat);
 
   @override
-  String toString() => 'ReceiptTransactionVatRatesItem(gross=$gross, net=$net, rate=$rate, vat=$vat)';
+  String toString() =>
+      'ReceiptTransactionVatRatesItem(gross=$gross, net=$net, rate=$rate, vat=$vat)';
 }

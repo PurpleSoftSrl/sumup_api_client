@@ -16,7 +16,8 @@ enum TransactionMixinHistoryPayoutPlan {
   static TransactionMixinHistoryPayoutPlan fromJson(String json) {
     return TransactionMixinHistoryPayoutPlan.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionMixinHistoryPayoutPlan: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown TransactionMixinHistoryPayoutPlan: $json'),
     );
   }
 

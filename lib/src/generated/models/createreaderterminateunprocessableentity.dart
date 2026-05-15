@@ -12,9 +12,11 @@ class CreateReaderTerminateUnprocessableEntity {
 
   final CreateReaderTerminateUnprocessableEntityErrors errors;
 
-  factory CreateReaderTerminateUnprocessableEntity.fromJson(Map<String, dynamic> json) {
+  factory CreateReaderTerminateUnprocessableEntity.fromJson(
+      Map<String, dynamic> json) {
     return CreateReaderTerminateUnprocessableEntity(
-      errors: CreateReaderTerminateUnprocessableEntityErrors.fromJson(json['errors'] as Map<String, dynamic>),
+      errors: CreateReaderTerminateUnprocessableEntityErrors.fromJson(
+          json['errors'] as Map<String, dynamic>),
     );
   }
 
@@ -38,13 +40,13 @@ class CreateReaderTerminateUnprocessableEntity {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CreateReaderTerminateUnprocessableEntity) return false;
-    return errors == other.errors
-;
+    return errors == other.errors;
   }
 
   @override
   int get hashCode => errors.hashCode;
 
   @override
-  String toString() => 'CreateReaderTerminateUnprocessableEntity(errors=$errors)';
+  String toString() =>
+      'CreateReaderTerminateUnprocessableEntity(errors=$errors)';
 }

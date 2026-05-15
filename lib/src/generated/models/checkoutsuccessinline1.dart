@@ -31,11 +31,11 @@ class CheckoutSuccessInline1 {
       merchantName: json['merchant_name'] != null
           ? json['merchant_name'] as String
           : null,
-      redirectUrl: json['redirect_url'] != null
-          ? json['redirect_url'] as String
-          : null,
+      redirectUrl:
+          json['redirect_url'] != null ? json['redirect_url'] as String : null,
       paymentInstrument: json['payment_instrument'] != null
-          ? CheckoutSuccessInline1PaymentInstrument.fromJson(json['payment_instrument'] as Map<String, dynamic>)
+          ? CheckoutSuccessInline1PaymentInstrument.fromJson(
+              json['payment_instrument'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -46,7 +46,8 @@ class CheckoutSuccessInline1 {
       if (transactionId != null) 'transaction_id': transactionId!,
       if (merchantName != null) 'merchant_name': merchantName!,
       if (redirectUrl != null) 'redirect_url': redirectUrl!,
-      if (paymentInstrument != null) 'payment_instrument': paymentInstrument!.toJson(),
+      if (paymentInstrument != null)
+        'payment_instrument': paymentInstrument!.toJson(),
     };
   }
 
@@ -57,7 +58,11 @@ class CheckoutSuccessInline1 {
     String? redirectUrl,
     CheckoutSuccessInline1PaymentInstrument? paymentInstrument,
   }) {
-    if (transactionCode == null && transactionId == null && merchantName == null && redirectUrl == null && paymentInstrument == null) return this;
+    if (transactionCode == null &&
+        transactionId == null &&
+        merchantName == null &&
+        redirectUrl == null &&
+        paymentInstrument == null) return this;
 
     return CheckoutSuccessInline1(
       transactionCode: transactionCode ?? this.transactionCode,
@@ -72,17 +77,18 @@ class CheckoutSuccessInline1 {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CheckoutSuccessInline1) return false;
-    return transactionCode == other.transactionCode
-        && transactionId == other.transactionId
-        && merchantName == other.merchantName
-        && redirectUrl == other.redirectUrl
-        && paymentInstrument == other.paymentInstrument
-;
+    return transactionCode == other.transactionCode &&
+        transactionId == other.transactionId &&
+        merchantName == other.merchantName &&
+        redirectUrl == other.redirectUrl &&
+        paymentInstrument == other.paymentInstrument;
   }
 
   @override
-  int get hashCode => Object.hash(transactionCode, transactionId, merchantName, redirectUrl, paymentInstrument);
+  int get hashCode => Object.hash(transactionCode, transactionId, merchantName,
+      redirectUrl, paymentInstrument);
 
   @override
-  String toString() => 'CheckoutSuccessInline1(transactionCode=$transactionCode, transactionId=$transactionId, merchantName=$merchantName, redirectUrl=$redirectUrl, paymentInstrument=$paymentInstrument)';
+  String toString() =>
+      'CheckoutSuccessInline1(transactionCode=$transactionCode, transactionId=$transactionId, merchantName=$merchantName, redirectUrl=$redirectUrl, paymentInstrument=$paymentInstrument)';
 }

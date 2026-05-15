@@ -28,15 +28,15 @@ class ReceiptsApi {
     final response = await dio.request<Map<String, dynamic>>(
       '/v1.1/receipts/$id',
       queryParameters: reqQueryParams.isNotEmpty ? reqQueryParams : null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return GetReceiptResult.fromResponse(response);
   }
-
 }

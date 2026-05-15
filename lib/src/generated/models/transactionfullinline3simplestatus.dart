@@ -23,7 +23,8 @@ enum TransactionFullInline3SimpleStatus {
   static TransactionFullInline3SimpleStatus fromJson(String json) {
     return TransactionFullInline3SimpleStatus.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown TransactionFullInline3SimpleStatus: $json'),
+      orElse: () => throw ArgumentError(
+          'Unknown TransactionFullInline3SimpleStatus: $json'),
     );
   }
 

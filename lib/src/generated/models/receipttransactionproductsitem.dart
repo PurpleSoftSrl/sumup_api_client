@@ -31,33 +31,23 @@ class ReceiptTransactionProductsItem {
 
   factory ReceiptTransactionProductsItem.fromJson(Map<String, dynamic> json) {
     return ReceiptTransactionProductsItem(
-      name: json['name'] != null
-          ? json['name'] as String
-          : null,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
-      price: json['price'] != null
-          ? json['price'] as String
-          : null,
-      vatRate: json['vat_rate'] != null
-          ? json['vat_rate'] as String
-          : null,
+      name: json['name'] != null ? json['name'] as String : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
+      price: json['price'] != null ? json['price'] as String : null,
+      vatRate: json['vat_rate'] != null ? json['vat_rate'] as String : null,
       singleVatAmount: json['single_vat_amount'] != null
           ? json['single_vat_amount'] as String
           : null,
       priceWithVat: json['price_with_vat'] != null
           ? json['price_with_vat'] as String
           : null,
-      vatAmount: json['vat_amount'] != null
-          ? json['vat_amount'] as String
-          : null,
-      quantity: json['quantity'] != null
-          ? (json['quantity'] as num).toInt()
-          : null,
-      totalPrice: json['total_price'] != null
-          ? json['total_price'] as String
-          : null,
+      vatAmount:
+          json['vat_amount'] != null ? json['vat_amount'] as String : null,
+      quantity:
+          json['quantity'] != null ? (json['quantity'] as num).toInt() : null,
+      totalPrice:
+          json['total_price'] != null ? json['total_price'] as String : null,
       totalWithVat: json['total_with_vat'] != null
           ? json['total_with_vat'] as String
           : null,
@@ -91,7 +81,16 @@ class ReceiptTransactionProductsItem {
     String? totalPrice,
     String? totalWithVat,
   }) {
-    if (name == null && description == null && price == null && vatRate == null && singleVatAmount == null && priceWithVat == null && vatAmount == null && quantity == null && totalPrice == null && totalWithVat == null) return this;
+    if (name == null &&
+        description == null &&
+        price == null &&
+        vatRate == null &&
+        singleVatAmount == null &&
+        priceWithVat == null &&
+        vatAmount == null &&
+        quantity == null &&
+        totalPrice == null &&
+        totalWithVat == null) return this;
 
     return ReceiptTransactionProductsItem(
       name: name ?? this.name,
@@ -111,22 +110,32 @@ class ReceiptTransactionProductsItem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptTransactionProductsItem) return false;
-    return name == other.name
-        && description == other.description
-        && price == other.price
-        && vatRate == other.vatRate
-        && singleVatAmount == other.singleVatAmount
-        && priceWithVat == other.priceWithVat
-        && vatAmount == other.vatAmount
-        && quantity == other.quantity
-        && totalPrice == other.totalPrice
-        && totalWithVat == other.totalWithVat
-;
+    return name == other.name &&
+        description == other.description &&
+        price == other.price &&
+        vatRate == other.vatRate &&
+        singleVatAmount == other.singleVatAmount &&
+        priceWithVat == other.priceWithVat &&
+        vatAmount == other.vatAmount &&
+        quantity == other.quantity &&
+        totalPrice == other.totalPrice &&
+        totalWithVat == other.totalWithVat;
   }
 
   @override
-  int get hashCode => Object.hash(name, description, price, vatRate, singleVatAmount, priceWithVat, vatAmount, quantity, totalPrice, totalWithVat);
+  int get hashCode => Object.hash(
+      name,
+      description,
+      price,
+      vatRate,
+      singleVatAmount,
+      priceWithVat,
+      vatAmount,
+      quantity,
+      totalPrice,
+      totalWithVat);
 
   @override
-  String toString() => 'ReceiptTransactionProductsItem(name=$name, description=$description, price=$price, vatRate=$vatRate, singleVatAmount=$singleVatAmount, priceWithVat=$priceWithVat, vatAmount=$vatAmount, quantity=$quantity, totalPrice=$totalPrice, totalWithVat=$totalWithVat)';
+  String toString() =>
+      'ReceiptTransactionProductsItem(name=$name, description=$description, price=$price, vatRate=$vatRate, singleVatAmount=$singleVatAmount, priceWithVat=$priceWithVat, vatAmount=$vatAmount, quantity=$quantity, totalPrice=$totalPrice, totalWithVat=$totalWithVat)';
 }

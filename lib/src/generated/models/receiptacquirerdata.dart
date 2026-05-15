@@ -19,18 +19,14 @@ class ReceiptAcquirerData {
 
   factory ReceiptAcquirerData.fromJson(Map<String, dynamic> json) {
     return ReceiptAcquirerData(
-      tid: json['tid'] != null
-          ? json['tid'] as String
-          : null,
+      tid: json['tid'] != null ? json['tid'] as String : null,
       authorizationCode: json['authorization_code'] != null
           ? json['authorization_code'] as String
           : null,
-      returnCode: json['return_code'] != null
-          ? json['return_code'] as String
-          : null,
-      localTime: json['local_time'] != null
-          ? json['local_time'] as String
-          : null,
+      returnCode:
+          json['return_code'] != null ? json['return_code'] as String : null,
+      localTime:
+          json['local_time'] != null ? json['local_time'] as String : null,
     );
   }
 
@@ -49,7 +45,10 @@ class ReceiptAcquirerData {
     String? returnCode,
     String? localTime,
   }) {
-    if (tid == null && authorizationCode == null && returnCode == null && localTime == null) return this;
+    if (tid == null &&
+        authorizationCode == null &&
+        returnCode == null &&
+        localTime == null) return this;
 
     return ReceiptAcquirerData(
       tid: tid ?? this.tid,
@@ -63,16 +62,17 @@ class ReceiptAcquirerData {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ReceiptAcquirerData) return false;
-    return tid == other.tid
-        && authorizationCode == other.authorizationCode
-        && returnCode == other.returnCode
-        && localTime == other.localTime
-;
+    return tid == other.tid &&
+        authorizationCode == other.authorizationCode &&
+        returnCode == other.returnCode &&
+        localTime == other.localTime;
   }
 
   @override
-  int get hashCode => Object.hash(tid, authorizationCode, returnCode, localTime);
+  int get hashCode =>
+      Object.hash(tid, authorizationCode, returnCode, localTime);
 
   @override
-  String toString() => 'ReceiptAcquirerData(tid=$tid, authorizationCode=$authorizationCode, returnCode=$returnCode, localTime=$localTime)';
+  String toString() =>
+      'ReceiptAcquirerData(tid=$tid, authorizationCode=$authorizationCode, returnCode=$returnCode, localTime=$localTime)';
 }

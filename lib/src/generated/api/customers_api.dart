@@ -25,16 +25,16 @@ class CustomersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/customers',
       data: customer.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -48,15 +48,15 @@ class CustomersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/customers/$customerId',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -64,25 +64,26 @@ class CustomersApi {
   }
 
   /// Updates an identified saved customer resource's personal details.
-  /// 
+  ///
   /// The request only overwrites the parameters included in the request, all other parameters will remain with their initially assigned values.
   Future<UpdateCustomerResult> updateCustomer({
     required String customerId,
-    required UpdateCustomerBodyApplicationJson updateCustomerBodyApplicationJson,
+    required UpdateCustomerBodyApplicationJson
+        updateCustomerBodyApplicationJson,
     CancelToken? cancelToken,
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/customers/$customerId',
       data: updateCustomerBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'put',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'put',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -96,15 +97,15 @@ class CustomersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/customers/$customerId/payment-instruments',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -119,19 +120,18 @@ class CustomersApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/customers/$customerId/payment-instruments/$token',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'delete',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'delete',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return DeactivatePaymentInstrumentResult.fromResponse(response);
   }
-
 }

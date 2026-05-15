@@ -15,7 +15,8 @@ enum CheckoutCreateRequestPurpose {
   static CheckoutCreateRequestPurpose fromJson(String json) {
     return CheckoutCreateRequestPurpose.values.firstWhere(
       (e) => e.name == json || e.value == json,
-      orElse: () => throw ArgumentError('Unknown CheckoutCreateRequestPurpose: $json'),
+      orElse: () =>
+          throw ArgumentError('Unknown CheckoutCreateRequestPurpose: $json'),
     );
   }
 

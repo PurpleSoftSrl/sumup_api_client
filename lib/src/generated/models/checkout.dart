@@ -46,36 +46,30 @@ class Checkout {
       checkoutReference: json['checkout_reference'] != null
           ? json['checkout_reference'] as String
           : null,
-      amount: json['amount'] != null
-          ? (json['amount'] as num).toDouble()
-          : null,
+      amount:
+          json['amount'] != null ? (json['amount'] as num).toDouble() : null,
       currency: json['currency'] != null
           ? Currency.fromJson(json['currency'] as String)
           : null,
       merchantCode: json['merchant_code'] != null
           ? json['merchant_code'] as String
           : null,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
       returnUrl: json['return_url'] != null
           ? Uri.parse(json['return_url'] as String)
           : null,
-      id: json['id'] != null
-          ? json['id'] as String
-          : null,
+      id: json['id'] != null ? json['id'] as String : null,
       status: json['status'] != null
           ? CheckoutStatus.fromJson(json['status'] as String)
           : null,
-      date: json['date'] != null
-          ? DateTime.parse(json['date'] as String)
-          : null,
+      date:
+          json['date'] != null ? DateTime.parse(json['date'] as String) : null,
       validUntil: json['valid_until'] != null
           ? DateTime.parse(json['valid_until'] as String)
           : null,
-      customerId: json['customer_id'] != null
-          ? json['customer_id'] as String
-          : null,
+      customerId:
+          json['customer_id'] != null ? json['customer_id'] as String : null,
       mandate: json['mandate'] != null
           ? MandateResponse.fromJson(json['mandate'] as Map<String, dynamic>)
           : null,
@@ -83,7 +77,11 @@ class Checkout {
           ? Uri.parse(json['hosted_checkout_url'] as String)
           : null,
       transactions: json['transactions'] != null
-          ? List<CheckoutTransactionsItem>.generate((json['transactions'] as List).length, (i) => CheckoutTransactionsItem.fromJson((json['transactions'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<CheckoutTransactionsItem>.generate(
+              (json['transactions'] as List).length,
+              (i) => CheckoutTransactionsItem.fromJson(
+                  (json['transactions'] as List)[i] as Map<String, dynamic>),
+              growable: false)
           : null,
     );
   }
@@ -102,8 +100,10 @@ class Checkout {
       if (validUntil != null) 'valid_until': validUntil!.toIso8601String(),
       if (customerId != null) 'customer_id': customerId!,
       if (mandate != null) 'mandate': mandate!.toJson(),
-      if (hostedCheckoutUrl != null) 'hosted_checkout_url': hostedCheckoutUrl!.toString(),
-      if (transactions != null) 'transactions': transactions!.map((e) => e.toJson()).toList(),
+      if (hostedCheckoutUrl != null)
+        'hosted_checkout_url': hostedCheckoutUrl!.toString(),
+      if (transactions != null)
+        'transactions': transactions!.map((e) => e.toJson()).toList(),
     };
   }
 
@@ -123,7 +123,20 @@ class Checkout {
     Uri? hostedCheckoutUrl,
     List<CheckoutTransactionsItem>? transactions,
   }) {
-    if (checkoutReference == null && amount == null && currency == null && merchantCode == null && description == null && returnUrl == null && id == null && status == null && date == null && validUntil == null && customerId == null && mandate == null && hostedCheckoutUrl == null && transactions == null) return this;
+    if (checkoutReference == null &&
+        amount == null &&
+        currency == null &&
+        merchantCode == null &&
+        description == null &&
+        returnUrl == null &&
+        id == null &&
+        status == null &&
+        date == null &&
+        validUntil == null &&
+        customerId == null &&
+        mandate == null &&
+        hostedCheckoutUrl == null &&
+        transactions == null) return this;
 
     return Checkout(
       checkoutReference: checkoutReference ?? this.checkoutReference,
@@ -147,26 +160,40 @@ class Checkout {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Checkout) return false;
-    return checkoutReference == other.checkoutReference
-        && amount == other.amount
-        && currency == other.currency
-        && merchantCode == other.merchantCode
-        && description == other.description
-        && returnUrl == other.returnUrl
-        && id == other.id
-        && status == other.status
-        && date == other.date
-        && validUntil == other.validUntil
-        && customerId == other.customerId
-        && mandate == other.mandate
-        && hostedCheckoutUrl == other.hostedCheckoutUrl
-        && transactions == other.transactions
-;
+    return checkoutReference == other.checkoutReference &&
+        amount == other.amount &&
+        currency == other.currency &&
+        merchantCode == other.merchantCode &&
+        description == other.description &&
+        returnUrl == other.returnUrl &&
+        id == other.id &&
+        status == other.status &&
+        date == other.date &&
+        validUntil == other.validUntil &&
+        customerId == other.customerId &&
+        mandate == other.mandate &&
+        hostedCheckoutUrl == other.hostedCheckoutUrl &&
+        transactions == other.transactions;
   }
 
   @override
-  int get hashCode => Object.hash(checkoutReference, amount, currency, merchantCode, description, returnUrl, id, status, date, validUntil, customerId, mandate, hostedCheckoutUrl, transactions);
+  int get hashCode => Object.hash(
+      checkoutReference,
+      amount,
+      currency,
+      merchantCode,
+      description,
+      returnUrl,
+      id,
+      status,
+      date,
+      validUntil,
+      customerId,
+      mandate,
+      hostedCheckoutUrl,
+      transactions);
 
   @override
-  String toString() => 'Checkout(checkoutReference=$checkoutReference, amount=$amount, currency=$currency, merchantCode=$merchantCode, description=$description, returnUrl=$returnUrl, id=$id, status=$status, date=$date, validUntil=$validUntil, customerId=$customerId, mandate=$mandate, hostedCheckoutUrl=$hostedCheckoutUrl, transactions=$transactions)';
+  String toString() =>
+      'Checkout(checkoutReference=$checkoutReference, amount=$amount, currency=$currency, merchantCode=$merchantCode, description=$description, returnUrl=$returnUrl, id=$id, status=$status, date=$date, validUntil=$validUntil, customerId=$customerId, mandate=$mandate, hostedCheckoutUrl=$hostedCheckoutUrl, transactions=$transactions)';
 }

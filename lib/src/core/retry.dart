@@ -19,8 +19,10 @@ class RetryInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     final shouldRetry = err.response?.statusCode == 429 ||
-        (_retryOn5xx && err.response?.statusCode != null &&
-         err.response!.statusCode! >= 500 && err.response!.statusCode! < 600) ||
+        (_retryOn5xx &&
+            err.response?.statusCode != null &&
+            err.response!.statusCode! >= 500 &&
+            err.response!.statusCode! < 600) ||
         err.type == DioExceptionType.connectionTimeout ||
         err.type == DioExceptionType.receiveTimeout;
 
@@ -31,7 +33,8 @@ class RetryInterceptor extends Interceptor {
 
     var retries = 0;
     while (retries < _maxRetries) {
-      final delay = _baseDelay * pow(2, retries) + Duration(milliseconds: _random.nextInt(500));
+      final delay = _baseDelay * pow(2, retries) +
+          Duration(milliseconds: _random.nextInt(500));
       await Future<void>.delayed(delay);
       retries++;
 
@@ -41,7 +44,9 @@ class RetryInterceptor extends Interceptor {
         handler.resolve(response);
         return;
       } catch (e) {
-        if (e is DioException && e.type != DioExceptionType.connectionTimeout && e.type != DioExceptionType.receiveTimeout) {
+        if (e is DioException &&
+            e.type != DioExceptionType.connectionTimeout &&
+            e.type != DioExceptionType.receiveTimeout) {
           handler.next(e);
           return;
         }

@@ -37,8 +37,7 @@ class HostedCheckout {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! HostedCheckout) return false;
-    return enabled == other.enabled
-;
+    return enabled == other.enabled;
   }
 
   @override

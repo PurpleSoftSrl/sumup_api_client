@@ -23,20 +23,20 @@ class CheckoutAcceptedNextStep {
 
   factory CheckoutAcceptedNextStep.fromJson(Map<String, dynamic> json) {
     return CheckoutAcceptedNextStep(
-      url: json['url'] != null
-          ? json['url'] as String
-          : null,
-      method: json['method'] != null
-          ? json['method'] as String
-          : null,
-      redirectUrl: json['redirect_url'] != null
-          ? json['redirect_url'] as String
-          : null,
+      url: json['url'] != null ? json['url'] as String : null,
+      method: json['method'] != null ? json['method'] as String : null,
+      redirectUrl:
+          json['redirect_url'] != null ? json['redirect_url'] as String : null,
       mechanism: json['mechanism'] != null
-          ? List<CheckoutAcceptedNextStepMechanismItem>.generate((json['mechanism'] as List).length, (i) => CheckoutAcceptedNextStepMechanismItem.fromJson((json['mechanism'] as List<dynamic>)[i] as String), growable: false)
+          ? List<CheckoutAcceptedNextStepMechanismItem>.generate(
+              (json['mechanism'] as List).length,
+              (i) => CheckoutAcceptedNextStepMechanismItem.fromJson(
+                  (json['mechanism'] as List<dynamic>)[i] as String),
+              growable: false)
           : null,
       payload: json['payload'] != null
-          ? CheckoutAcceptedNextStepPayload.fromJson(json['payload'] as Map<String, dynamic>)
+          ? CheckoutAcceptedNextStepPayload.fromJson(
+              json['payload'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -46,7 +46,8 @@ class CheckoutAcceptedNextStep {
       if (url != null) 'url': url!,
       if (method != null) 'method': method!,
       if (redirectUrl != null) 'redirect_url': redirectUrl!,
-      if (mechanism != null) 'mechanism': mechanism!.map((e) => e.toJson()).toList(),
+      if (mechanism != null)
+        'mechanism': mechanism!.map((e) => e.toJson()).toList(),
       if (payload != null) 'payload': payload!.toJson(),
     };
   }
@@ -58,7 +59,11 @@ class CheckoutAcceptedNextStep {
     List<CheckoutAcceptedNextStepMechanismItem>? mechanism,
     CheckoutAcceptedNextStepPayload? payload,
   }) {
-    if (url == null && method == null && redirectUrl == null && mechanism == null && payload == null) return this;
+    if (url == null &&
+        method == null &&
+        redirectUrl == null &&
+        mechanism == null &&
+        payload == null) return this;
 
     return CheckoutAcceptedNextStep(
       url: url ?? this.url,
@@ -73,17 +78,17 @@ class CheckoutAcceptedNextStep {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CheckoutAcceptedNextStep) return false;
-    return url == other.url
-        && method == other.method
-        && redirectUrl == other.redirectUrl
-        && mechanism == other.mechanism
-        && payload == other.payload
-;
+    return url == other.url &&
+        method == other.method &&
+        redirectUrl == other.redirectUrl &&
+        mechanism == other.mechanism &&
+        payload == other.payload;
   }
 
   @override
   int get hashCode => Object.hash(url, method, redirectUrl, mechanism, payload);
 
   @override
-  String toString() => 'CheckoutAcceptedNextStep(url=$url, method=$method, redirectUrl=$redirectUrl, mechanism=$mechanism, payload=$payload)';
+  String toString() =>
+      'CheckoutAcceptedNextStep(url=$url, method=$method, redirectUrl=$redirectUrl, mechanism=$mechanism, payload=$payload)';
 }

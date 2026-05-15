@@ -35,7 +35,8 @@ class ProcessCheckout {
 
   factory ProcessCheckout.fromJson(Map<String, dynamic> json) {
     return ProcessCheckout(
-      paymentType: ProcessCheckoutPaymentType.fromJson(json['payment_type'] as String),
+      paymentType:
+          ProcessCheckoutPaymentType.fromJson(json['payment_type'] as String),
       installments: json['installments'] != null
           ? (json['installments'] as num).toInt()
           : null,
@@ -46,19 +47,19 @@ class ProcessCheckout {
           ? Card.fromJson(json['card'] as Map<String, dynamic>)
           : null,
       googlePay: json['google_pay'] != null
-          ? ProcessCheckoutGooglePay.fromJson(json['google_pay'] as Map<String, dynamic>)
+          ? ProcessCheckoutGooglePay.fromJson(
+              json['google_pay'] as Map<String, dynamic>)
           : null,
       applePay: json['apple_pay'] != null
-          ? ProcessCheckoutApplePay.fromJson(json['apple_pay'] as Map<String, dynamic>)
+          ? ProcessCheckoutApplePay.fromJson(
+              json['apple_pay'] as Map<String, dynamic>)
           : null,
-      token: json['token'] != null
-          ? json['token'] as String
-          : null,
-      customerId: json['customer_id'] != null
-          ? json['customer_id'] as String
-          : null,
+      token: json['token'] != null ? json['token'] as String : null,
+      customerId:
+          json['customer_id'] != null ? json['customer_id'] as String : null,
       personalDetails: json['personal_details'] != null
-          ? PersonalDetails.fromJson(json['personal_details'] as Map<String, dynamic>)
+          ? PersonalDetails.fromJson(
+              json['personal_details'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -73,7 +74,8 @@ class ProcessCheckout {
       if (applePay != null) 'apple_pay': applePay!.toJson(),
       if (token != null) 'token': token!,
       if (customerId != null) 'customer_id': customerId!,
-      if (personalDetails != null) 'personal_details': personalDetails!.toJson(),
+      if (personalDetails != null)
+        'personal_details': personalDetails!.toJson(),
     };
   }
 
@@ -88,7 +90,15 @@ class ProcessCheckout {
     String? customerId,
     PersonalDetails? personalDetails,
   }) {
-    if (paymentType == null && installments == null && mandate == null && card == null && googlePay == null && applePay == null && token == null && customerId == null && personalDetails == null) return this;
+    if (paymentType == null &&
+        installments == null &&
+        mandate == null &&
+        card == null &&
+        googlePay == null &&
+        applePay == null &&
+        token == null &&
+        customerId == null &&
+        personalDetails == null) return this;
 
     return ProcessCheckout(
       paymentType: paymentType ?? this.paymentType,
@@ -107,21 +117,22 @@ class ProcessCheckout {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! ProcessCheckout) return false;
-    return paymentType == other.paymentType
-        && installments == other.installments
-        && mandate == other.mandate
-        && card == other.card
-        && googlePay == other.googlePay
-        && applePay == other.applePay
-        && token == other.token
-        && customerId == other.customerId
-        && personalDetails == other.personalDetails
-;
+    return paymentType == other.paymentType &&
+        installments == other.installments &&
+        mandate == other.mandate &&
+        card == other.card &&
+        googlePay == other.googlePay &&
+        applePay == other.applePay &&
+        token == other.token &&
+        customerId == other.customerId &&
+        personalDetails == other.personalDetails;
   }
 
   @override
-  int get hashCode => Object.hash(paymentType, installments, mandate, card, googlePay, applePay, token, customerId, personalDetails);
+  int get hashCode => Object.hash(paymentType, installments, mandate, card,
+      googlePay, applePay, token, customerId, personalDetails);
 
   @override
-  String toString() => 'ProcessCheckout(paymentType=$paymentType, installments=$installments, mandate=$mandate, card=$card, googlePay=$googlePay, applePay=$applePay, token=$token, customerId=$customerId, personalDetails=$personalDetails)';
+  String toString() =>
+      'ProcessCheckout(paymentType=$paymentType, installments=$installments, mandate=$mandate, card=$card, googlePay=$googlePay, applePay=$applePay, token=$token, customerId=$customerId, personalDetails=$personalDetails)';
 }

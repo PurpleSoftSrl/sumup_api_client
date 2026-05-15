@@ -10,19 +10,27 @@ class Get200Response {
     this.availablePaymentMethods,
   });
 
-  final List<Get200ResponseAvailablePaymentMethodsItem>? availablePaymentMethods;
+  final List<Get200ResponseAvailablePaymentMethodsItem>?
+      availablePaymentMethods;
 
   factory Get200Response.fromJson(Map<String, dynamic> json) {
     return Get200Response(
       availablePaymentMethods: json['available_payment_methods'] != null
-          ? List<Get200ResponseAvailablePaymentMethodsItem>.generate((json['available_payment_methods'] as List).length, (i) => Get200ResponseAvailablePaymentMethodsItem.fromJson((json['available_payment_methods'] as List)[i] as Map<String, dynamic>), growable: false)
+          ? List<Get200ResponseAvailablePaymentMethodsItem>.generate(
+              (json['available_payment_methods'] as List).length,
+              (i) => Get200ResponseAvailablePaymentMethodsItem.fromJson(
+                  (json['available_payment_methods'] as List)[i]
+                      as Map<String, dynamic>),
+              growable: false)
           : null,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      if (availablePaymentMethods != null) 'available_payment_methods': availablePaymentMethods!.map((e) => e.toJson()).toList(),
+      if (availablePaymentMethods != null)
+        'available_payment_methods':
+            availablePaymentMethods!.map((e) => e.toJson()).toList(),
     };
   }
 
@@ -40,13 +48,13 @@ class Get200Response {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Get200Response) return false;
-    return availablePaymentMethods == other.availablePaymentMethods
-;
+    return availablePaymentMethods == other.availablePaymentMethods;
   }
 
   @override
   int get hashCode => availablePaymentMethods.hashCode;
 
   @override
-  String toString() => 'Get200Response(availablePaymentMethods=$availablePaymentMethods)';
+  String toString() =>
+      'Get200Response(availablePaymentMethods=$availablePaymentMethods)';
 }

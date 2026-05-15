@@ -25,15 +25,15 @@ class RolesApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/roles',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -43,21 +43,22 @@ class RolesApi {
   /// Create a custom role for the merchant. Roles are defined by the set of permissions that they grant to the members that they are assigned to.
   Future<CreateMerchantRoleResult> createMerchantRole({
     required String merchantCode,
-    required CreateMerchantRoleBodyApplicationJson createMerchantRoleBodyApplicationJson,
+    required CreateMerchantRoleBodyApplicationJson
+        createMerchantRoleBodyApplicationJson,
     CancelToken? cancelToken,
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/roles',
       data: createMerchantRoleBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'post',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'post',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -72,15 +73,15 @@ class RolesApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/roles/$roleId',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'get',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'get',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -95,15 +96,15 @@ class RolesApi {
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/roles/$roleId',
       queryParameters: null,
-      options: options ?? Options(
-        method: 'delete',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'delete',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
@@ -114,25 +115,25 @@ class RolesApi {
   Future<UpdateMerchantRoleResult> updateMerchantRole({
     required String merchantCode,
     required String roleId,
-    required UpdateMerchantRoleBodyApplicationJson updateMerchantRoleBodyApplicationJson,
+    required UpdateMerchantRoleBodyApplicationJson
+        updateMerchantRoleBodyApplicationJson,
     CancelToken? cancelToken,
     Map<String, dynamic>? extra,
     Options? options,
   }) async {
-
     final response = await dio.request<Map<String, dynamic>>(
       '/v0.1/merchants/$merchantCode/roles/$roleId',
       data: updateMerchantRoleBodyApplicationJson.toJson(),
       queryParameters: null,
-      options: options ?? Options(
-        method: 'patch',
-        headers: null,
-        extra: extra,
-      ),
+      options: options ??
+          Options(
+            method: 'patch',
+            headers: null,
+            extra: extra,
+          ),
       cancelToken: cancelToken,
     );
 
     return UpdateMerchantRoleResult.fromResponse(response);
   }
-
 }

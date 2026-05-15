@@ -27,15 +27,9 @@ class Branding {
 
   factory Branding.fromJson(Map<String, dynamic> json) {
     return Branding(
-      icon: json['icon'] != null
-          ? Uri.parse(json['icon'] as String)
-          : null,
-      logo: json['logo'] != null
-          ? Uri.parse(json['logo'] as String)
-          : null,
-      hero: json['hero'] != null
-          ? Uri.parse(json['hero'] as String)
-          : null,
+      icon: json['icon'] != null ? Uri.parse(json['icon'] as String) : null,
+      logo: json['logo'] != null ? Uri.parse(json['logo'] as String) : null,
+      hero: json['hero'] != null ? Uri.parse(json['hero'] as String) : null,
       primaryColor: json['primary_color'] != null
           ? json['primary_color'] as String
           : null,
@@ -77,7 +71,14 @@ class Branding {
     String? secondaryColorFg,
     String? backgroundColor,
   }) {
-    if (icon == null && logo == null && hero == null && primaryColor == null && primaryColorFg == null && secondaryColor == null && secondaryColorFg == null && backgroundColor == null) return this;
+    if (icon == null &&
+        logo == null &&
+        hero == null &&
+        primaryColor == null &&
+        primaryColorFg == null &&
+        secondaryColor == null &&
+        secondaryColorFg == null &&
+        backgroundColor == null) return this;
 
     return Branding(
       icon: icon ?? this.icon,
@@ -95,20 +96,21 @@ class Branding {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Branding) return false;
-    return icon == other.icon
-        && logo == other.logo
-        && hero == other.hero
-        && primaryColor == other.primaryColor
-        && primaryColorFg == other.primaryColorFg
-        && secondaryColor == other.secondaryColor
-        && secondaryColorFg == other.secondaryColorFg
-        && backgroundColor == other.backgroundColor
-;
+    return icon == other.icon &&
+        logo == other.logo &&
+        hero == other.hero &&
+        primaryColor == other.primaryColor &&
+        primaryColorFg == other.primaryColorFg &&
+        secondaryColor == other.secondaryColor &&
+        secondaryColorFg == other.secondaryColorFg &&
+        backgroundColor == other.backgroundColor;
   }
 
   @override
-  int get hashCode => Object.hash(icon, logo, hero, primaryColor, primaryColorFg, secondaryColor, secondaryColorFg, backgroundColor);
+  int get hashCode => Object.hash(icon, logo, hero, primaryColor,
+      primaryColorFg, secondaryColor, secondaryColorFg, backgroundColor);
 
   @override
-  String toString() => 'Branding(icon=$icon, logo=$logo, hero=$hero, primaryColor=$primaryColor, primaryColorFg=$primaryColorFg, secondaryColor=$secondaryColor, secondaryColorFg=$secondaryColorFg, backgroundColor=$backgroundColor)';
+  String toString() =>
+      'Branding(icon=$icon, logo=$logo, hero=$hero, primaryColor=$primaryColor, primaryColorFg=$primaryColorFg, secondaryColor=$secondaryColor, secondaryColorFg=$secondaryColorFg, backgroundColor=$backgroundColor)';
 }

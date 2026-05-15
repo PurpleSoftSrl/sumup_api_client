@@ -11,7 +11,8 @@ class Get200ResponseAvailablePaymentMethodsItem {
 
   final String id;
 
-  factory Get200ResponseAvailablePaymentMethodsItem.fromJson(Map<String, dynamic> json) {
+  factory Get200ResponseAvailablePaymentMethodsItem.fromJson(
+      Map<String, dynamic> json) {
     return Get200ResponseAvailablePaymentMethodsItem(
       id: json['id'] as String,
     );
@@ -37,8 +38,7 @@ class Get200ResponseAvailablePaymentMethodsItem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Get200ResponseAvailablePaymentMethodsItem) return false;
-    return id == other.id
-;
+    return id == other.id;
   }
 
   @override

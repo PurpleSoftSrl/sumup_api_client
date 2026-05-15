@@ -18,15 +18,19 @@ sealed class CreateCheckoutResult {
   factory CreateCheckoutResult.fromResponse(Response<dynamic> response) {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
-      201 => CreateCheckoutResultHttp201(Checkout.fromJson(response.data as Map<String, dynamic>)),
-      400 => CreateCheckoutResultHttp400(ErrorExtended.fromJson(response.data as Map<String, dynamic>)),
-      401 => CreateCheckoutResultHttp401(Problem.fromJson(response.data as Map<String, dynamic>)),
-      403 => CreateCheckoutResultHttp403(ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
-      409 => CreateCheckoutResultHttp409(Error.fromJson(response.data as Map<String, dynamic>)),
+      201 => CreateCheckoutResultHttp201(
+          Checkout.fromJson(response.data as Map<String, dynamic>)),
+      400 => CreateCheckoutResultHttp400(
+          ErrorExtended.fromJson(response.data as Map<String, dynamic>)),
+      401 => CreateCheckoutResultHttp401(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
+      403 => CreateCheckoutResultHttp403(
+          ErrorForbidden.fromJson(response.data as Map<String, dynamic>)),
+      409 => CreateCheckoutResultHttp409(
+          Error.fromJson(response.data as Map<String, dynamic>)),
       _ => CreateCheckoutResultError.fromResponse(response),
     };
   }
-
 }
 
 class CreateCheckoutResultHttp201 extends CreateCheckoutResult {
@@ -58,5 +62,6 @@ class CreateCheckoutResultError extends CreateCheckoutResult {
   const CreateCheckoutResultError(this.response);
   final Response<dynamic> response;
 
-  factory CreateCheckoutResultError.fromResponse(Response<dynamic> response) => CreateCheckoutResultError(response);
+  factory CreateCheckoutResultError.fromResponse(Response<dynamic> response) =>
+      CreateCheckoutResultError(response);
 }

@@ -15,11 +15,11 @@ sealed class DeleteReaderResult {
     final statusCode = response.statusCode ?? 0;
     return switch (statusCode) {
       200 => const DeleteReaderResultHttp200(),
-      404 => DeleteReaderResultHttp404(Problem.fromJson(response.data as Map<String, dynamic>)),
+      404 => DeleteReaderResultHttp404(
+          Problem.fromJson(response.data as Map<String, dynamic>)),
       _ => DeleteReaderResultError.fromResponse(response),
     };
   }
-
 }
 
 class DeleteReaderResultHttp200 extends DeleteReaderResult {
@@ -35,5 +35,6 @@ class DeleteReaderResultError extends DeleteReaderResult {
   const DeleteReaderResultError(this.response);
   final Response<dynamic> response;
 
-  factory DeleteReaderResultError.fromResponse(Response<dynamic> response) => DeleteReaderResultError(response);
+  factory DeleteReaderResultError.fromResponse(Response<dynamic> response) =>
+      DeleteReaderResultError(response);
 }

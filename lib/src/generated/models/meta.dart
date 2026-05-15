@@ -7,15 +7,12 @@
 class Meta {
   const Meta();
 
-
   factory Meta.fromJson(Map<String, dynamic> json) {
-    return const Meta(
-    );
+    return const Meta();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-    };
+    return {};
   }
 
   Meta copyWith() {

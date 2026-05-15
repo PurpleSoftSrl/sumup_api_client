@@ -30,9 +30,8 @@ class Role {
     return Role(
       id: json['id'] as String,
       name: json['name'] as String,
-      description: json['description'] != null
-          ? json['description'] as String
-          : null,
+      description:
+          json['description'] != null ? json['description'] as String : null,
       permissions: json['permissions'] as List<String>,
       isPredefined: json['is_predefined'] as bool,
       metadata: json['metadata'] != null
@@ -66,7 +65,14 @@ class Role {
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
-    if (id == null && name == null && description == null && permissions == null && isPredefined == null && metadata == null && createdAt == null && updatedAt == null) return this;
+    if (id == null &&
+        name == null &&
+        description == null &&
+        permissions == null &&
+        isPredefined == null &&
+        metadata == null &&
+        createdAt == null &&
+        updatedAt == null) return this;
 
     return Role(
       id: id ?? this.id,
@@ -84,20 +90,21 @@ class Role {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! Role) return false;
-    return id == other.id
-        && name == other.name
-        && description == other.description
-        && permissions == other.permissions
-        && isPredefined == other.isPredefined
-        && metadata == other.metadata
-        && createdAt == other.createdAt
-        && updatedAt == other.updatedAt
-;
+    return id == other.id &&
+        name == other.name &&
+        description == other.description &&
+        permissions == other.permissions &&
+        isPredefined == other.isPredefined &&
+        metadata == other.metadata &&
+        createdAt == other.createdAt &&
+        updatedAt == other.updatedAt;
   }
 
   @override
-  int get hashCode => Object.hash(id, name, description, permissions, isPredefined, metadata, createdAt, updatedAt);
+  int get hashCode => Object.hash(id, name, description, permissions,
+      isPredefined, metadata, createdAt, updatedAt);
 
   @override
-  String toString() => 'Role(id=$id, name=$name, description=$description, permissions=$permissions, isPredefined=$isPredefined, metadata=$metadata, createdAt=$createdAt, updatedAt=$updatedAt)';
+  String toString() =>
+      'Role(id=$id, name=$name, description=$description, permissions=$permissions, isPredefined=$isPredefined, metadata=$metadata, createdAt=$createdAt, updatedAt=$updatedAt)';
 }

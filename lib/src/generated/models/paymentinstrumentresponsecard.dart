@@ -48,14 +48,13 @@ class PaymentInstrumentResponseCard {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! PaymentInstrumentResponseCard) return false;
-    return last4Digits == other.last4Digits
-        && type_ == other.type_
-;
+    return last4Digits == other.last4Digits && type_ == other.type_;
   }
 
   @override
   int get hashCode => Object.hash(last4Digits, type_);
 
   @override
-  String toString() => 'PaymentInstrumentResponseCard(last4Digits=$last4Digits, type_=$type_)';
+  String toString() =>
+      'PaymentInstrumentResponseCard(last4Digits=$last4Digits, type_=$type_)';
 }

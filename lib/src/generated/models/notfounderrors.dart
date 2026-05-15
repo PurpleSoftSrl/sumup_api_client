@@ -37,8 +37,7 @@ class NotFoundErrors {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! NotFoundErrors) return false;
-    return detail == other.detail
-;
+    return detail == other.detail;
   }
 
   @override

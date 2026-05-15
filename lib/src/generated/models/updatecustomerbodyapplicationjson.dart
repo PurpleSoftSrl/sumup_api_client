@@ -12,17 +12,20 @@ class UpdateCustomerBodyApplicationJson {
 
   final PersonalDetails? personalDetails;
 
-  factory UpdateCustomerBodyApplicationJson.fromJson(Map<String, dynamic> json) {
+  factory UpdateCustomerBodyApplicationJson.fromJson(
+      Map<String, dynamic> json) {
     return UpdateCustomerBodyApplicationJson(
       personalDetails: json['personal_details'] != null
-          ? PersonalDetails.fromJson(json['personal_details'] as Map<String, dynamic>)
+          ? PersonalDetails.fromJson(
+              json['personal_details'] as Map<String, dynamic>)
           : null,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      if (personalDetails != null) 'personal_details': personalDetails!.toJson(),
+      if (personalDetails != null)
+        'personal_details': personalDetails!.toJson(),
     };
   }
 
@@ -40,13 +43,13 @@ class UpdateCustomerBodyApplicationJson {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! UpdateCustomerBodyApplicationJson) return false;
-    return personalDetails == other.personalDetails
-;
+    return personalDetails == other.personalDetails;
   }
 
   @override
   int get hashCode => personalDetails.hashCode;
 
   @override
-  String toString() => 'UpdateCustomerBodyApplicationJson(personalDetails=$personalDetails)';
+  String toString() =>
+      'UpdateCustomerBodyApplicationJson(personalDetails=$personalDetails)';
 }
