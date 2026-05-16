@@ -20,6 +20,7 @@ class TransactionCheckoutInfo {
   final EntryMode? entryMode;
   final String? authCode;
 
+  /// Creates an instance from a JSON map.
   factory TransactionCheckoutInfo.fromJson(Map<String, dynamic> json) {
     return TransactionCheckoutInfo(
       merchantCode: json['merchant_code'] != null

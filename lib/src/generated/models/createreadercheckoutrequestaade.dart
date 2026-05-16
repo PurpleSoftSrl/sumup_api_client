@@ -17,6 +17,7 @@ class CreateReaderCheckoutRequestAade {
   final String signature;
   final String signatureData;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutRequestAade.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutRequestAade(
       providerId: json['provider_id'] as String,

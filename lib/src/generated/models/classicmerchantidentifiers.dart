@@ -11,6 +11,7 @@ class ClassicMerchantIdentifiers {
 
   final int id;
 
+  /// Creates an instance from a JSON map.
   factory ClassicMerchantIdentifiers.fromJson(Map<String, dynamic> json) {
     return ClassicMerchantIdentifiers(
       id: (json['id'] as num).toInt(),

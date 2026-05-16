@@ -13,6 +13,7 @@ class Timestamps {
   final DateTime createdAt;
   final DateTime updatedAt;
 
+  /// Creates an instance from a JSON map.
   factory Timestamps.fromJson(Map<String, dynamic> json) {
     return Timestamps(
       createdAt: DateTime.parse(json['created_at'] as String),

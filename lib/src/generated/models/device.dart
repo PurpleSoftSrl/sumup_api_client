@@ -19,6 +19,7 @@ class Device {
   final String? systemVersion;
   final String? uuid;
 
+  /// Creates an instance from a JSON map.
   factory Device.fromJson(Map<String, dynamic> json) {
     return Device(
       name: json['name'] != null ? json['name'] as String : null,

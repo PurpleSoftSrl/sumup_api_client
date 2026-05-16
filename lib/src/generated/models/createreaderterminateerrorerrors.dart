@@ -13,6 +13,7 @@ class CreateReaderTerminateErrorErrors {
   final String? detail;
   final String type_;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderTerminateErrorErrors.fromJson(Map<String, dynamic> json) {
     return CreateReaderTerminateErrorErrors(
       detail: json['detail'] != null ? json['detail'] as String : null,

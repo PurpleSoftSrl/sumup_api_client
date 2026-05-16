@@ -25,6 +25,7 @@ class ReceiptEvent {
   final DateTime? timestamp;
   final String? receiptNo;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptEvent.fromJson(Map<String, dynamic> json) {
     return ReceiptEvent(
       id: json['id'] != null ? (json['id'] as num).toInt() : null,

@@ -13,6 +13,7 @@ class Invite {
   final String email;
   final DateTime expiresAt;
 
+  /// Creates an instance from a JSON map.
   factory Invite.fromJson(Map<String, dynamic> json) {
     return Invite(
       email: json['email'] as String,

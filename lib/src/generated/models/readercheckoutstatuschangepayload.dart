@@ -18,6 +18,7 @@ class ReaderCheckoutStatusChangePayload {
   final ReaderCheckoutStatusChangePayloadStatus status;
   final String? transactionId;
 
+  /// Creates an instance from a JSON map.
   factory ReaderCheckoutStatusChangePayload.fromJson(
       Map<String, dynamic> json) {
     return ReaderCheckoutStatusChangePayload(

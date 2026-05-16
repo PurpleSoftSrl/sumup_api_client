@@ -34,6 +34,7 @@ class Member {
   final Metadata? metadata;
   final Attributes? attributes;
 
+  /// Creates an instance from a JSON map.
   factory Member.fromJson(Map<String, dynamic> json) {
     return Member(
       id: json['id'] as String,

@@ -45,6 +45,7 @@ class BasePerson {
   final String? version;
   final String? changeStatus;
 
+  /// Creates an instance from a JSON map.
   factory BasePerson.fromJson(Map<String, dynamic> json) {
     return BasePerson(
       id: json['id'] as String,

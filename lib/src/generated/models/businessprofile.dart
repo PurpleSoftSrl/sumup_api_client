@@ -26,6 +26,7 @@ class BusinessProfile {
   final Address? address;
   final Branding? branding;
 
+  /// Creates an instance from a JSON map.
   factory BusinessProfile.fromJson(Map<String, dynamic> json) {
     return BusinessProfile(
       name: json['name'] != null ? json['name'] as String : null,

@@ -30,6 +30,7 @@ class Put400ResponseErrorExtendedVariant0 extends Put400Response {
   const Put400ResponseErrorExtendedVariant0(this.value);
   final ErrorExtended value;
 
+  /// Creates a variant instance from a JSON map.
   factory Put400ResponseErrorExtendedVariant0.fromJson(
           Map<String, dynamic> json) =>
       Put400ResponseErrorExtendedVariant0(ErrorExtended.fromJson(json));
@@ -43,6 +44,7 @@ class Put400ResponseVariant1 extends Put400Response {
   const Put400ResponseVariant1(this.value);
   final List<ErrorExtended> value;
 
+  /// Creates a list variant from deserialized JSON.
   factory Put400ResponseVariant1.fromJson(dynamic json) =>
       Put400ResponseVariant1(List<ErrorExtended>.generate(
           (json as List).length,

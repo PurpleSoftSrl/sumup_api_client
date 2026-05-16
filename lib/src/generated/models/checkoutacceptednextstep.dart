@@ -21,6 +21,7 @@ class CheckoutAcceptedNextStep {
   final List<CheckoutAcceptedNextStepMechanismItem>? mechanism;
   final CheckoutAcceptedNextStepPayload? payload;
 
+  /// Creates an instance from a JSON map.
   factory CheckoutAcceptedNextStep.fromJson(Map<String, dynamic> json) {
     return CheckoutAcceptedNextStep(
       url: json['url'] != null ? json['url'] as String : null,

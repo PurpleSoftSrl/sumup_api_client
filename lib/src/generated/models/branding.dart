@@ -25,6 +25,7 @@ class Branding {
   final String? secondaryColorFg;
   final String? backgroundColor;
 
+  /// Creates an instance from a JSON map.
   factory Branding.fromJson(Map<String, dynamic> json) {
     return Branding(
       icon: json['icon'] != null ? Uri.parse(json['icon'] as String) : null,

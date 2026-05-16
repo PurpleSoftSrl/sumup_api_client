@@ -11,6 +11,7 @@ class Get200ResponseAvailablePaymentMethodsItem {
 
   final String id;
 
+  /// Creates an instance from a JSON map.
   factory Get200ResponseAvailablePaymentMethodsItem.fromJson(
       Map<String, dynamic> json) {
     return Get200ResponseAvailablePaymentMethodsItem(

@@ -12,6 +12,7 @@ class CreateReaderCheckoutError {
 
   final CreateReaderCheckoutErrorErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutError.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutError(
       errors: CreateReaderCheckoutErrorErrors.fromJson(

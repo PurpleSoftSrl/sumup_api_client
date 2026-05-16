@@ -7,6 +7,7 @@
 class Merchant {
   const Merchant();
 
+  /// Creates an instance from a JSON map.
   factory Merchant.fromJson(Map<String, dynamic> json) {
     return const Merchant();
   }

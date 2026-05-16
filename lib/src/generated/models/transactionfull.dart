@@ -7,6 +7,7 @@
 class TransactionFull {
   const TransactionFull();
 
+  /// Creates an instance from a JSON map.
   factory TransactionFull.fromJson(Map<String, dynamic> json) {
     return const TransactionFull();
   }

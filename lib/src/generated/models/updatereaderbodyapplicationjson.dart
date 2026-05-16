@@ -14,6 +14,7 @@ class UpdateReaderBodyApplicationJson {
   final String? name;
   final Metadata? metadata;
 
+  /// Creates an instance from a JSON map.
   factory UpdateReaderBodyApplicationJson.fromJson(Map<String, dynamic> json) {
     return UpdateReaderBodyApplicationJson(
       name: json['name'] != null ? json['name'] as String : null,

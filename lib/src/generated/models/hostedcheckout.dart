@@ -11,6 +11,7 @@ class HostedCheckout {
 
   final bool enabled;
 
+  /// Creates an instance from a JSON map.
   factory HostedCheckout.fromJson(Map<String, dynamic> json) {
     return HostedCheckout(
       enabled: json['enabled'] as bool,

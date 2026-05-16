@@ -14,6 +14,7 @@ class UnauthorizedErrors {
   final String detail;
   final UnauthorizedErrorsType? type_;
 
+  /// Creates an instance from a JSON map.
   factory UnauthorizedErrors.fromJson(Map<String, dynamic> json) {
     return UnauthorizedErrors(
       detail: json['detail'] as String,

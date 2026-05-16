@@ -21,6 +21,7 @@ class Receipt {
   final ReceiptEmvData? emvData;
   final ReceiptAcquirerData? acquirerData;
 
+  /// Creates an instance from a JSON map.
   factory Receipt.fromJson(Map<String, dynamic> json) {
     return Receipt(
       transactionData: json['transaction_data'] != null

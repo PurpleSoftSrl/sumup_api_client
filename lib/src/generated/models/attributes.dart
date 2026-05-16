@@ -7,6 +7,7 @@
 class Attributes {
   const Attributes();
 
+  /// Creates an instance from a JSON map.
   factory Attributes.fromJson(Map<String, dynamic> json) {
     return const Attributes();
   }

@@ -16,6 +16,7 @@ class MandatePayload {
   final String userAgent;
   final String? userIp;
 
+  /// Creates an instance from a JSON map.
   factory MandatePayload.fromJson(Map<String, dynamic> json) {
     return MandatePayload(
       type_: MandatePayloadType.fromJson(json['type'] as String),

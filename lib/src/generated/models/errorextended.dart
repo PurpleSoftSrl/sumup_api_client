@@ -7,6 +7,7 @@
 class ErrorExtended {
   const ErrorExtended();
 
+  /// Creates an instance from a JSON map.
   factory ErrorExtended.fromJson(Map<String, dynamic> json) {
     return const ErrorExtended();
   }

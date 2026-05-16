@@ -12,6 +12,7 @@ class CreateReaderCheckoutResponse {
 
   final CreateReaderCheckoutResponseData data;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutResponse.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutResponse(
       data: CreateReaderCheckoutResponseData.fromJson(

@@ -28,6 +28,7 @@ class TransactionHistoryInline2 {
   final TransactionHistoryInline2PayoutType? payoutType;
   final double? refundedAmount;
 
+  /// Creates an instance from a JSON map.
   factory TransactionHistoryInline2.fromJson(Map<String, dynamic> json) {
     return TransactionHistoryInline2(
       transactionId: json['transaction_id'] != null

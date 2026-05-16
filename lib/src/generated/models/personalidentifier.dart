@@ -13,6 +13,7 @@ class PersonalIdentifier {
   final String ref;
   final String value_;
 
+  /// Creates an instance from a JSON map.
   factory PersonalIdentifier.fromJson(Map<String, dynamic> json) {
     return PersonalIdentifier(
       ref: json['ref'] as String,

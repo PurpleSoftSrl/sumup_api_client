@@ -7,6 +7,7 @@
 class CreateReaderCheckoutUnprocessableEntityErrors {
   const CreateReaderCheckoutUnprocessableEntityErrors();
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutUnprocessableEntityErrors.fromJson(
       Map<String, dynamic> json) {
     return const CreateReaderCheckoutUnprocessableEntityErrors();

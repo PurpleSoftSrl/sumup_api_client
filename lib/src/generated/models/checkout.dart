@@ -41,6 +41,7 @@ class Checkout {
   final Uri? hostedCheckoutUrl;
   final List<CheckoutTransactionsItem>? transactions;
 
+  /// Creates an instance from a JSON map.
   factory Checkout.fromJson(Map<String, dynamic> json) {
     return Checkout(
       checkoutReference: json['checkout_reference'] != null

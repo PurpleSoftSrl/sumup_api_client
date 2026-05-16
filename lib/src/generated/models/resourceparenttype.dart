@@ -7,6 +7,7 @@
 class ResourceParentType {
   const ResourceParentType();
 
+  /// Creates an instance from a JSON map.
   factory ResourceParentType.fromJson(Map<String, dynamic> json) {
     return const ResourceParentType();
   }

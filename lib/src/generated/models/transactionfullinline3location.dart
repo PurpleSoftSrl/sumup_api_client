@@ -15,6 +15,7 @@ class TransactionFullInline3Location {
   final double? lon;
   final double? horizontalAccuracy;
 
+  /// Creates an instance from a JSON map.
   factory TransactionFullInline3Location.fromJson(Map<String, dynamic> json) {
     return TransactionFullInline3Location(
       lat: json['lat'] != null ? (json['lat'] as num).toDouble() : null,

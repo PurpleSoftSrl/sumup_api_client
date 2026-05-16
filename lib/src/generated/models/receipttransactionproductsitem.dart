@@ -29,6 +29,7 @@ class ReceiptTransactionProductsItem {
   final String? totalPrice;
   final String? totalWithVat;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptTransactionProductsItem.fromJson(Map<String, dynamic> json) {
     return ReceiptTransactionProductsItem(
       name: json['name'] != null ? json['name'] as String : null,

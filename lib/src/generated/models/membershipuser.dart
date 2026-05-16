@@ -28,6 +28,7 @@ class MembershipUser {
   final Uri? picture;
   final MembershipUserClassic? classic;
 
+  /// Creates an instance from a JSON map.
   factory MembershipUser.fromJson(Map<String, dynamic> json) {
     return MembershipUser(
       id: json['id'] as String,

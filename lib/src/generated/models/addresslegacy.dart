@@ -21,6 +21,7 @@ class AddressLegacy {
   final String? postalCode;
   final String? state;
 
+  /// Creates an instance from a JSON map.
   factory AddressLegacy.fromJson(Map<String, dynamic> json) {
     return AddressLegacy(
       city: json['city'] != null ? json['city'] as String : null,

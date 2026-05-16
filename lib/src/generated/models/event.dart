@@ -31,6 +31,7 @@ class Event {
   final double? deductedAmount;
   final double? deductedFeeAmount;
 
+  /// Creates an instance from a JSON map.
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
       id: json['id'] != null ? (json['id'] as num).toInt() : null,

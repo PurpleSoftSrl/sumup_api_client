@@ -18,6 +18,7 @@ class DetailsError {
   final double? status;
   final List<DetailsErrorFailedConstraintsItem>? failedConstraints;
 
+  /// Creates an instance from a JSON map.
   factory DetailsError.fromJson(Map<String, dynamic> json) {
     return DetailsError(
       title: json['title'] != null ? json['title'] as String : null,

@@ -17,6 +17,7 @@ class TransactionFullInline3VatRatesItem {
   final double? vat;
   final double? gross;
 
+  /// Creates an instance from a JSON map.
   factory TransactionFullInline3VatRatesItem.fromJson(
       Map<String, dynamic> json) {
     return TransactionFullInline3VatRatesItem(

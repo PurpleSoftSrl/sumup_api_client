@@ -24,6 +24,7 @@ class MembershipResource {
   final DateTime updatedAt;
   final Attributes? attributes;
 
+  /// Creates an instance from a JSON map.
   factory MembershipResource.fromJson(Map<String, dynamic> json) {
     return MembershipResource(
       id: json['id'] as String,

@@ -28,6 +28,7 @@ class IfModifiedSinceVariant0 extends IfModifiedSince {
   const IfModifiedSinceVariant0(this.value);
   final String value;
 
+  /// Creates a variant from deserialized JSON.
   factory IfModifiedSinceVariant0.fromJson(dynamic json) =>
       IfModifiedSinceVariant0(json as String);
 
@@ -40,6 +41,7 @@ class IfModifiedSinceVariant1 extends IfModifiedSince {
   const IfModifiedSinceVariant1(this.value);
   final DateTime value;
 
+  /// Creates a variant from deserialized JSON.
   factory IfModifiedSinceVariant1.fromJson(dynamic json) =>
       IfModifiedSinceVariant1(DateTime.parse(json as String));
 

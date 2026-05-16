@@ -26,6 +26,7 @@ class StatusResponseData {
   final StatusResponseDataState? state;
   final StatusResponseDataStatus status;
 
+  /// Creates an instance from a JSON map.
   factory StatusResponseData.fromJson(Map<String, dynamic> json) {
     return StatusResponseData(
       batteryLevel: json['battery_level'] != null

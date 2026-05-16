@@ -13,6 +13,7 @@ class CompanyIdentifier {
   final String ref;
   final String value_;
 
+  /// Creates an instance from a JSON map.
   factory CompanyIdentifier.fromJson(Map<String, dynamic> json) {
     return CompanyIdentifier(
       ref: json['ref'] as String,

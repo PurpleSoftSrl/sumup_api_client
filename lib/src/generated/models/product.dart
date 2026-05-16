@@ -29,6 +29,7 @@ class Product {
   final double? totalPrice;
   final double? totalWithVat;
 
+  /// Creates an instance from a JSON map.
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       name: json['name'] != null ? json['name'] as String : null,

@@ -14,6 +14,7 @@ class Customer {
   final String customerId;
   final PersonalDetails? personalDetails;
 
+  /// Creates an instance from a JSON map.
   factory Customer.fromJson(Map<String, dynamic> json) {
     return Customer(
       customerId: json['customer_id'] as String,

@@ -24,6 +24,7 @@ class PersonalDetails {
   final String? taxId;
   final AddressLegacy? address;
 
+  /// Creates an instance from a JSON map.
   factory PersonalDetails.fromJson(Map<String, dynamic> json) {
     return PersonalDetails(
       firstName:

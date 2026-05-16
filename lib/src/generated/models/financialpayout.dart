@@ -33,6 +33,7 @@ class FinancialPayout {
   final String reference;
   final String transactionCode;
 
+  /// Creates an instance from a JSON map.
   factory FinancialPayout.fromJson(Map<String, dynamic> json) {
     return FinancialPayout(
       id: (json['id'] as num).toInt(),

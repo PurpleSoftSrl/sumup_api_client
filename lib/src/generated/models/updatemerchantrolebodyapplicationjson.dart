@@ -15,6 +15,7 @@ class UpdateMerchantRoleBodyApplicationJson {
   final List<String>? permissions;
   final String? description;
 
+  /// Creates an instance from a JSON map.
   factory UpdateMerchantRoleBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return UpdateMerchantRoleBodyApplicationJson(

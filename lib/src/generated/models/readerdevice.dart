@@ -14,6 +14,7 @@ class ReaderDevice {
   final String identifier;
   final ReaderDeviceModel model;
 
+  /// Creates an instance from a JSON map.
   factory ReaderDevice.fromJson(Map<String, dynamic> json) {
     return ReaderDevice(
       identifier: json['identifier'] as String,

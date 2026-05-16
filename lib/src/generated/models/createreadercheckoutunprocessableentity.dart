@@ -12,6 +12,7 @@ class CreateReaderCheckoutUnprocessableEntity {
 
   final CreateReaderCheckoutUnprocessableEntityErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutUnprocessableEntity.fromJson(
       Map<String, dynamic> json) {
     return CreateReaderCheckoutUnprocessableEntity(

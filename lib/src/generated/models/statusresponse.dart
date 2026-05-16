@@ -12,6 +12,7 @@ class StatusResponse {
 
   final StatusResponseData data;
 
+  /// Creates an instance from a JSON map.
   factory StatusResponse.fromJson(Map<String, dynamic> json) {
     return StatusResponse(
       data: StatusResponseData.fromJson(json['data'] as Map<String, dynamic>),

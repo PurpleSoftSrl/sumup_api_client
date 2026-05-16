@@ -9,6 +9,7 @@
 class CreateReaderCheckoutRequestAffiliateTags {
   const CreateReaderCheckoutRequestAffiliateTags();
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutRequestAffiliateTags.fromJson(
       Map<String, dynamic> json) {
     return const CreateReaderCheckoutRequestAffiliateTags();

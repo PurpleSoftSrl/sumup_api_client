@@ -18,6 +18,7 @@ class TransactionMixinHistory {
   final int? payoutsReceived;
   final TransactionMixinHistoryPayoutPlan? payoutPlan;
 
+  /// Creates an instance from a JSON map.
   factory TransactionMixinHistory.fromJson(Map<String, dynamic> json) {
     return TransactionMixinHistory(
       productSummary: json['product_summary'] != null

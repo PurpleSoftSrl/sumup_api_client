@@ -13,6 +13,7 @@ class Error {
   final String? message;
   final String? errorCode;
 
+  /// Creates an instance from a JSON map.
   factory Error.fromJson(Map<String, dynamic> json) {
     return Error(
       message: json['message'] != null ? json['message'] as String : null,

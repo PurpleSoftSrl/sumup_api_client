@@ -44,6 +44,7 @@ class Address {
   final String? zipCode;
   final String? eircode;
 
+  /// Creates an instance from a JSON map.
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
       streetAddress: json['street_address'] != null

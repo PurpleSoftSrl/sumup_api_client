@@ -15,6 +15,7 @@ class ErrorForbidden {
   final String? errorCode;
   final String? statusCode;
 
+  /// Creates an instance from a JSON map.
   factory ErrorForbidden.fromJson(Map<String, dynamic> json) {
     return ErrorForbidden(
       errorMessage: json['error_message'] != null

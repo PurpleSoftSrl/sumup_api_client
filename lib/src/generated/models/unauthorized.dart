@@ -12,6 +12,7 @@ class Unauthorized {
 
   final UnauthorizedErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory Unauthorized.fromJson(Map<String, dynamic> json) {
     return Unauthorized(
       errors:

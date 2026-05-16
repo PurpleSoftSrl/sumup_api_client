@@ -20,6 +20,7 @@ class CreateReaderCheckoutRequestAffiliate {
   final String key;
   final CreateReaderCheckoutRequestAffiliateTags? tags;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutRequestAffiliate.fromJson(
       Map<String, dynamic> json) {
     return CreateReaderCheckoutRequestAffiliate(

@@ -27,6 +27,7 @@ class TransactionEvent {
   final int? installmentNumber;
   final DateTime? timestamp;
 
+  /// Creates an instance from a JSON map.
   factory TransactionEvent.fromJson(Map<String, dynamic> json) {
     return TransactionEvent(
       id: json['id'] != null ? (json['id'] as num).toInt() : null,

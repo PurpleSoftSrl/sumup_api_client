@@ -33,6 +33,7 @@ class ProcessCheckout {
   final String? customerId;
   final PersonalDetails? personalDetails;
 
+  /// Creates an instance from a JSON map.
   factory ProcessCheckout.fromJson(Map<String, dynamic> json) {
     return ProcessCheckout(
       paymentType:

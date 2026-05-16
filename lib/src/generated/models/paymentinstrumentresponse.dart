@@ -24,6 +24,7 @@ class PaymentInstrumentResponse {
   final MandateResponse? mandate;
   final DateTime? createdAt;
 
+  /// Creates an instance from a JSON map.
   factory PaymentInstrumentResponse.fromJson(Map<String, dynamic> json) {
     return PaymentInstrumentResponse(
       token: json['token'] != null ? json['token'] as String : null,

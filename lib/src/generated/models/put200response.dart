@@ -7,6 +7,7 @@
 class Put200Response {
   const Put200Response();
 
+  /// Creates an instance from a JSON map.
   factory Put200Response.fromJson(Map<String, dynamic> json) {
     return const Put200Response();
   }

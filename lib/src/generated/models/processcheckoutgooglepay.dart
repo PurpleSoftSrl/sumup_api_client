@@ -7,6 +7,7 @@
 class ProcessCheckoutGooglePay {
   const ProcessCheckoutGooglePay();
 
+  /// Creates an instance from a JSON map.
   factory ProcessCheckoutGooglePay.fromJson(Map<String, dynamic> json) {
     return const ProcessCheckoutGooglePay();
   }

@@ -7,6 +7,7 @@
 class CheckoutAcceptedNextStepPayload {
   const CheckoutAcceptedNextStepPayload();
 
+  /// Creates an instance from a JSON map.
   factory CheckoutAcceptedNextStepPayload.fromJson(Map<String, dynamic> json) {
     return const CheckoutAcceptedNextStepPayload();
   }

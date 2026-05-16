@@ -28,6 +28,7 @@ class TransactionBase {
   final PaymentType? paymentType;
   final int? installmentsCount;
 
+  /// Creates an instance from a JSON map.
   factory TransactionBase.fromJson(Map<String, dynamic> json) {
     return TransactionBase(
       id: json['id'] != null ? json['id'] as String : null,

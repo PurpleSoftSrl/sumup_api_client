@@ -16,6 +16,7 @@ class CreateReaderBodyApplicationJson {
   final String name;
   final Metadata? metadata;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderBodyApplicationJson.fromJson(Map<String, dynamic> json) {
     return CreateReaderBodyApplicationJson(
       pairingCode: json['pairing_code'] as String,

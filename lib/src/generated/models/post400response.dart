@@ -31,6 +31,7 @@ class Post400ResponseErrorExtendedVariant0 extends Post400Response {
   const Post400ResponseErrorExtendedVariant0(this.value);
   final ErrorExtended value;
 
+  /// Creates a variant instance from a JSON map.
   factory Post400ResponseErrorExtendedVariant0.fromJson(
           Map<String, dynamic> json) =>
       Post400ResponseErrorExtendedVariant0(ErrorExtended.fromJson(json));

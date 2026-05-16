@@ -11,6 +11,7 @@ class Ownership {
 
   final int share;
 
+  /// Creates an instance from a JSON map.
   factory Ownership.fromJson(Map<String, dynamic> json) {
     return Ownership(
       share: (json['share'] as num).toInt(),

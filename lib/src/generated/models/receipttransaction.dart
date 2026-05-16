@@ -55,6 +55,7 @@ class ReceiptTransaction {
   final List<ReceiptEvent>? events;
   final String? receiptNo;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptTransaction.fromJson(Map<String, dynamic> json) {
     return ReceiptTransaction(
       transactionCode: json['transaction_code'] != null

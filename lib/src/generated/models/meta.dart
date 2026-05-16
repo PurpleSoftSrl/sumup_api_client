@@ -9,6 +9,7 @@
 class Meta {
   const Meta();
 
+  /// Creates an instance from a JSON map.
   factory Meta.fromJson(Map<String, dynamic> json) {
     return const Meta();
   }

@@ -17,6 +17,7 @@ class ElvCardAccount {
   final int? sequenceNo;
   final String? iban;
 
+  /// Creates an instance from a JSON map.
   factory ElvCardAccount.fromJson(Map<String, dynamic> json) {
     return ElvCardAccount(
       sortCode: json['sort_code'] != null ? json['sort_code'] as String : null,

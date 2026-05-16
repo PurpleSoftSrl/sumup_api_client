@@ -20,6 +20,7 @@ class CreateReaderCheckoutRequestTotalAmount {
   final int minorUnit;
   final int value_;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutRequestTotalAmount.fromJson(
       Map<String, dynamic> json) {
     return CreateReaderCheckoutRequestTotalAmount(

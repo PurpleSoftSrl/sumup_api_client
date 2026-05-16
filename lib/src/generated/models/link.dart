@@ -19,6 +19,7 @@ class Link {
   final double? minAmount;
   final double? maxAmount;
 
+  /// Creates an instance from a JSON map.
   factory Link.fromJson(Map<String, dynamic> json) {
     return Link(
       rel: json['rel'] != null ? json['rel'] as String : null,

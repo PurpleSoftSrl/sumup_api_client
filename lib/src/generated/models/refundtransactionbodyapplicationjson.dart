@@ -11,6 +11,7 @@ class RefundTransactionBodyApplicationJson {
 
   final double? amount;
 
+  /// Creates an instance from a JSON map.
   factory RefundTransactionBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return RefundTransactionBodyApplicationJson(

@@ -17,6 +17,7 @@ class ReceiptTransactionVatRatesItem {
   final double? rate;
   final double? vat;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptTransactionVatRatesItem.fromJson(Map<String, dynamic> json) {
     return ReceiptTransactionVatRatesItem(
       gross: json['gross'] != null ? (json['gross'] as num).toDouble() : null,

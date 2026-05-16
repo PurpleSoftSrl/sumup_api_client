@@ -18,6 +18,7 @@ class ReaderCheckoutStatusChange {
   final ReaderCheckoutStatusChangePayload payload;
   final DateTime timestamp;
 
+  /// Creates an instance from a JSON map.
   factory ReaderCheckoutStatusChange.fromJson(Map<String, dynamic> json) {
     return ReaderCheckoutStatusChange(
       eventType: json['event_type'] as String,

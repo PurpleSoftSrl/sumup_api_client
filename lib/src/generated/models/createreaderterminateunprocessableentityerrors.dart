@@ -7,6 +7,7 @@
 class CreateReaderTerminateUnprocessableEntityErrors {
   const CreateReaderTerminateUnprocessableEntityErrors();
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderTerminateUnprocessableEntityErrors.fromJson(
       Map<String, dynamic> json) {
     return const CreateReaderTerminateUnprocessableEntityErrors();

@@ -11,6 +11,7 @@ class MembershipUserClassic {
 
   final int userId;
 
+  /// Creates an instance from a JSON map.
   factory MembershipUserClassic.fromJson(Map<String, dynamic> json) {
     return MembershipUserClassic(
       userId: (json['user_id'] as num).toInt(),

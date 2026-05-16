@@ -13,6 +13,7 @@ class ReceiptReader {
   final String? code;
   final String? type_;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptReader.fromJson(Map<String, dynamic> json) {
     return ReceiptReader(
       code: json['code'] != null ? json['code'] as String : null,

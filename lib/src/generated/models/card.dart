@@ -25,6 +25,7 @@ class Card {
   final String? zipCode;
   final CardType type_;
 
+  /// Creates an instance from a JSON map.
   factory Card.fromJson(Map<String, dynamic> json) {
     return Card(
       name: json['name'] as String,

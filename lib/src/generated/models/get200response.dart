@@ -13,6 +13,7 @@ class Get200Response {
   final List<Get200ResponseAvailablePaymentMethodsItem>?
       availablePaymentMethods;
 
+  /// Creates an instance from a JSON map.
   factory Get200Response.fromJson(Map<String, dynamic> json) {
     return Get200Response(
       availablePaymentMethods: json['available_payment_methods'] != null

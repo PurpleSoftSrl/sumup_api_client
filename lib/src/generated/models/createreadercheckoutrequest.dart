@@ -31,6 +31,7 @@ class CreateReaderCheckoutRequest {
   final int? tipTimeout;
   final CreateReaderCheckoutRequestTotalAmount totalAmount;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutRequest.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutRequest(
       aade: json['aade'] != null

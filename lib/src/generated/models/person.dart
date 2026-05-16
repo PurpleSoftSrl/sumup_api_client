@@ -7,6 +7,7 @@
 class Person {
   const Person();
 
+  /// Creates an instance from a JSON map.
   factory Person.fromJson(Map<String, dynamic> json) {
     return const Person();
   }

@@ -20,6 +20,7 @@ class CheckoutSuccessInline1 {
   final String? redirectUrl;
   final CheckoutSuccessInline1PaymentInstrument? paymentInstrument;
 
+  /// Creates an instance from a JSON map.
   factory CheckoutSuccessInline1.fromJson(Map<String, dynamic> json) {
     return CheckoutSuccessInline1(
       transactionCode: json['transaction_code'] != null

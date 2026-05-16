@@ -7,6 +7,7 @@
 class TransactionHistory {
   const TransactionHistory();
 
+  /// Creates an instance from a JSON map.
   factory TransactionHistory.fromJson(Map<String, dynamic> json) {
     return const TransactionHistory();
   }

@@ -7,6 +7,7 @@
 class CheckoutTransactionsItem {
   const CheckoutTransactionsItem();
 
+  /// Creates an instance from a JSON map.
   factory CheckoutTransactionsItem.fromJson(Map<String, dynamic> json) {
     return const CheckoutTransactionsItem();
   }

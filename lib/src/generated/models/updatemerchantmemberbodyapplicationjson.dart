@@ -20,6 +20,7 @@ class UpdateMerchantMemberBodyApplicationJson {
   final Attributes? attributes;
   final UpdateMerchantMemberBodyApplicationJsonUser? user;
 
+  /// Creates an instance from a JSON map.
   factory UpdateMerchantMemberBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return UpdateMerchantMemberBodyApplicationJson(

@@ -73,6 +73,7 @@ class TransactionFullInline3 {
   final TransactionFullInline3Location? location;
   final bool? taxEnabled;
 
+  /// Creates an instance from a JSON map.
   factory TransactionFullInline3.fromJson(Map<String, dynamic> json) {
     return TransactionFullInline3(
       foreignTransactionId: json['foreign_transaction_id'] != null

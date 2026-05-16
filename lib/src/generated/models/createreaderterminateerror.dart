@@ -12,6 +12,7 @@ class CreateReaderTerminateError {
 
   final CreateReaderTerminateErrorErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderTerminateError.fromJson(Map<String, dynamic> json) {
     return CreateReaderTerminateError(
       errors: CreateReaderTerminateErrorErrors.fromJson(

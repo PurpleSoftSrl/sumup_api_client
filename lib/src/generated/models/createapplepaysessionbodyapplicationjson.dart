@@ -13,6 +13,7 @@ class CreateApplePaySessionBodyApplicationJson {
   final String context;
   final Uri target;
 
+  /// Creates an instance from a JSON map.
   factory CreateApplePaySessionBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return CreateApplePaySessionBodyApplicationJson(

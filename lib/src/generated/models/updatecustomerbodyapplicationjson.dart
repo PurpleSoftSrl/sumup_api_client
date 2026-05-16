@@ -12,6 +12,7 @@ class UpdateCustomerBodyApplicationJson {
 
   final PersonalDetails? personalDetails;
 
+  /// Creates an instance from a JSON map.
   factory UpdateCustomerBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return UpdateCustomerBodyApplicationJson(

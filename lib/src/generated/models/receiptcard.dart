@@ -13,6 +13,7 @@ class ReceiptCard {
   final String? last4Digits;
   final String? type_;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptCard.fromJson(Map<String, dynamic> json) {
     return ReceiptCard(
       last4Digits: json['last_4_digits'] != null

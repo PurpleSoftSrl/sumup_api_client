@@ -7,6 +7,7 @@
 class ReceiptEmvData {
   const ReceiptEmvData();
 
+  /// Creates an instance from a JSON map.
   factory ReceiptEmvData.fromJson(Map<String, dynamic> json) {
     return const ReceiptEmvData();
   }

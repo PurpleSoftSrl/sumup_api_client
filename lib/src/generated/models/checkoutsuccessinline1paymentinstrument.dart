@@ -11,6 +11,7 @@ class CheckoutSuccessInline1PaymentInstrument {
 
   final String? token;
 
+  /// Creates an instance from a JSON map.
   factory CheckoutSuccessInline1PaymentInstrument.fromJson(
       Map<String, dynamic> json) {
     return CheckoutSuccessInline1PaymentInstrument(

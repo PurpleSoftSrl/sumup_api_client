@@ -12,6 +12,7 @@ class CheckoutAccepted {
 
   final CheckoutAcceptedNextStep? nextStep;
 
+  /// Creates an instance from a JSON map.
   factory CheckoutAccepted.fromJson(Map<String, dynamic> json) {
     return CheckoutAccepted(
       nextStep: json['next_step'] != null

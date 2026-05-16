@@ -25,6 +25,7 @@ class CreateMerchantMemberBodyApplicationJson {
   final Metadata? metadata;
   final Attributes? attributes;
 
+  /// Creates an instance from a JSON map.
   factory CreateMerchantMemberBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return CreateMerchantMemberBodyApplicationJson(

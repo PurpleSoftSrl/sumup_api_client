@@ -18,6 +18,7 @@ class CreateMerchantRoleBodyApplicationJson {
   final Metadata? metadata;
   final String? description;
 
+  /// Creates an instance from a JSON map.
   factory CreateMerchantRoleBodyApplicationJson.fromJson(
       Map<String, dynamic> json) {
     return CreateMerchantRoleBodyApplicationJson(

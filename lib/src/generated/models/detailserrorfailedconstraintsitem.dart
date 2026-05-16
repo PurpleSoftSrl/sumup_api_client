@@ -13,6 +13,7 @@ class DetailsErrorFailedConstraintsItem {
   final String? message;
   final String? reference;
 
+  /// Creates an instance from a JSON map.
   factory DetailsErrorFailedConstraintsItem.fromJson(
       Map<String, dynamic> json) {
     return DetailsErrorFailedConstraintsItem(

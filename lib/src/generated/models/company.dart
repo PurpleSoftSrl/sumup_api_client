@@ -31,6 +31,7 @@ class Company {
   final Uri? website;
   final Attributes? attributes;
 
+  /// Creates an instance from a JSON map.
   factory Company.fromJson(Map<String, dynamic> json) {
     return Company(
       name: json['name'] != null ? json['name'] as String : null,

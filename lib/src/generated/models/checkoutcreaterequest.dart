@@ -34,6 +34,7 @@ class CheckoutCreateRequest {
   final String? redirectUrl;
   final HostedCheckout? hostedCheckout;
 
+  /// Creates an instance from a JSON map.
   factory CheckoutCreateRequest.fromJson(Map<String, dynamic> json) {
     return CheckoutCreateRequest(
       checkoutReference: json['checkout_reference'] as String,

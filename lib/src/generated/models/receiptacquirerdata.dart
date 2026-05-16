@@ -17,6 +17,7 @@ class ReceiptAcquirerData {
   final String? returnCode;
   final String? localTime;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptAcquirerData.fromJson(Map<String, dynamic> json) {
     return ReceiptAcquirerData(
       tid: json['tid'] != null ? json['tid'] as String : null,

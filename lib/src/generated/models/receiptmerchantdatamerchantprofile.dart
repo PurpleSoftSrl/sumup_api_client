@@ -26,6 +26,7 @@ class ReceiptMerchantDataMerchantProfile {
   final String? language;
   final ReceiptMerchantDataMerchantProfileAddress? address;
 
+  /// Creates an instance from a JSON map.
   factory ReceiptMerchantDataMerchantProfile.fromJson(
       Map<String, dynamic> json) {
     return ReceiptMerchantDataMerchantProfile(

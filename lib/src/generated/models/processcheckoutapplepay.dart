@@ -7,6 +7,7 @@
 class ProcessCheckoutApplePay {
   const ProcessCheckoutApplePay();
 
+  /// Creates an instance from a JSON map.
   factory ProcessCheckoutApplePay.fromJson(Map<String, dynamic> json) {
     return const ProcessCheckoutApplePay();
   }

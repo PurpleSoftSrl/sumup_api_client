@@ -26,6 +26,7 @@ class Role {
   final DateTime createdAt;
   final DateTime updatedAt;
 
+  /// Creates an instance from a JSON map.
   factory Role.fromJson(Map<String, dynamic> json) {
     return Role(
       id: json['id'] as String,

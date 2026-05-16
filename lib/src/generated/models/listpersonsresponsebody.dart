@@ -12,6 +12,7 @@ class ListPersonsResponseBody {
 
   final List<Person> items;
 
+  /// Creates an instance from a JSON map.
   factory ListPersonsResponseBody.fromJson(Map<String, dynamic> json) {
     return ListPersonsResponseBody(
       items: List<Person>.generate(

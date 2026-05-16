@@ -13,6 +13,7 @@ class UpdateMerchantMemberBodyApplicationJsonUser {
   final String? nickname;
   final String? password;
 
+  /// Creates an instance from a JSON map.
   factory UpdateMerchantMemberBodyApplicationJsonUser.fromJson(
       Map<String, dynamic> json) {
     return UpdateMerchantMemberBodyApplicationJsonUser(

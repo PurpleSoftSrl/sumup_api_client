@@ -28,6 +28,7 @@ class Reader {
   final DateTime createdAt;
   final DateTime updatedAt;
 
+  /// Creates an instance from a JSON map.
   factory Reader.fromJson(Map<String, dynamic> json) {
     return Reader(
       id: json['id'] as String,

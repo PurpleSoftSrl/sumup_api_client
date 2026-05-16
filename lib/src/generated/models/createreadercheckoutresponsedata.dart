@@ -11,6 +11,7 @@ class CreateReaderCheckoutResponseData {
 
   final String clientTransactionId;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderCheckoutResponseData.fromJson(Map<String, dynamic> json) {
     return CreateReaderCheckoutResponseData(
       clientTransactionId: json['client_transaction_id'] as String,

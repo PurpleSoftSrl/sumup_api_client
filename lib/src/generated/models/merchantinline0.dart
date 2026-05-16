@@ -43,6 +43,7 @@ class MerchantInline0 {
   final String? version;
   final String? changeStatus;
 
+  /// Creates an instance from a JSON map.
   factory MerchantInline0.fromJson(Map<String, dynamic> json) {
     return MerchantInline0(
       merchantCode: json['merchant_code'] as String,

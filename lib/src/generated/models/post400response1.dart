@@ -15,6 +15,7 @@ class Post400Response1 {
   final String errorCode;
   final String errorMessage;
 
+  /// Creates an instance from a JSON map.
   factory Post400Response1.fromJson(Map<String, dynamic> json) {
     return Post400Response1(
       instance: json['instance'] as String,

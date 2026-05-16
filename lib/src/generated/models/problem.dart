@@ -21,6 +21,7 @@ class Problem {
   final String? detail;
   final Uri? instance;
 
+  /// Creates an instance from a JSON map.
   factory Problem.fromJson(Map<String, dynamic> json) {
     return Problem(
       type_: Uri.parse(json['type'] as String),

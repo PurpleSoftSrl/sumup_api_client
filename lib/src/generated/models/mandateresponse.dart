@@ -16,6 +16,7 @@ class MandateResponse {
   final MandateResponseStatus? status;
   final String? merchantCode;
 
+  /// Creates an instance from a JSON map.
   factory MandateResponse.fromJson(Map<String, dynamic> json) {
     return MandateResponse(
       type_: json['type'] != null ? json['type'] as String : null,

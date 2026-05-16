@@ -11,6 +11,7 @@ class ErrorExtendedInline1 {
 
   final String? param;
 
+  /// Creates an instance from a JSON map.
   factory ErrorExtendedInline1.fromJson(Map<String, dynamic> json) {
     return ErrorExtendedInline1(
       param: json['param'] != null ? json['param'] as String : null,

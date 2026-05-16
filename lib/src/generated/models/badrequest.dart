@@ -12,6 +12,7 @@ class BadRequest {
 
   final BadRequestErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory BadRequest.fromJson(Map<String, dynamic> json) {
     return BadRequest(
       errors: BadRequestErrors.fromJson(json['errors'] as Map<String, dynamic>),

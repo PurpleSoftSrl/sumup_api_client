@@ -14,6 +14,7 @@ class CardResponse {
   final String? last4Digits;
   final CardType? type_;
 
+  /// Creates an instance from a JSON map.
   factory CardResponse.fromJson(Map<String, dynamic> json) {
     return CardResponse(
       last4Digits: json['last_4_digits'] != null

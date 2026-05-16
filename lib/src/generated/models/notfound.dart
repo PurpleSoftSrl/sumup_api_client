@@ -12,6 +12,7 @@ class NotFound {
 
   final NotFoundErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory NotFound.fromJson(Map<String, dynamic> json) {
     return NotFound(
       errors: NotFoundErrors.fromJson(json['errors'] as Map<String, dynamic>),

@@ -13,6 +13,7 @@ class TransactionsHistoryLink {
   final String rel;
   final String href;
 
+  /// Creates an instance from a JSON map.
   factory TransactionsHistoryLink.fromJson(Map<String, dynamic> json) {
     return TransactionsHistoryLink(
       rel: json['rel'] as String,

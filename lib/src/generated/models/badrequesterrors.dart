@@ -14,6 +14,7 @@ class BadRequestErrors {
   final String? detail;
   final BadRequestErrorsType type_;
 
+  /// Creates an instance from a JSON map.
   factory BadRequestErrors.fromJson(Map<String, dynamic> json) {
     return BadRequestErrors(
       detail: json['detail'] != null ? json['detail'] as String : null,

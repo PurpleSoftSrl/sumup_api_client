@@ -12,6 +12,7 @@ class CreateReaderTerminateUnprocessableEntity {
 
   final CreateReaderTerminateUnprocessableEntityErrors errors;
 
+  /// Creates an instance from a JSON map.
   factory CreateReaderTerminateUnprocessableEntity.fromJson(
       Map<String, dynamic> json) {
     return CreateReaderTerminateUnprocessableEntity(
