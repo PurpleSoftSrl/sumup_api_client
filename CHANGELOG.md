@@ -1,3 +1,8 @@
+## 0.1.5
+
+- Add dartdoc to fromJson factory constructors (pub score 160/160)
+- Fix union variant toJson return type
+
 ## 0.1.4
 
 - Add dartdoc from OpenAPI spec descriptions (932 docs)
