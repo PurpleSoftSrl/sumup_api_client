@@ -10,7 +10,7 @@
 /// );
 /// final checkout = await client.checkouts.createReaderCheckout(...);
 /// ```
-library sumup_api_client;
+library;
 
 export 'src/sumup_client.dart';
 export 'src/auth/token.dart';
