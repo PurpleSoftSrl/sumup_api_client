@@ -1,7 +1,7 @@
 /// SumUp API Client — Enterprise CLI Example
 ///
 /// Usage:
-///   dart run example/bin/main.dart <command>
+///   dart run example/bin/main.dart `<command>`
 ///
 /// Environment:
 ///   SUMUP_API_KEY        API key
@@ -13,7 +13,7 @@
 ///   checkouts    — List checkouts with status (table)
 ///   readers      — List paired readers (table)
 ///   help         — This help
-library sumup_example;
+library;
 
 import 'dart:io';
 import 'package:sumup_api_client/sumup_api_client.dart' show SumUpClient;
